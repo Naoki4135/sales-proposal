@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>欧州株式 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>欧州株式 セールス提案資料</h1>
+  <p class="subtitle">European Equity — Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月25日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済環境</a></li>
+    <li><a href="#sec3">市場の現状と見通し</a></li>
+    <li><a href="#sec4">主要国・セクター分析</a></li>
+    <li><a href="#sec5">長期投資で資産を増やす</a></li>
+    <li><a href="#sec6">分散投資の効果</a></li>
+    <li><a href="#sec7">おすすめファンド</a></li>
+    <li><a href="#sec8">セールストーク集</a></li>
+    <li><a href="#sec9">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、欧州株式なのか</h4>
+  <div class="gold-box"><p><strong>1. 割安×高配当</strong>: PER 12-14倍（米国の約半額）、配当利回り3.3%（米国の2.5倍）。プロが一斉に「2026年は欧州株の年」と強気転換。</p></div>
+  <div class="gold-box"><p><strong>2. 防衛費拡大という構造変化</strong>: NATO支出目標がGDP比2%から3.5%超へ引き上げ議論中。数千億ユーロ規模の防衛支出拡大は10年超の成長テーマ。</p></div>
+  <div class="gold-box"><p><strong>3. ECB利下げ完了で安定環境</strong>: 7回連続利下げ完了、政策金利2.15%で安定。インフレ2.0%で目標到達。景気は底打ちから回復局面へ。</p></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済環境</h2>
+
+  <h3>2-1. ECB金融政策</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>政策金利</strong></td><td><strong>2.15%</strong></td></tr>
+      <tr><td>利下げ実績</td><td>2025年に<strong>7回連続利下げ</strong>を実施</td></tr>
+      <tr><td>サイクル状況</td><td><strong>利下げサイクル完了</strong>、据え置き局面</td></tr>
+      <tr><td>今後の見通し</td><td>2026年は据え置き継続</td></tr>
+      <tr><td>金融環境</td><td><strong>十分に緩和的</strong> — 企業の借入コスト低下、設備投資を下支え</td></tr>
+    </tbody>
+  </table></div>
+
+  <p><strong>比較: 主要中央銀行の政策金利（2026年2月時点）</strong></p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>中央銀行</th><th>政策金利</th><th>サイクル状況</th></tr></thead>
+    <tbody>
+      <tr><td>FRB（米国）</td><td>3.50-3.75%</td><td>据え置き（利下げ一時停止中）</td></tr>
+      <tr><td><strong>ECB（ユーロ圏）</strong></td><td><strong>2.15%</strong></td><td><strong>利下げ完了、据え置き</strong></td></tr>
+      <tr><td>BOJ（日本）</td><td>0.75%</td><td>利上げサイクル進行中</td></tr>
+      <tr><td>BOE（英国）</td><td>3.75%</td><td>利下げサイクル進行中</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-2. ユーロ圏インフレ動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>ユーロ圏CPI</td><td><strong>2.0%</strong></td><td>ECBの目標にほぼ到達</td></tr>
+      <tr><td>コアCPI</td><td>2.3%</td><td>低下傾向</td></tr>
+      <tr><td>ECB予測（2026年）</td><td><strong>1.9%</strong></td><td>目標をやや下回る見通し</td></tr>
+      <tr><td>米国CPI（比較）</td><td>2.4%</td><td>関税影響で粘着性あり</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-3. ユーロ圏PMI（2026年2月フラッシュ値）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>ユーロ圏</th><th>ドイツ</th><th>フランス</th><th>英国</th></tr></thead>
+    <tbody>
+      <tr><td>製造業PMI</td><td>50.8（<strong>44ヶ月ぶり高水準</strong>）</td><td>50.7（<strong>3年半ぶり拡大圏</strong>）</td><td>45.5</td><td>46.4</td></tr>
+      <tr><td>サービス業PMI</td><td><strong>50.7（拡大圏）</strong></td><td>52.2</td><td>44.5</td><td>51.1</td></tr>
+      <tr><td>総合PMI</td><td><strong>50.2（拡大圏回帰）</strong></td><td>51.0</td><td>44.5</td><td>50.5</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">2026年2月 PMI比較</div>
+    <canvas id="chartEuPmi"></canvas>
+    <div class="chart-source">出典: S&P Global PMI</div>
+  </div>
+  <blockquote><p><strong>注目</strong>: ユーロ圏製造業PMIが<strong>44ヶ月ぶりの高水準</strong>で拡大圏に復帰。ドイツの製造業PMIが<strong>3年半ぶりに拡大圏</strong>。世界的に<strong>米国のみ悪化方向</strong>という分岐が鮮明。</p></blockquote>
+
+  <h3>2-4. GDP成長率</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>地域/国</th><th>2025年実績</th><th>2026年予測</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ユーロ圏</strong></td><td>+0.8〜1.0%</td><td><strong>+1.3%</strong></td></tr>
+      <tr><td>ドイツ</td><td>+0.3%</td><td>+0.8%</td></tr>
+      <tr><td>フランス</td><td>+0.9%</td><td>+1.0%</td></tr>
+      <tr><td>英国</td><td>+1.1%</td><td>+1.2%</td></tr>
+      <tr><td>スペイン</td><td>+2.4%</td><td>+2.0%</td></tr>
+      <tr><td><strong>米国（比較）</strong></td><td>+2.2%</td><td>+2.4%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">2026年 GDP成長率予測</div>
+    <canvas id="chartEuGdp"></canvas>
+    <div class="chart-source">出典: IMF WEO</div>
+  </div>
+
+  <h3>2-5. ユーロ/ドル為替動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td>EUR/USD 現在値</td><td><strong>約1.18-1.19</strong></td></tr>
+      <tr><td>2026年末予想（J.P.Morgan）</td><td>1.20</td></tr>
+      <tr><td>2026年末予想（ING）</td><td>1.22</td></tr>
+      <tr><td>2026年末予想（MUFG）</td><td>1.24</td></tr>
+      <tr><td>方向性</td><td><strong>ユーロ高・ドル安トレンド</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-6. 欧州への資金フロー</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+    <tbody>
+      <tr><td>欧州ETF（2026年1月）</td><td><strong>559億ドル流入</strong>（記録的）</td></tr>
+      <tr><td>2026年通年予測</td><td><strong>4,700億ドル</strong>の流入見通し</td></tr>
+      <tr><td>資金ローテーション予想</td><td>今後5年で<strong>1.2兆ユーロ</strong>が米国から欧州にローテーション</td></tr>
+      <tr><td>STOXX Europe 600</td><td><strong>過去最高値圏</strong>で推移</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">欧州への資金フロー</div>
+    <canvas id="chartEuFundFlow"></canvas>
+    <div class="chart-source">出典: 各取引所データ</div>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 市場の現状と見通し</h2>
+
+  <h3>3-1. 主要指数のパフォーマンス</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指数</th><th>2025年暦年リターン</th><th>2026年年初来</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>STOXX Europe 600</strong></td><td>約+6%（価格）/ +8%超（配当込み）</td><td><strong>過去最高値更新</strong></td><td>欧州全体600銘柄</td></tr>
+      <tr><td><strong>MSCI Europe</strong></td><td><strong>+32%超</strong>（USD建て）</td><td>堅調</td><td>先進国15カ国</td></tr>
+      <tr><td>DAX（ドイツ）</td><td>+19%</td><td><strong>22,000台突破</strong></td><td>過去最高値</td></tr>
+      <tr><td><strong>VGK（欧州ETF）</strong></td><td><strong>+35.85%</strong>（USD建て）</td><td>+4.7%（1月）</td><td>為替効果含む</td></tr>
+      <tr><td>S&amp;P 500（比較）</td><td>+17.9%</td><td>+0.7%</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">2025年 主要指数リターン</div>
+    <canvas id="chartEuPerf"></canvas>
+    <div class="chart-source">出典: MSCI、各取引所</div>
+  </div>
+  <div class="highlight-box"><strong>2025年は欧州株がS&amp;P 500を大幅にアウトパフォーム。VGKの+35.85%はS&amp;P 500（+17.9%）のちょうど2倍。</strong></div>
+
+  <h3>3-2. バリュエーション比較 —「40%割安」</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>欧州</th><th>米国（S&amp;P 500）</th><th>格差</th></tr></thead>
+    <tbody>
+      <tr><td><strong>予想PER</strong></td><td><strong>約12-14倍</strong></td><td>21-23倍</td><td><strong>40-45%割安</strong></td></tr>
+      <tr><td>DAX予想PER</td><td><strong>15.5倍</strong></td><td>21.0倍</td><td>26%割安</td></tr>
+      <tr><td><strong>配当利回り</strong></td><td><strong>約3.3%</strong></td><td>約1.3%</td><td><strong>2.5倍の配当</strong></td></tr>
+      <tr><td>PBR</td><td>約1.8倍</td><td>約4.5倍</td><td>大幅に割安</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">欧州 vs 米国 バリュエーション</div>
+    <canvas id="chartEuValuation"></canvas>
+    <div class="chart-source">出典: Bloomberg</div>
+  </div>
+  <blockquote><p>欧州株のバリュエーション・ディスカウントは<strong>過去20年で最大級</strong>。配当利回りは<strong>先進国の中で最も高い水準</strong>。利益成長格差は2025-2027年に米国との差が<strong>年率8ptから2ptに縮小</strong>見通し。</p></blockquote>
+
+  <h3>3-3. 「2026年は欧州株の年」</h3>
+  <ul>
+    <li><strong>ブルームバーグ調査</strong>: ストラテジストが一斉に欧州株に強気、明確な弱気派は皆無</li>
+    <li><strong>Goldman Sachs</strong>: STOXX 600のターゲット株価を引き上げ</li>
+    <li><strong>欧州ETFへの記録的資金流入</strong>: 2026年1月に559億ドル</li>
+    <li><strong>今後5年で1.2兆ユーロ</strong>が米国から欧州市場にローテーション予想</li>
+  </ul>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. 主要国・セクター分析</h2>
+
+  <h3>4-1. 国別分析</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>ドイツ — DAX 22,000台突破</h4>
+      <ul>
+        <li>DAXが2026年2月に<strong>22,000台突破</strong>、過去最高値更新</li>
+        <li>「債務ブレーキ」緩和議論が進展、インフラ投資・防衛支出拡大へ</li>
+        <li>製造業PMI 50.7（<strong>3年半ぶり拡大圏復帰</strong>）</li>
+        <li>注目: <strong>SAP</strong>（AI・クラウド）、<strong>Siemens</strong>、<strong>Rheinmetall</strong>（防衛）</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>フランス — ラグジュアリーの本場</h4>
+      <ul>
+        <li>CAC 40: 2025年+15%のリターン</li>
+        <li>注目: <strong>LVMH</strong>（世界最大のラグジュアリー企業）、<strong>Thales</strong>（防衛）、<strong>Airbus</strong></li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>英国 — 高配当の宝庫</h4>
+      <ul>
+        <li>FTSE 100配当利回り <strong>3.5-4.0%</strong>（先進国で最高水準）</li>
+        <li>注目: <strong>Shell, BP</strong>、<strong>AstraZeneca</strong>、<strong>BAE Systems</strong>（防衛）</li>
+        <li>BOE政策金利3.75%（年内さらに2回利下げ見通し）</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>スイス — ディフェンシブの砦</h4>
+      <ul>
+        <li>経済不況時にも底堅いパフォーマンス</li>
+        <li>注目: <strong>Nestle</strong>（世界最大の食品企業）、<strong>Novartis</strong>、<strong>Roche</strong></li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>オランダ — 半導体の要</h4>
+      <ul>
+        <li>注目: <strong>ASML</strong>（世界唯一のEUV露光装置メーカー、半導体に不可欠）</li>
+        <li>AI/半導体需要の恩恵を直接受ける欧州テック株の象徴</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>4-2. セクター分析</h3>
+
+  <h4>防衛 — 最大の成長テーマ（数十年に一度の構造変化）</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>NATO支出目標</td><td>GDP比2% → <strong>3.5%超</strong>への引き上げ議論</td></tr>
+      <tr><td>規模</td><td>McKinsey: 欧州の防衛支出は数年で<strong>数千億ユーロ規模</strong>の増加</td></tr>
+      <tr><td>株価パフォーマンス</td><td>2026年年初来で防衛関連株は<strong>20-40%上昇</strong></td></tr>
+      <tr><td>主要銘柄</td><td><strong>Rheinmetall</strong>、<strong>BAE Systems</strong>、<strong>Thales</strong>、<strong>Leonardo</strong>、<strong>Saab</strong></td></tr>
+      <tr><td>持続性</td><td>「一時的なブーム」ではなく<strong>10年超の構造的な成長テーマ</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>GRANOLAS — 欧州版マグニフィセント7</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>銘柄</th><th>国</th><th>セクター</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>G</strong>SK</td><td>英国</td><td>製薬</td><td>ワクチン・感染症薬</td></tr>
+      <tr><td><strong>R</strong>oche</td><td>スイス</td><td>製薬</td><td>がん治療のリーダー</td></tr>
+      <tr><td><strong>A</strong>SML</td><td>オランダ</td><td>半導体</td><td>世界唯一のEUV露光装置メーカー</td></tr>
+      <tr><td><strong>N</strong>estle</td><td>スイス</td><td>食品</td><td>世界最大の食品企業</td></tr>
+      <tr><td><strong>N</strong>ovartis</td><td>スイス</td><td>製薬</td><td>革新的医薬品</td></tr>
+      <tr><td><strong>O</strong> — Novo Nordisk</td><td>デンマーク</td><td>製薬</td><td>肥満治療薬（GLP-1）で世界的ブーム</td></tr>
+      <tr><td><strong>L</strong>VMH</td><td>フランス</td><td>ラグジュアリー</td><td>世界最大のラグジュアリー企業</td></tr>
+      <tr><td><strong>A</strong>straZeneca</td><td>英国</td><td>製薬</td><td>がん治療薬で急成長</td></tr>
+      <tr><td><strong>S</strong>hell</td><td>英国/オランダ</td><td>エネルギー</td><td>欧州最大のエネルギー企業</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4-3. MSCI Europe セクター構成</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>セクター</th><th>構成比率</th></tr></thead>
+    <tbody>
+      <tr><td>金融</td><td>24.66%</td></tr>
+      <tr><td>産業（資本財）</td><td>18.89%</td></tr>
+      <tr><td>ヘルスケア</td><td>13.89%</td></tr>
+      <tr><td>生活必需品</td><td>9.14%</td></tr>
+      <tr><td>一般消費財</td><td>7.99%</td></tr>
+      <tr><td>情報技術</td><td>7.30%</td></tr>
+      <tr><td>素材</td><td>5.18%</td></tr>
+      <tr><td>公益事業</td><td>4.59%</td></tr>
+      <tr><td>エネルギー</td><td>4.06%</td></tr>
+      <tr><td>通信サービス</td><td>3.57%</td></tr>
+      <tr><td>不動産</td><td>0.72%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">MSCI Europe セクター構成</div>
+    <canvas id="chartEuSector"></canvas>
+    <div class="chart-source">出典: MSCI</div>
+  </div>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 長期投資で資産を増やす</h2>
+
+  <h3>5-1. 欧州株式の長期リターン実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>期間</th><th>年率リターン</th></tr></thead>
+    <tbody>
+      <tr><td>MSCI Europe 過去10年（Net, EUR）</td><td><strong>約10.4%</strong></td></tr>
+      <tr><td>MSCI Europe 過去15年（Net, EUR）</td><td><strong>約6.9%</strong></td></tr>
+      <tr><td>MSCI Europe 2025年単年</td><td><strong>+19.4%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>欧州株式の配当利回りは約3.3%（先進国で最も高い水準）。長期では配当再投資がリターンの<strong>半分以上</strong>を占める。</p></blockquote>
+
+  <h3>5-2. 積立シミュレーション — 月3万円 x 20年</h3>
+  <p><strong>元本</strong>: 3万円 x 12ヶ月 x 20年 = <strong>720万円</strong></p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>想定年率</th><th>20年後の資産額</th><th>運用益</th><th>運用益率</th></tr></thead>
+    <tbody>
+      <tr><td>3%（保守的）</td><td><strong>約985万円</strong></td><td>約265万円</td><td>+37%</td></tr>
+      <tr><td>5%（バランス型）</td><td><strong>約1,233万円</strong></td><td>約513万円</td><td>+71%</td></tr>
+      <tr><td>7%（積極型）</td><td><strong>約1,563万円</strong></td><td>約843万円</td><td>+117%</td></tr>
+      <tr><td>10%（高成長）</td><td><strong>約2,278万円</strong></td><td>約1,558万円</td><td>+216%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">NISAつみたてシミュレーション（月3万円×20年）</div>
+    <canvas id="chartEuNisa"></canvas>
+    <div class="chart-source">出典: 金融庁つみたてシミュレーター</div>
+  </div>
+
+  <h3>5-3. 複利の力 — 72の法則</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年利</th><th>資産が2倍になる年数</th></tr></thead>
+    <tbody>
+      <tr><td>1%</td><td>72年</td></tr>
+      <tr><td>3%</td><td>24年</td></tr>
+      <tr><td>5%</td><td>14.4年</td></tr>
+      <tr><td><strong>7%</strong></td><td><strong>10.3年</strong></td></tr>
+      <tr><td>10%</td><td>7.2年</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>欧州株式の配当利回り3.3%+値上がり益で年率5-7%を想定すると、<strong>約10-15年で資産が2倍</strong>。銀行預金（金利0.02%）では2倍になるのに<strong>3,600年</strong>。</p></blockquote>
+
+  <h3>5-4. NISAの非課税メリット</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ケース</th><th>運用益</th><th>課税口座の税金</th><th>非課税メリット</th></tr></thead>
+    <tbody>
+      <tr><td>月3万円x20年（年率5%）</td><td>513万円</td><td>約104万円</td><td><strong>約104万円お得</strong></td></tr>
+      <tr><td>月3万円x20年（年率7%）</td><td>843万円</td><td>約171万円</td><td><strong>約171万円お得</strong></td></tr>
+      <tr><td>月5万円x20年（年率7%）</td><td>1,405万円</td><td>約285万円</td><td><strong>約285万円お得</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-5. 暴落からの回復実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>暴落イベント</th><th>下落率</th><th>回復までの期間</th></tr></thead>
+    <tbody>
+      <tr><td>オイルショック（1973年）</td><td>-52%</td><td>約7年</td></tr>
+      <tr><td>ITバブル崩壊（2000年）</td><td>-49%</td><td>約7年</td></tr>
+      <tr><td>リーマンショック（2008年）</td><td>-54%</td><td>約5年</td></tr>
+      <tr><td>コロナショック（2020年）</td><td>-34%</td><td><strong>約4ヶ月</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">暴落からの回復期間（年）</div>
+    <canvas id="chartEuRecovery"></canvas>
+    <div class="chart-source">出典: 各種市場データ</div>
+  </div>
+  <blockquote><p><strong>最大の教訓</strong>: リーマンショック直前に積立を始めても、継続すれば10年後は<strong>+84%のプラス</strong>。やめないことが最も重要。</p></blockquote>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. 分散投資の効果</h2>
+
+  <h3>6-1. 米国偏重からの脱却</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>比率</th></tr></thead>
+    <tbody>
+      <tr><td>MSCI全世界株式指数に占める米国ウェイト</td><td><strong>約66%</strong></td></tr>
+      <tr><td>世界GDPに占める米国シェア</td><td>約26%</td></tr>
+      <tr><td>マグニフィセント7のS&amp;P 500時価総額シェア</td><td><strong>34.3%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>S&amp;P 500の「失われた10年」（2000-2009年）</strong>: 10年間の年率リターンは<strong>-0.9%</strong>（元本割れ）。同期間、国際分散投資をしていた投資家は<strong>プラスリターン</strong>。</p></blockquote>
+
+  <h3>6-2. GPIFの実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td>運用方針</td><td>国内株式25%、外国株式25%、国内債券25%、外国債券25%</td></tr>
+      <tr><td>累積収益額（2024年度末）</td><td><strong>約155兆円</strong></td></tr>
+      <tr><td>運用資産額</td><td><strong>約249.8兆円</strong></td></tr>
+      <tr><td>年率リターン（23年間）</td><td><strong>約4.2%</strong></td></tr>
+      <tr><td>特筆事項</td><td>過去のどの7年間を取ってもマイナスになったことはない</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-3. 欧州株を加える意味</h3>
+  <ul>
+    <li>オルカン（全世界株式）の欧州比率は約<strong>15%</strong>にすぎない</li>
+    <li>欧州株式を10-20%追加することで、<strong>配当利回り向上+バリュエーション分散+セクター分散</strong>を実現</li>
+  </ul>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. おすすめファンド</h2>
+
+  <h3>7-1. 主要ファンド比較表</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>運用会社</th><th>信託報酬</th><th>特徴</th><th>NISA</th></tr></thead>
+    <tbody>
+      <tr><td><strong>フィデリティ・欧州株・ファンド</strong></td><td>フィデリティ投信</td><td>年1.65%</td><td>27年の運用実績、MSCI Europe超過リターン</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>SBI欧州高配当株式ファンド</strong></td><td>SBI AM</td><td><strong>年0.099%</strong></td><td>極めて低コスト、年4回分配</td><td>成長投資枠</td></tr>
+      <tr><td><strong>楽天・欧州株式インデックス</strong></td><td>楽天投信投資顧問</td><td>年0.308%</td><td>MSCI Europe連動、低コスト</td><td>成長投資枠</td></tr>
+      <tr><td>ニッセイ欧州株式厳選ファンド</td><td>ニッセイAM</td><td>年1.584%</td><td>R&amp;Iファンド大賞2025最優秀</td><td>成長投資枠</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>7-2. タイプ別おすすめ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>タイプ</th><th>おすすめファンド</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>コスト重視・長期積立</strong></td><td>楽天・欧州株式インデックス</td><td>信託報酬0.308%、MSCI Europe連動</td></tr>
+      <tr><td><strong>高配当・インカム重視</strong></td><td>SBI欧州高配当株式ファンド</td><td>信託報酬0.099%、年4回分配</td></tr>
+      <tr><td><strong>つみたてNISA対応</strong></td><td>フィデリティ・欧州株・ファンド</td><td>つみたて投資枠対応の<strong>唯一の欧州特化型</strong></td></tr>
+      <tr><td><strong>アクティブ運用</strong></td><td>ニッセイ欧州株式厳選ファンド</td><td>R&amp;Iファンド大賞2025最優秀</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>7-3. 代表的なETF</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ETF名</th><th>ティッカー</th><th>経費率</th><th>2025年リターン</th></tr></thead>
+    <tbody>
+      <tr><td>Vanguard FTSE Europe ETF</td><td>VGK</td><td><strong>0.06%</strong></td><td><strong>+35.85%</strong></td></tr>
+      <tr><td>iShares MSCI Eurozone ETF</td><td>EZU</td><td>0.09%</td><td>-</td></tr>
+      <tr><td>SPDR EURO STOXX 50 ETF</td><td>FEZ</td><td>0.29%</td><td>-</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. セールストーク集</h2>
+
+  <h3>8-1. キーメッセージ5つ</h3>
+
+  <h4>1. 「2026年は欧州株の年」— プロが一斉に強気</h4>
+  <blockquote><p>「ブルームバーグの調査で、ストラテジストが一斉に欧州株に強気です。去年、欧州株のETF（VGK）は36%のリターンでした。S&amp;P 500の18%のちょうど2倍です。」</p></blockquote>
+
+  <h4>2. 「配当利回り3.3% — 米国の2.5倍」</h4>
+  <blockquote><p>「定期預金の金利がほぼゼロの日本で、欧州株は3.3%の配当利回りを提供しています。しかも株価はPERで見ると米国の半額程度。配当をもらいながら値上がりも期待できる"一石二鳥"です。」</p></blockquote>
+
+  <h4>3. 「防衛費拡大 — 数十年に一度の構造変化」</h4>
+  <blockquote><p>「冷戦終結後30年間、欧州は防衛費を削り続けてきました。しかしウクライナ危機で全てが変わりました。NATOの防衛費目標はGDPの2%から3.5%超に引き上げられようとしています。」</p></blockquote>
+
+  <h4>4. 「世界に誇るブランド企業の宝庫 — GRANOLAS」</h4>
+  <blockquote><p>「欧州株と聞くと地味なイメージかもしれませんが、実は世界的なブランド企業の宝庫です。ルイ・ヴィトンのLVMH、半導体のASML、肥満治療薬のNovo Nordisk。これらは"欧州版マグニフィセント7"と呼ばれています。」</p></blockquote>
+
+  <h4>5. 「ECB利下げ完了 — 安定した金融環境」</h4>
+  <blockquote><p>「ECBは利下げを完了し、金融環境は安定しています。インフレも2%の目標に到達し、景気は底打ちの兆しを見せています。経済のサイクルでいえば、今は"回復期の入り口"です。」</p></blockquote>
+
+  <h3>8-2. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「欧州経済は弱いのでは？」</div>
+  <blockquote><p>確かにGDP成長率は米国より低いですが、それは株価に既に織り込み済みです。だからこそPERが12倍と安い。重要なのは「期待を上回るかどうか」で、低い期待値はむしろ上振れの余地が大きいことを意味します。</p></blockquote>
+
+  <div class="faq-q">Q2: 「ウクライナ戦争のリスクは？」</div>
+  <blockquote><p>リスクは存在しますが、むしろ防衛関連株にとっては成長のカタリストです。停戦交渉が進展すれば、欧州全体のリスクプレミアムが低下し、株価の上昇要因になります。</p></blockquote>
+
+  <div class="faq-q">Q3: 「為替（ユーロ/円）は大丈夫？」</div>
+  <blockquote><p>長期的には為替は平均回帰する傾向があります。配当利回り3.3%があれば、多少の円高を吸収できます。現在はユーロ高・ドル安トレンドで、EUR/USDは年末1.20-1.24予想です。</p></blockquote>
+
+  <div class="faq-q">Q4: 「S&amp;P 500だけで十分では？」</div>
+  <blockquote><p>2000年から2009年の10年間、S&amp;P 500は元本割れでした。一方、世界に分散していた投資家はプラスリターンでした。S&amp;P 500の34%はたった7社のテック企業で、これは本当の「分散投資」とは言えません。</p></blockquote>
+
+  <h3>8-3. 反論への対応</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>反論</th><th>対応</th></tr></thead>
+    <tbody>
+      <tr><td>「米国株が一番強い」</td><td>「2025年、欧州ETF（VGK）+36%はS&amp;P 500（+18%）の2倍。常に米国が勝つとは限りません」</td></tr>
+      <tr><td>「欧州は成長しない」</td><td>「PER 12倍は低成長を既に織り込み済み。サプライズは上方向。利益成長格差も縮小中」</td></tr>
+      <tr><td>「よくわからない企業ばかり」</td><td>「LVMH、ASML、Novo Nordisk...実は世界をリードする企業の宝庫です（GRANOLAS）」</td></tr>
+      <tr><td>「為替リスクが怖い」</td><td>「配当3.3%が為替変動のクッション。長期では為替は平均回帰する傾向」</td></tr>
+      <tr><td>「今のタイミングで大丈夫？」</td><td>「"タイミング"より"タイム・イン・マーケット"。ベスト10日を逃すだけでリターンは半減」</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 9 -->
+<section class="section" id="sec9">
+  <h2>9. 具体的な提案</h2>
+
+  <h3>9-1. 投資家タイプ別ポートフォリオ例</h3>
+
+  <div class="pattern-title">パターンA: 保守的（配当重視）— 欧州株比率10-15%</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td>全世界株式</td><td>50%</td><td>eMAXIS Slim 全世界株式</td></tr>
+      <tr><td>欧州高配当株式</td><td><strong>15%</strong></td><td>SBI欧州高配当株式ファンド</td></tr>
+      <tr><td>国内債券</td><td>20%</td><td>eMAXIS Slim 国内債券</td></tr>
+      <tr><td>先進国債券</td><td>15%</td><td>eMAXIS Slim 先進国債券</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンB: バランス型 — 欧州株比率15-20%</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td>米国株式</td><td>40%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>欧州株式</td><td><strong>20%</strong></td><td>楽天・欧州株式インデックス</td></tr>
+      <tr><td>新興国株式</td><td>15%</td><td>eMAXIS Slim 新興国株式</td></tr>
+      <tr><td>先進国債券</td><td>15%</td><td>eMAXIS Slim 先進国債券</td></tr>
+      <tr><td>国内債券</td><td>10%</td><td>eMAXIS Slim 国内債券</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンC: 積極的（テーマ重視）— 欧州株比率20-25%</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td>米国株式</td><td>35%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>欧州株式（アクティブ）</td><td><strong>25%</strong></td><td>フィデリティ・欧州株・ファンド</td></tr>
+      <tr><td>新興国株式</td><td>20%</td><td>eMAXIS Slim 新興国株式</td></tr>
+      <tr><td>全世界株式</td><td>20%</td><td>eMAXIS Slim 全世界株式</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>9-2. 具体的な提案パターン</h3>
+
+  <h4>パターン1: 既存のS&amp;P 500 / オルカン投資家</h4>
+  <blockquote><p>「現在の米国偏重ポートフォリオに、欧州株式を10-20%追加してみませんか？ 配当利回り3.3%という安定的なインカムが加わります。」</p></blockquote>
+
+  <h4>パターン2: 高配当を求める投資家</h4>
+  <blockquote><p>「SBI欧州高配当株式ファンドは信託報酬わずか0.099%で、年4回の配当が受け取れます。預金金利がほぼゼロの今、3%超の配当は魅力的です。」</p></blockquote>
+
+  <h4>パターン3: テーマ投資に関心のある投資家</h4>
+  <blockquote><p>「防衛費拡大、AI半導体（ASML）、肥満治療薬（Novo Nordisk）...欧州には今最もホットな投資テーマが集まっています。」</p></blockquote>
+
+  <h3>9-3. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 - 問題提起</p><blockquote><p>「米国株偏重のリスクをご存知ですか？」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 - 欧州株の魅力提示</p><blockquote><p>「2026年は欧州株の年。バリュエーションは米国の半額、配当は2.5倍。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 - テーマの説明</p><blockquote><p>「防衛費拡大、GRANOLAS、ECB利下げ完了 — 3つの追い風が吹いています。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 - 長期投資の説明</p><blockquote><p>「月3万円を20年積み立てると、年率7%で約1,563万円に成長します。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 - 行動喚起</p><blockquote><p>「まずは月1万円から始めてみませんか？NISAなら非課税で運用できます。」</p></blockquote></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的としたものではありません。記載されたデータは2026年2月25日時点の情報に基づいており、将来の運用成果を保証するものではありません。投資にはリスクが伴い、元本割れの可能性があります。投資判断はお客様ご自身の判断と責任でお願いいたします。投資信託は預金ではなく、預金保険の対象ではありません。</p>
+</footer>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fontFamily = "'Noto Sans JP', sans-serif";
+  var gridColor = '#e2e8f0';
+
+  // chartEuPerf - 2025年 主要指数リターン
+  new Chart(document.getElementById('chartEuPerf'), {
+    type: 'bar',
+    data: {
+      labels: ['VGK(欧州ETF)', 'MSCI Europe', 'DAX', 'S&P 500'],
+      datasets: [{
+        label: 'リターン (%)',
+        data: [35.85, 32, 19, 17.9],
+        backgroundColor: ['#48bb78', '#2c5282', '#d69e2e', '#718096'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '%'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily, size: 11 } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v) { return v + '%'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartEuValuation - 欧州 vs 米国 バリュエーション
+  new Chart(document.getElementById('chartEuValuation'), {
+    type: 'bar',
+    data: {
+      labels: ['予想PER', 'PBR', '配当利回り(%)'],
+      datasets: [
+        { label: '欧州', data: [13, 1.8, 3.3], backgroundColor: '#2c5282', borderRadius: 4 },
+        { label: '米国', data: [22, 4.5, 1.3], backgroundColor: '#d69e2e', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartEuPmi - 2026年2月 PMI比較
+  new Chart(document.getElementById('chartEuPmi'), {
+    type: 'bar',
+    data: {
+      labels: ['ユーロ圏', 'ドイツ', 'フランス', '英国'],
+      datasets: [
+        { label: '製造業', data: [50.8, 50.7, 45.5, 46.4], backgroundColor: '#1a365d', borderRadius: 4 },
+        { label: 'サービス業', data: [50.7, 52.2, 44.5, 51.1], backgroundColor: '#d69e2e', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { font: { family: fontFamily } } },
+        annotation: undefined
+      },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: {
+          min: 40, max: 55,
+          ticks: { font: { family: fontFamily } },
+          grid: { color: function(context) { return context.tick.value === 50 ? '#e53e3e' : gridColor; }, lineWidth: function(context) { return context.tick.value === 50 ? 2 : 1; } }
+        }
+      }
+    },
+    plugins: [{
+      id: 'line50',
+      afterDraw: function(chart) {
+        var yScale = chart.scales.y;
+        var ctx = chart.ctx;
+        var y = yScale.getPixelForValue(50);
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(chart.chartArea.left, y);
+        ctx.lineTo(chart.chartArea.right, y);
+        ctx.strokeStyle = '#e53e3e';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([6, 4]);
+        ctx.stroke();
+        ctx.fillStyle = '#e53e3e';
+        ctx.font = "11px 'Noto Sans JP', sans-serif";
+        ctx.fillText('拡大/縮小 境界線 (50)', chart.chartArea.right - 140, y - 6);
+        ctx.restore();
+      }
+    }]
+  });
+
+  // chartEuGdp - 2026年 GDP成長率予測
+  new Chart(document.getElementById('chartEuGdp'), {
+    type: 'bar',
+    data: {
+      labels: ['スペイン', 'ユーロ圏', '英国', 'フランス', 'ドイツ'],
+      datasets: [{
+        label: 'GDP成長率 (%)',
+        data: [2.0, 1.3, 1.2, 1.0, 0.8],
+        backgroundColor: ['#38a169', '#48bb78', '#68d391', '#9ae6b4', '#c6f6d5'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '%'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v) { return v + '%'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartEuFundFlow - 欧州への資金フロー
+  new Chart(document.getElementById('chartEuFundFlow'), {
+    type: 'bar',
+    data: {
+      labels: ['2026年1月(実績)', '2026年通年(予測)'],
+      datasets: [{
+        label: '億ドル',
+        data: [559, 4700],
+        backgroundColor: ['#2c5282', '#d69e2e'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '億ドル'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { title: { display: true, text: '億ドル', font: { family: fontFamily } }, ticks: { font: { family: fontFamily }, callback: function(v) { return v.toLocaleString(); } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartEuSector - MSCI Europe セクター構成
+  new Chart(document.getElementById('chartEuSector'), {
+    type: 'doughnut',
+    data: {
+      labels: ['金融', '産業', 'ヘルスケア', '生活必需品', '一般消費財', 'IT', '素材', '公益', 'エネルギー', '通信', '不動産'],
+      datasets: [{
+        data: [24.66, 18.89, 13.89, 9.14, 7.99, 7.30, 5.18, 4.59, 4.06, 3.57, 0.72],
+        backgroundColor: ['#1a365d', '#2c5282', '#48bb78', '#d69e2e', '#ed8936', '#805ad5', '#38b2ac', '#63b3ed', '#e53e3e', '#718096', '#c6f6d5']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'right', labels: { font: { family: fontFamily, size: 11 }, padding: 8 } },
+        tooltip: { callbacks: { label: function(c) { return c.label + ': ' + c.parsed + '%'; } } }
+      }
+    }
+  });
+
+  // chartEuNisa - NISAつみたてシミュレーション
+  new Chart(document.getElementById('chartEuNisa'), {
+    type: 'bar',
+    data: {
+      labels: ['年率3%', '年率5%', '年率7%', '年率10%'],
+      datasets: [
+        { label: '元本', data: [720, 720, 720, 720], backgroundColor: '#2c5282', borderRadius: 4 },
+        { label: '運用益', data: [265, 513, 843, 1558], backgroundColor: '#d69e2e', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y + '万円'; } } } },
+      scales: {
+        x: { stacked: true, ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { stacked: true, ticks: { font: { family: fontFamily }, callback: function(v) { return v + '万円'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartEuRecovery - 暴落からの回復期間（年）
+  new Chart(document.getElementById('chartEuRecovery'), {
+    type: 'bar',
+    data: {
+      labels: ['オイルショック', 'ITバブル', 'リーマン', 'コロナ'],
+      datasets: [{
+        label: '回復年数',
+        data: [7, 7, 5, 0.33],
+        backgroundColor: ['#e53e3e', '#ed8936', '#d69e2e', '#48bb78'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '年'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { title: { display: true, text: '回復年数', font: { family: fontFamily } }, ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

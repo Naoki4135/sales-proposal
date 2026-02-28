@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>国際株式（除く米国）セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .critical-box { background: #fff5f5; border: 2px solid #c53030; border-radius: 8px; padding: 20px; margin: 16px 0; font-weight: 500; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .sources-section { padding: 24px 36px; font-size: 0.78rem; color: #718096; }
+  .sources-section a { color: #2c5282; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+    .toc { box-shadow: none; border: 1px solid #ccc; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  .sources-section { color: #94a3b8; }
+  .sources-section a { color: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>国際株式（除く米国）セールス提案資料</h1>
+  <p class="subtitle">International Equity ex-US — Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月25日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済環境</a></li>
+    <li><a href="#sec3">「オルカンで十分」は本当か？</a></li>
+    <li><a href="#sec4">市場の現状と見通し</a></li>
+    <li><a href="#sec5">長期投資で資産を増やす</a></li>
+    <li><a href="#sec6">分散投資の効果</a></li>
+    <li><a href="#sec7">おすすめファンド</a></li>
+    <li><a href="#sec8">セールストーク集</a></li>
+    <li><a href="#sec9">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、米国以外に分散すべきなのか</h4>
+  <div class="gold-box">
+    <p><strong>1. 米国外株式が逆襲開始</strong>: 2025年、MSCI World ex USAは+32.2%でS&amp;P 500（+17.9%）を14ポイント上回り、2026年も+8.3% vs +0.7%と優位が継続中。</p>
+  </div>
+  <div class="gold-box">
+    <p><strong>2. 歴史的な割安水準</strong>: 欧州PER 16倍、日本PER 15倍と、米国（21-23倍）に対して30-40%割安。過去20年で最大級のバリュエーション格差は修正に向かう可能性。</p>
+  </div>
+  <div class="gold-box">
+    <p><strong>3. プロが動き始めている</strong>: Vanguardは米国外株式のリターン予測を米国より高く設定、J.P. Morganはポートフォリオの20-40%を米国外に配分すべきと提言。欧州ETFには記録的な資金が流入中。</p>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済環境</h2>
+
+  <h3>2-1. 主要中央銀行の政策金利（2026年2月時点）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>中央銀行</th><th>政策金利</th><th>サイクル状況</th><th>今後の見通し</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FRB（米国）</strong></td><td>3.50-3.75%</td><td>据え置き</td><td>年後半に利下げ再開可能性、年内0-50bp引き下げ</td></tr>
+      <tr><td><strong>ECB（ユーロ圏）</strong></td><td>2.15%</td><td>利下げサイクル完了</td><td>2026年は据え置き継続</td></tr>
+      <tr><td><strong>BOJ（日本）</strong></td><td>0.75%</td><td>利上げサイクル進行中</td><td>2027年末までにさらに2回利上げ予想</td></tr>
+      <tr><td><strong>BOE（英国）</strong></td><td>3.75%</td><td>利下げサイクル進行中</td><td>2026年中にさらに2回の利下げ</td></tr>
+      <tr><td><strong>PBOC（中国）</strong></td><td>3.00%（1年LPR）</td><td>据え置き（緩和バイアス）</td><td>追加緩和余地あり</td></tr>
+      <tr><td><strong>RBI（インド）</strong></td><td>5.25%</td><td>据え置き</td><td>累計125bp利下げ後、安定志向</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>注目</strong>: ECBは既に利下げサイクルを完了し景気下支え体制が整備済み。一方、FRBは据え置きで米国経済の減速リスクが残る。この金融政策の「非同期性」が米国外株式に追い風。</p></blockquote>
+
+  <h3>2-2. 主要国10年国債利回り</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>国</th><th>10年国債利回り</th><th>特記事項</th></tr></thead>
+    <tbody>
+      <tr><td>米国</td><td>4.04%</td><td>-</td></tr>
+      <tr><td>英国</td><td>4.31%</td><td>前月比-0.19pt</td></tr>
+      <tr><td>ドイツ</td><td>2.73%</td><td>11月以来の低水準</td></tr>
+      <tr><td>日本</td><td>2.12%</td><td>大幅上昇、日英スプレッド92bp縮小</td></tr>
+      <tr><td>中国</td><td>約1.7%（推定）</td><td>-</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-3. インフレ動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>国・地域</th><th>最新CPI（前年比）</th><th>コアCPI</th><th>インフレ目標</th><th>目標との乖離</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国</strong></td><td>2.4%</td><td>約2.3%</td><td>2.0%</td><td>+0.4pt</td></tr>
+      <tr><td><strong>ユーロ圏</strong></td><td>2.0%</td><td>2.3%</td><td>2.0%</td><td>目標到達</td></tr>
+      <tr><td><strong>日本</strong></td><td>1.5%</td><td>-</td><td>2.0%</td><td>-0.5pt</td></tr>
+      <tr><td><strong>中国</strong></td><td>0.7%（予測）</td><td>-</td><td>約3.0%</td><td>-2.3pt</td></tr>
+      <tr><td><strong>インド</strong></td><td>2.75%</td><td>-</td><td>2-4%</td><td>範囲内</td></tr>
+      <tr><td><strong>英国</strong></td><td>約2.5%</td><td>-</td><td>2.0%</td><td>+約0.5pt</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>ユーロ圏はヘッドラインCPIが目標の2.0%に到達。米国は関税の影響でインフレに粘着性があり、利下げ開始が遅延するリスク。</p></blockquote>
+
+  <h3>2-4. PMI（購買担当者景気指数）— 2026年2月フラッシュ値</h3>
+  <h4>PMIトレンドまとめ</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>地域</th><th>方向性</th><th>主要ドライバー</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国</strong></td><td><strong>悪化方向</strong></td><td>関税コスト上昇、物価高による注文減少</td></tr>
+      <tr><td><strong>ユーロ圏</strong></td><td><strong>改善方向</strong></td><td>製造業の底打ち、特にドイツの回復</td></tr>
+      <tr><td><strong>日本</strong></td><td><strong>改善方向</strong></td><td>製造業・サービス業ともに数年ぶりの高水準</td></tr>
+      <tr><td><strong>英国</strong></td><td><strong>改善方向</strong></td><td>22ヶ月ぶりの高水準</td></tr>
+      <tr><td><strong>新興国</strong></td><td><strong>改善方向</strong></td><td>インド、ASEAN（特にベトナム）が牽引</td></tr>
+    </tbody>
+  </table></div>
+  <div class="critical-box"><strong>決定的な事実</strong>: 2026年初、<strong>米国のみPMIが悪化方向</strong>、それ以外の主要地域はすべて改善方向。この「分岐」が米国外株式の追い風となっている。</div>
+
+  <h3>2-5. GDP成長率見通し（IMF 2026年1月更新）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>国・地域</th><th>2025年</th><th>2026年予測</th></tr></thead>
+    <tbody>
+      <tr><td><strong>世界全体</strong></td><td>3.3%</td><td>3.3%</td></tr>
+      <tr><td><strong>米国</strong></td><td>2.2%</td><td>2.4%</td></tr>
+      <tr><td><strong>ユーロ圏</strong></td><td>1.0%</td><td>1.3%</td></tr>
+      <tr><td><strong>日本</strong></td><td>1.1%</td><td>0.7%</td></tr>
+      <tr><td><strong>中国</strong></td><td>4.8%</td><td>4.4%</td></tr>
+      <tr><td><strong>インド</strong></td><td>6.5%</td><td>6.5%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-6. 通貨・為替動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>通貨ペア</th><th>現在値</th><th>2026年末予想</th><th>方向性</th></tr></thead>
+    <tbody>
+      <tr><td><strong>DXY（ドル指数）</strong></td><td>97.66</td><td>92-98</td><td>ドル安トレンド（前年比-8.23%）</td></tr>
+      <tr><td><strong>USD/JPY</strong></td><td>約156</td><td>150-156</td><td>円高方向</td></tr>
+      <tr><td><strong>EUR/USD</strong></td><td>1.18-1.19</td><td>1.20-1.24</td><td>ユーロ高方向</td></tr>
+      <tr><td><strong>USD/CNY</strong></td><td>6.86</td><td>-</td><td>元高方向</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>2-7. 資金フロー — 歴史的な資金ローテーション</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>地域/セグメント</th><th>資金フロー状況</th></tr></thead>
+    <tbody>
+      <tr><td><strong>欧州ETF</strong></td><td>2026年1月に559億ドル流入（記録的）。通年で4,700億ドル予測</td></tr>
+      <tr><td><strong>欧州株式全体</strong></td><td>今後5年で<strong>1.2兆ユーロ</strong>が米国から欧州にローテーション予想</td></tr>
+      <tr><td><strong>日本株</strong></td><td>海外投資家が2週連続純買い（1月末+4,946億円、2月初+5,432億円）</td></tr>
+      <tr><td><strong>新興国株式</strong></td><td>数十年ぶりの速度でラリー中</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">資金フロー動向</div>
+    <canvas id="chartIntlFundFlow"></canvas>
+    <div class="chart-source">出典: 各取引所データ</div>
+  </div>
+
+  <h3>2-8. 米国の「双子の赤字」問題</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td>財政赤字（2026年度予測）</td><td>1.9兆ドル（GDP比5.8%）</td></tr>
+      <tr><td>貿易赤字（2025年12月・単月）</td><td>703億ドル</td></tr>
+      <tr><td>対外純負債</td><td>GDP比80%超</td></tr>
+      <tr><td>連邦債務見通し</td><td>2036年にGDP比120%（CBO予測）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">米国の「双子の赤字」</div>
+    <canvas id="chartIntlDualDeficit"></canvas>
+    <div class="chart-source">出典: CBO、米商務省</div>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 「オルカンで十分」は本当か？</h2>
+
+  <h3>3-1. オルカンの米国偏重</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>比率</th></tr></thead>
+    <tbody>
+      <tr><td>MSCI ACWI（オルカン）に占める米国ウェイト</td><td><strong>約66%</strong></td></tr>
+      <tr><td>世界GDPに占める米国シェア</td><td><strong>約26%</strong></td></tr>
+      <tr><td>世界の企業利益に占める米国シェア</td><td><strong>50%未満</strong></td></tr>
+      <tr><td>2020年代の株式ファンド資金フローに占める米国シェア</td><td><strong>75%超</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="highlight-box"><strong>つまり</strong>: 「全世界株式」という名前とは裏腹に、オルカンの実態は<strong>3分の2が米国株</strong>。世界GDPの26%しかない米国に資産の66%を集中させている状態。</div>
+  <div class="chart-container">
+    <div class="chart-title">オルカンの地域構成</div>
+    <canvas id="chartIntlOlcanBias"></canvas>
+    <div class="chart-source">出典: MSCI ACWI</div>
+  </div>
+
+  <h3>3-2. マグニフィセント7（Mag7）の集中リスク</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td>S&amp;P 500に占めるMag7の時価総額シェア（2025年末）</td><td><strong>34.3%</strong></td></tr>
+      <tr><td>S&amp;P 500に占めるMag7の利益シェア</td><td>26.6%のみ</td></tr>
+      <tr><td>2015年時点のMag7シェア</td><td>12.3%（10年で3倍に集中）</td></tr>
+      <tr><td>2022年の下落時: S&amp;P 500</td><td>-20.4%</td></tr>
+      <tr><td>2022年の下落時: Mag7</td><td><strong>-41.3%</strong>（約2倍の下落）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="critical-box">
+    <strong>「オルカン」に投資 → その66%がS&amp;P 500 → そのS&amp;P 500の34%がたった7社</strong><br>
+    つまりオルカン全体の約23%（約4分の1）が、Apple、Microsoft、Nvidia、Amazon、Alphabet、Meta、Teslaのたった7社に集中している。
+  </div>
+
+  <h3>3-3. 世界GDPとの乖離</h3>
+  <ul>
+    <li>新興国は世界GDPの40%超を占めるが、オルカンでのウェイトは約11%</li>
+    <li>この「歪み」は時価総額加重平均という仕組み上発生する</li>
+    <li>米国株のバリュエーションが割高であるほど、米国ウェイトが膨らむ構造</li>
+  </ul>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. 市場の現状と見通し</h2>
+
+  <h3>4-1. 2025年: 米国外株式の逆襲</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指数</th><th>2025年リターン（USD建て）</th><th>S&amp;P 500との差</th></tr></thead>
+    <tbody>
+      <tr><td>MSCI World ex USA</td><td><strong>+32.2%</strong></td><td>+14.3pt</td></tr>
+      <tr><td>MSCI ACWI ex USA</td><td><strong>+32.4%</strong></td><td>+14.5pt</td></tr>
+      <tr><td>MSCI Emerging Markets</td><td><strong>+33.6%</strong></td><td>+15.7pt</td></tr>
+      <tr><td>S&amp;P 500</td><td>+17.9%</td><td>基準</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">2025年 株式リターン比較（USD建て）</div>
+    <canvas id="chartIntlPerf"></canvas>
+    <div class="chart-source">出典: MSCI Index Factsheets</div>
+  </div>
+
+  <h3>4-2. 2026年年初来（2月18日時点）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指数</th><th>年初来リターン</th></tr></thead>
+    <tbody>
+      <tr><td>S&amp;P 500</td><td>+0.7%</td></tr>
+      <tr><td>MSCI World ex USA</td><td><strong>+8.3%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>2026年も米国外株式の優位が<strong>明確に継続</strong>。</p></blockquote>
+
+  <h3>4-3. バリュエーション格差 — 過去最大級</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>地域</th><th>予想PER（12ヶ月先）</th><th>米国比ディスカウント</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国（S&amp;P 500）</strong></td><td>21-23倍</td><td>基準</td></tr>
+      <tr><td><strong>欧州（除く英国）</strong></td><td>約16倍</td><td><strong>約30%割安</strong></td></tr>
+      <tr><td><strong>日本</strong></td><td>約15倍</td><td><strong>約35%割安</strong></td></tr>
+      <tr><td><strong>新興国</strong></td><td>12-14倍</td><td><strong>約40%割安</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">地域別バリュエーション比較</div>
+    <canvas id="chartIntlValuation"></canvas>
+    <div class="chart-source">出典: Bloomberg</div>
+  </div>
+  <blockquote><p>Goldman Sachsによれば、金融危機以降に米国の利益成長が欧州を年率8ポイント上回ってきた差は、<strong>2025-2027年に2ポイントに縮小</strong>する見通し。</p></blockquote>
+
+  <h3>4-4. 地域別分析</h3>
+  <h4>欧州</h4>
+  <ul>
+    <li>ECBの利下げ完了で景気下支え体制が整備済み</li>
+    <li>防衛支出拡大（NATO加盟国のGDP比2%目標）により防衛セクターに資金流入</li>
+    <li>ドイツの財政政策転換（「債務ブレーキ」の緩和検討）</li>
+    <li><strong>製造業PMIが44ヶ月ぶりに拡大圏復帰</strong> — 明確な底打ちサイン</li>
+    <li>STOXX Europe 600は<strong>過去最高値圏</strong>で推移</li>
+  </ul>
+  <h4>日本</h4>
+  <ul>
+    <li>東証の企業価値向上要請（PBR1倍割れ対策）が継続し、構造改革が進行</li>
+    <li>株主還元の強化（自社株買い・増配）</li>
+    <li>海外投資家が2週連続で大幅純買い</li>
+    <li><strong>経常収支が過去最高の31.87兆円</strong>（2025年）</li>
+  </ul>
+  <h4>新興国</h4>
+  <ul>
+    <li>インドはGDP成長率6.5%と世界最高水準</li>
+    <li>韓国はAI半導体需要で急騰（iShares MSCI Korea ETF年初来+43%）</li>
+    <li><strong>数十年ぶりの速度でラリー中</strong></li>
+  </ul>
+  <h4>英国</h4>
+  <ul>
+    <li>配当利回りが3.5-4.0%と先進国の中で高い水準</li>
+    <li>PMIが22ヶ月ぶり高水準</li>
+  </ul>
+
+  <h3>4-5. 専門家の見解</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>見解</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Vanguard</strong></td><td>米国外株式のリターン予測を米国株式より高く設定</td></tr>
+      <tr><td><strong>J.P. Morgan</strong></td><td>ポートフォリオの20-40%を米国外株式に配分すべき</td></tr>
+      <tr><td><strong>Goldman Sachs</strong></td><td>グローバル株式は今後12ヶ月で11%のリターン予測</td></tr>
+      <tr><td><strong>Cambridge Associates</strong></td><td>2026年は米国外株式に注目</td></tr>
+      <tr><td><strong>CFA Institute</strong></td><td>「国際投資の再興」をテーマに論文発表</td></tr>
+      <tr><td><strong>Schwab</strong></td><td>国際分散の重要性を強調</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 長期投資で資産を増やす</h2>
+
+  <h3>5-1. 株式の超長期リターン</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>期間</th><th>S&amp;P 500 年率リターン</th><th>MSCI World 年率リターン</th></tr></thead>
+    <tbody>
+      <tr><td>過去100年（1926-2025）</td><td>約10.4%</td><td>-</td></tr>
+      <tr><td>過去50年（1976-2025）</td><td>約12.0%</td><td>-</td></tr>
+      <tr><td>過去30年（1996-2025）</td><td>約10.5%</td><td>-</td></tr>
+      <tr><td>約38年（1987年以降）</td><td>-</td><td>約8.9%</td></tr>
+      <tr><td>約27年（1998年以降）</td><td>-</td><td>約7.2%（Net）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="gold-box"><strong>1926年に100ドル投資していれば、2025年末には約78万7,000ドル（約7,870倍）に成長。</strong></div>
+
+  <h3>5-2. 積立シミュレーション — 月3万円 x 20年間</h3>
+  <p><strong>元本</strong>: 3万円 x 12ヶ月 x 20年 = <strong>720万円</strong></p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>想定年率</th><th>20年後の資産額</th><th>運用益</th><th>運用益率</th></tr></thead>
+    <tbody>
+      <tr><td>3%</td><td>約985万円</td><td>約265万円</td><td>+37%</td></tr>
+      <tr><td>5%</td><td>約1,233万円</td><td>約513万円</td><td>+71%</td></tr>
+      <tr><td><strong>7%</strong></td><td><strong>約1,563万円</strong></td><td><strong>約843万円</strong></td><td><strong>+117%</strong></td></tr>
+      <tr><td>10%</td><td>約2,278万円</td><td>約1,558万円</td><td>+216%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-3. NISAの非課税メリット</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ケース</th><th>運用益</th><th>課税口座の税金</th><th>NISA口座</th><th>非課税メリット</th></tr></thead>
+    <tbody>
+      <tr><td>月3万円x20年（年率5%）</td><td>513万円</td><td>約104万円</td><td>0円</td><td><strong>約104万円お得</strong></td></tr>
+      <tr><td>月3万円x20年（年率7%）</td><td>843万円</td><td>約171万円</td><td>0円</td><td><strong>約171万円お得</strong></td></tr>
+      <tr><td>月5万円x20年（年率7%）</td><td>1,405万円</td><td>約285万円</td><td>0円</td><td><strong>約285万円お得</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">NISAつみたてシミュレーション（月3万円×20年）</div>
+    <canvas id="chartIntlNisa"></canvas>
+    <div class="chart-source">出典: 金融庁つみたてシミュレーター</div>
+  </div>
+
+  <h3>5-4. 複利の力 —「72の法則」</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年利</th><th>資産が2倍になる年数</th></tr></thead>
+    <tbody>
+      <tr><td>1%</td><td>72年</td></tr>
+      <tr><td>3%</td><td>24年</td></tr>
+      <tr><td>5%</td><td>14.4年</td></tr>
+      <tr><td><strong>7%</strong></td><td><strong>10.3年</strong></td></tr>
+      <tr><td>10%</td><td>7.2年</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-5. 「早く始める」ことの圧倒的な価値</h3>
+  <p>60歳時点で2,000万円を目標とする場合（年率5%）:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>開始年齢</th><th>運用期間</th><th>必要な月額積立</th><th>投資元本総額</th><th>運用益</th></tr></thead>
+    <tbody>
+      <tr><td>20歳</td><td>40年間</td><td><strong>約1.3万円</strong></td><td>約624万円</td><td>約1,376万円</td></tr>
+      <tr><td>30歳</td><td>30年間</td><td>約2.4万円</td><td>約864万円</td><td>約1,136万円</td></tr>
+      <tr><td>40歳</td><td>20年間</td><td><strong>約4.9万円</strong></td><td>約1,176万円</td><td>約824万円</td></tr>
+      <tr><td>50歳</td><td>10年間</td><td>約12.9万円</td><td>約1,548万円</td><td>約452万円</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>20歳から始めれば月1.3万円で済むが、40歳からだと月4.9万円必要（<strong>3.8倍の負担</strong>）。</p></blockquote>
+
+  <h3>5-6. 保有期間別のプラスリターン確率</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>保有期間</th><th>プラスリターンの確率</th><th>最高年率</th><th>最低年率</th></tr></thead>
+    <tbody>
+      <tr><td>1年</td><td>約74%</td><td>+46.6%</td><td>-47.1%</td></tr>
+      <tr><td>5年</td><td>約88%</td><td>+28.6%</td><td>-12.5%</td></tr>
+      <tr><td>10年</td><td>約95%</td><td>+20.1%</td><td>-4.9%</td></tr>
+      <tr><td>15年</td><td>約99%</td><td>+18.9%</td><td>-0.6%</td></tr>
+      <tr><td><strong>20年</strong></td><td><strong>100%</strong></td><td>+18.0%</td><td>+0.5%</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>20年以上保有してマイナスになった期間は、1928年以降、一度もない。</strong></p></blockquote>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. 分散投資の効果</h2>
+
+  <h3>6-1. 米国株集中リスク — 歴史は繰り返す</h3>
+  <ul>
+    <li><strong>1970年代</strong>: 日本株が米国株を大幅にアウトパフォーム</li>
+    <li><strong>2000-2009年</strong>: S&amp;P 500は10年間でマイナスリターン</li>
+    <li><strong>2025-2026年</strong>: 米国外が米国を14ポイント以上アウトパフォーム</li>
+    <li><strong>リーダーシップは常に交代してきた</strong></li>
+  </ul>
+
+  <h3>6-2. 相関データ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>期間/指標</th><th>相関係数</th></tr></thead>
+    <tbody>
+      <tr><td>米国 vs 先進国（除く米国）直近3年</td><td>0.86</td></tr>
+      <tr><td>米国 vs 先進国 過去ピーク時</td><td>0.94</td></tr>
+      <tr><td>米国 vs 新興国</td><td>先進国より低い（分散効果がより大きい）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">相関係数（米国 vs 各地域）</div>
+    <canvas id="chartIntlCorrelation"></canvas>
+    <div class="chart-source">出典: MSCI、各種データ</div>
+  </div>
+  <blockquote><p>相関が1未満である限り、分散効果は<strong>必ず</strong>存在する。</p></blockquote>
+
+  <h3>6-3. 国際分散の実証データ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ポートフォリオ</th><th>年率リターン</th><th>リスク（標準偏差）</th></tr></thead>
+    <tbody>
+      <tr><td>日本株100%</td><td>7.5%</td><td>21.8%</td></tr>
+      <tr><td>日本株75% + 外国株25%</td><td><strong>8.5%</strong></td><td><strong>21.8%</strong></td></tr>
+      <tr><td>GPIF型（4資産均等）</td><td>約4.2%</td><td>約8-10%</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>外国株を25%混ぜるだけで、<strong>リスクは同じままリターンが+1%改善</strong>。</p></blockquote>
+
+  <h3>6-4. GPIFの実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>データ</th></tr></thead>
+    <tbody>
+      <tr><td>運用方針</td><td>国内株式25%、外国株式25%、国内債券25%、外国債券25%</td></tr>
+      <tr><td>累積収益</td><td><strong>約155兆円</strong></td></tr>
+      <tr><td>運用資産額</td><td><strong>約249.8兆円</strong></td></tr>
+      <tr><td>年率リターン</td><td><strong>約4.2%</strong></td></tr>
+      <tr><td>分散対象銘柄数</td><td>約20,953銘柄</td></tr>
+      <tr><td>特筆事項</td><td><strong>過去のどの7年間を取ってもマイナスになったことはない</strong></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. おすすめファンド</h2>
+
+  <h3>7-1. 「除く米国」主要ファンド比較表</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>運用会社</th><th>ベンチマーク</th><th>信託報酬</th><th>NISA</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>楽天・VXUS</strong></td><td>楽天投信投資顧問</td><td>FTSE Global All Cap ex US</td><td>年率0.202%程度</td><td>成長投資枠</td><td>米国以外の全世界に幅広く投資</td></tr>
+      <tr><td><strong>SBI・V・先進国株式（除く米国）</strong></td><td>SBI AM</td><td>FTSE Developed All Cap ex US</td><td>低コスト水準</td><td>成長投資枠</td><td>先進国（除く米国）に特化</td></tr>
+      <tr><td><strong>SBI・V・全世界株式（除く米国）</strong></td><td>SBI AM</td><td>FTSE Global All Cap ex US</td><td>低コスト水準</td><td>-</td><td>楽天VXUSと同コンセプト</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>7-2. 補完的に使えるファンド</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>運用会社</th><th>信託報酬</th><th>NISA</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>eMAXIS Slim 先進国株式</strong></td><td>三菱UFJ AM</td><td>年率0.09889%</td><td>つみたて・成長</td><td>※米国比率70%</td></tr>
+      <tr><td><strong>eMAXIS Slim 新興国株式</strong></td><td>三菱UFJ AM</td><td>業界最低水準</td><td>つみたて・成長</td><td>純資産2,000億円超</td></tr>
+      <tr><td><strong>iTrustインド株式</strong></td><td>ピクテ</td><td>カテゴリー最低水準</td><td>つみたて・成長</td><td>唯一のNISAつみたて枠対応インド株</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>7-3. 海外ETFの活用</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ETF</th><th>名称</th><th>経費率</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>VXUS</strong></td><td>Vanguard Total International Stock ETF</td><td>極低コスト</td><td>米国以外の全世界に投資</td></tr>
+      <tr><td><strong>VEA</strong></td><td>Vanguard FTSE Developed Markets ETF</td><td>極低コスト</td><td>先進国（除く米国）に投資</td></tr>
+      <tr><td><strong>VWO</strong></td><td>Vanguard FTSE Emerging Markets ETF</td><td>極低コスト</td><td>新興国に投資</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. セールストーク集</h2>
+
+  <h3>8-1. キーメッセージ5つ</h3>
+
+  <h4>1. 「オルカンの66%は米国株。本当に"全世界"ですか？」</h4>
+  <blockquote><p>「全世界株式（オルカン）に投資しているから大丈夫、と思っていませんか？ 実は、オルカンの<strong>約66%は米国株</strong>です。しかもその3分の1がたった7社のテック企業です。米国以外の株式を追加することで、本当の意味での世界分散ができるのです。」</p></blockquote>
+
+  <h4>2. 「2025年、米国以外が米国を14ポイント上回った」</h4>
+  <blockquote><p>「去年のデータをご覧ください。S&amp;P 500のリターンは18%でしたが、米国以外の先進国株式は32%でした。そして2026年もこの流れが続いています。"米国だけが正解"の時代は終わりつつあるかもしれません。」</p></blockquote>
+
+  <h4>3. 「30-40%の割引セール中」</h4>
+  <blockquote><p>「デパートのバーゲンを想像してください。同じ品質の服が、米国フロアでは定価なのに、欧州フロアや日本フロアでは30-40%オフ。そんな状況が今の株式市場です。」</p></blockquote>
+
+  <h4>4. 「S&amp;P 500の"失われた10年"をご存知ですか？」</h4>
+  <blockquote><p>「もし2000年にS&amp;P 500だけに全額投資していたら、10年後に元本割れでした。一方、世界に分散していた方はプラスでした。だからこそ分散が大切なのです。」</p></blockquote>
+
+  <h4>5. 「プロが動き始めている」</h4>
+  <blockquote><p>「世界最大級の運用会社Vanguardが、今後の米国外株式のリターンは米国株式を上回ると予測しています。J.P. Morganは全体の20-40%を米国外に配分すべきだと言っています。」</p></blockquote>
+
+  <h3>8-2. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「S&amp;P 500で十分じゃないですか？」</div>
+  <blockquote><p>「S&amp;P 500は素晴らしい指数ですが、その34%がたった7社のテック企業です。2000-2009年の"失われた10年"のように、米国株が低迷する時期は必ずまた来ます。その時に備えて分散しておくことが大切です。」</p></blockquote>
+
+  <div class="faq-q">Q2: 「米国以外のどの地域がいいですか？」</div>
+  <blockquote><p>「特定の地域を選ぶのではなく、米国以外の全世界に幅広く投資することをお勧めします。インデックスファンドなら1本で全てカバーできます。」</p></blockquote>
+
+  <div class="faq-q">Q3: 「円高になったら損しませんか？」</div>
+  <blockquote><p>「長期的には為替は平均回帰する傾向があります。GPIFも為替ヘッジをせずに海外資産に投資しています。」</p></blockquote>
+
+  <div class="faq-q">Q4: 「いつ始めればいいですか？」</div>
+  <blockquote><p>「バリュエーション的には今、米国以外の株式は過去20年で最も割安な水準です。積立投資なら今日から始められます。」</p></blockquote>
+
+  <h3>8-3. 反論への対応</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>お客様の反論</th><th>対応</th></tr></thead>
+    <tbody>
+      <tr><td>「米国テクノロジーが最強」</td><td>「S&amp;P 500のMag7比率は34%で利益シェア27%を大きく超えています。テクノロジーは引き続き保有しつつ、米国以外の成長にも乗りませんか？」</td></tr>
+      <tr><td>「新興国は怖い」</td><td>「インデックスで投資すれば、特定の国のリスクは分散されます。PERは12-14倍と先進国の半分以下の割安水準です。」</td></tr>
+      <tr><td>「今さら変えたくない」</td><td>「既存の投資はそのままで大丈夫です。新たに追加する分だけ米国以外に振り向けるだけでも、大きな分散効果があります。」</td></tr>
+      <tr><td>「為替が心配」</td><td>「長期投資では為替は平均回帰する傾向があります。今はドル高是正局面（前年比-8.2%）です。」</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 9 -->
+<section class="section" id="sec9">
+  <h2>9. 具体的な提案</h2>
+
+  <h3>9-1. ポートフォリオ例</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>配分</th><th>保守的</th><th>バランス型</th><th>積極的</th></tr></thead>
+    <tbody>
+      <tr><td>米国（S&amp;P 500等）</td><td>60%</td><td>50%</td><td>40%</td></tr>
+      <tr><td>先進国（除く米国）</td><td>25%</td><td>25%</td><td>25%</td></tr>
+      <tr><td>新興国</td><td>5%</td><td>15%</td><td>25%</td></tr>
+      <tr><td>国内債券等</td><td>10%</td><td>10%</td><td>10%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>9-2. お客様タイプ別提案パターン</h3>
+
+  <h4>パターン1: 既存のS&amp;P 500投資家</h4>
+  <blockquote><p>「現在S&amp;P 500に月5万円投資されていますね。そのうち1-2万円分を米国以外の株式に振り向けてみませんか？」</p></blockquote>
+  <p><strong>具体例</strong>: S&amp;P 500: 3.5万円（70%） / 楽天・VXUS: 1.5万円（30%）</p>
+
+  <h4>パターン2: オルカン投資家</h4>
+  <blockquote><p>「オルカンは素晴らしい選択ですが、米国比率が66%と高めです。米国以外の株式ファンドを追加することで、より均等な世界分散にリバランスできます。」</p></blockquote>
+  <p><strong>具体例</strong>: オルカン: 3.5万円（70%） / 楽天・VXUS: 1.5万円（30%）→ 米国比率が約66% → 約46%に低下</p>
+
+  <h4>パターン3: 新規投資家</h4>
+  <blockquote><p>「最初のポートフォリオとして、世界経済全体の成長を取り込みながら、特定の国への集中リスクも抑えた配分をご提案します。」</p></blockquote>
+  <p><strong>具体例</strong>: S&amp;P 500: 2.5万円（50%） / 楽天・VXUS: 2万円（40%） / 新興国: 0.5万円（10%）</p>
+
+  <h3>9-3. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 - 現状の確認</p><blockquote><p>「現在どのようなファンドに投資されていますか？」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 - 気づきを与える</p><blockquote><p>「実はオルカン（またはS&amp;P 500）の米国比率は66%（100%）なのをご存知ですか？」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 - データで裏付け</p><blockquote><p>「2025年、米国以外の株式は米国を14ポイント上回りました。今後もこの傾向が続く可能性があります。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 - 解決策の提示</p><blockquote><p>「今の投資はそのままで、新たに追加する分を米国以外に振り向けるだけで、しっかりとした分散ができます。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 - 行動を促す</p><blockquote><p>「NISAの成長投資枠を使って、まず月1万円から始めてみませんか？」</p></blockquote></div>
+
+  <h3>9-4. ファンド組み合わせパターン</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>パターン</th><th>構成</th><th>メリット</th><th>デメリット</th></tr></thead>
+    <tbody>
+      <tr><td><strong>A: 1本で完結</strong></td><td>楽天・VXUS or SBI・V全世界（除く米国）</td><td>シンプル</td><td>つみたて投資枠非対応の場合あり</td></tr>
+      <tr><td><strong>B: 先進国+新興国</strong></td><td>eMAXIS Slim先進国 + eMAXIS Slim新興国</td><td>低コスト、NISAつみたて枠対応</td><td>先進国ファンドに米国含む</td></tr>
+      <tr><td><strong>C: 海外ETF</strong></td><td>VXUS / VEA / VWO</td><td>超低コスト</td><td>為替手数料、確定申告の手間</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は2026年2月25日時点のデータに基づいて作成された販売支援資料です。記載されたデータは過去の実績や予測であり、将来の運用成果を保証するものではありません。投資にはリスクが伴い、元本割れの可能性があります。投資判断はお客様ご自身の判断と責任でお願いいたします。</p>
+</footer>
+
+<div class="sources-section container">
+  <h4>出典</h4>
+  <ul>
+    <li><a href="https://blogs.cfainstitute.org/investor/2026/01/14/shifting-tides-in-global-markets-the-reemergence-of-international-investing/" target="_blank">CFA Institute - Shifting Tides in Global Markets</a></li>
+    <li><a href="https://www.cambridgeassociates.com/insight/2026-outlook-public-equity-views/" target="_blank">Cambridge Associates - 2026 Outlook</a></li>
+    <li><a href="https://www.jpmorgan.com/insights/investing/investment-strategy/how-much-of-your-portfolio-should-be-in-non-us-stocks" target="_blank">J.P. Morgan - How Much in Non-US Stocks</a></li>
+    <li><a href="https://www.goldmansachs.com/insights/articles/global-stocks-are-projected-to-return-11-percent-in-next-12-months" target="_blank">Goldman Sachs - Global Stocks Projected Returns</a></li>
+    <li><a href="https://www.imf.org/en/publications/weo/issues/2026/01/19/world-economic-outlook-update-january-2026" target="_blank">IMF - WEO January 2026</a></li>
+    <li><a href="https://www.gpif.go.jp/gpif/diversification1.html" target="_blank">GPIF - 分散投資の意義</a></li>
+    <li><a href="https://www.fsa.go.jp/policy/nisa2/tsumitate-simulator/" target="_blank">金融庁 つみたてシミュレーター</a></li>
+    <li><a href="https://tradingeconomics.com/" target="_blank">Trading Economics</a></li>
+  </ul>
+</div>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fontFamily = "'Noto Sans JP', sans-serif";
+  var gridColor = '#e2e8f0';
+
+  // chartIntlPerf - 2025年 株式リターン比較（USD建て）
+  new Chart(document.getElementById('chartIntlPerf'), {
+    type: 'bar',
+    data: {
+      labels: ['MSCI EM', 'MSCI ACWI ex USA', 'MSCI World ex USA', 'S&P 500'],
+      datasets: [{
+        label: 'リターン (%)',
+        data: [33.6, 32.4, 32.2, 17.9],
+        backgroundColor: ['#48bb78', '#d69e2e', '#2c5282', '#718096'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '%'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily, size: 11 } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v) { return v + '%'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartIntlValuation - 地域別バリュエーション比較
+  new Chart(document.getElementById('chartIntlValuation'), {
+    type: 'bar',
+    data: {
+      labels: ['米国', '欧州', '日本', '新興国'],
+      datasets: [{
+        label: '予想PER (倍)',
+        data: [22, 16, 15, 13],
+        backgroundColor: ['#1a365d', '#2c5282', '#d69e2e', '#48bb78'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '倍'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v) { return v + '倍'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartIntlOlcanBias - オルカンの地域構成
+  new Chart(document.getElementById('chartIntlOlcanBias'), {
+    type: 'doughnut',
+    data: {
+      labels: ['米国 66%', '欧州 15%', '新興国 11%', 'その他 8%'],
+      datasets: [{
+        data: [66, 15, 11, 8],
+        backgroundColor: ['#2c5282', '#d69e2e', '#48bb78', '#718096']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'right', labels: { font: { family: fontFamily }, padding: 12 } } }
+    }
+  });
+
+  // chartIntlFundFlow - 資金フロー動向
+  new Chart(document.getElementById('chartIntlFundFlow'), {
+    type: 'bar',
+    data: {
+      labels: ['欧州ETF(1月)', '日本株(海外投資家)'],
+      datasets: [{
+        label: '億ドル',
+        data: [559, 104],
+        backgroundColor: ['#2c5282', '#e53e3e'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return c.parsed.y + '億ドル'; } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v) { return v + '億ドル'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartIntlNisa - NISAつみたてシミュレーション
+  new Chart(document.getElementById('chartIntlNisa'), {
+    type: 'bar',
+    data: {
+      labels: ['年率3%', '年率5%', '年率7%', '年率10%'],
+      datasets: [
+        { label: '元本', data: [720, 720, 720, 720], backgroundColor: '#2c5282', borderRadius: 4 },
+        { label: '運用益', data: [265, 513, 843, 1558], backgroundColor: '#d69e2e', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y + '万円'; } } } },
+      scales: {
+        x: { stacked: true, ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { stacked: true, ticks: { font: { family: fontFamily }, callback: function(v) { return v + '万円'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartIntlCorrelation - 相関係数（米国 vs 各地域）
+  new Chart(document.getElementById('chartIntlCorrelation'), {
+    type: 'bar',
+    data: {
+      labels: ['先進国(除く米国)', '先進国(ピーク時)', '新興国'],
+      datasets: [{
+        label: '相関係数',
+        data: [0.86, 0.94, 0.70],
+        backgroundColor: ['#2c5282', '#e53e3e', '#48bb78'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { display: false } },
+        y: { min: 0, max: 1, ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartIntlDualDeficit - 米国の「双子の赤字」
+  new Chart(document.getElementById('chartIntlDualDeficit'), {
+    type: 'bar',
+    data: {
+      labels: ['財政赤字(GDP比%)', '貿易赤字(10億ドル)', '対外純負債(GDP比%)'],
+      datasets: [{
+        label: '数値',
+        data: [5.8, 70.3, 80],
+        backgroundColor: ['#e53e3e', '#ed8936', '#805ad5'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily, size: 11 } }, grid: { display: false } },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

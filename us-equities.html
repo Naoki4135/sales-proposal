@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>米国株式 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>米国株式 セールス提案資料</h1>
+  <p class="subtitle">US Equity &mdash; Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月26日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済環境</a></li>
+    <li><a href="#sec3">市場の現状と見通し</a></li>
+    <li><a href="#sec4">長期投資で資産を増やす</a></li>
+    <li><a href="#sec5">分散投資の効果</a></li>
+    <li><a href="#sec6">おすすめファンド</a></li>
+    <li><a href="#sec7">セールストーク集</a></li>
+    <li><a href="#sec8">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、米国株式なのか</h4>
+  <div class="gold-box"><p><strong>1. S&amp;P 500の圧倒的な長期実績</strong>: 過去100年で年率約10.4%、過去10年で年率約13%。世界中のあらゆる資産クラスを凌駕する実績を誇る。15年以上保有すれば過去にマイナスリターンになったことがない。</p></div>
+  <div class="gold-box"><p><strong>2. Mag7とAI/テクノロジーの成長力</strong>: Apple、Microsoft、Amazon、Google、Meta、Nvidia、Tesla — 世界の技術革新を牽引する7社が集結。AI革命は初期段階であり、今後さらなる成長が期待される。</p></div>
+  <div class="gold-box"><p><strong>3. 世界最大の経済大国</strong>: 名目GDP約30兆ドル、世界GDPの約26%を占める。イノベーションの中心地であり、世界中から優秀な人材と資本が集まり続ける唯一無二の市場。</p></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済環境</h2>
+
+  <h3>2-1. GDP成長率の国際比較</h3>
+  <p>米国経済は2024年に<strong>+2.8%</strong>の堅調な成長を達成し、2000～2023年の平均成長率2.2%を上回りました。2025年は連邦政府のシャットダウン等の影響で<strong>+2.2%</strong>にやや減速しましたが、先進国では引き続きトップクラスの成長率を維持しています。2026年の見通しについては、主要機関の間で概ね<strong>+2.0～2.8%</strong>の予測が示されています。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>2024年実績</th><th>2025年実績</th><th>2026年予測</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>IMF</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>+2.4%</strong></td><td>2026年1月WEO更新、前回比+0.3%pt上方修正</td></tr>
+      <tr><td><strong>Goldman Sachs</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>+2.5～2.8%</strong></td><td>Q4/Q4で2.5%、年平均で2.8%</td></tr>
+      <tr><td><strong>Vanguard</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>+2.25%</strong></td><td>上半期ソフト、下半期に加速</td></tr>
+      <tr><td><strong>BlackRock</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>2%超</strong></td><td>AI投資が歴史的平均の3倍、上振れリスクあり</td></tr>
+      <tr><td><strong>JP Morgan</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>上半期3%超→下半期1～2%</strong></td><td>関税影響で年後半に鈍化</td></tr>
+      <tr><td><strong>PIMCO</strong></td><td>+2.8%</td><td>+2.2%</td><td><strong>約2～3%</strong></td><td>タリフ調整が回避できれば上振れ</td></tr>
+      <tr><td><strong>FOMC</strong>（12月予測）</td><td>+2.8%</td><td>+2.2%</td><td><strong>+2.3%</strong></td><td>9月予測+1.8%から大幅上方修正</td></tr>
+      <tr><td>（参考）ユーロ圏</td><td>+0.8%</td><td>+1.0%</td><td>約+1.3%</td><td>米国の約半分の成長率</td></tr>
+      <tr><td>（参考）日本</td><td>+0.1%</td><td>+1.2%</td><td>約+1.0%</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: IMF WEO 2026年1月更新、Goldman Sachs 2026 Macro Outlook、Vanguard 2026 Economic Outlook、BlackRock 2026 Macro Outlook、JP Morgan 2026 US Economic Outlook、PIMCO Cyclical Outlook、FOMC 2025年12月予測</p>
+  <div class="chart-container">
+    <p class="chart-title">2026年GDP成長率予測 — 機関別比較</p>
+    <canvas id="chartGdp" height="280"></canvas>
+    <p class="chart-source">出典: IMF, Goldman Sachs, Vanguard, BlackRock, JP Morgan, PIMCO, FOMC</p>
+  </div>
+  <blockquote><p><strong>ポイント</strong>: 関税政策や移民制限による下振れリスクはあるものの、AI投資の加速や減税・規制緩和の効果により、大半の機関が<strong>潜在成長率（約2%）を上回る堅調な成長</strong>を予測しています。</p></blockquote>
+
+  <h3>2-2. インフレ動向</h3>
+  <p>インフレは2022年のピーク（CPI +9.1%）から大幅に低下しましたが、FRBの目標である2%への「ラストマイル」の道のりは関税政策の影響で困難を増しています。2025年末のCore PCEは<strong>+3.0%</strong>と予想を上回る水準にとどまっています。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>指標</th><th>2025年実績</th><th>2026年予測</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FOMC</strong>（12月予測）</td><td>Core PCE</td><td>+3.0%</td><td><strong>+2.5%</strong></td></tr>
+      <tr><td><strong>Goldman Sachs</strong></td><td>Core PCE（年末）</td><td>+3.0%</td><td><strong>+2.1%</strong></td></tr>
+      <tr><td><strong>Goldman Sachs</strong></td><td>Core CPI（年末）</td><td>—</td><td><strong>+2.0%</strong></td></tr>
+      <tr><td><strong>JP Morgan</strong></td><td>Core CPI</td><td>—</td><td><strong>+3.2%</strong></td></tr>
+      <tr><td><strong>JP Morgan</strong></td><td>CPI（ピーク時）</td><td>—</td><td><strong>4%未満</strong>（6月頃ピーク後、年末2%へ）</td></tr>
+      <tr><td><strong>Vanguard</strong></td><td>コア・インフレ</td><td>—</td><td><strong>+2.6%</strong>（ピーク時3%超、年後半に軟化）</td></tr>
+      <tr><td><strong>IMF</strong></td><td>ヘッドラインCPI</td><td>+2.9%</td><td><strong>+2.4%</strong>（2027年: +2.2%）</td></tr>
+      <tr><td><strong>PIMCO</strong></td><td>Core PCE</td><td>+3.0%</td><td><strong>3%前後</strong>（2%到達は2027年以降）</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: FOMC 2025年12月予測、Goldman Sachs Fed Rate Outlook、JP Morgan Inflation Outlook、Vanguard 2026 Outlook、IMF WEO 2026年1月、PIMCO Cyclical Outlook</p>
+  <div class="chart-container">
+    <p class="chart-title">2026年インフレ予測 — 機関別比較</p>
+    <canvas id="chartInflation" height="260"></canvas>
+    <p class="chart-source">出典: FOMC, Goldman Sachs, JP Morgan, Vanguard, IMF, PIMCO</p>
+  </div>
+  <div class="highlight-box">
+    <strong>関税のインフレ押し上げ効果</strong>: 実効関税率が約<strong>7.5%ポイント上昇</strong>（カナダ・メキシコ・中国向け）し、コアインフレを<strong>+0.4～0.5%ポイント</strong>押し上げるとPIMCOは試算しています。住居費（シェルター）の緩やかな低下や移民減少に伴う賃金インフレの下支えも注目要因です。
+  </div>
+
+  <h3>2-3. FRB金融政策の見通し</h3>
+  <p>FRBは2025年後半に3回の利下げ（各25bp）を実施し、現行のFF金利は<strong>3.50～3.75%</strong>です。2026年2月時点では「中立的な様子見（Neutral Hold）」スタンスに移行しています。今後の利下げ見通しについて、各運用会社の間で<strong>見解が大きく分かれている</strong>のが特徴です。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>2026年の見通し</th><th>年末FF金利水準</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Goldman Sachs</strong></td><td>6月・9月に各25bp利下げ（計<strong>2回</strong>）</td><td><strong>3.00～3.25%</strong></td></tr>
+      <tr><td><strong>Vanguard</strong></td><td>2026年前半に<strong>1回のみ</strong>利下げ</td><td><strong>3.25～3.50%付近</strong></td></tr>
+      <tr><td><strong>PIMCO</strong></td><td><strong>1回</strong>の利下げのみ</td><td>慎重スタンス</td></tr>
+      <tr><td><strong>JP Morgan</strong></td><td>2026年は<strong>利下げなし</strong> → 2027年Q3に利上げ</td><td><strong>3.50～3.75%維持</strong></td></tr>
+      <tr><td><strong>市場コンセンサス</strong></td><td>2026年7月が最初の利下げタイミング</td><td>数回の利下げを織り込み</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Goldman Sachs Fed Rate Cuts Outlook、Vanguard US Economic Outlook、JP Morgan Fed Rate Prediction、PIMCO Cyclical Outlook</p>
+  <div class="chart-container">
+    <p class="chart-title">FF金利の推移と見通し（2024〜2026年）</p>
+    <canvas id="chartFedRate" height="260"></canvas>
+    <p class="chart-source">出典: FOMC, Goldman Sachs, Vanguard, JP Morgan</p>
+  </div>
+  <blockquote><p><strong>投資への示唆</strong>: 利下げペースに不確実性はあるものの、金融政策は引き締めから緩和方向に転換済み。追加利下げは株式市場にとって追い風であり、仮に据え置きでも現水準は景気を過度に抑制する水準ではありません。</p></blockquote>
+
+  <h3>2-4. 人口動態</h3>
+  <p>米国の人口は<strong>3億4,180万人</strong>（2025年）ですが、人口成長率は<strong>+0.5%</strong>と2021年以来最低の伸びに鈍化しました。最大の要因は<strong>移民の急減</strong>です。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>総人口</strong>（2025年）</td><td><strong>341.8百万人</strong></td><td></td></tr>
+      <tr><td><strong>人口成長率</strong></td><td><strong>+0.5%</strong></td><td>2021年以来最低</td></tr>
+      <tr><td><strong>純移民</strong>（2024年）</td><td><strong>約220万人</strong></td><td>史上最高水準</td></tr>
+      <tr><td><strong>純移民</strong>（2025年）</td><td><strong>約50万人</strong></td><td>前年比<strong>75%激減</strong></td></tr>
+      <tr><td>外国生まれ人口</td><td>100万人超の減少</td><td>1960年代以来初の減少（Pew Research）</td></tr>
+      <tr><td>高齢化</td><td>65歳以上人口が急増</td><td>年金・医療費の財政圧力が増大</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CBO Demographic Outlook 2026～2056、PRB 2025 Population Data、Pew Research Center</p>
+  <div class="gold-box">
+    <strong>長期見通し（CBO予測）</strong>: 2025～2035年は年平均+0.4%、2036～2055年は年平均+0.1%に鈍化。<strong>2033年以降は死亡者数が出生者数を上回る</strong>見通し。移民流入なしでは生産年齢人口の成長率は2040年まで<strong>マイナス</strong>になるとEPIは試算しており、移民政策と高齢化の行方が潜在成長率を左右します。
+  </div>
+
+  <h3>2-5. 内需・個人消費</h3>
+  <p>GDPの約<strong>70%</strong>を占める個人消費は米国経済の最大のエンジンです。名目個人消費は成長を続けていますが、関税・インフレ・雇用冷却の影響で2026年は鈍化が見込まれています。</p>
+  <h4>個人消費の推移</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>2024年</th><th>2025年</th><th>2026年予測</th></tr></thead>
+    <tbody>
+      <tr><td>名目個人消費成長率</td><td><strong>+5.7%</strong></td><td><strong>+3.7%</strong></td><td><strong>+2.9%</strong>（Morgan Stanley）</td></tr>
+      <tr><td>実質個人消費成長率</td><td>—</td><td>—</td><td><strong>約+1.5%</strong></td></tr>
+      <tr><td>消費者信頼感指数（Conference Board）</td><td>—</td><td>—</td><td><strong>91.2</strong>（2026年2月、前月89.0から改善）</td></tr>
+    </tbody>
+  </table></div>
+  <h4>住宅市場</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>2026年見通し</th><th>出典</th></tr></thead>
+    <tbody>
+      <tr><td><strong>30年固定モーゲージ金利</strong></td><td><strong>6.3%前後</strong>で高止まり（6%割れなし）</td><td>Realtor.com</td></tr>
+      <tr><td>住宅価格（前年比）</td><td>Redfin: <strong>+1%</strong> / JP Morgan: <strong>0%</strong> / Fannie Mae: <strong>+2.4%</strong></td><td>各社予測</td></tr>
+      <tr><td>既存住宅販売件数</td><td><strong>400～430万件</strong>（前年比+2～4%増）</td><td>Realtor.com, Zillow</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Morgan Stanley Consumer Spending Trends 2025、Conference Board、JP Morgan Housing Market Outlook、Realtor.com、Redfin、Fannie Mae</p>
+
+  <h3>2-6. 産業構成</h3>
+  <p>米国経済はサービス業が<strong>GDP全体の70～75%</strong>を占める高度なサービス経済です。製造業の比率は1950年代の31%から約10～11%に低下する一方、テクノロジーセクターはAI投資を背景にシェアを拡大中です。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>セクター</th><th>GDP比率</th><th>主要動向</th></tr></thead>
+    <tbody>
+      <tr><td><strong>金融・保険・不動産・賃貸</strong></td><td><strong>21.2%</strong></td><td>GDP最大セクター</td></tr>
+      <tr><td><strong>専門・ビジネスサービス</strong></td><td><strong>約12～13%</strong></td><td>IT・コンサルティング等</td></tr>
+      <tr><td>政府部門</td><td><strong>約12%</strong></td><td></td></tr>
+      <tr><td>製造業</td><td><strong>約10～11%</strong></td><td>1950年代の31%から低下</td></tr>
+      <tr><td><strong>テクノロジー（情報通信）</strong></td><td><strong>約8.9%</strong></td><td>AI投資でシェア拡大中</td></tr>
+      <tr><td>ヘルスケア・社会福祉</td><td><strong>約7～8%</strong></td><td>国民医療費はGDPの17.5%</td></tr>
+      <tr><td>建設業</td><td><strong>約4～5%</strong></td><td>住宅・AIデータセンター建設が牽引</td></tr>
+      <tr><td>エネルギー（採掘・鉱業等）</td><td><strong>約2～3%</strong></td><td>シェール革命で世界最大の原油生産国に</td></tr>
+      <tr><td>農業・林業・漁業</td><td><strong>約1%</strong></td><td>経済的プレゼンスは極めて小さい</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: BEA GDP by Industry 2024年データ、Statista GDP Share by Industry US 2024</p>
+  <div class="chart-container">
+    <p class="chart-title">米国GDP産業構成比（2024年）</p>
+    <canvas id="chartIndustry" height="300"></canvas>
+    <p class="chart-source">出典: BEA GDP by Industry 2024, Statista</p>
+  </div>
+
+  <h3>2-7. 労働市場</h3>
+  <p>米国の労働市場は堅調さを維持していますが、雇用者数の伸びは2025年に大幅に鈍化しました。2025年のNFP（非農業部門雇用者数）年間合計は速報+58.4万人から<strong>+18.1万人</strong>に大幅下方修正され、景気後退年を除くと2003年以来の最低水準でした。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>2024年実績</th><th>2025年実績</th><th>2026年予測</th></tr></thead>
+    <tbody>
+      <tr><td><strong>失業率</strong></td><td>Q4平均 <strong>4.2%</strong></td><td>Q4 <strong>4.1%</strong></td><td><strong>4.2%</strong>（Vanguard） / <strong>4.5%</strong>（FOMC）</td></tr>
+      <tr><td><strong>NFP月次増加</strong></td><td><strong>約+25万人/月</strong></td><td><strong>+1.5万人/月</strong>（修正後）</td><td><strong>+5～6万人/月</strong>（フィラデルフィア連銀SPF）</td></tr>
+      <tr><td>平均時給（前年比）</td><td>約+4.0%</td><td><strong>+3.8%</strong></td><td>+3.5～4.0%</td></tr>
+      <tr><td>実質平均時給（前年比）</td><td>—</td><td><strong>+1.2%</strong></td><td>インフレ上回る実質賃金増が継続</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: BLS Employment Situation 2026年1月、JP Morgan Labor Market Forecast 2026、Vanguard US Economic Outlook、フィラデルフィア連銀 Survey of Professional Forecasters</p>
+  <div class="chart-container">
+    <p class="chart-title">米国労働市場の主要指標</p>
+    <canvas id="chartLabor" height="260"></canvas>
+    <p class="chart-source">出典: BLS, JP Morgan, Vanguard, フィラデルフィア連銀 SPF</p>
+  </div>
+  <blockquote><p><strong>注目</strong>: 雇用者数の増加なしに実質GDPが高成長を示すという「異常なサイクル」が続いており、<strong>AI投資が労働集約性を低下させている</strong>とBlackRockは指摘しています。</p></blockquote>
+
+  <h3>2-8. 財政状況</h3>
+  <p>米国の財政赤字は高水準が続いており、政府債務残高のGDP比は<strong>100%</strong>の大台に接近しています。長期的な債務持続可能性が注目される一方、短期的には財政刺激が経済を下支えする側面もあります。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>FY2025実績</th><th>FY2026予測</th><th>長期見通し</th></tr></thead>
+    <tbody>
+      <tr><td><strong>財政赤字</strong></td><td>約1.7兆ドル（GDP比<strong>5.9%</strong>）</td><td>1.9兆ドル（GDP比<strong>5.8%</strong>）</td><td>—</td></tr>
+      <tr><td><strong>政府債務/GDP比</strong></td><td><strong>99.8%</strong></td><td><strong>101%</strong></td><td>2029年: <strong>107%</strong>（戦後最高超）、2036年: <strong>120%</strong></td></tr>
+      <tr><td><strong>純利払い費</strong></td><td>—</td><td><strong>約1.0兆ドル</strong></td><td>2036年: 2.1兆ドルへ拡大</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CBO Budget and Economic Outlook 2026～2036、CRFB 12-Month Deficit Data</p>
+  <div class="chart-container">
+    <p class="chart-title">米国政府債務/GDP比率の推移と見通し</p>
+    <canvas id="chartDebt" height="260"></canvas>
+    <p class="chart-source">出典: CBO Budget and Economic Outlook 2026〜2036</p>
+  </div>
+  <div class="gold-box">
+    <strong>財政刺激の効果</strong>: PIMCOの試算では、新たな家計減税で2026年に約2,000億ドル（GDPの約0.6%）の財政刺激効果が見込まれます。「One Big Beautiful Bill」による法人投資減税もGDP押し上げ要因としてIMF・FOMCが言及しています。
+  </div>
+
+  <h3>2-9. トランプ政権の政策影響</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>政策</th><th>株式市場への影響</th><th>評価</th></tr></thead>
+    <tbody>
+      <tr><td><strong>減税延長・法人税引き下げ</strong></td><td>企業の税引後利益が増加</td><td>プラス</td></tr>
+      <tr><td><strong>規制緩和</strong></td><td>金融・エネルギー・テクノロジー企業の事業環境改善</td><td>プラス</td></tr>
+      <tr><td>関税（中国・欧州等）</td><td>サプライチェーンコスト上昇、インフレ再燃リスク</td><td>マイナス/不確実</td></tr>
+      <tr><td>移民政策の厳格化</td><td>労働力不足、賃金上昇圧力</td><td>やや不確実</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>総合評価</strong>: 減税・規制緩和のプラス効果が関税のマイナスを上回るとの見方が市場のコンセンサス。企業業績への純影響は<strong>ポジティブ</strong>。</p></blockquote>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 市場の現状と見通し</h2>
+
+  <h3>3-1. 主要指数のパフォーマンス</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指数</th><th>2025年暦年リターン</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>S&amp;P 500</strong></td><td><strong>+17.9%</strong></td><td>関税影響で上下あったが結果堅調</td></tr>
+      <tr><td><strong>NASDAQ Composite</strong></td><td><strong>+20%超</strong></td><td>AI関連銘柄が牽引</td></tr>
+      <tr><td>Dow Jones</td><td>約+12%</td><td>バリュー寄り、大型安定銘柄中心</td></tr>
+      <tr><td>Russell 2000（中小型）</td><td>約+8%</td><td>金利高止まりの影響を受けやすい</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3-2. バリュエーション</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>S&amp;P 500 予想PER</strong></td><td><strong>約21-22倍</strong></td><td>歴史的平均16-17倍と比較して割高</td></tr>
+      <tr><td>PEGレシオ</td><td>約1.8-2.0倍</td><td>EPS成長率を考慮すると妥当な水準とも</td></tr>
+      <tr><td>EPS成長率（2026年予測）</td><td><strong>+10-12%</strong></td><td>AI・テクノロジーが牽引</td></tr>
+      <tr><td>S&amp;P 500 配当利回り</td><td>約1.3%</td><td>自社株買いを含む総還元利回りは約4%</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>PERだけ見ると割高に見えるが、<strong>EPS成長率+10-12%</strong>を考慮したPEGレシオでは妥当な水準。過去も「割高」と言われながら利益成長で正当化され続けてきた歴史がある。</p></blockquote>
+
+  <h3>3-3. セクター別動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>セクター</th><th>動向</th><th>見通し</th></tr></thead>
+    <tbody>
+      <tr><td><strong>テクノロジー（AI・クラウド）</strong></td><td>AI投資の加速、データセンター需要爆発</td><td>引き続き市場の<strong>牽引役</strong></td></tr>
+      <tr><td><strong>ヘルスケア（肥満治療薬・バイオ）</strong></td><td>GLP-1受容体作動薬市場の急拡大</td><td><strong>成長テーマ</strong>、2030年に市場規模1,000億ドル超</td></tr>
+      <tr><td>エネルギー（シェールオイル）</td><td>エネルギー独立政策の推進</td><td><strong>政策次第</strong>、規制緩和は追い風</td></tr>
+      <tr><td>金融（銀行・保険）</td><td>銀行規制緩和期待、M&amp;A活性化</td><td><strong>恩恵</strong>あり</td></tr>
+      <tr><td>不動産（REIT）</td><td>金利高止まりで借入コスト負担</td><td><strong>逆風</strong>、利下げ再開まで慎重</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. 長期投資で資産を増やす</h2>
+
+  <h3>4-1. S&amp;P 500の超長期リターン実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>期間</th><th>年率リターン（配当込み）</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>過去10年（2016-2025）</td><td><strong>約13%</strong></td><td>AI・テクノロジーブームが牽引</td></tr>
+      <tr><td>過去20年（2006-2025）</td><td><strong>約10.5%</strong></td><td>リーマンショックを含む</td></tr>
+      <tr><td>過去30年（1996-2025）</td><td><strong>約10.7%</strong></td><td>ITバブル崩壊・リーマンショックを含む</td></tr>
+      <tr><td>過去50年（1976-2025）</td><td><strong>約11.3%</strong></td><td>複数の景気後退を乗り越え</td></tr>
+      <tr><td>過去100年</td><td><strong>約10.4%</strong></td><td>大恐慌・世界大戦を含む</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <p class="chart-title">S&P 500 期間別年率リターン（配当込み）</p>
+    <canvas id="chartSpReturns" height="240"></canvas>
+    <p class="chart-source">出典: S&P Dow Jones Indices, 各種データベース</p>
+  </div>
+  <div class="highlight-box"><strong>どの期間で切り取っても、15年以上保有すれば過去にマイナスリターンになったことがない。</strong> これがS&amp;P 500の最大の強みです。</div>
+
+  <h3>4-2. NISAつみたて投資シミュレーション（年率8%想定）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>毎月の積立額</th><th>元本（20年間）</th><th>20年後の資産額</th><th>運用益</th></tr></thead>
+    <tbody>
+      <tr><td>月1万円</td><td>240万円</td><td><strong>約589万円</strong></td><td>約349万円</td></tr>
+      <tr><td>月3万円</td><td>720万円</td><td><strong>約1,767万円</strong></td><td>約1,047万円</td></tr>
+      <tr><td>月5万円</td><td>1,200万円</td><td><strong>約2,945万円</strong></td><td>約1,745万円</td></tr>
+      <tr><td>月10万円</td><td>2,400万円</td><td><strong>約5,890万円</strong></td><td>約3,490万円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <p class="chart-title">NISAつみたて投資シミュレーション（年率8%・20年間）</p>
+    <canvas id="chartNisa" height="280"></canvas>
+    <p class="chart-source">出典: 金融庁つみたてシミュレーター準拠</p>
+  </div>
+  <blockquote><p>S&amp;P 500の過去20年の年率リターンは約10.5%。年率8%は<strong>やや保守的な想定</strong>です。NISAの非課税枠を活用すれば、運用益にかかる約20%の税金（約700万〜約1,400万円相当）が丸ごとお得になります。</p></blockquote>
+
+  <h3>4-3. 暴落からの回復実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>暴落イベント</th><th>S&amp;P 500下落率</th><th>回復までの期間</th></tr></thead>
+    <tbody>
+      <tr><td>ブラックマンデー（1987年）</td><td>-34%</td><td>約2年</td></tr>
+      <tr><td>ITバブル崩壊（2000年）</td><td>-49%</td><td>約7年</td></tr>
+      <tr><td>リーマンショック（2008年）</td><td>-57%</td><td>約5.5年</td></tr>
+      <tr><td>コロナショック（2020年）</td><td>-34%</td><td><strong>約5ヶ月</strong></td></tr>
+      <tr><td>2022年利上げショック</td><td>-25%</td><td><strong>約2年</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <p class="chart-title">S&P 500 暴落からの回復期間</p>
+    <canvas id="chartCrash" height="260"></canvas>
+    <p class="chart-source">出典: S&P Dow Jones Indices, 各種データベース</p>
+  </div>
+  <blockquote><p><strong>最大の教訓</strong>: リーマンショック直前の最悪のタイミングで投資を開始しても、S&amp;P 500を継続保有した場合、10年後には<strong>+180%超のリターン</strong>。暴落時に売らず、積立を続けることが成功の鍵。</p></blockquote>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 分散投資の効果</h2>
+
+  <h3>5-1. 米国株式のポートフォリオ内での位置づけ</h3>
+  <p>米国株式は世界の株式時価総額の約<strong>66%</strong>を占め、ポートフォリオの中核（コア）として最適です。一方、一国集中のリスクにも注意が必要です。</p>
+
+  <h3>5-2. 米国一国集中リスクへの注意喚起</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>リスク要因</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>バリュエーションリスク</td><td>PER 21-22倍は歴史的に割高水準。調整局面の可能性</td></tr>
+      <tr><td>Mag7集中リスク</td><td>S&amp;P 500時価総額の<strong>約34%</strong>がたった7社に集中</td></tr>
+      <tr><td>政策リスク</td><td>関税、規制変更、財政赤字拡大</td></tr>
+      <tr><td>為替リスク</td><td>円高ドル安進行時に円建てリターンが目減り</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-3. GPIFの資産配分</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産クラス</th><th>基本配分</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>国内株式</td><td>25%</td><td></td></tr>
+      <tr><td><strong>外国株式</strong></td><td><strong>25%</strong></td><td>大部分が米国株式（推定60-65%）</td></tr>
+      <tr><td>国内債券</td><td>25%</td><td></td></tr>
+      <tr><td>外国債券</td><td>25%</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>GPIFは23年間で<strong>累積収益約155兆円</strong>、年率約4.2%のリターンを達成。分散投資の有効性を世界最大の年金基金が証明しています。</p></blockquote>
+
+  <h3>5-4. ポートフォリオ組み合わせ効果</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>配分パターン</th><th>期待リターン</th><th>リスク（変動率）</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国100%</strong></td><td>約10%</td><td>約16%</td><td>リターン最大だがリスクも最大</td></tr>
+      <tr><td>米国60%+先進国20%+新興国20%</td><td>約9%</td><td>約14%</td><td>分散効果でリスク低減</td></tr>
+      <tr><td>米国50%+国際株30%+債券20%</td><td>約7.5%</td><td>約11%</td><td>バランス型、下落耐性あり</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-5. 為替リスクについて</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>シナリオ</th><th>影響</th></tr></thead>
+    <tbody>
+      <tr><td><strong>円安進行（例: 1ドル=160円）</strong></td><td>円建てリターンが増加 — 為替差益がプラスに作用</td></tr>
+      <tr><td><strong>円高進行（例: 1ドル=130円）</strong></td><td>円建てリターンが減少 — ただし長期では株価上昇が為替変動を上回る</td></tr>
+      <tr><td>対策</td><td>つみたて投資で為替コストを平準化（ドルコスト平均法）</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>過去30年でドル円は75円〜160円のレンジで推移。しかしS&amp;P 500は同期間に<strong>約12倍</strong>に成長。長期では<strong>為替変動より株価成長のインパクトが圧倒的に大きい</strong>。</p></blockquote>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. おすすめファンド</h2>
+
+  <h3>6-1. 主要ファンド比較表</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>信託報酬（税込）</th><th>純資産額</th><th>特徴</th><th>NISA</th></tr></thead>
+    <tbody>
+      <tr><td><strong>eMAXIS Slim 米国株式（S&amp;P 500）</strong></td><td><strong>0.0814%</strong></td><td><strong>7兆円超</strong></td><td>S&amp;P 500連動、国内最大級</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>SBI・V・S&amp;P500</strong></td><td><strong>0.0638%</strong></td><td>約2兆円</td><td>バンガードS&amp;P 500 ETF連動、最安水準</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>楽天・S&amp;P500</strong></td><td>0.077%</td><td>約5,000億円</td><td>楽天証券との親和性高い</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>eMAXIS Slim 全世界株式（オール・カントリー）</strong></td><td><strong>0.05775%</strong></td><td>約5兆円</td><td>全世界分散、米国約60%含む</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>iFreeNEXT NASDAQ100</strong></td><td>0.495%</td><td>約1,500億円</td><td>NASDAQ100連動、成長株重視</td><td>成長投資枠</td></tr>
+      <tr><td><strong>iFreeNEXT FANG+インデックス</strong></td><td>0.7755%</td><td>約3,000億円</td><td>テック集中型10銘柄、高リターン狙い</td><td>成長投資枠</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-2. タイプ別おすすめ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>タイプ</th><th>おすすめファンド</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>初心者・長期積立</strong></td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td><td>圧倒的な純資産額と低コスト、迷ったらこれ</td></tr>
+      <tr><td><strong>コスト最重視</strong></td><td>SBI・V・S&amp;P500</td><td>信託報酬0.0638%は業界最安水準</td></tr>
+      <tr><td><strong>分散も重視</strong></td><td>eMAXIS Slim 全世界株式</td><td>米国60%+世界分散、1本で完結</td></tr>
+      <tr><td><strong>成長株重視</strong></td><td>iFreeNEXT NASDAQ100</td><td>AI・テクノロジー銘柄に集中投資</td></tr>
+      <tr><td><strong>高リスク・高リターン</strong></td><td>iFreeNEXT FANG+インデックス</td><td>Mag7中心、上昇相場で大きなリターン</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. セールストーク集</h2>
+
+  <h3>7-1. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「米国株はもう高すぎませんか？」</div>
+  <blockquote><p>確かにPERは21-22倍と歴史的平均より高めです。しかし、過去にも「割高」と言われるたびにEPS（一株当たり利益）の成長が株価を正当化してきました。2000年のITバブル時はPER 30倍超で利益の裏付けがありませんでしたが、今のAI関連企業は実際に巨額の利益を生み出しています。EPS成長率+10-12%を考慮すれば、現在のバリュエーションは妥当な範囲です。</p></blockquote>
+
+  <div class="faq-q">Q2: 「円安の今、為替リスクが心配です」</div>
+  <blockquote><p>お気持ちはよくわかります。ただ、過去30年のデータを見ると、S&amp;P 500は約12倍に成長しています。一方、ドル円の変動幅は75円〜160円（約2倍）。つまり、長期では為替変動より株価成長のインパクトの方が圧倒的に大きいのです。つみたて投資なら為替コストも平準化されます。</p></blockquote>
+
+  <div class="faq-q">Q3: 「S&amp;P 500とオルカン（全世界株式）、どちらがいいですか？」</div>
+  <blockquote><p>正直、どちらも優れた選択肢です。S&amp;P 500は米国に集中することで高いリターンが期待できます。オルカンは世界に分散することでリスクを抑えられます（ただし中身の60%は米国です）。迷ったら両方に半分ずつ投資するのも良い方法です。大切なのは「どちらかを選んで、長期で続けること」です。</p></blockquote>
+
+  <div class="faq-q">Q4: 「AIバブルが崩壊しませんか？」</div>
+  <blockquote><p>2000年のITバブルとの大きな違いは、今のAI企業は実際に莫大な収益を上げていることです。NvidiaのAI半導体売上は前年比2倍以上、MicrosoftのAIクラウド収益も急拡大中です。ただし、Mag7への集中リスクには注意が必要です。だからこそ、S&amp;P 500全体（500銘柄に分散）への投資をおすすめしています。</p></blockquote>
+
+  <div class="faq-q">Q5: 「トランプ関税が心配です」</div>
+  <blockquote><p>関税は確かに短期的な変動要因です。しかし、歴史を見ると米国企業は常に環境変化に適応してきました。また、減税延長・規制緩和というプラス効果も同時に進行しています。過去の貿易摩擦でも、S&amp;P 500は一時的な調整の後に上昇トレンドに回帰しています。むしろ下落局面は積立投資のチャンスと捉えることもできます。</p></blockquote>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. 具体的な提案</h2>
+
+  <h3>8-1. 投資家タイプ別ポートフォリオ例</h3>
+
+  <div class="pattern-title">パターンA: 保守的 — 安定重視</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国株式（S&amp;P 500）</strong></td><td><strong>60%</strong></td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>先進国債券</td><td>20%</td><td>eMAXIS Slim 先進国債券</td></tr>
+      <tr><td>国内債券</td><td>10%</td><td>eMAXIS Slim 国内債券</td></tr>
+      <tr><td>現金・短期資産</td><td>10%</td><td>個人向け国債・預金</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンB: バランス型 — 分散重視</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国株式（S&amp;P 500）</strong></td><td><strong>50%</strong></td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>先進国株式（米国除く）</td><td>20%</td><td>eMAXIS Slim 先進国株式（除く米国）</td></tr>
+      <tr><td>先進国債券</td><td>20%</td><td>eMAXIS Slim 先進国債券</td></tr>
+      <tr><td>新興国株式</td><td>10%</td><td>eMAXIS Slim 新興国株式</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンC: 積極的 — 高リターン追求</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国株式（S&amp;P 500）</strong></td><td><strong>40%</strong></td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td><strong>NASDAQ100</strong></td><td><strong>30%</strong></td><td>iFreeNEXT NASDAQ100</td></tr>
+      <tr><td>新興国株式</td><td>20%</td><td>eMAXIS Slim 新興国株式</td></tr>
+      <tr><td>欧州株式</td><td>10%</td><td>楽天・欧州株式インデックス</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8-2. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 - 現状の確認</p><blockquote><p>「現在の資産運用はどのようにされていますか？ 預貯金中心でしょうか、それとも何か投資をされていますか？」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 - 課題の提示</p><blockquote><p>「銀行預金の金利は0.02%。100万円を預けても年間200円です。一方、S&amp;P 500は過去100年で年率10.4%。この差を活用しない手はありません。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 - 米国株の魅力を説明</p><blockquote><p>「S&amp;P 500は15年以上保有すれば過去にマイナスになったことがありません。Apple、Microsoft、Nvidia...世界最強の企業群に少額から投資できるのが投資信託の魅力です。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 - 具体的なシミュレーション</p><blockquote><p>「月3万円を20年間つみたてると、年率8%で約1,767万円になります。元本720万円に対して運用益は約1,047万円。NISAなら非課税です。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 - 行動喚起</p><blockquote><p>「まずは月1万円から始めてみませんか？ NISAのつみたて投資枠で、eMAXIS Slim 米国株式（S&amp;P 500）が最も人気のある選択肢です。」</p></blockquote></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的としたものではありません。記載されたデータは2026年2月26日時点の情報に基づいており、将来の運用成果を保証するものではありません。投資にはリスクが伴い、元本割れの可能性があります。投資判断はお客様ご自身の判断と責任でお願いいたします。投資信託は預金ではなく、預金保険の対象ではありません。過去のパフォーマンスは将来の結果を保証するものではありません。</p>
+</footer>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var P='#1a365d',S='#2c5282',G='#d69e2e',Gr='#48bb78',O='#ed8936',R='#e53e3e',Pu='#805ad5',LB='#63b3ed',T='#38b2ac';
+  var fontOpt={family:"'Noto Sans JP',sans-serif"};
+  var gridOpt={color:'#e2e8f0'};
+  // Chart 1: GDP
+  new Chart(document.getElementById('chartGdp'),{type:'bar',data:{labels:['IMF','Goldman\nSachs','Vanguard','BlackRock','JP Morgan','PIMCO','FOMC','ユーロ圏','日本'],datasets:[{label:'2024年実績',data:[2.8,2.8,2.8,2.8,2.8,2.8,2.8,0.8,0.1],backgroundColor:LB},{label:'2025年実績',data:[2.2,2.2,2.2,2.2,2.2,2.2,2.2,1.0,1.2],backgroundColor:S},{label:'2026年予測',data:[2.4,2.65,2.25,2.1,2.0,2.5,2.3,1.3,1.0],backgroundColor:G}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{beginAtZero:true,title:{display:true,text:'GDP成長率 (%)',font:fontOpt},grid:gridOpt},x:{ticks:{font:{size:10,family:"'Noto Sans JP',sans-serif"}}}}}});
+  // Chart 2: Inflation
+  new Chart(document.getElementById('chartInflation'),{type:'bar',data:{labels:['FOMC\n(Core PCE)','Goldman\n(Core PCE)','Goldman\n(Core CPI)','JP Morgan\n(Core CPI)','Vanguard\n(コア)','IMF\n(CPI)','PIMCO\n(Core PCE)'],datasets:[{label:'2026年予測',data:[2.5,2.1,2.0,3.2,2.6,2.4,3.0],backgroundColor:[P,S,G,O,Gr,LB,R]}]},options:{indexAxis:'horizontal',responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:gridOpt},x:{title:{display:true,text:'インフレ率 (%)',font:fontOpt},grid:gridOpt}}}});
+  // Chart 3: Fed Rate Path
+  new Chart(document.getElementById('chartFedRate'),{type:'line',data:{labels:['2024年3月','2024年9月','2024年12月','2025年6月','2025年9月','2025年12月','2026年6月','2026年12月'],datasets:[{label:'FF金利（上限）',data:[5.50,5.50,4.50,4.50,4.00,3.75,3.50,3.25],borderColor:P,backgroundColor:'rgba(26,54,93,0.1)',fill:true,tension:0.3,pointRadius:4},{label:'Goldman Sachs予測',data:[null,null,null,null,null,null,3.25,3.00],borderColor:G,borderDash:[5,5],pointRadius:4},{label:'JP Morgan予測',data:[null,null,null,null,null,null,3.75,3.75],borderColor:R,borderDash:[5,5],pointRadius:4}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{title:{display:true,text:'政策金利 (%)',font:fontOpt},grid:gridOpt},x:{ticks:{font:{size:9,family:"'Noto Sans JP',sans-serif"}}}}}});
+  // Chart 4: Industry Composition (doughnut)
+  new Chart(document.getElementById('chartIndustry'),{type:'doughnut',data:{labels:['金融・保険・不動産','専門・ビジネスサービス','政府部門','製造業','テクノロジー','ヘルスケア','建設業','エネルギー','農業','その他'],datasets:[{data:[21.2,12.5,12,10.5,8.9,7.5,4.5,2.5,1,19.4],backgroundColor:[P,S,G,Gr,O,R,Pu,LB,T,'#CBD5E0']}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{font:{size:11,family:"'Noto Sans JP',sans-serif"},padding:8}}}}});
+  // Chart 5: Labor Market
+  new Chart(document.getElementById('chartLabor'),{type:'bar',data:{labels:['失業率 (%)','NFP月次増加\n(万人)','平均時給伸び\n(前年比%)'],datasets:[{label:'2024年',data:[4.2,25,4.0],backgroundColor:LB},{label:'2025年',data:[4.1,1.5,3.8],backgroundColor:S},{label:'2026年予測',data:[4.35,5.5,3.75],backgroundColor:G}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{beginAtZero:true,grid:gridOpt},x:{ticks:{font:{size:10,family:"'Noto Sans JP',sans-serif"}}}}}});
+  // Chart 6: S&P 500 Long-term Returns
+  new Chart(document.getElementById('chartSpReturns'),{type:'bar',data:{labels:['過去10年\n(2016-2025)','過去20年\n(2006-2025)','過去30年\n(1996-2025)','過去50年\n(1976-2025)','過去100年'],datasets:[{label:'年率リターン（配当込み）',data:[13,10.5,10.7,11.3,10.4],backgroundColor:[G,S,P,Gr,O]}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'年率リターン (%)',font:fontOpt},grid:gridOpt},y:{ticks:{font:{size:11,family:"'Noto Sans JP',sans-serif"}}}}}});
+  // Chart 7: NISA Simulation
+  new Chart(document.getElementById('chartNisa'),{type:'bar',data:{labels:['月1万円','月3万円','月5万円','月10万円'],datasets:[{label:'元本',data:[240,720,1200,2400],backgroundColor:'#CBD5E0'},{label:'運用益',data:[349,1047,1745,3490],backgroundColor:G}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{stacked:true,title:{display:true,text:'金額（万円）',font:fontOpt},grid:gridOpt},x:{stacked:true,ticks:{font:fontOpt}}}}});
+  // Chart 8: Crash Recovery
+  new Chart(document.getElementById('chartCrash'),{type:'bar',data:{labels:['ブラックマンデー\n(1987)','ITバブル崩壊\n(2000)','リーマンショック\n(2008)','コロナショック\n(2020)','利上げショック\n(2022)'],datasets:[{label:'下落率 (%)',data:[-34,-49,-57,-34,-25],backgroundColor:[O,R,R,O,G]},{label:'回復期間 (年)',data:[2,7,5.5,0.4,2],backgroundColor:[LB,S,S,Gr,LB],yAxisID:'y1'}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{title:{display:true,text:'下落率 (%)',font:fontOpt},grid:gridOpt},y1:{position:'right',title:{display:true,text:'回復期間 (年)',font:fontOpt},grid:{display:false}},x:{ticks:{font:{size:9,family:"'Noto Sans JP',sans-serif"}}}}}});
+  // Chart 9: Debt/GDP
+  new Chart(document.getElementById('chartDebt'),{type:'line',data:{labels:['FY2025','FY2026','FY2029','FY2036'],datasets:[{label:'政府債務/GDP比率 (%)',data:[99.8,101,107,120],borderColor:R,backgroundColor:'rgba(229,62,62,0.1)',fill:true,tension:0.3,pointRadius:5}]},options:{responsive:true,plugins:{legend:{labels:{font:fontOpt}}},scales:{y:{title:{display:true,text:'債務/GDP比率 (%)',font:fontOpt},grid:gridOpt},x:{ticks:{font:fontOpt}}}}});
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>グローバル債券 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>グローバル債券 セールス提案資料</h1>
+  <p class="subtitle">Global Fixed Income — Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月26日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済・金利環境</a></li>
+    <li><a href="#sec3">債券市場の現状と見通し</a></li>
+    <li><a href="#sec4">ポートフォリオにおける役割</a></li>
+    <li><a href="#sec5">為替ヘッジの考え方</a></li>
+    <li><a href="#sec6">おすすめファンド</a></li>
+    <li><a href="#sec7">セールストーク集</a></li>
+    <li><a href="#sec8">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、グローバル債券なのか</h4>
+  <div class="gold-box"><p><strong>1. 世界最大の資産クラス</strong>: 世界の債券市場は<strong>130兆ドル超</strong> — 株式市場を上回る巨大市場。プロの機関投資家が最も重視するアセットクラスです。</p></div>
+  <div class="gold-box"><p><strong>2. 先進国の高金利環境</strong>: 米国4.0%、豪州4.7%、英国4.3%。<strong>10年以上ぶりの魅力的な利回り水準</strong>が実現。PIMCOは「複利の好機」、BlackRockは「固定収益の黄金時代」と評価しています。</p></div>
+  <div class="gold-box"><p><strong>3. 究極の分散効果</strong>: 複数通貨・複数国の債券に分散することで、単一国リスクを大幅に低減。株式とは異なる値動きで<strong>ポートフォリオの安全装置</strong>として機能します。</p></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済・金利環境</h2>
+
+  <h3>2-1. 主要国の最新利回りデータ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>国/地域</th><th>2年</th><th>10年</th><th>30年</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国</strong></td><td>3.48%</td><td><strong>4.04-4.08%</strong></td><td>4.72%</td><td>順イールド回復、2-10年スプレッド+60bp</td></tr>
+      <tr><td><strong>英国</strong></td><td>—</td><td><strong>4.32%</strong></td><td>—</td><td>BOE据え置き、インフレ懸念継続</td></tr>
+      <tr><td><strong>豪州</strong></td><td>—</td><td><strong>4.73%</strong></td><td>—</td><td>RBA利上げ中で上昇</td></tr>
+      <tr><td><strong>カナダ</strong></td><td>—</td><td><strong>3.19%</strong></td><td>—</td><td>BOC据え置き、貿易リスク警戒</td></tr>
+      <tr><td><strong>ドイツ</strong></td><td>—</td><td><strong>2.70%</strong></td><td>—</td><td>ECB据え置き</td></tr>
+      <tr><td><strong>日本</strong></td><td>約0.65%</td><td><strong>2.10%</strong></td><td>3.39%</td><td>40年債3.62%、超長期ゾーン急騰後に低下</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Federal Reserve H.15（2026年2月25日）、Trading Economics、各国中央銀行公表データ</p>
+  <div class="chart-container">
+    <div class="chart-title">主要国 国債利回り比較</div>
+    <canvas id="chartGlobalYields"></canvas>
+    <div class="chart-source">出典: Federal Reserve、Trading Economics</div>
+  </div>
+
+  <h3>2-2. 中央銀行の政策金利（2026年2月時点）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>中央銀行</th><th>政策金利</th><th>直近の決定</th><th>金融政策の方向性</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FRB（米国）</strong></td><td><strong>3.50-3.75%</strong></td><td>2026年1月28日 据え置き</td><td>利下げ一時停止 → 年後半に再開可能性</td></tr>
+      <tr><td><strong>ECB（欧州）</strong></td><td><strong>預金2.00% / 主要オペ2.15%</strong></td><td>2026年2月5日 据え置き</td><td>利下げサイクル完了、据え置き</td></tr>
+      <tr><td><strong>BOE（英国）</strong></td><td><strong>3.75%</strong></td><td>2026年2月4日 据え置き（5対4の接戦）</td><td>利下げ進行中（インフレ低下待ち）</td></tr>
+      <tr><td><strong>BOJ（日本）</strong></td><td><strong>0.75%</strong></td><td>2026年1月23日 据え置き</td><td>利上げサイクル進行中</td></tr>
+      <tr><td><strong>RBA（豪州）</strong></td><td><strong>3.85%</strong></td><td>2026年2月3日 <strong>0.25%利上げ</strong></td><td><strong>利上げ中</strong>（インフレ再加速対応）</td></tr>
+      <tr><td><strong>BOC（カナダ）</strong></td><td><strong>2.25%</strong></td><td>2026年1月28日 据え置き</td><td>据え置き（貿易摩擦懸念）</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: 各国中央銀行公式発表（2026年2月時点）</p>
+  <div class="chart-container">
+    <div class="chart-title">主要中央銀行 政策金利（2026年2月）</div>
+    <canvas id="chartCbRates"></canvas>
+    <div class="chart-source">出典: 各国中央銀行公式発表</div>
+  </div>
+
+  <h3>2-3. 各中央銀行の2026年見通し</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>中央銀行</th><th>2026年末の政策金利予想</th><th>見通しの根拠</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FRB</strong></td><td>3.00-3.25%（Goldman Sachs: 年後半2回利下げ）</td><td>労働市場軟化が条件、PIMCOも同様の見通し</td></tr>
+      <tr><td><strong>ECB</strong></td><td>2.00%（据え置き）</td><td>Lagarde総裁「利上げも利下げも議論していない」</td></tr>
+      <tr><td><strong>BOE</strong></td><td>3.00%（Capital Economics予想）</td><td>インフレ改善・労働市場軟化で利下げ継続</td></tr>
+      <tr><td><strong>BOJ</strong></td><td>1.00-1.25%（1〜2回の追加利上げ）</td><td>Oxford Economics: 2026年央に1.00%予想</td></tr>
+      <tr><td><strong>RBA</strong></td><td>3.85%（高止まり）</td><td>インフレ再加速で利下げ転換は当面なし</td></tr>
+      <tr><td><strong>BOC</strong></td><td>2.25%（据え置き）</td><td>米国との貿易摩擦懸念で様子見</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Goldman Sachs AM（Q1 2026）、ING Think、Capital Economics、Oxford Economics</p>
+
+  <h3>2-4. 金融サイクルの違い — 分散の根拠</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>国/地域</th><th>金融サイクル</th><th>債券への影響</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米国</strong></td><td>据え置き（利下げ一時停止）</td><td>高い利回りを享受、利下げ再開で価格上昇余地</td></tr>
+      <tr><td><strong>欧州</strong></td><td>据え置き（利下げ完了）</td><td>安定的なキャリー収入</td></tr>
+      <tr><td><strong>英国</strong></td><td>利下げ進行中</td><td>債券価格の上昇期待</td></tr>
+      <tr><td><strong>日本</strong></td><td>利上げ進行中</td><td>利回り改善、ただし価格は下落圧力</td></tr>
+      <tr><td><strong>豪州</strong></td><td><strong>利上げ中</strong></td><td>高い利回り水準、金利ピーク後の価格上昇余地</td></tr>
+      <tr><td><strong>カナダ</strong></td><td>据え置き</td><td>安定的なキャリー収入、利下げ余地は限定的</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>重要ポイント</strong>: 各国の金利サイクルが全く異なるからこそ、グローバル分散の意味があります。米国は据え置き、英国は利下げ、豪州は利上げ、日本も利上げ — この非同期性が債券ポートフォリオ全体のリスクを低減します。</p></blockquote>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 債券市場の現状と見通し</h2>
+
+  <h3>3-1. 2025年の債券インデックスリターン（確定値）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>インデックス</th><th>2025年リターン</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bloomberg Global Aggregate（USD非ヘッジ）</strong></td><td><strong>+8.17%</strong></td><td>2020年以来最高のリターン</td></tr>
+      <tr><td><strong>Bloomberg US Aggregate</strong></td><td><strong>+7.30%</strong></td><td>2020年以来最高</td></tr>
+      <tr><td><strong>米国MBS（モーゲージ担保証券）</strong></td><td><strong>+8.58%</strong></td><td>2002年以来最高、BlackRockが注目セクター</td></tr>
+      <tr><td><strong>Global Agg Corporate（社債）</strong></td><td><strong>+10.30%</strong></td><td>セクター別で最高パフォーマンス</td></tr>
+      <tr><td>Global Agg 国債</td><td>+6.82%</td><td>各国利下げが追い風</td></tr>
+      <tr><td>Global Agg 証券化商品</td><td>+9.71%</td><td>MBS・ABS含む</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Bloomberg Professional Services「Looking Back at 2025: Fixed Income」</p>
+  <blockquote><p><strong>2025年は債券にとって素晴らしい年</strong>でした。ドル安と各国中央銀行の利下げが非ヘッジリターンを大幅に押し上げ、Global Aggregateインデックスの残高は78.1兆ドル（約31,458銘柄）に拡大しました。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">2025年 債券インデックスリターン</div>
+    <canvas id="chartBondReturns2025"></canvas>
+    <div class="chart-source">出典: Bloomberg Professional Services</div>
+  </div>
+
+  <h3>3-2. 債券種別のリスク・リターン特性</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>債券種別</th><th>利回り目安</th><th>信用リスク</th><th>金利感応度</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>先進国国債</strong></td><td>2.5〜4.7%</td><td>極めて低い</td><td>高い</td><td>安全資産の代表格、流動性最高</td></tr>
+      <tr><td><strong>投資適格社債</strong></td><td>4.5〜5.5%</td><td>低い</td><td>中程度</td><td>国債より高い利回り、安定性も確保</td></tr>
+      <tr><td><strong>エージェンシーMBS</strong></td><td>4.5〜5.5%</td><td>極めて低い</td><td>中程度</td><td>政府保証、BlackRockが「非常に割安」と評価</td></tr>
+      <tr><td><strong>ハイイールド債</strong></td><td>6.5〜7.5%</td><td>中〜高い</td><td>低い</td><td>利回り約6.74%、株式に近い値動き</td></tr>
+      <tr><td><strong>新興国債券</strong></td><td>6〜8%超</td><td>中程度</td><td>中程度</td><td>JPモルガン: EMローカル市場期待リターン8%超</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3-3. クレジットスプレッドの状況</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>カテゴリー</th><th>OASスプレッド</th><th>利回り</th><th>評価</th></tr></thead>
+    <tbody>
+      <tr><td><strong>投資適格（IG）全体</strong></td><td><strong>約78bp</strong></td><td>—</td><td>過去20年の2パーセンタイル（歴史的タイト）</td></tr>
+      <tr><td><strong>ハイイールド（HY）全体</strong></td><td><strong>約288bp</strong></td><td><strong>6.74%</strong></td><td>絶対利回りは魅力的</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Charles Schwab、Breckinridge Capital Advisors（2026年Q1）</p>
+  <div class="highlight-box"><p><strong>IGスプレッドは歴史的な超タイト水準</strong>。企業の財務状況は健全ですが、BlackRockは「IGは割安ではなく、インデックス全体への広範な投資だけでは超過リターンは見込みにくい」と指摘。<strong>銘柄選択（セレクティビティ）</strong>が重要な環境です。一方、エージェンシーMBSはIG社債に比べて割安で注目されています。</p></div>
+
+  <h3>3-4. 主要運用会社の見解</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>運用会社</th><th>基本スタンス</th><th>推奨戦略</th><th>注目ポイント</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PIMCO</strong></td><td>「Compounding Opportunity（複利の好機）」</td><td>デュレーション2-5年中心、アクティブ運用で目標利回り5-7%</td><td>英国・豪州・EM（ペルー・南アフリカ）に注目</td></tr>
+      <tr><td><strong>BlackRock</strong></td><td>「固定収益のゴールデンエイジ（黄金時代）」</td><td>個別銘柄選択重視、インカム主導</td><td><strong>エージェンシーMBSが「非常に割安」</strong></td></tr>
+      <tr><td><strong>JP Morgan</strong></td><td>インカムが主役の環境</td><td>米国Agg期待リターン4.8%、HY 6.1%、EM国債6.3%</td><td>ハイブリッド資本証券、EMローカル通貨債</td></tr>
+      <tr><td><strong>Vanguard</strong></td><td>クレジットが国債をアウトパフォーム</td><td>中期デュレーション延長推奨、米高格付け債10年期待リターン約4%</td><td>社債供給 前年比23%増の8,000億ドル予想</td></tr>
+      <tr><td><strong>Goldman Sachs</strong></td><td>デュレーションニュートラル</td><td>スティープニングバイアス、キャリー重視</td><td>証券化商品、HY、EM信用に注目</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: 各社2026年アウトルックレポート（PIMCO、BlackRock、JP Morgan AM、Vanguard、Goldman Sachs AM）</p>
+
+  <h3>3-5. EM（新興国）債券の魅力</h3>
+  <div class="gold-box">
+    <p><strong>新興国債券は2026年の注目セクター</strong>です。JP Morganは、EM国債スプレッドが250bp以下へ縮小すると予想。EMローカル通貨建て債券の期待リターンは<strong>8%超</strong>（JP Morgan推計）。多くのEM中央銀行が実質金利を高水準に維持しており、先進国より魅力的な利回りが得られます。PIMCOは南アフリカ・ペルー・一部アジアを注目市場として挙げています。</p>
+  </div>
+  <p style="font-size:0.82rem;color:#718096;">出典: PineBridge Investments「2026 EM Debt Outlook」、RBC GAM</p>
+
+  <h3>3-6. 2026年の見通し</h3>
+  <h4>メインシナリオ（確率60%）</h4>
+  <ul>
+    <li>FRBが2026年後半に利下げ再開（Goldman Sachs: 2回、→3.00-3.25%）で米国債に追い風</li>
+    <li>キャピタルゲインよりも<strong>インカム（利息）が主役</strong>の環境 — 「Income is King」</li>
+    <li>JP Morgan予想: 米国Agg期待リターン<strong>4.8%</strong>、HY<strong>6.1%</strong></li>
+    <li>PIMCOはアクティブ運用で<strong>5-7%</strong>のポートフォリオ利回りが狙えると評価</li>
+  </ul>
+  <h4>リスクシナリオ（確率25%）</h4>
+  <ul>
+    <li>インフレ再燃（関税の影響など）で金利が再上昇</li>
+    <li>IGスプレッドが歴史的タイト水準から拡大 → クレジット市場の調整リスク</li>
+    <li>短期的には債券価格が下落するが、利回りが上昇するため<strong>長期投資家にとっては買い場</strong></li>
+  </ul>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. ポートフォリオにおける役割</h2>
+
+  <h3>4-1. 株式・債券相関の推移 — 分散効果が復活</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>時期</th><th>株式・債券 相関係数</th><th>状況</th></tr></thead>
+    <tbody>
+      <tr><td>2024年7月（ピーク）</td><td><strong>+0.80</strong></td><td>インフレ懸念で株式・債券が同時に下落しやすい環境</td></tr>
+      <tr><td>2024年12月</td><td>+0.66</td><td>高止まり</td></tr>
+      <tr><td>2025年9月</td><td>+0.48</td><td>改善傾向</td></tr>
+      <tr><td><strong>2025年末〜2026年初</strong></td><td><strong>+0.16</strong></td><td><strong>大幅改善 — 分散効果が戻ってきた</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Morningstar、State Street Global Advisors</p>
+  <blockquote><p><strong>朗報: 株式・債券の相関が+0.80から+0.16へ低下</strong>。インフレ懸念から景気減速懸念へのマクロ転換により、「株安 = 金利低下（債券高）」のネガティブ相関が一部復活。<strong>債券の「ポートフォリオの安定装置」としての機能が回復しつつあります</strong>。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">株式・債券 相関係数の推移</div>
+    <canvas id="chartCorrelationGb"></canvas>
+    <div class="chart-source">出典: Morningstar、State Street</div>
+  </div>
+
+  <h3>4-2. 60/40ポートフォリオの実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年</th><th>60/40リターン</th><th>内訳・備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2022年</strong></td><td><strong>約-16%</strong></td><td>株安+債券安の同時安（史上稀な悪環境）</td></tr>
+      <tr><td><strong>2023年</strong></td><td><strong>約+18%</strong></td><td>株高・債券回復</td></tr>
+      <tr><td><strong>2024年</strong></td><td><strong>約+12%</strong></td><td>株式主導のリターン</td></tr>
+      <tr><td><strong>2025年</strong></td><td><strong>約+14〜15%</strong></td><td>株高+債券高の好環境</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: Morningstar「Markets Brief: Solid Year for Bonds, 60/40 Portfolios Too」</p>
+  <div class="highlight-box"><p><strong>60/40ポートフォリオは2023年以降3年連続でプラスリターン</strong>を達成。2022年の「60/40は終わった」という悲観論は早計でした。特に2025年は株高+債券高の好環境で、リターンを大きく犠牲にせずにリスクを低減できることが改めて実証されました。</p></div>
+  <div class="chart-container">
+    <div class="chart-title">60/40ポートフォリオ年間リターン</div>
+    <canvas id="chart6040"></canvas>
+    <div class="chart-source">出典: Morningstar</div>
+  </div>
+
+  <h4>長期実績（参考）</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ポートフォリオ</th><th>年率リターン（過去20年）</th><th>最大下落率</th><th>リスク（標準偏差）</th></tr></thead>
+    <tbody>
+      <tr><td>株式100%</td><td>約8.5%</td><td>-51%</td><td>約16%</td></tr>
+      <tr><td><strong>株式60% + 債券40%</strong></td><td><strong>約7.0%</strong></td><td><strong>-25%</strong></td><td><strong>約10%</strong></td></tr>
+      <tr><td>債券100%</td><td>約3.5%</td><td>-13%</td><td>約5%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4-3. GPIF 第5期中期目標（2025年4月〜2030年3月）</h3>
+  <p>世界最大の年金基金であるGPIF（年金積立金管理運用独立行政法人）は、第5期中期目標でも<strong>4資産均等25%</strong>を維持しました。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産クラス</th><th>目標比率</th><th>2025年3月末実績</th></tr></thead>
+    <tbody>
+      <tr><td>国内株式</td><td>25%</td><td>23.94%</td></tr>
+      <tr><td>外国株式</td><td>25%</td><td>24.05%</td></tr>
+      <tr><td>国内債券</td><td>25%</td><td>27.64%</td></tr>
+      <tr><td><strong>外国債券</strong></td><td><strong>25%</strong></td><td>24.37%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="gold-box">
+    <p><strong>第5期のポイント</strong></p>
+    <ul>
+      <li><strong>実質収益率1.9%目標</strong>: 2024年財政検証をもとに、最小リスクで達成できるポートフォリオとして4資産均等を再選定</li>
+      <li><strong>乖離許容幅の縮小</strong>: リスク管理を強化するため、前期より厳格化</li>
+      <li>累積収益額は<strong>約155兆円</strong>（2024年度末） — 世界最大の機関投資家が導き出した「最適解」</li>
+    </ul>
+  </div>
+  <p style="font-size:0.82rem;color:#718096;">出典: GPIF公式「第5期基本ポートフォリオ詳細」、Bloomberg</p>
+  <div class="chart-container">
+    <div class="chart-title">GPIF 基本ポートフォリオ</div>
+    <canvas id="chartGpifGb"></canvas>
+    <div class="chart-source">出典: GPIF公式</div>
+  </div>
+
+  <h3>4-4. 各国債券の特徴</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>米国債 — 世界のベンチマーク</h4>
+      <ul>
+        <li>世界で最も流動性の高い債券市場</li>
+        <li>10年国債利回り<strong>4.04-4.08%</strong></li>
+        <li>FRB利下げ再開（年後半）で価格上昇余地</li>
+        <li>30年債4.72%は長期投資に魅力的</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>独国債 — ユーロ圏の安全資産</h4>
+      <ul>
+        <li>ユーロ圏のベンチマーク債券</li>
+        <li>10年国債利回り<strong>2.70%</strong></li>
+        <li>ECB据え置きで安定的なキャリー</li>
+        <li>円ヘッジコストが低く（約0.5-1.0%）、ヘッジ後リターンが確保しやすい</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>英国ギルト — 高利回り+利下げ余地</h4>
+      <ul>
+        <li>10年ギルト利回り<strong>4.32%</strong></li>
+        <li>BOEは3.00%まで利下げ継続予想（Capital Economics）</li>
+        <li><strong>先進国で最も利下げ余地が大きい</strong></li>
+        <li>PIMCOが注目市場として挙げる</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>豪州国債 — 高利回りの資源国</h4>
+      <ul>
+        <li>10年国債利回り<strong>4.73%</strong></li>
+        <li>RBAは<strong>利上げ中</strong>（3.85%）</li>
+        <li>高い利回り水準、金利ピーク後に価格上昇余地</li>
+        <li>PIMCOが注目市場として挙げる</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>4-5. 年齢別の債券配分推奨</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年齢</th><th>株式比率</th><th>債券比率</th><th>考え方</th></tr></thead>
+    <tbody>
+      <tr><td><strong>20歳代</strong></td><td>80〜90%</td><td><strong>10〜20%</strong></td><td>成長重視、リスク許容度が高い</td></tr>
+      <tr><td><strong>30歳代</strong></td><td>75〜85%</td><td><strong>15〜25%</strong></td><td>積立の核は株式、債券で安定性を補完</td></tr>
+      <tr><td><strong>40歳代</strong></td><td>60〜75%</td><td><strong>25〜40%</strong></td><td>リスクの意識的な引き下げを開始</td></tr>
+      <tr><td><strong>50歳代</strong></td><td>50〜60%</td><td><strong>40〜50%</strong></td><td>退職に備え、債券比率を意識的に引き上げ</td></tr>
+      <tr><td><strong>60歳代</strong></td><td>40〜50%</td><td><strong>50〜60%</strong></td><td>取り崩し期に備えた安定運用</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: T. Rowe Price、Vanguard資産配分モデル、Morningstar</p>
+  <blockquote><p><strong>現代版「120マイナス年齢ルール」</strong>: 平均寿命の延伸に対応し、従来の「100マイナス年齢」より10〜20%程度株式比率を引き上げる考え方。例えば50歳なら、株式比率 = 120 - 50 = 70%、債券比率 = 30%が目安。Vanguardは退職後も50%程度の株式保有を推奨しています（長期インフレリスクへの対応）。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">年齢別 推奨資産配分</div>
+    <canvas id="chartAgeAlloc"></canvas>
+    <div class="chart-source">出典: T. Rowe Price、Vanguard</div>
+  </div>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 為替ヘッジの考え方</h2>
+
+  <h3>5-1. ヘッジあり/なしの比較</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>為替ヘッジあり</th><th>為替ヘッジなし</th></tr></thead>
+    <tbody>
+      <tr><td><strong>為替リスク</strong></td><td>排除される</td><td>あり（円高で損失、円安で利益）</td></tr>
+      <tr><td><strong>ヘッジコスト</strong></td><td>年間約3.5〜4.0%（日米金利差+ベーシス）</td><td>なし</td></tr>
+      <tr><td><strong>リターンの源泉</strong></td><td>債券本来の利回りのみ</td><td>債券利回り + 為替変動</td></tr>
+      <tr><td><strong>実質リターン（米10年債）</strong></td><td>約0〜0.5%（4.08% - 3.5〜4.0%）</td><td>約4.08% + 為替変動</td></tr>
+      <tr><td><strong>値動きの大きさ</strong></td><td>小さい（安定的）</td><td>大きい（為替の影響大）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-2. 最新ヘッジコストの構造</h3>
+  <div class="highlight-box">
+    <p><strong>ヘッジコストの内訳</strong>: 日米金利差（BOJ 0.75% vs FRB 3.50-3.75% = 差約2.75-3.00%）+ クロスカレンシーベーシス（需給の歪み）= <strong>年間約3.5-4.0%</strong></p>
+  </div>
+
+  <h4>通貨別ヘッジ後利回りテーブル</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>投資対象</th><th>現地利回り</th><th>ヘッジコスト（概算）</th><th>ヘッジ後利回り</th></tr></thead>
+    <tbody>
+      <tr><td><strong>米10年国債</strong></td><td>4.08%</td><td>▲3.5〜4.0%（ドル円）</td><td><strong>約0〜0.5%（ほぼゼロ）</strong></td></tr>
+      <tr><td><strong>米30年国債</strong></td><td>4.72%</td><td>▲3.5〜4.0%（ドル円）</td><td><strong>約+0.7〜1.2%</strong></td></tr>
+      <tr><td><strong>独10年Bund</strong></td><td>2.70%</td><td>▲0.5〜1.0%（ユーロ円）</td><td><strong>約+1.5〜2.2%</strong></td></tr>
+      <tr><td><strong>日本30年JGB</strong></td><td>3.39%</td><td>なし</td><td><strong>3.39%（ヘッジ不要）</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.82rem;color:#718096;">出典: ABN AMRO「Japan: The Land of the Rising Yields」、各国中央銀行公表データ</p>
+  <div class="chart-container">
+    <div class="chart-title">為替ヘッジ後利回り比較</div>
+    <canvas id="chartHedgeCost"></canvas>
+    <div class="chart-source">出典: ABN AMRO、各国中央銀行</div>
+  </div>
+
+  <div class="gold-box">
+    <p><strong>注目: JGB長期ゾーンの相対的魅力</strong></p>
+    <p>日本の30年JGB利回り（3.39%）は、ヘッジ付き米国10年債（約0〜0.5%）やヘッジ付き米国30年債（約0.7〜1.2%）を<strong>大幅に上回ります</strong>。このため、日本の生命保険会社や年金基金では米国債から国内債への「本国回帰（リパトリエーション）」圧力が生じています。一方、ユーロ圏債券はヘッジコストが低いため、ヘッジ後でも比較的高いリターンが確保できます。</p>
+  </div>
+
+  <h3>5-3. 選び方の指針</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>投資期間・考え方</th><th>おすすめ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>短期〜中期（1〜5年）</strong></td><td>ヘッジあり</td><td>為替変動リスクを排除、安定したリターン</td></tr>
+      <tr><td><strong>長期（10年以上）</strong></td><td>ヘッジなし</td><td>ヘッジコスト節約、為替は長期で回帰傾向</td></tr>
+      <tr><td><strong>円高リスクが気になる</strong></td><td>ヘッジあり</td><td>円高局面での損失を回避</td></tr>
+      <tr><td><strong>円安が続くと思う</strong></td><td>ヘッジなし</td><td>円安による追加リターンを享受</td></tr>
+      <tr><td><strong>迷う場合</strong></td><td>半々で保有</td><td>ヘッジあり50% + ヘッジなし50%で両方のメリットを取る</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. おすすめファンド</h2>
+
+  <h3>6-1. 主要ファンド比較表</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>信託報酬</th><th>為替ヘッジ</th><th>特徴</th><th>NISA</th></tr></thead>
+    <tbody>
+      <tr><td><strong>eMAXIS Slim 先進国債券インデックス</strong></td><td><strong>0.154%</strong></td><td>なし</td><td>FTSE世界国債（日本除く）連動、最低コスト水準</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>たわらノーロード 先進国債券</strong></td><td>0.187%</td><td>なし</td><td>FTSE世界国債（日本除く）連動、純資産規模大</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>ニッセイ外国債券インデックスファンド</strong></td><td>0.154%</td><td>なし</td><td>長い運用実績、安定した運用</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>eMAXIS Slim 先進国債券（為替ヘッジあり）</strong></td><td>0.176%</td><td><strong>あり</strong></td><td>為替リスク排除版、円高局面に強い</td><td>成長投資枠</td></tr>
+      <tr><td><strong>Smart-i 先進国債券（為替ヘッジあり）</strong></td><td>0.187%</td><td><strong>あり</strong></td><td>りそなAM、ヘッジありの選択肢</td><td>成長投資枠</td></tr>
+      <tr><td><strong>インベスコ 世界厳選債券オープン（毎月決算型）</strong></td><td>1.10%</td><td>選択可</td><td>アクティブ運用、利回り重視、毎月分配</td><td>成長投資枠</td></tr>
+      <tr><td><strong>野村外国債券インデックスファンド</strong></td><td>0.154%</td><td>なし</td><td>NOMURA-BPI/W連動、野村の安心感</td><td>つみたて+成長</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-2. タイプ別おすすめ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>タイプ</th><th>おすすめファンド</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>コスト最優先</strong></td><td>eMAXIS Slim 先進国債券インデックス</td><td>信託報酬0.154%で業界最低水準</td></tr>
+      <tr><td><strong>為替リスクを取りたくない</strong></td><td>eMAXIS Slim 先進国債券（為替ヘッジあり）</td><td>ヘッジ付きで円高リスク排除</td></tr>
+      <tr><td><strong>毎月の分配金が欲しい</strong></td><td>インベスコ 世界厳選債券オープン</td><td>毎月分配型、アクティブ運用で利回り追求</td></tr>
+      <tr><td><strong>つみたてNISAで積立</strong></td><td>eMAXIS Slim 先進国債券インデックス</td><td>つみたて投資枠対応、最低コスト</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. セールストーク集</h2>
+
+  <h3>7-1. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「債券は株式よりリターンが低いからいらないのでは？」</div>
+  <blockquote><p>リターンだけを見れば確かに株式が上回ります。しかし、<strong>リスク調整後リターン（シャープレシオ）では債券は株式に匹敵</strong>します。また、株式60%+債券40%のポートフォリオは、株式100%と比べてリターンは約1.5%しか下がらないのに、最大下落率は-51%から-25%に半減します。暴落時の「クッション」として、債券は不可欠です。</p></blockquote>
+
+  <div class="faq-q">Q2: 「為替ヘッジコストが高くて意味がないのでは？」</div>
+  <blockquote><p>確かに現在の日米金利差は約3.5〜4.0%で、ヘッジコストは高い水準です。しかし<strong>ヘッジなしも立派な選択肢</strong>です。長期では為替は平均回帰する傾向がありますし、円安が進行すればヘッジなしの方が有利になります。「ヘッジあり50%+ヘッジなし50%」という折衷案もおすすめです。</p></blockquote>
+
+  <div class="faq-q">Q3: 「米国債だけでいいのでは？」</div>
+  <blockquote><p>米国債は確かに魅力的ですが、<strong>単一国への集中はリスク</strong>です。金利サイクルが各国で異なるため、英国やオーストラリアでは利下げが進行中で価格上昇が期待できます。米国の金利が据え置きでも、他国の利下げでリターンを得られる — これがグローバル分散の真価です。</p></blockquote>
+
+  <div class="faq-q">Q4: 「金利が下がったら旨味がなくなりませんか？」</div>
+  <blockquote><p>金利低下＝債券価格上昇です。つまり、<strong>金利が下がればキャピタルゲイン（値上がり益）が得られます</strong>。高金利の今は「高い利回りで買える最後のチャンス」とも言えます。金利が下がった後では、もうこの利回りでは買えません。まさに今が仕込み時です。</p></blockquote>
+
+  <div class="faq-q">Q5: 「NISAで債券ファンドを買うべきですか？」</div>
+  <blockquote><p>NISAは株式ファンドだけのものではありません。<strong>ポートフォリオ全体の安定化</strong>のために、債券ファンドをNISAで保有するのは合理的です。特に50代以上の方や、リスクを抑えたい方は、つみたて投資枠でeMAXIS Slim先進国債券インデックスを積み立てることで、年齢に応じた安定的な資産形成が可能です。</p></blockquote>
+
+  <h3>7-2. 反論への対応</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>反論</th><th>対応</th></tr></thead>
+    <tbody>
+      <tr><td>「債券は地味でつまらない」</td><td>「GPIFは25%を外国債券に配分し、累積155兆円の収益を上げています。地味でも確実に資産を増やすのがプロの投資です」</td></tr>
+      <tr><td>「株だけでいい」</td><td>「株式100%は最大51%下落します。債券40%を加えるだけで最大下落率は25%に半減。リターンは1.5%しか下がりません」</td></tr>
+      <tr><td>「日本の国債で十分」</td><td>「日本の10年国債は約2.1%。先進国債券なら3〜4.7%。世界に目を向けるだけで利回りが1.5〜2倍になります。ただしヘッジコストには注意が必要です」</td></tr>
+      <tr><td>「いつ買えばいいかわからない」</td><td>「高金利の今がまさに仕込み時。金利が下がった後では、この利回りでは買えません」</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. 具体的な提案</h2>
+
+  <h3>8-1. 投資家タイプ別ポートフォリオ例</h3>
+
+  <div class="pattern-title">パターンA: 安定重視 — 守りを固めるポートフォリオ</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>グローバル債券（ヘッジあり）</strong></td><td><strong>40%</strong></td><td>eMAXIS Slim 先進国債券（為替ヘッジあり）</td></tr>
+      <tr><td>日本債券</td><td>30%</td><td>eMAXIS Slim 国内債券インデックス</td></tr>
+      <tr><td>日本株式</td><td>15%</td><td>eMAXIS Slim 国内株式（TOPIX）</td></tr>
+      <tr><td>米国株式</td><td>15%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンB: バランス型 — 攻守兼備のポートフォリオ</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>グローバル債券（ヘッジなし）</strong></td><td><strong>25%</strong></td><td>eMAXIS Slim 先進国債券インデックス</td></tr>
+      <tr><td>日本債券</td><td>15%</td><td>eMAXIS Slim 国内債券インデックス</td></tr>
+      <tr><td>米国株式</td><td>25%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>全世界株式</td><td>20%</td><td>eMAXIS Slim 全世界株式（オール・カントリー）</td></tr>
+      <tr><td>新興国株式</td><td>15%</td><td>eMAXIS Slim 新興国株式インデックス</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンC: インカム重視 — 収入を生むポートフォリオ</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>先進国債券</strong></td><td><strong>20%</strong></td><td>eMAXIS Slim 先進国債券インデックス</td></tr>
+      <tr><td><strong>ハイイールド債</strong></td><td><strong>10%</strong></td><td>インベスコ 世界厳選債券オープン</td></tr>
+      <tr><td>高配当株式</td><td>30%</td><td>SBI欧州高配当株式 + 日本高配当株</td></tr>
+      <tr><td>REIT</td><td>20%</td><td>eMAXIS Slim 先進国リートインデックス</td></tr>
+      <tr><td>日本債券</td><td>20%</td><td>eMAXIS Slim 国内債券インデックス</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8-2. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 — 問題提起</p><blockquote><p>「ポートフォリオの安全装置、つけていますか？ 株式100%は暴落時に最大51%下落します。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 — 高金利環境の説明</p><blockquote><p>「10年以上ぶりの高金利環境です。世界の債券が非常に魅力的な利回りを提供しています。米国4.0%、英国4.3%、豪州4.7%。PIMCOは"複利の好機"、BlackRockは"黄金時代"と呼んでいます。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 — 分散効果の説明</p><blockquote><p>「株式と債券を組み合わせるだけで、リスクが大幅に下がります。リターンは1.5%しか下がらないのに、最大損失は半分になります。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 — 具体的な商品提案</p><blockquote><p>「eMAXIS Slim先進国債券なら、信託報酬わずか0.154%で世界中の国債に分散投資できます。NISAのつみたて投資枠にも対応しています。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 — 行動喚起</p><blockquote><p>「まずは資産の20%を債券に振り分けてみませんか？ 月1万円からの積立でも、ポートフォリオの安定性は大きく変わります。」</p></blockquote></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的としたものではありません。記載されたデータは2026年2月26日時点の情報に基づいており、将来の運用成果を保証するものではありません。債券投資には金利変動リスク、信用リスク、為替リスク等が伴い、元本割れの可能性があります。投資判断はお客様ご自身の判断と責任でお願いいたします。投資信託は預金ではなく、預金保険の対象ではありません。為替ヘッジコストは金利差により変動します。</p>
+</footer>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fontFamily = "'Noto Sans JP', sans-serif";
+  var gridColor = '#e2e8f0';
+
+  // chartGlobalYields - 主要国 国債利回り比較
+  new Chart(document.getElementById('chartGlobalYields'), {
+    type: 'bar',
+    data: {
+      labels: ['米国', '英国', '豪州', 'カナダ', 'ドイツ', '日本'],
+      datasets: [
+        { label: '10年', data: [4.06, 4.32, 4.73, 3.19, 2.70, 2.10], backgroundColor: '#2c5282' },
+        { label: '30年', data: [4.72, null, null, null, null, 3.39], backgroundColor: '#d69e2e' }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartCbRates - 主要中央銀行 政策金利（2026年2月）
+  new Chart(document.getElementById('chartCbRates'), {
+    type: 'bar',
+    data: {
+      labels: ['FRB', 'ECB', 'BOE', 'BOJ', 'RBA', 'BOC'],
+      datasets: [{
+        label: '政策金利 (%)',
+        data: [3.625, 2.075, 3.75, 0.75, 3.85, 2.25],
+        backgroundColor: ['#2c5282', '#d69e2e', '#48bb78', '#e53e3e', '#805ad5', '#63b3ed']
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartBondReturns2025 - 2025年 債券インデックスリターン
+  new Chart(document.getElementById('chartBondReturns2025'), {
+    type: 'bar',
+    data: {
+      labels: ['Global Agg Corporate', 'Global Agg 証券化', 'US MBS', 'Global Agg (USD)', 'US Aggregate', 'Global Agg 国債'],
+      datasets: [{
+        label: 'リターン (%)',
+        data: [10.30, 9.71, 8.58, 8.17, 7.30, 6.82],
+        backgroundColor: '#2c5282'
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chart6040 - 60/40ポートフォリオ年間リターン
+  new Chart(document.getElementById('chart6040'), {
+    type: 'bar',
+    data: {
+      labels: ['2022年', '2023年', '2024年', '2025年'],
+      datasets: [{
+        label: 'リターン (%)',
+        data: [-16, 18, 12, 14.5],
+        backgroundColor: [-16, 18, 12, 14.5].map(function(v){ return v < 0 ? '#e53e3e' : '#48bb78'; })
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartHedgeCost - 為替ヘッジ後利回り比較
+  new Chart(document.getElementById('chartHedgeCost'), {
+    type: 'bar',
+    data: {
+      labels: ['米10年国債', '米30年国債', '独10年Bund', '日本30年JGB'],
+      datasets: [
+        { label: '現地利回り', data: [4.08, 4.72, 2.70, 3.39], backgroundColor: '#2c5282' },
+        { label: 'ヘッジ後利回り', data: [0.25, 0.95, 1.85, 3.39], backgroundColor: '#d69e2e' }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartGpifGb - GPIF 基本ポートフォリオ
+  new Chart(document.getElementById('chartGpifGb'), {
+    type: 'doughnut',
+    data: {
+      labels: ['国内株式 25%', '外国株式 25%', '国内債券 25%', '外国債券 25%'],
+      datasets: [{
+        data: [25, 25, 25, 25],
+        backgroundColor: ['#48bb78', '#2c5282', '#1a365d', '#d69e2e']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'bottom', labels: { font: { family: fontFamily }, padding: 16 } } }
+    }
+  });
+
+  // chartAgeAlloc - 年齢別 推奨資産配分
+  new Chart(document.getElementById('chartAgeAlloc'), {
+    type: 'bar',
+    data: {
+      labels: ['20代', '30代', '40代', '50代', '60代'],
+      datasets: [
+        { label: '株式', data: [85, 80, 67.5, 55, 45], backgroundColor: '#2c5282' },
+        { label: '債券', data: [15, 20, 32.5, 45, 55], backgroundColor: '#d69e2e' }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { stacked: true, ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { stacked: true, ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true, max: 100 }
+      }
+    }
+  });
+
+  // chartCorrelationGb - 株式・債券 相関係数の推移
+  new Chart(document.getElementById('chartCorrelationGb'), {
+    type: 'line',
+    data: {
+      labels: ['2024年7月', '2024年12月', '2025年9月', '2025年末'],
+      datasets: [{
+        label: '相関係数',
+        data: [0.80, 0.66, 0.48, 0.16],
+        borderColor: '#e53e3e',
+        backgroundColor: 'rgba(229,62,62,0.12)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointBackgroundColor: '#e53e3e'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor }, beginAtZero: true, max: 1.0 }
+      }
+    }
+  });
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>セールス提案資料 — アセットクラス一覧</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; min-height: 100vh; -webkit-text-size-adjust: 100%; }
+
+  .header { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 40px 24px 36px; text-align: center; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .header p { font-size: 0.85rem; opacity: 0.75; }
+  .header .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+
+  .main { max-width: 960px; margin: 0 auto; padding: 32px 20px 48px; }
+
+  .category-label { font-size: 1.05rem; font-weight: 700; color: #1a365d; margin: 28px 0 16px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .category-label:first-child { margin-top: 0; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 8px; }
+
+  .card { display: block; background: #fff; border-radius: 12px; padding: 24px; text-decoration: none; color: inherit; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; transition: all 0.2s; position: relative; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color: #d69e2e; }
+  .card:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+  .card-title { font-size: 1.15rem; font-weight: 700; color: #1a365d; margin-bottom: 4px; }
+  .card-sub { font-size: 0.8rem; color: #718096; margin-bottom: 12px; }
+  .card-desc { font-size: 0.88rem; color: #4a5568; line-height: 1.6; }
+  .card-arrow { position: absolute; top: 24px; right: 20px; color: #d69e2e; font-size: 1.3rem; font-weight: 700; }
+
+  .badge { display: inline-block; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; margin-left: 8px; vertical-align: middle; }
+  .badge-equity { background: #48bb78; color: #fff; }
+  .badge-bond { background: #ed8936; color: #fff; }
+
+  .footer { text-align: center; padding: 24px 16px; font-size: 0.75rem; color: #a0aec0; border-top: 1px solid #e2e8f0; margin-top: 16px; }
+
+  @media (max-width: 640px) {
+    .header { padding: 28px 16px 24px; }
+    .header h1 { font-size: 1.3rem; }
+    .main { padding: 20px 16px 40px; }
+    .card-grid { grid-template-columns: 1fr; gap: 12px; }
+    .card { padding: 20px; }
+    .card-arrow { top: 20px; right: 16px; }
+    .category-label { margin: 20px 0 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .header { padding: 24px 12px 20px; }
+    .header h1 { font-size: 1.15rem; }
+    .header p { font-size: 0.78rem; }
+    .main { padding: 16px 12px 32px; }
+    .card { padding: 16px; }
+    .card-title { font-size: 1.05rem; }
+    .card-desc { font-size: 0.82rem; }
+  }
+
+  @media print {
+    .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    .card:hover { transform: none; }
+  }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .card { background: #1e293b; border-color: #334155; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-color: #d69e2e; }
+  .card:active { box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .card-title { color: #e2e8f0; }
+  .card-desc { color: #94a3b8; }
+  .card-sub { color: #718096; }
+  .category-label { color: #e2e8f0; }
+  .footer { border-top-color: #334155; color: #64748b; }
+  @media print { body { background: #fff; color: #1a202c; } .card { background: #fff; border-color: #ccc; } }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>セールス提案資料</h1>
+  <p>Sales Proposal Materials &mdash; All Asset Classes</p>
+  <div class="accent-bar"></div>
+</header>
+
+<main class="main">
+  <div class="category-label">株式（Equity）</div>
+  <div class="card-grid">
+    <a class="card" href="us-equities.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">米国株式<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">US Equity</div>
+      <div class="card-desc">S&amp;P 500・マグニフィセント7を中心とした米国市場の見通しと提案</div>
+    </a>
+    <a class="card" href="japan-equities.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">日本株式<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">Japan Equity</div>
+      <div class="card-desc">ガバナンス改革・日銀正常化を背景とした日本市場の投資機会</div>
+    </a>
+    <a class="card" href="emerging-markets.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">新興国株式<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">Emerging Markets</div>
+      <div class="card-desc">中国・インド・台湾・韓国など成長市場への分散投資</div>
+    </a>
+    <a class="card" href="em-value-stocks.html" style="border-left:3px solid #d69e2e">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">新興国バリュー株式<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">EM Value Equity</div>
+      <div class="card-desc">PER10倍以下の歴史的割安水準。学術エビデンスと高配当で攻めるバリュー戦略</div>
+    </a>
+    <a class="card" href="international-ex-us.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">国際株式（除く米国）<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">International ex-US</div>
+      <div class="card-desc">米国一極集中を見直す国際分散のメリットと戦略</div>
+    </a>
+    <a class="card" href="european-stocks.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">欧州株式<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">European Equity</div>
+      <div class="card-desc">割安バリュエーション・高配当・防衛関連の欧州投資機会</div>
+    </a>
+  </div>
+
+  <div class="category-label">注目銘柄ガイド（Stock Stories）</div>
+  <div class="card-grid">
+    <a class="card" href="em-stock-stories.html" style="border-left:3px solid #d69e2e">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">新興国 注目銘柄ガイド<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">EM Stock Stories</div>
+      <div class="card-desc">TSMC、Tencent、Alibabaなど18銘柄の成長ストーリーとプロの保有分析</div>
+    </a>
+    <a class="card" href="intl-stock-stories.html" style="border-left:3px solid #d69e2e">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">国際株式 注目銘柄ガイド<span class="badge badge-equity">株式</span></div>
+      <div class="card-sub">International ex-US Stock Stories</div>
+      <div class="card-desc">ASML、Novo Nordisk、LVMH、Toyotaなど14銘柄の成長ナラティブ</div>
+    </a>
+  </div>
+
+  <div class="category-label">マーケティング研究（Marketing Research）</div>
+  <div class="card-grid">
+    <a class="card" href="retail-fund-marketing.html" style="border-left:3px solid #805ad5">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">リテールファンド マーケティング研究<span class="badge" style="background:#805ad5;color:#fff">研究</span></div>
+      <div class="card-sub">Retail Fund Marketing Analysis</div>
+      <div class="card-desc">海外株式アクティブファンド37本の販売用資料を分析。マーケティング手法・ナラティブ構築・差別化戦略の研究</div>
+    </a>
+  </div>
+
+  <div class="category-label">債券（Bond）</div>
+  <div class="card-grid">
+    <a class="card" href="japan-bonds.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">日本債券<span class="badge badge-bond">債券</span></div>
+      <div class="card-sub">Japan Bonds</div>
+      <div class="card-desc">30年ぶり高金利水準の国内債券・個人向け国債の活用法</div>
+    </a>
+    <a class="card" href="global-bonds.html">
+      <span class="card-arrow">&rarr;</span>
+      <div class="card-title">グローバル債券<span class="badge badge-bond">債券</span></div>
+      <div class="card-sub">Global Bonds</div>
+      <div class="card-desc">130兆ドル超の世界債券市場と為替ヘッジ戦略</div>
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>データ基準: 2026年2月下旬 ｜ 対象: リテール（一般個人投資家）向け</p>
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

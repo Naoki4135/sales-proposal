@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>日本株式 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>日本株式 セールス提案資料</h1>
+  <p class="subtitle">Japan Equity — Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月26日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済環境</a></li>
+    <li><a href="#sec3">市場の現状と見通し</a></li>
+    <li><a href="#sec4">長期投資で資産を増やす</a></li>
+    <li><a href="#sec5">分散投資の効果</a></li>
+    <li><a href="#sec6">おすすめファンド</a></li>
+    <li><a href="#sec7">セールストーク集</a></li>
+    <li><a href="#sec8">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、日本株式なのか</h4>
+  <div class="gold-box"><p><strong>1. 東証改革とガバナンス革命</strong>: PBR1倍割れ企業への是正要請により、自社株買い・増配が過去最高水準に。企業の「稼ぐ力」と「株主還元」が劇的に改善中。</p></div>
+  <div class="gold-box"><p><strong>2. デフレ脱却と賃金上昇</strong>: 2025年春闘で34年ぶりの高水準となる+5.25%の賃上げを達成。2026年もRengoが全体+5%以上、中小+6%以上を要求。インバウンド観光も過去最高の4,270万人・9.5兆円を記録。</p></div>
+  <div class="gold-box"><p><strong>3. 海外投資家の日本株回帰</strong>: バフェット効果をきっかけに、グローバル投資家が日本株を再評価。ガバナンス改善・円安・企業収益拡大の三拍子が揃う。</p></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済環境</h2>
+
+  <h3>2-1. GDP成長率 — 各機関の予測比較</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>2024年（実績）</th><th>2025年（予測）</th><th>2026年（予測）</th></tr></thead>
+    <tbody>
+      <tr><td><strong>IMF</strong></td><td>+0.1%</td><td>+1.1%</td><td><strong>+0.7%</strong></td></tr>
+      <tr><td><strong>日銀（BOJ）</strong></td><td>+0.1%</td><td>+0.9%（FY）</td><td><strong>+1.0%（FY）</strong></td></tr>
+      <tr><td><strong>ゴールドマン・サックス</strong></td><td>+0.1%</td><td>+0.7〜0.8%</td><td><strong>+0.8%</strong></td></tr>
+      <tr><td><strong>バンガード</strong></td><td>—</td><td>+1.0%</td><td><strong>+1.0%</strong></td></tr>
+      <tr><td><strong>OECD</strong></td><td>—</td><td>+1.0%</td><td><strong>+0.6%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日本GDP成長率 — 各機関の予測比較</div>
+    <canvas id="chartGdpJp"></canvas>
+    <div class="chart-source">出典: IMF WEO、日銀展望レポート、Goldman Sachs</div>
+  </div>
+  <p>2024年暦年の実質GDP成長率は約+0.1%にとどまったが、四半期別に見るとQ4（10〜12月）は前期比+0.7%（<strong>年率+2.8%</strong>）と加速。設備投資+1.2%、政府支出+0.9%が寄与した。2026年は高市政権の<strong>21兆円規模の財政刺激策（「サナエノミクス」）</strong>が下支えする一方、米国関税（日本車・部品に15%適用）の影響でGDP成長率が最大0.4pt押し下げられるリスクも。</p>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: IMF WEO 2026年1月更新版、日銀 経済・物価情勢の展望 2026年1月、Goldman Sachs Japan Outlook 2026</p>
+
+  <h3>2-2. インフレ動向</h3>
+  <h4>最新データ（2026年1月）</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ヘッドラインCPI（全品目）</strong></td><td><strong>前年比+1.5%</strong></td><td>約45ヶ月ぶりに2%を下回る</td></tr>
+      <tr><td><strong>コアCPI（生鮮食品除く）</strong></td><td><strong>+2.0%</strong></td><td>2024年1月以来の低水準</td></tr>
+      <tr><td><strong>コアコアCPI（生鮮食品・エネルギー除く）</strong></td><td><strong>+2.6%</strong></td><td>前月の+2.9%から低下</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日本 インフレ指標（2026年1月）</div>
+    <canvas id="chartInflationJp"></canvas>
+    <div class="chart-source">出典: CNBC、日銀展望レポート</div>
+  </div>
+  <h4>日銀の見通し（展望レポート 2026年1月）</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>FY2026予測</th><th>前回予測（2025年10月）</th></tr></thead>
+    <tbody>
+      <tr><td>コアCPI</td><td><strong>1.9%</strong></td><td>1.8%（上方修正）</td></tr>
+      <tr><td>コアコアCPI</td><td><strong>2.2%</strong></td><td>2.0%（上方修正）</td></tr>
+    </tbody>
+  </table></div>
+  <p>2026年前半は食品価格の安定と政府のエネルギー補助策の影響でCPIが2%を下回る見通し。IMFは2025年インフレ3.3%から2026年は2.1%へ鈍化すると予測。ただし日銀は2%の「持続的・安定的」達成にはまだ至っていないとの評価を維持。</p>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CNBC 2026年2月20日、日銀展望レポート2026年1月</p>
+
+  <h3>2-3. BOJ金融政策</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>現行政策金利</strong></td><td><strong>0.75%</strong>（2025年12月に0.5%→0.75%へ利上げ、30年ぶりの高水準）</td></tr>
+      <tr><td>利上げ実績</td><td>2024年3月: 0% → 7月: 0.25% → 2025年1月: 0.50% → 12月: 0.75%</td></tr>
+      <tr><td>2026年1月会合</td><td>8対1で据え置き決定（高田審議委員のみ1.0%への利上げを主張し否決）</td></tr>
+      <tr><td>金融環境</td><td>「金利のある世界」への正常化が進行中。金融機関の収益改善に寄与</td></tr>
+    </tbody>
+  </table></div>
+  <h4>各機関の次回利上げ予測</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>次回利上げ時期</th><th>2026年末の政策金利</th></tr></thead>
+    <tbody>
+      <tr><td><strong>バンガード</strong></td><td>2026年内2回の利上げ</td><td><strong>1.25%</strong></td></tr>
+      <tr><td><strong>ING</strong></td><td>2026年10月</td><td>—</td></tr>
+      <tr><td><strong>ステート・ストリート</strong></td><td>2026年・2027年各1回</td><td><strong>1.25%</strong>（最終到達点）</td></tr>
+      <tr><td><strong>IMF</strong></td><td>2026年中に2回</td><td>約1.25%</td></tr>
+      <tr><td><strong>市場コンセンサス</strong></td><td><strong>2026年7月</strong>（春闘確認後）</td><td>1.0〜1.25%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">BOJ政策金利の推移と見通し</div>
+    <canvas id="chartBojRate"></canvas>
+    <div class="chart-source">出典: 日銀、各機関予測</div>
+  </div>
+  <blockquote><p><strong>次回利上げの条件</strong>: 2026年春闘（春の賃金交渉）の結果確認が鍵。特に中小企業での賃上げ動向が重要視される。10年物JGB利回りは約2.1%（25年ぶり高水準）まで上昇。</p></blockquote>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CNBC 2026年1月23日、ING Economic Research、日銀金融政策決定会合 2026年1月</p>
+
+  <h3>2-4. 春闘（賃金交渉）</h3>
+  <h4>2025年春闘 最終結果</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td><strong>平均賃上げ率</strong></td><td><strong>+5.25%</strong>（1991年以来34年ぶりの高水準）</td></tr>
+      <tr><td>ベースアップ</td><td>+3.82%</td></tr>
+      <tr><td>定昇込み</td><td>+5.42%</td></tr>
+      <tr><td>最低賃金（FY2025）</td><td><strong>1,121円/時</strong>（+6.3%引き上げ、全47都道府県で初めて1,000円超え）</td></tr>
+    </tbody>
+  </table></div>
+  <h4>2026年春闘 見通し</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Rengo（連合）要求方針</strong></td><td>全体+5%以上、ベアで+3%以上</td></tr>
+      <tr><td>中小企業向け要求</td><td><strong>+6%以上</strong></td></tr>
+      <tr><td>非正規労働者</td><td><strong>+7%程度を目標</strong>（初の非正規向け数値目標設定）</td></tr>
+      <tr><td>市場コンセンサス</td><td>ベースアップ+3.4%、定昇込みで+5.0%程度</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">春闘 平均賃上げ率の推移</div>
+    <canvas id="chartWages"></canvas>
+    <div class="chart-source">出典: Rengo、Japan Times</div>
+  </div>
+  <div class="highlight-box"><p><strong>実質賃金の課題</strong>: 名目賃金は上昇しているが、インフレ率が高く、2021年Q1〜2025年Q1の累計実質賃金は<strong>-2%（マイナス）</strong>。賃金と物価の好循環が持続可能かが最大の政策課題。30年続いたデフレマインドからの脱却が試される局面。</p></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Japan Times 2025年7月4日、Rengo 2026年要求方針（nippon.com 2025年10月23日）</p>
+
+  <h3>2-5. 人口動態 — 最大の構造的リスク</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td><strong>総人口（2025年4月時点）</strong></td><td><strong>約1億2,340万人</strong>（毎年約100万人減）</td></tr>
+      <tr><td>中位年齢</td><td><strong>50.8歳</strong>（世界最高水準）</td></tr>
+      <tr><td>65歳以上の比率</td><td><strong>30.0%</strong>（世界1位）</td></tr>
+      <tr><td>15歳未満の比率</td><td><strong>11.3%</strong>（過去最低）</td></tr>
+      <tr><td>合計特殊出生率（2024年）</td><td><strong>1.15</strong>（過去最低、代替水準2.1を大幅に下回る）</td></tr>
+      <tr><td>2024年出生数</td><td><strong>686,061人</strong>（1899年の統計開始以来初めて70万人割れ）</td></tr>
+      <tr><td>生産年齢人口比率</td><td>68.4%（2050年に向けて大幅低下見込み）</td></tr>
+      <tr><td>2070年 総人口予測</td><td><strong>8,700万人</strong>（国立社会保障・人口問題研究所）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日本の人口構成（%）</div>
+    <canvas id="chartPopulation"></canvas>
+    <div class="chart-source">出典: 国立社会保障・人口問題研究所</div>
+  </div>
+  <blockquote><p><strong>投資への示唆</strong>: 人口減少は中長期の潜在成長率を圧迫するが、企業はAI活用・ロボティクス・海外展開で生産性を向上。東証プライム上場企業の海外売上比率は50%超であり、「日本企業＝日本経済」ではない。</p></blockquote>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: nippon.com 2024年出生数、Japan Times 出生率、国立社会保障・人口問題研究所 将来推計人口</p>
+
+  <h3>2-6. 内需・消費</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>個人消費・消費者マインド</h4>
+      <ul>
+        <li><strong>消費者信頼感指数（2026年1月）</strong>: 37.9（前月37.2から改善、2024年4月以来の高水準だが依然50を下回る低水準）</li>
+        <li>2024年の民間消費は-0.1%と若干マイナス（実質賃金の下落が背景）</li>
+        <li>高市政権の<strong>消費税（食料品8%）2年間停止措置</strong>（年間約5兆円規模）が下支え</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>インバウンド観光 — 過去最高を更新</h4>
+      <ul>
+        <li><strong>2025年訪日外客数</strong>: <strong>4,270万人</strong>（過去最多、コロナ前2019年比+34%）</li>
+        <li><strong>消費額</strong>: <strong>9兆4,559億円</strong>（過去最高、前年比+16.4%増）</li>
+        <li>最多は韓国（950万人）、中国（910万人、+30.3%増）</li>
+        <li>中国人が最大の消費者グループ（2兆2,600億円）</li>
+        <li>円安（1ドル約155円）が日本の割安感を演出</li>
+        <li><strong>2030年政府目標</strong>: 訪日6,000万人、消費15兆円</li>
+      </ul>
+    </div>
+  </div>
+  <div class="chart-container">
+    <div class="chart-title">2025年 訪日外客数（万人）</div>
+    <canvas id="chartInbound"></canvas>
+    <div class="chart-source">出典: nippon.com 訪日外客統計</div>
+  </div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: 内閣府 消費者態度指数 2026年1月、nippon.com 訪日外客統計 2025年</p>
+
+  <h3>2-7. 産業構成</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>セクター</th><th>GDP比率</th><th>主要産業</th></tr></thead>
+    <tbody>
+      <tr><td><strong>サービス業</strong></td><td><strong>約71%</strong></td><td>金融・不動産・小売・保険・通信・交通</td></tr>
+      <tr><td><strong>製造業・工業</strong></td><td><strong>約27%</strong></td><td>自動車・電子機器・半導体・ロボット・医薬品</td></tr>
+      <tr><td><strong>農林水産業</strong></td><td><strong>約1%</strong></td><td>米・水産物</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日本の産業構成（GDP比）</div>
+    <canvas id="chartIndustry"></canvas>
+    <div class="chart-source">出典: 世界銀行</div>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td>製造業GDP比（付加価値ベース）</td><td><strong>20.6%</strong>（最大の付加価値創出セクター）</td></tr>
+      <tr><td>主要輸出品</td><td>自動車（輸出の約<strong>22%</strong>）、精密機械、ロボット、製薬</td></tr>
+      <tr><td>貿易赤字（2025年）</td><td><strong>2.7兆円</strong>（前年比52.9%縮小、5年連続赤字）</td></tr>
+      <tr><td>経常収支黒字</td><td>GDP比<strong>4.6%</strong>（主に海外投資からの一次所得）</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>対米関税リスク</strong>: トランプ関税の影響で自動車-11.4%、自動車部品-10.7%の輸出減が試算されている。ただし経常収支は黒字を維持しており、海外投資収益が貿易赤字を補填する構造。</p></blockquote>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: 財務省 国際収支統計、世界銀行 産業別GDP構成比</p>
+
+  <h3>2-8. 労働市場</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>失業率（2025年12月）</strong></td><td><strong>2.6%</strong></td><td>4ヶ月連続横ばい。完全雇用に近い水準</td></tr>
+      <tr><td><strong>有効求人倍率（2025年8月）</strong></td><td><strong>1.20倍</strong></td><td>求職者100人に対し求人120件</td></tr>
+      <tr><td><strong>日銀短観 雇用DI</strong></td><td><strong>-35</strong></td><td>2025年Q2、30年ぶりの低水準 = 深刻な人手不足</td></tr>
+      <tr><td><strong>名目時給伸び率（2025年4月）</strong></td><td><strong>前年比+3.5%</strong></td><td>26ヶ月連続プラス</td></tr>
+      <tr><td>最低賃金</td><td>1,121円/時</td><td>FY2025、+6.3%、過去最大の引き上げ</td></tr>
+    </tbody>
+  </table></div>
+  <p>人口減少による構造的な労働供給不足が常態化。外国人労働者・自動化・デジタル化で補完を図るも、追いつかない状況が続く。OECDは2025〜2026年の失業率を約2.5〜2.6%で安定推移と予測。</p>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: 総務省 労働力調査、厚生労働省 一般職業紹介状況、日銀短観 2025年6月調査</p>
+
+  <h3>2-9. 財政状況</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値</th></tr></thead>
+    <tbody>
+      <tr><td><strong>政府債務/GDP比率</strong></td><td><strong>約202〜213%</strong>（測定方法により異なる）</td></tr>
+      <tr><td><strong>国債残高総額（2025年3月末）</strong></td><td><strong>1,324兆円</strong>（GDP比234.9%の粗債務）</td></tr>
+      <tr><td>基礎的財政収支赤字</td><td>GDP比約1.5%（2024年）→ 0.6%（2026年予測、追加予算なし前提）</td></tr>
+      <tr><td><strong>10年JGB利回り</strong></td><td><strong>約2.1%</strong>（25年ぶり高水準）</td></tr>
+    </tbody>
+  </table></div>
+  <div class="gold-box"><p><strong>財政リスク</strong>: 高市政権の21兆円財政刺激策・消費税停止で赤字が約2%に再拡大のリスク。10年JGB利回りが2%超に上昇しており、金利上昇による財政コスト増大（利払い負担の増加）への懸念が高まっている。名目GDP成長がデット・サービスコストを上回ることで、粗債務比率は緩やかに低下する見込みだが、積極財政スタンスがソブリンリスクへの警戒を高めている。</p></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: IMF Fiscal Monitor、財務省 国債残高、日本銀行 金融市場統計</p>
+
+  <h3>2-10. 円相場見通し</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>現在値（2026年2月25日）</strong></td><td><strong>USD/JPY 約155.70円</strong></td></tr>
+    </tbody>
+  </table></div>
+  <h4>各機関の2026年末予測</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>2026年末予測</th><th>方向性</th></tr></thead>
+    <tbody>
+      <tr><td><strong>JPモルガン</strong></td><td><strong>164円</strong></td><td>円安方向</td></tr>
+      <tr><td>CoinCodex</td><td>154〜169円（平均約160円）</td><td>円安方向</td></tr>
+      <tr><td>Traders Union</td><td>約150〜156円</td><td>レンジ</td></tr>
+      <tr><td><strong>ExchangeRates.org.uk</strong></td><td><strong>140〜145円</strong></td><td>円高方向</td></tr>
+    </tbody>
+  </table></div>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>円安要因</h4>
+      <ul>
+        <li>日米金利差の継続</li>
+        <li>米国経済の底堅さ</li>
+        <li>日銀の慎重な利上げペース</li>
+        <li>高市政権の財政拡張</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>円高要因</h4>
+      <ul>
+        <li>日銀利上げ（2026年に最大+0.5pt）</li>
+        <li>地政学リスクでの円の安全資産需要</li>
+        <li>米国関税による世界経済減速リスク</li>
+      </ul>
+    </div>
+  </div>
+  <p>構造的には円安方向が優勢だが、日銀が2026年内に1.0〜1.25%へ利上げすれば、ある程度の円高修正も想定される。輸出企業の想定為替レートは140-145円が中心であり、現在の水準は増益要因。</p>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: JPモルガン為替見通し、各アナリスト予測 2026年2月時点</p>
+
+  <h3>2-11. 東証改革の最新進捗</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>時期</th><th>改革内容</th></tr></thead>
+    <tbody>
+      <tr><td>2022年4月</td><td>東証市場再編（プライム・スタンダード・グロースの3区分）</td></tr>
+      <tr><td>2023年3月</td><td>「資本コスト・株価を意識した経営」を要請 → 大規模な自社株買いが加速</td></tr>
+      <tr><td><strong>2025年4月</strong></td><td><strong>プライム上場企業に英語での開示義務化</strong>（本格施行）</td></tr>
+      <tr><td><strong>2025年6月</strong></td><td><strong>金融庁が「コーポレートガバナンス改革2025アクションプログラム」公表</strong>。Corporate Governance Code改訂に向けた有識者パネルを設置</td></tr>
+      <tr><td><strong>2025年7月</strong></td><td><strong>全上場企業にIRシステム構築義務化</strong></td></tr>
+      <tr><td>進行中</td><td>政策保有株（持ち合い）の解消加速 — 金融庁・東証の圧力で</td></tr>
+    </tbody>
+  </table></div>
+  <div class="highlight-box"><p><strong>BlackRock・JPモルガンの評価</strong>: 株主改革の進展と資本効率改善を高く評価。2026年も改革が継続的な好材料になるとの見方が支配的。PBR1倍割れ企業は2023年の約50%から約40%へ改善し、自社株買いは2024年度に約10兆円と過去最高を記録。</p></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: JP Morgan Asset Management Japan Corporate Governance Report、金融庁アクションプログラム 2025年6月</p>
+
+  <h3>2-12. 企業業績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+    <tbody>
+      <tr><td>東証プライム 2025年度経常利益</td><td><strong>過去最高更新</strong>の見通し</td></tr>
+      <tr><td>増益要因</td><td>円安効果、価格転嫁の浸透、インバウンド需要</td></tr>
+      <tr><td>株主還元</td><td>配当＋自社株買いの総還元額は<strong>過去最高</strong></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 市場の現状と見通し</h2>
+
+  <h3>3-1. 主要指数の推移</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指数</th><th>水準</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td><strong>日経平均株価</strong></td><td><strong>38,000-40,000円台</strong></td><td>2025年は一時41,000円台を記録</td></tr>
+      <tr><td><strong>TOPIX</strong></td><td><strong>2,700-2,800ポイント台</strong></td><td>バブル後最高値圏</td></tr>
+      <tr><td>東証グロース250</td><td>650-700ポイント台</td><td>中小型株は出遅れ感あり — 仕込み好機の可能性</td></tr>
+      <tr><td>JPX日経400</td><td>22,000ポイント台</td><td>ガバナンス優良銘柄で構成</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3-2. バリュエーション</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>日本</th><th>米国（S&amp;P 500）</th><th>格差</th></tr></thead>
+    <tbody>
+      <tr><td><strong>予想PER</strong></td><td><strong>約15-16倍</strong></td><td>21-23倍</td><td><strong>先進国中で割安水準</strong></td></tr>
+      <tr><td><strong>PBR</strong></td><td><strong>約1.3倍</strong></td><td>約4.5倍</td><td>大幅に割安</td></tr>
+      <tr><td><strong>配当利回り</strong></td><td><strong>TOPIX平均 約2.3%</strong></td><td>約1.3%</td><td>日本が大幅に上回る</td></tr>
+      <tr><td><strong>自社株買い</strong></td><td><strong>2024年度 約10兆円</strong></td><td>—</td><td>過去最高。2025年度もさらに拡大</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日本 vs 米国 バリュエーション比較</div>
+    <canvas id="chartValuation"></canvas>
+    <div class="chart-source">出典: Bloomberg、各取引所データ</div>
+  </div>
+  <div class="highlight-box"><strong>日本株は先進国の中で最も割安な水準。PER15-16倍は米国の21-23倍に対して30%以上の割引。自社株買い+増配による株主還元の急拡大が、割安是正のカタリスト。</strong></div>
+
+  <h3>3-3. 東証改革の進捗</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>改革項目</th><th>進捗状況</th></tr></thead>
+    <tbody>
+      <tr><td>PBR1倍割れ企業の割合</td><td>2023年 約50% → 2025年 <strong>約40%へ改善</strong></td></tr>
+      <tr><td>資本コスト経営の開示</td><td>プライム市場の<strong>約85%</strong>が開示・対応策を公表</td></tr>
+      <tr><td>政策保有株の売却</td><td><strong>売却加速</strong>。持ち合い解消で資本効率が向上</td></tr>
+      <tr><td>ROE</td><td>平均 <strong>8%→9%台</strong>へ改善中</td></tr>
+      <tr><td>英語開示（2025年4月〜）</td><td>プライム上場企業に<strong>英語開示義務化</strong>。海外投資家のアクセス改善</td></tr>
+      <tr><td>IRシステム構築（2025年7月〜）</td><td><strong>全上場企業にIRシステム構築義務化</strong></td></tr>
+      <tr><td>ガバナンス改革2025</td><td>金融庁がアクションプログラムを公表、Corporate Governance Code改訂に着手</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>東証改革のインパクト</strong>: 2023年3月の「PBR1倍割れ是正要請」は、日本の企業経営を根本から変えつつある。自社株買い・増配・政策保有株売却・事業ポートフォリオの見直しが加速し、日本企業の「稼ぐ力」が大きく改善。BlackRock・JPモルガンなど海外大手運用会社も、改革の持続性と実効性を高く評価している。</p></blockquote>
+
+  <h3>3-4. セクター別注目</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>半導体 — AI需要の恩恵</h4>
+      <ul>
+        <li><strong>ディスコ</strong>: 半導体切断・研磨装置で世界トップシェア</li>
+        <li><strong>東京エレクトロン</strong>: 半導体製造装置で世界大手</li>
+        <li><strong>レーザーテック</strong>: EUVマスク検査装置で独占的地位</li>
+        <li>AI・データセンター需要拡大で恩恵大</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>金融 — 金利上昇の最大受益者</h4>
+      <ul>
+        <li><strong>三菱UFJ</strong>、<strong>三井住友FG</strong>、<strong>みずほFG</strong></li>
+        <li>マイナス金利解除で利ざや改善、業績は過去最高水準</li>
+        <li>PBR1倍割れ是正で増配・自社株買いも積極化</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>自動車 — 円安メリット</h4>
+      <ul>
+        <li><strong>トヨタ自動車</strong>: 世界販売台数トップ、営業利益は過去最高圏</li>
+        <li>円安水準が続く限り、輸出企業は為替差益を享受</li>
+        <li>EV・ハイブリッド戦略にも注目</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>商社 — バフェット銘柄</h4>
+      <ul>
+        <li><strong>伊藤忠</strong>、<strong>三菱商事</strong>、<strong>三井物産</strong>、<strong>住友商事</strong>、<strong>丸紅</strong></li>
+        <li>資源＋非資源の両輪経営で安定収益</li>
+        <li>バフェット氏が追加投資を表明し、世界が注目</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. 長期投資で資産を増やす</h2>
+
+  <h3>4-1. 日経平均の長期実績</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>期間</th><th>年率リターン</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>過去10年</td><td><strong>約8-9%</strong></td><td>アベノミクス以降の上昇を享受</td></tr>
+      <tr><td>過去30年</td><td>約3-4%</td><td>バブル崩壊からの回復含む（ただし配当込みでは大幅に改善）</td></tr>
+      <tr><td>2012年（アベノミクス開始）以降</td><td><strong>約12%</strong></td><td>日経平均は約8,000円→40,000円超へ</td></tr>
+      <tr><td>配当込みTOPIX（過去20年）</td><td><strong>約7-8%</strong></td><td>配当再投資の効果が大きい</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">日経平均・TOPIX 長期年率リターン（%）</div>
+    <canvas id="chartNikkei"></canvas>
+    <div class="chart-source">出典: 各種指数データ</div>
+  </div>
+  <blockquote><p><strong>「日本株は30年横ばい」は過去の話</strong>。2012年以降の日経平均は年率約12%のリターンを達成。配当込みのTOPIXで見れば、長期的にも十分な成果。</p></blockquote>
+
+  <h3>4-2. NISAつみたて投資シミュレーション（年率7%想定）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>毎月の積立額</th><th>元本（20年間）</th><th>20年後の資産額</th><th>運用益</th></tr></thead>
+    <tbody>
+      <tr><td>月1万円</td><td>240万円</td><td><strong>約521万円</strong></td><td>約281万円</td></tr>
+      <tr><td>月3万円</td><td>720万円</td><td><strong>約1,563万円</strong></td><td>約843万円</td></tr>
+      <tr><td>月5万円</td><td>1,200万円</td><td><strong>約2,605万円</strong></td><td>約1,405万円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart-container">
+    <div class="chart-title">NISAつみたて投資シミュレーション（20年・年率7%）</div>
+    <canvas id="chartNisaJp"></canvas>
+    <div class="chart-source">出典: 金融庁つみたてシミュレーター</div>
+  </div>
+  <div class="highlight-box"><strong>月3万円を20年間つみたて投資すれば、元本720万円が約1,563万円に。NISAなら運用益の約843万円が全額非課税（通常なら約171万円が税金で取られる）。</strong></div>
+
+  <h3>4-3. 「自国投資」のメリット</h3>
+  <ul>
+    <li><strong>為替リスクなし</strong>: 円建てで投資するため、為替変動による元本の目減りがない</li>
+    <li><strong>情報入手が容易</strong>: 日本語でリアルタイムの企業情報・ニュースを入手できる</li>
+    <li><strong>株主優待</strong>: 日本独自の制度。食事券・割引券・自社製品など、配当+αのメリット</li>
+    <li><strong>時差なし</strong>: 日本時間の取引時間中にリアルタイムで売買判断が可能</li>
+  </ul>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 分散投資の効果</h2>
+
+  <h3>5-1. 日本株のポートフォリオ内での位置づけ</h3>
+  <p>日本株は「自国資産」として、ポートフォリオの安定性を高める重要な役割を果たします。為替リスクを取らずにリターンを得られる貴重な投資先です。</p>
+
+  <h3>5-2. GPIFの資産配分</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産クラス</th><th>基本配分</th><th>役割</th></tr></thead>
+    <tbody>
+      <tr><td><strong>国内株式</strong></td><td><strong>25%</strong></td><td>成長性+為替リスクなし</td></tr>
+      <tr><td>外国株式</td><td>25%</td><td>グローバルな成長を取り込む</td></tr>
+      <tr><td>国内債券</td><td>25%</td><td>安定性の確保</td></tr>
+      <tr><td>外国債券</td><td>25%</td><td>利回りの確保</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>GPIF</strong>（世界最大の年金基金、運用資産約250兆円）は資産の<strong>25%を国内株式</strong>に配分。プロの運用でも日本株は「ポートフォリオの柱」として位置づけられている。</p></blockquote>
+
+  <h3>5-3. ホームバイアスへの注意</h3>
+  <p>日本の個人投資家は日本株に偏りがちな傾向（ホームバイアス）があります。日本株を過度に持ちすぎず、海外資産とバランスよく組み合わせることが重要です。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>世界の株式市場における日本のウェイト</th><th>比率</th></tr></thead>
+    <tbody>
+      <tr><td>MSCI全世界株式指数（ACWI）に占める日本</td><td><strong>約5-6%</strong></td></tr>
+      <tr><td>世界GDPに占める日本</td><td>約4%</td></tr>
+      <tr><td>日本人の投資における日本株比率（平均）</td><td>約40-50%（ホームバイアス大）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-4. 組み合わせの効果</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ポートフォリオ</th><th>想定年率リターン</th><th>リスク（標準偏差）</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td>日本株100%</td><td>約7-8%</td><td>約18%</td><td>為替リスクなし、変動大</td></tr>
+      <tr><td>日本株50% + 海外株50%</td><td>約8-9%</td><td>約15%</td><td>分散効果で変動抑制</td></tr>
+      <tr><td>日本株30% + 海外株40% + 債券30%</td><td>約6-7%</td><td>約10%</td><td>安定性と成長のバランス</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>5-5. 日経平均とS&amp;P 500の相関</h3>
+  <p>日経平均とS&amp;P 500の相関係数は近年<strong>0.5-0.7</strong>程度。完全に連動するわけではなく、日本株を組み入れることで分散効果が得られます。特に円建てでは為替の影響もあるため、実質的な相関はさらに低くなります。</p>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. おすすめファンド</h2>
+
+  <h3>6-1. 主要ファンド比較表</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>信託報酬</th><th>特徴</th><th>NISA</th></tr></thead>
+    <tbody>
+      <tr><td><strong>eMAXIS Slim 国内株式（TOPIX）</strong></td><td><strong>年0.143%</strong></td><td>TOPIX連動、業界最低水準コスト</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>eMAXIS Slim 国内株式（日経平均）</strong></td><td><strong>年0.143%</strong></td><td>日経225連動、業界最低水準コスト</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>ニッセイ日経225インデックスファンド</strong></td><td>年0.275%</td><td>日経225連動、長い運用実績</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>ひふみ投信 / ひふみプラス</strong></td><td>年1.078%</td><td>アクティブ、中小型株にも投資。独自の企業調査で銘柄選定</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>日経平均高配当利回り株ファンド</strong></td><td>年0.693%</td><td>日経225構成銘柄から高配当30銘柄を選定</td><td>成長投資枠</td></tr>
+      <tr><td><strong>JPX日経400インデックスファンド</strong></td><td>年0.215%</td><td>ガバナンス重視。ROEや資本効率の高い企業で構成</td><td>つみたて+成長</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-2. タイプ別おすすめ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>投資家タイプ</th><th>おすすめファンド</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>コスト重視・長期積立</strong></td><td>eMAXIS Slim 国内株式（TOPIX）</td><td>信託報酬0.143%の圧倒的低コスト。TOPIX連動で市場全体に投資</td></tr>
+      <tr><td><strong>高配当・インカム重視</strong></td><td>日経平均高配当利回り株ファンド</td><td>高配当銘柄に集中投資。安定的なインカム収入</td></tr>
+      <tr><td><strong>ガバナンス重視</strong></td><td>JPX日経400インデックスファンド</td><td>東証改革の恩恵を受ける優良企業に投資</td></tr>
+      <tr><td><strong>銘柄選定力重視</strong></td><td>ひふみ投信 / ひふみプラス</td><td>独自の企業調査で隠れた成長株を発掘</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. セールストーク集</h2>
+
+  <h3>7-1. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「日本株は30年間横ばいだったのでは？」</div>
+  <blockquote><p>確かに日経平均がバブル期の最高値（38,915円）を超えたのは2024年2月です。しかし、これはバブル期の超割高な水準からの正常化です。2012年のアベノミクス開始以降は<strong>年率約12%</strong>のリターン。配当込みのTOPIXで見れば、過去20年でも年率7-8%の実績があります。「失われた30年」は既に終わりました。</p></blockquote>
+
+  <div class="faq-q">Q2: 「少子高齢化で日本は成長しないのでは？」</div>
+  <blockquote><p>日本企業はもはや「日本だけ」の企業ではありません。東証プライム上場企業の<strong>海外売上比率は50%を超えて</strong>います。トヨタ、ソニー、キーエンスなど、世界中で稼いでいます。確かに人口は約1億2,340万人で毎年約100万人減少、出生率は1.15と過去最低ですが、AI活用・ロボティクスによる生産性向上に加え、2025年は<strong>4,270万人の訪日外客が9.5兆円を消費</strong>。人口減少を補う成長エンジンが育っています。</p></blockquote>
+
+  <div class="faq-q">Q3: 「米国株の方がリターンが高いのでは？」</div>
+  <blockquote><p>直近10年は米国株優位でしたが、その前の10年間（2000-2009年）はS&amp;P 500が元本割れだった一方、日本株の方が上回った期間もあります。<strong>どの国が勝つかを事前に当てるのは不可能</strong>。だからこそ日本株を含めた分散が重要です。加えて、日本株には為替リスクがないという大きな安心感があります。</p></blockquote>
+
+  <div class="faq-q">Q4: 「日銀の利上げで株価が下がりませんか？」</div>
+  <blockquote><p>利上げは<strong>景気の強さの証拠</strong>です。日銀が利上げできるということは、企業業績が好調で経済に体力があるということ。実際、金融機関は利ざや改善で増益となり、企業業績全体の拡大が利上げのマイナス影響を吸収しています。歴史的にも、緩やかな利上げ局面では株価は上昇する傾向があります。</p></blockquote>
+
+  <div class="faq-q">Q5: 「新NISAで日本株は買うべきですか？」</div>
+  <blockquote><p>もちろんです。<strong>つみたて投資枠</strong>ではeMAXIS Slim国内株式（TOPIX）やeMAXIS Slim国内株式（日経平均）で低コストにインデックス投資。<strong>成長投資枠</strong>では高配当株ファンドや個別株（商社株・銀行株など）を組み合わせるのが効果的です。NISAなら運用益が全額非課税になるため、日本株の配当を非課税で受け取れる大きなメリットがあります。</p></blockquote>
+
+  <div class="faq-q">Q6: 「バフェットが買ったから日本株は割高になったのでは？」</div>
+  <blockquote><p>バフェット効果で注目が集まりましたが、日本株のPERはまだ<strong>15-16倍と先進国中で割安水準</strong>です。米国の21-23倍と比べて30%以上のディスカウント。東証改革による企業価値向上はまだ道半ばであり、<strong>上昇余地は十分</strong>にあります。</p></blockquote>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. 具体的な提案</h2>
+
+  <h3>8-1. 投資家タイプ別ポートフォリオ例</h3>
+
+  <div class="pattern-title">パターンA: 保守的 — 安定重視</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>日本株式</strong></td><td><strong>50%</strong></td><td>eMAXIS Slim 国内株式（TOPIX）</td></tr>
+      <tr><td>日本債券</td><td>30%</td><td>eMAXIS Slim 国内債券</td></tr>
+      <tr><td>海外株式</td><td>20%</td><td>eMAXIS Slim 全世界株式（除く日本）</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンB: バランス型 — 国際分散</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>日本株式</strong></td><td><strong>30%</strong></td><td>eMAXIS Slim 国内株式（日経平均）</td></tr>
+      <tr><td>米国株式</td><td>30%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>先進国債券</td><td>20%</td><td>eMAXIS Slim 先進国債券</td></tr>
+      <tr><td>新興国株式</td><td>20%</td><td>eMAXIS Slim 新興国株式</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンC: 積極的 — 成長+高配当</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的なファンド</th></tr></thead>
+    <tbody>
+      <tr><td><strong>日本株式（高配当）</strong></td><td><strong>20%</strong></td><td>日経平均高配当利回り株ファンド</td></tr>
+      <tr><td><strong>日本株式（グロース）</strong></td><td><strong>20%</strong></td><td>ひふみプラス</td></tr>
+      <tr><td>米国株式</td><td>40%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>新興国株式</td><td>20%</td><td>eMAXIS Slim 新興国株式</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8-2. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 - 問題提起</p><blockquote><p>「銀行預金に眠っている資産、インフレで実質的に目減りしていることをご存知ですか？ 物価が2.5%上がっても預金金利はほぼゼロ。毎年お金の価値が減っている状態です。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 - 日本株の魅力を伝える</p><blockquote><p>「日本企業は今、大きく変わっています。東証改革で株主還元が過去最高。自社株買い10兆円、配当も増え続けています。"失われた30年"は完全に終わりました。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 - 安心感を提供する</p><blockquote><p>「日本株なら為替リスクがありません。馴染みのある企業に投資できます。トヨタ、ソニー、三菱UFJ...ニュースで業績を確認しやすいのも強みです。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 - 長期投資の効果を示す</p><blockquote><p>「月3万円を20年つみたて投資すれば、年率7%で約1,563万円に。NISAなら運用益の約843万円が全額非課税です。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 - 行動喚起</p><blockquote><p>「まずはNISAのつみたて投資枠で月1万円から始めてみませんか？ eMAXIS Slim国内株式なら信託報酬0.143%と業界最低水準です。」</p></blockquote></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的としたものではありません。記載されたデータは2026年2月26日時点の情報に基づいており、将来の運用成果を保証するものではありません。投資にはリスクが伴い、元本割れの可能性があります。投資判断はお客様ご自身の判断と責任でお願いいたします。投資信託は預金ではなく、預金保険の対象ではありません。</p>
+</footer>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fontFamily = "'Noto Sans JP', sans-serif";
+  var gridColor = '#e2e8f0';
+
+  Chart.defaults.font.family = fontFamily;
+
+  // Chart 1 - GDP Growth Forecasts (Grouped Bar)
+  new Chart(document.getElementById('chartGdpJp'), {
+    type: 'bar',
+    data: {
+      labels: ['IMF', '日銀', 'ゴールドマン', 'バンガード', 'OECD'],
+      datasets: [
+        {
+          label: '2025年予測',
+          data: [1.1, 0.9, 0.75, 1.0, 1.0],
+          backgroundColor: '#2c5282',
+          borderRadius: 4
+        },
+        {
+          label: '2026年予測',
+          data: [0.7, 1.0, 0.8, 1.0, 0.6],
+          backgroundColor: '#d69e2e',
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y + '%'; } } }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '成長率（%）' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 2 - Inflation (Bar with target line)
+  new Chart(document.getElementById('chartInflationJp'), {
+    type: 'bar',
+    data: {
+      labels: ['ヘッドラインCPI', 'コアCPI', 'コアコアCPI'],
+      datasets: [{
+        label: '前年比（%）',
+        data: [1.5, 2.0, 2.6],
+        backgroundColor: ['#2c5282', '#d69e2e', '#ed8936'],
+        borderRadius: 4
+      }]
+    },
+    plugins: [{
+      id: 'targetLine',
+      afterDraw: function(chart) {
+        var yScale = chart.scales.y;
+        var ctx = chart.ctx;
+        var yVal = yScale.getPixelForValue(2.0);
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = '#e53e3e';
+        ctx.lineWidth = 2;
+        ctx.moveTo(chart.chartArea.left, yVal);
+        ctx.lineTo(chart.chartArea.right, yVal);
+        ctx.stroke();
+        ctx.fillStyle = '#e53e3e';
+        ctx.font = '12px ' + fontFamily;
+        ctx.textAlign = 'left';
+        ctx.fillText('日銀目標 2.0%', chart.chartArea.left + 4, yVal - 6);
+        ctx.restore();
+      }
+    }],
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 3.5,
+          title: { display: true, text: '前年比（%）' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 3 - BOJ Rate (Line with dashed forecast)
+  new Chart(document.getElementById('chartBojRate'), {
+    type: 'line',
+    data: {
+      labels: ['2024年3月', '2024年7月', '2025年1月', '2025年12月', '2026年7月(予)', '2026年末(予)'],
+      datasets: [
+        {
+          label: '政策金利（実績）',
+          data: [0, 0.25, 0.50, 0.75, null, null],
+          borderColor: '#1a365d',
+          backgroundColor: '#1a365d',
+          borderWidth: 3,
+          pointRadius: 5,
+          pointBackgroundColor: '#1a365d',
+          tension: 0.3,
+          spanGaps: false
+        },
+        {
+          label: '政策金利（予測）',
+          data: [null, null, null, 0.75, 1.0, 1.25],
+          borderColor: '#d69e2e',
+          backgroundColor: '#d69e2e',
+          borderWidth: 3,
+          borderDash: [8, 4],
+          pointRadius: 5,
+          pointStyle: 'triangle',
+          pointBackgroundColor: '#d69e2e',
+          tension: 0.3,
+          spanGaps: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 1.5,
+          title: { display: true, text: '政策金利（%）' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // Chart 4 - Wages (Bar)
+  new Chart(document.getElementById('chartWages'), {
+    type: 'bar',
+    data: {
+      labels: ['2024年平均', '2025年平均', '2026年要求(連合)'],
+      datasets: [{
+        label: '賃上げ率（%）',
+        data: [3.58, 5.25, 5.0],
+        backgroundColor: ['#2c5282', '#48bb78', '#d69e2e'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '賃上げ率（%）' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 5 - Population (Horizontal Bar)
+  new Chart(document.getElementById('chartPopulation'), {
+    type: 'bar',
+    data: {
+      labels: ['65歳以上', '15-64歳(生産年齢)', '15歳未満'],
+      datasets: [{
+        label: '人口比率（%）',
+        data: [30.0, 58.7, 11.3],
+        backgroundColor: ['#e53e3e', '#2c5282', '#48bb78'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          beginAtZero: true,
+          max: 70,
+          title: { display: true, text: '比率（%）' },
+          grid: { color: gridColor }
+        },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 6 - Valuation Comparison (Grouped Bar)
+  new Chart(document.getElementById('chartValuation'), {
+    type: 'bar',
+    data: {
+      labels: ['予想PER', 'PBR', '配当利回り(%)'],
+      datasets: [
+        {
+          label: '日本',
+          data: [15.5, 1.3, 2.3],
+          backgroundColor: '#1a365d',
+          borderRadius: 4
+        },
+        {
+          label: '米国',
+          data: [22, 4.5, 1.3],
+          backgroundColor: '#ed8936',
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '倍 / %' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 7 - Inbound Tourism (Bar)
+  new Chart(document.getElementById('chartInbound'), {
+    type: 'bar',
+    data: {
+      labels: ['韓国', '中国', 'その他'],
+      datasets: [{
+        label: '訪日外客数（万人）',
+        data: [950, 910, 2410],
+        backgroundColor: ['#2c5282', '#e53e3e', '#48bb78'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '万人' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 8 - NISA Simulation (Stacked Bar)
+  new Chart(document.getElementById('chartNisaJp'), {
+    type: 'bar',
+    data: {
+      labels: ['月1万円', '月3万円', '月5万円'],
+      datasets: [
+        {
+          label: '元本（万円）',
+          data: [240, 720, 1200],
+          backgroundColor: '#2c5282',
+          borderRadius: 0
+        },
+        {
+          label: '運用益（万円）',
+          data: [281, 843, 1405],
+          backgroundColor: '#48bb78',
+          borderRadius: { topLeft: 4, topRight: 4 }
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: {
+          callbacks: {
+            afterBody: function(items) {
+              var idx = items[0].dataIndex;
+              var principal = [240, 720, 1200];
+              var gain = [281, 843, 1405];
+              return '合計: ' + (principal[idx] + gain[idx]) + '万円';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          stacked: true,
+          beginAtZero: true,
+          title: { display: true, text: '万円' },
+          grid: { color: gridColor }
+        },
+        x: { stacked: true, grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 9 - Nikkei Long-term Returns (Bar)
+  new Chart(document.getElementById('chartNikkei'), {
+    type: 'bar',
+    data: {
+      labels: ['過去10年', '過去30年', 'アベノミクス以降', '配当込みTOPIX(20年)'],
+      datasets: [{
+        label: '年率リターン（%）',
+        data: [8.5, 3.5, 12, 7.5],
+        backgroundColor: ['#2c5282', '#718096', '#48bb78', '#d69e2e'],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '年率リターン（%）' },
+          grid: { color: gridColor }
+        },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Chart 10 - Industry Composition (Doughnut)
+  new Chart(document.getElementById('chartIndustry'), {
+    type: 'doughnut',
+    data: {
+      labels: ['サービス業(71%)', '製造業(27%)', '農林水産業(1%)'],
+      datasets: [{
+        data: [71, 27, 1],
+        backgroundColor: ['#2c5282', '#d69e2e', '#48bb78'],
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: function(c) { return c.label + ': ' + c.parsed + '%'; } } }
+      }
+    }
+  });
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

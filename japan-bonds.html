@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>日本債券 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .critical-box { background: #2d1a1a; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>日本債券 セールス提案資料</h1>
+  <p class="subtitle">Japan Fixed Income — Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月26日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">エグゼクティブサマリー</a></li>
+    <li><a href="#sec2">マクロ経済・金利環境</a></li>
+    <li><a href="#sec3">債券市場の現状と見通し</a></li>
+    <li><a href="#sec4">ポートフォリオにおける役割</a></li>
+    <li><a href="#sec5">投資タイミングと戦略</a></li>
+    <li><a href="#sec6">おすすめファンド・商品</a></li>
+    <li><a href="#sec7">セールストーク集</a></li>
+    <li><a href="#sec8">具体的な提案</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- Section 1 -->
+<section class="section" id="sec1">
+  <h2>1. エグゼクティブサマリー</h2>
+  <h4>なぜ今、日本債券なのか</h4>
+  <div class="gold-box"><p><strong>1. ポートフォリオの守護神</strong>: 株式との低相関（約-0.2〜0.1）で資産全体の値動きを安定化。GPIFも資産の<strong>25%を国内債券に配分</strong>。守りの柱として欠かせない存在。</p></div>
+  <div class="gold-box"><p><strong>2. 金利のある世界の復活</strong>: 日銀利上げで10年国債利回り<strong>約2.1%</strong>、30年国債は<strong>3.39%</strong>。個人向け国債も変動10年で<strong>1.48%</strong>、固定5年で<strong>1.66%</strong>と歴史的水準に。預金金利（0.1-0.3%）を大幅に上回る、確実なインカムの選択肢。</p></div>
+  <div class="gold-box"><p><strong>3. 元本割れリスクの低さ</strong>: 日本国債は格付<strong>AA（S&amp;P）</strong>。個人向け国債は元本保証に近い安全性を備え、1万円から購入可能。資産形成の土台に最適。</p></div>
+</section>
+
+<!-- Section 2 -->
+<section class="section" id="sec2">
+  <h2>2. マクロ経済・金利環境</h2>
+
+  <h3>2-1. BOJ金融政策</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>政策金利</strong></td><td><strong>0.75%</strong>（2025年12月に0.50%→0.75%へ利上げ、<strong>30年ぶりの高水準</strong>）</td></tr>
+      <tr><td>利上げ経緯</td><td>2024年3月マイナス金利解除 → 段階的に利上げ → 2025年12月に0.75%到達</td></tr>
+      <tr><td>直近の決定</td><td>2026年1月: 8対1の賛成多数で<strong>据え置き</strong>（高田審議委員のみ1.0%への利上げを主張し否決）</td></tr>
+      <tr><td>サイクル状況</td><td><strong>利上げサイクル進行中</strong>（主要先進国で唯一の利上げ国）</td></tr>
+      <tr><td>今後の見通し</td><td>2026年中に<strong>1.0%到達</strong>の見通し（市場コンセンサス: 春闘確認後の<strong>7月</strong>に次回利上げ）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>各社の政策金利予測</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>機関</th><th>次回利上げ時期</th><th>2026年末の政策金利</th></tr></thead>
+    <tbody>
+      <tr><td><strong>バンガード</strong></td><td>2026年内2回の利上げ</td><td><strong>1.25%</strong></td></tr>
+      <tr><td><strong>ステート・ストリート</strong></td><td>2026年・2027年各1回</td><td><strong>1.25%</strong>（最終到達点）</td></tr>
+      <tr><td><strong>IMF</strong></td><td>2026年中に2回、2027年に1回</td><td>約<strong>1.25%</strong></td></tr>
+      <tr><td><strong>ING</strong></td><td>2026年10月</td><td>1.00%</td></tr>
+      <tr><td><strong>市場コンセンサス</strong></td><td><strong>2026年7月</strong>（春闘確認後）</td><td><strong>1.0〜1.25%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Vanguard 2026 Economic Outlook、State Street Global Advisors、IMF WEO 2026年1月、ING Think</p>
+  <blockquote><p><strong>注目</strong>: 次回利上げの鍵は<strong>2026年春闘</strong>の結果。特に中小企業での賃上げ動向が重要視されている。2025年春闘は平均<strong>+5.25%</strong>（34年ぶりの高水準）を達成しており、2026年も連合は<strong>+5%以上</strong>を要求方針として掲げている。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">BOJ 政策金利の推移と予測</div>
+    <canvas id="chartBojPath"></canvas>
+    <div class="chart-source">出典: 日銀、各機関予測</div>
+  </div>
+
+  <h3>2-2. 国債利回り動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年限</th><th>利回り（2026年2月下旬）</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>2年国債</td><td><strong>約0.60-0.70%</strong></td><td>BOJ利上げ期待を反映</td></tr>
+      <tr><td>5年国債</td><td><strong>約1.00-1.20%</strong></td><td>上昇傾向</td></tr>
+      <tr><td>10年国債</td><td><strong>約2.10%</strong></td><td>2月24日時点で6週ぶり安値。25年ぶりの高水準圏</td></tr>
+      <tr><td>20年国債</td><td><strong>約2.80-2.90%</strong></td><td>超長期ゾーンで急上昇</td></tr>
+      <tr><td>30年国債</td><td><strong>3.39%</strong></td><td>2月25日終値</td></tr>
+      <tr><td>40年国債</td><td><strong>3.62%</strong></td><td>1月20日に<strong>4.24%の史上最高値</strong>を記録後、低下</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Trading Economics、CNBC（2026年2月25日時点）</p>
+  <blockquote><p><strong>注目</strong>: イールドカーブは急勾配なスティープニング（長短金利差拡大）が進行中。BOJがYCC（イールドカーブ・コントロール）を2024年3月に廃止して以降、特に長期・超長期ゾーンが大幅上昇。長い年限ほど高い利回りを享受できる環境。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">JGB イールドカーブ</div>
+    <canvas id="chartYieldCurve"></canvas>
+    <div class="chart-source">出典: Trading Economics、CNBC</div>
+  </div>
+
+  <h3>2-2b. 2026年1月の「債券市場の乱」</h3>
+  <div class="gold-box">
+    <p><strong>40年JGBが史上初の4%超え</strong>: 2026年1月19日、高市早苗首相が消費税減税・大型財政刺激策（21.3兆円の「サナエコノミクス」）を発表。財政悪化懸念から<strong>40年JGBが一時4.24%に急騰</strong>し、1907年以来初めて40年物が4%を超えた。GDP比<strong>260%超</strong>の債務残高を抱える日本に対して、市場が警戒を示した歴史的な出来事。</p>
+    <p style="margin-top:8px;">その後は市場の落ち着きを取り戻し、2月下旬には3.62%まで低下。ただし財政規律への市場の監視は継続しており、超長期金利のボラティリティは依然として高い状況。</p>
+  </div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CNBC「Japan 40-year JGB yield hits record」（2026年1月20日）、Wolf Street</p>
+
+  <p><strong>比較: 主要中央銀行の政策金利（2026年2月時点）</strong></p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>中央銀行</th><th>政策金利</th><th>サイクル状況</th><th>2026年見通し</th></tr></thead>
+    <tbody>
+      <tr><td>FRB（米国）</td><td>3.50-3.75%</td><td>据え置き</td><td>年後半に2回程度の利下げ（PIMCO・GS予想）</td></tr>
+      <tr><td>ECB（ユーロ圏）</td><td>2.00-2.15%</td><td>据え置き</td><td>当面据え置きが有力</td></tr>
+      <tr><td><strong>BOJ（日本）</strong></td><td><strong>0.75%</strong></td><td><strong>利上げサイクル進行中</strong></td><td><strong>7月に1.0%到達が市場コンセンサス</strong></td></tr>
+      <tr><td>BOE（英国）</td><td>3.75%</td><td>据え置き（5対4の接戦）</td><td>インフレ改善で追加利下げ継続</td></tr>
+      <tr><td>RBA（豪州）</td><td>3.85%</td><td>利上げ再開</td><td>インフレ再加速で高止まり見通し</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: ING Think 2026年中央銀行予測、BOE・BOC公式発表</p>
+  <blockquote><p><strong>注目</strong>: 主要先進国で<strong>利上げを続けているのは日本だけ</strong>。他国が利下げ・据え置きの中、日本は「金利正常化」の途上にあり、今後さらに利回りが上昇する可能性がある。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">主要中央銀行の政策金利比較</div>
+    <canvas id="chartCentralBanks"></canvas>
+    <div class="chart-source">出典: 各国中央銀行</div>
+  </div>
+
+  <h3>2-3. インフレ動向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>指標</th><th>数値（2026年1月）</th><th>備考</th></tr></thead>
+    <tbody>
+      <tr><td>CPI（総合）</td><td><strong>前年比+1.5%</strong></td><td>2022年3月以来、約45ヶ月ぶりに2%を下回る</td></tr>
+      <tr><td>コアCPI（生鮮食品除く）</td><td><strong>+2.0%</strong></td><td>2024年1月以来の低水準</td></tr>
+      <tr><td>コアコアCPI（生鮮食品・エネルギー除く）</td><td><strong>+2.6%</strong></td><td>前月の+2.9%から低下</td></tr>
+      <tr><td>日銀の見通し（FY2026）</td><td>コアCPI <strong>1.9%</strong></td><td>2025年10月時点の1.8%から上方修正</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: CNBC「Japan inflation falls below 2%」（2026年2月20日）、日銀展望レポート2026年1月</p>
+
+  <h3>2-4. 日銀の量的引き締め（QT）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>項目</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>保有残高</td><td>約500兆円規模（段階的に縮小中）</td></tr>
+      <tr><td>月間買入れ額</td><td>2024年の約6兆円 → 2026年1-3月は<strong>約3兆円</strong>へ削減</td></tr>
+      <tr><td>削減ペース（変更前）</td><td>四半期ごとに約<strong>4,000億円</strong>ずつ削減</td></tr>
+      <tr><td>削減ペース（2026年4月〜）</td><td><strong>2,000億円/四半期</strong>に半減（QTペースダウン）</td></tr>
+      <tr><td>方向性</td><td><strong>量的引き締め（QT）</strong>を継続しつつ、ペースを緩和</td></tr>
+      <tr><td>市場への影響</td><td>民間の国債流通量が増加、金利に上昇圧力</td></tr>
+    </tbody>
+  </table></div>
+  <div class="highlight-box">
+    <p><strong>QTペースダウンの背景</strong>: 2026年4月から削減ペースを半減する理由は3つ。(1) 米国トランプ関税の不確実性、(2) 超長期金利の急騰（40年JGBが4%超え）への市場配慮、(3) 米国債格下げの世界市場への波及リスク。植田総裁は「QTのペースと政策金利の判断は別物」と明言しており、ペースダウンがただちに利上げ停止を意味するわけではないと強調。</p>
+  </div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: JCER「BOJ to slow de facto QT from April 2026」、BOJ公式JGB購入計画</p>
+  <div class="chart-container">
+    <div class="chart-title">日銀 月間国債買入れ額の推移</div>
+    <canvas id="chartQT"></canvas>
+    <div class="chart-source">出典: 日銀JGB購入計画</div>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section" id="sec3">
+  <h2>3. 債券市場の現状と見通し</h2>
+
+  <h3>3-1. 債券価格と金利の基本関係</h3>
+  <div class="highlight-box">
+    <p><strong>基本ルール</strong>: 金利が上がると債券価格は下がり、金利が下がると債券価格は上がる。ただし満期まで保有すれば額面で償還される。新規投資には金利上昇局面が有利（高い利回りで購入できる）。</p>
+  </div>
+
+  <h3>3-2. 2024-2025年の振り返り</h3>
+  <ul>
+    <li>日銀のマイナス金利解除（2024年3月）と段階的利上げにより、金利は上昇基調</li>
+    <li><strong>既発債</strong>（既に発行された債券）は価格が下落</li>
+    <li><strong>新規投資</strong>には有利な環境 — より高い利回りで投資可能に</li>
+    <li>個人向け国債の変動10年型は金利上昇の恩恵を直接享受</li>
+  </ul>
+
+  <h3>3-3. 2026年の見通し</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>シナリオ</th><th>10年国債利回り</th><th>確率</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>メインシナリオ</strong></td><td><strong>2.0-2.5%</strong></td><td>60%</td><td>緩やかな金利上昇。日銀が年内にあと1回利上げ（7月に1.0%）</td></tr>
+      <tr><td>リスクシナリオ（上振れ）</td><td>2.5%超</td><td>20%</td><td>インフレ加速・財政懸念で日銀が追加利上げ。「サナエコノミクス」による財政拡張が金利を押し上げ</td></tr>
+      <tr><td>リスクシナリオ（下振れ）</td><td>1.5%以下</td><td>20%</td><td>世界的な景気後退（米関税影響）で利下げ転換</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>3-4. デュレーション別のリスク・リターン特性</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>区分</th><th>残存年限</th><th>金利リスク</th><th>期待リターン</th><th>向いている投資家</th></tr></thead>
+    <tbody>
+      <tr><td><strong>短期</strong></td><td>1-3年</td><td>小</td><td>小（0.6-1.2%）</td><td>安定重視、金利上昇局面の待機資金</td></tr>
+      <tr><td><strong>中期</strong></td><td>3-7年</td><td>中</td><td>中（1.0-1.5%）</td><td>バランス型、コア資産として。PIMCO推奨ゾーン</td></tr>
+      <tr><td><strong>長期</strong></td><td>7-10年</td><td>大</td><td>大（2.0-2.5%）</td><td>金利低下を見込む投資家</td></tr>
+      <tr><td><strong>超長期</strong></td><td>10年超</td><td>最大</td><td>最大（2.8-3.6%）</td><td>長期インカム確保、年金型運用。ヘッジ付き米国債より有利</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p><strong>ポイント</strong>: 金利上昇局面では短期債が有利、金利がピークに達した局面では長期債が有利。現在は短中期を中心に構え、金利ピーク後に長期債へシフトする戦略が有効。</p></blockquote>
+</section>
+
+<!-- Section 4 -->
+<section class="section" id="sec4">
+  <h2>4. ポートフォリオにおける役割</h2>
+
+  <h3>4-1. 株式と債券の相関 — 分散効果が復活傾向</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産の組み合わせ</th><th>相関係数</th><th>分散効果</th></tr></thead>
+    <tbody>
+      <tr><td>日本株式 &amp; 日本債券</td><td><strong>約-0.2〜0.1</strong></td><td><strong>非常に高い</strong>（逆の動きをしやすい）</td></tr>
+      <tr><td>日本株式 &amp; 米国株式</td><td>約0.6〜0.8</td><td>中程度（同じ方向に動きやすい）</td></tr>
+      <tr><td>日本債券 &amp; 先進国債券</td><td>約0.3〜0.5</td><td>ある程度の分散効果あり</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>グローバル株式・債券相関の最新推移</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>時期</th><th>株式・債券相関係数</th><th>状況</th></tr></thead>
+    <tbody>
+      <tr><td>2024年7月（ピーク）</td><td><strong>+0.80</strong></td><td>インフレが主要変数 → 株債同方向に連動</td></tr>
+      <tr><td>2024年12月</td><td>+0.66</td><td>高止まり</td></tr>
+      <tr><td>2025年9月</td><td>+0.48</td><td>改善傾向</td></tr>
+      <tr><td>2025年末〜2026年初</td><td><strong>+0.16</strong></td><td><strong>大幅改善 — 分散効果が復活</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Morningstar、State Street Global Advisors</p>
+  <div class="highlight-box"><p><strong>分散効果が戻ってきた</strong>: インフレ懸念から景気減速懸念へのマクロ転換により、「株安＝金利低下（債券高）」のネガティブ相関が一部復活。2024年7月の+0.80から2025年末の+0.16へ大幅に改善しており、<strong>債券をポートフォリオに組み入れる意義が再び高まっている</strong>。</p></div>
+  <div class="chart-container">
+    <div class="chart-title">株式・債券 相関係数の推移</div>
+    <canvas id="chartCorrelation"></canvas>
+    <div class="chart-source">出典: Morningstar、State Street</div>
+  </div>
+
+  <h4>60/40ポートフォリオの実績</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年</th><th>60/40リターン</th><th>内訳・備考</th></tr></thead>
+    <tbody>
+      <tr><td>2022年</td><td><strong>約-16%</strong></td><td>株安＋債券安の同時安（史上稀な事態）</td></tr>
+      <tr><td>2023年</td><td><strong>約+18%</strong></td><td>株高・債券回復</td></tr>
+      <tr><td>2024年</td><td><strong>約+12%</strong></td><td>株式主導の上昇</td></tr>
+      <tr><td>2025年</td><td><strong>約+14〜15%</strong></td><td>株高＋債券高の好環境</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: Morningstar「Solid year for bonds, 60/40 portfolios too」（2025年振り返り）</p>
+  <blockquote><p><strong>ポイント</strong>: 2022年の「60/40の死」は一時的な現象だった。2023年以降は3年連続でプラスリターンを達成。<strong>株式と債券を組み合わせる伝統的な分散投資は、依然として有効な戦略</strong>であることが実績で示されている。</p></blockquote>
+
+  <h3>4-2. GPIFの基本ポートフォリオ — 第5期中期目標（2025年4月〜2030年3月）</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産クラス</th><th>目標配分</th><th>2025年3月末実績</th><th>役割</th></tr></thead>
+    <tbody>
+      <tr><td><strong>国内債券</strong></td><td><strong>25%</strong></td><td>27.64%</td><td>安定性の柱、元本の保全</td></tr>
+      <tr><td>国内株式</td><td>25%</td><td>23.94%</td><td>国内経済成長の取り込み</td></tr>
+      <tr><td>外国債券</td><td>25%</td><td>24.37%</td><td>為替分散、高利回り</td></tr>
+      <tr><td>外国株式</td><td>25%</td><td>24.05%</td><td>世界経済の成長の取り込み</td></tr>
+    </tbody>
+  </table></div>
+  <div class="highlight-box">
+    <p><strong>第5期の特徴</strong>: 2024年財政検証をもとに期待収益率を算出し、<strong>最小リスクで実質投資収益率1.9%を達成</strong>できるポートフォリオとして4資産均等分散（25%ずつ）を選定。リスクと資産間相関の計算方法を更新した上でも、引き続き最適解とされた。<strong>乖離許容幅を従来より縮小</strong>することでリスク管理を強化。</p>
+  </div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: GPIF公式「第5期基本ポートフォリオ詳細」、Bloomberg（2025年3月末実績）</p>
+  <blockquote><p>世界最大級の年金基金であるGPIFが資産の<strong>25%を国内債券に配分</strong>しているのは、債券が持つ「安定性」と「分散効果」を重視しているからです。累積収益<strong>約155兆円</strong>の実績がその有効性を証明しています。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">GPIF 基本ポートフォリオ</div>
+    <canvas id="chartGpifJb"></canvas>
+    <div class="chart-source">出典: GPIF公式</div>
+  </div>
+
+  <h3>4-3. 年齢別の推奨債券比率</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>年代</th><th>推奨債券比率</th><th>考え方</th></tr></thead>
+    <tbody>
+      <tr><td>20-30代</td><td><strong>10-20%</strong></td><td>長い運用期間を活かし株式中心、債券は安定装置として少額</td></tr>
+      <tr><td>40-50代</td><td><strong>20-30%</strong></td><td>リタイアが視野に入り、守りの比率を高める</td></tr>
+      <tr><td>60代以上</td><td><strong>30-50%</strong></td><td>資産の保全が最優先、安定的なインカム重視</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4-4. リバランス効果</h3>
+  <div class="highlight-box">
+    <p><strong>リバランスとは</strong>: 定期的に資産配分を元の比率に戻すこと。株価が上がって株式の比率が高くなったら株を売って債券を買い、株価が下がったら債券を売って株を買う。これにより<strong>「高い時に売り、安い時に買う」</strong>が自動的に実現し、長期リターンの底上げが期待できます。</p>
+  </div>
+
+  <h3>4-5. 2022年の実例 — 債券の下支え効果</h3>
+  <div class="gold-box">
+    <p><strong>2022年の実績</strong>: 世界的な株安で日本株式は約<strong>-15%</strong>下落。一方、日本債券は小幅な値動きにとどまり、ポートフォリオ全体の下落を大幅に抑制。株式100%の投資家は-15%の損失を直撃したが、株式70%＋債券30%の投資家は約<strong>-10%</strong>で済んだ。</p>
+  </div>
+
+  <h3>4-6. 為替ヘッジコストから見るJGBの相対的魅力</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>投資対象</th><th>現地利回り</th><th>ヘッジコスト（概算）</th><th>ヘッジ後利回り</th></tr></thead>
+    <tbody>
+      <tr><td>米国10年国債</td><td>4.08%</td><td>約3.5-4.0%</td><td><strong>約0〜0.5%（ほぼゼロ）</strong></td></tr>
+      <tr><td>米国30年国債</td><td>4.72%</td><td>約3.5-4.0%</td><td>約0.7〜1.2%</td></tr>
+      <tr><td>ドイツ10年国債</td><td>2.70%</td><td>約0.5-1.0%（ユーロ円）</td><td>約1.5〜2.2%</td></tr>
+      <tr><td><strong>日本30年JGB</strong></td><td><strong>3.39%</strong></td><td><strong>ヘッジ不要（円建て）</strong></td><td><strong>3.39%</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: ABN AMRO「Japan: The land of the rising yields」、Lazy Portfolio ETF JPYヘッジコスト試算</p>
+  <div class="gold-box">
+    <p><strong>日本債券の「本国回帰」圧力</strong>: 日米金利差（BOJ 0.75% vs Fed 3.50-3.75%）に需給の歪みを加えた日本人投資家のドルヘッジコストは年間<strong>約3.5〜4.0%</strong>。円ヘッジ後の米国10年国債利回りは<strong>ほぼゼロ</strong>に。一方、日本の30年JGBは<strong>3.39%</strong>で為替リスクなし。<strong>ヘッジ付き米国債よりもJGB長期ゾーンの方が有利</strong>という状況が生まれており、日本の生保・年金基金でも資産の「本国回帰（リパトリエーション）」が進んでいる。</p>
+  </div>
+</section>
+
+<!-- Section 5 -->
+<section class="section" id="sec5">
+  <h2>5. 投資タイミングと戦略</h2>
+
+  <h3>5-1. 金利上昇局面での債券投資戦略</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>短期債スタート戦略</h4>
+      <ul>
+        <li>まず短期債（1-3年）で運用を開始</li>
+        <li>金利がピークに近づいたら長期債へシフト</li>
+        <li>個人向け国債（固定3年）が入り口として最適</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>ラダー戦略（残存期間の分散）</h4>
+      <ul>
+        <li>2年・5年・10年など複数の年限に分散投資</li>
+        <li>償還のたびに最長年限で再投資</li>
+        <li>金利変動リスクを平準化できる</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>変動金利型の活用</h4>
+      <ul>
+        <li>個人向け国債（変動10年）が最有力</li>
+        <li>半年ごとに金利が見直される</li>
+        <li>金利上昇局面で受取利息が自動的に増加</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>5-2. 長期債の買い時</h3>
+  <blockquote><p><strong>金利がピークに達した時こそ、長期債の最大の買い場。</strong>ピーク後の金利低下局面では、長期債の価格上昇（キャピタルゲイン）と高い利回り（インカムゲイン）のダブルメリットが得られます。</p></blockquote>
+
+  <h3>5-2b. 海外大手運用会社の債券見通し</h3>
+  <div class="country-grid">
+    <div class="country-card">
+      <h4>PIMCO — 「複利の好機（Compounding Opportunity）」</h4>
+      <ul>
+        <li>債券に<strong>強気</strong>。現在の利回り水準は「複利の好機」と位置付け</li>
+        <li>推奨デュレーション: <strong>2〜5年</strong>を中心に、若干のオーバーウェイト</li>
+        <li>アクティブ運用で5〜7%のポートフォリオ利回りが狙える環境と評価</li>
+        <li>FRB予想: 2026年後半に利下げ再開（計2回程度）</li>
+      </ul>
+    </div>
+    <div class="country-card">
+      <h4>BlackRock — 「固定収益のゴールデンエイジ（黄金時代）」</h4>
+      <ul>
+        <li>約6%のインカムが約2.5%のインフレに対して安定して得られる環境と評価</li>
+        <li>大幅な価格変動（キャピタルゲイン）よりも<strong>利息収入（インカム）重視</strong>の運用を推奨</li>
+        <li>個別証券の選択が重要（インデックス全体への投資では超過リターンが得にくい）</li>
+        <li>注目セクター: エージェンシーMBS（政府保証モーゲージ）が「非常に割安」</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: PIMCO「Compounding Opportunity」2026 Cyclical Outlook、BlackRock「2026 Income Outlook」</p>
+  <blockquote><p><strong>ポイント</strong>: 世界最大級の債券運用会社であるPIMCOとBlackRockがともに<strong>「今は債券投資に好適な環境」</strong>と評価。高い利回りが提供する「複利効果」とインカム収入に注目し、短中期ゾーン（2〜5年）を中心とした投資を推奨している。</p></blockquote>
+
+  <h3>5-3. 投資シミュレーション — 1,000万円を5年間運用</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>運用先</th><th>想定利回り</th><th>5年後の資産額</th><th>運用益</th></tr></thead>
+    <tbody>
+      <tr><td>普通預金</td><td>0.1%</td><td>約1,005万円</td><td>約5万円</td></tr>
+      <tr><td>定期預金（1年更新）</td><td>0.3%</td><td>約1,015万円</td><td>約15万円</td></tr>
+      <tr><td><strong>個人向け国債（変動10年）</strong></td><td><strong>1.48%</strong></td><td><strong>約1,076万円</strong></td><td><strong>約76万円</strong></td></tr>
+      <tr><td><strong>個人向け国債（固定5年）</strong></td><td><strong>1.66%</strong></td><td><strong>約1,086万円</strong></td><td><strong>約86万円</strong></td></tr>
+      <tr><td>国内債券ファンド</td><td>1.5%（見込み）</td><td>約1,077万円</td><td>約77万円</td></tr>
+    </tbody>
+  </table></div>
+  <blockquote><p>同じ1,000万円でも、預金と個人向け国債では<strong>5年で約60-70万円の差</strong>。しかも個人向け国債は元本保証。「安全にお金を置いておく」場所として、預金よりも合理的な選択です。</p></blockquote>
+  <div class="chart-container">
+    <div class="chart-title">1,000万円 5年間運用シミュレーション</div>
+    <canvas id="chartSimulation"></canvas>
+    <div class="chart-source">出典: 各種利回りに基づく試算</div>
+  </div>
+
+  <h3>5-4. 預金 vs 債券 — 利回り比較</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>商品</th><th>利回り</th><th>元本保証</th><th>流動性</th></tr></thead>
+    <tbody>
+      <tr><td>普通預金</td><td>0.1-0.2%</td><td>あり（預金保険1,000万円）</td><td>いつでも引き出し可</td></tr>
+      <tr><td>定期預金（1年）</td><td>0.2-0.4%</td><td>あり（預金保険1,000万円）</td><td>中途解約可（利息減額）</td></tr>
+      <tr><td><strong>個人向け国債（変動10年）</strong></td><td><strong>1.48%</strong></td><td><strong>あり</strong></td><td>1年経過後に換金可</td></tr>
+      <tr><td><strong>個人向け国債（固定5年）</strong></td><td><strong>1.66%</strong></td><td><strong>あり</strong></td><td>1年経過後に換金可</td></tr>
+      <tr><td>国内債券ファンド</td><td>約1.0-1.5%（見込み）</td><td>なし（価格変動あり）</td><td>いつでも売却可</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: 財務省個人向け国債2026年2月募集</p>
+  <div class="gold-box"><p><strong>個人向け国債は預金と同等以上の安全性で、利回りは数倍〜10倍。</strong>固定5年は1.66%で普通預金の約10倍。預金保険の上限（1,000万円）を超える資金があるなら、超過分は個人向け国債に振り分けるのが合理的です。国が元本を保証しており、預金保険の上限を気にする必要もありません。</p></div>
+  <div class="chart-container">
+    <div class="chart-title">預金 vs 債券 利回り比較</div>
+    <canvas id="chartDepositVsBond"></canvas>
+    <div class="chart-source">出典: 財務省、各金融機関</div>
+  </div>
+
+  <h3>5-5. 日本債券ならではのメリット</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>メリット</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td><strong>為替リスクなし</strong></td><td>円建て資産のため、為替変動を気にする必要がない</td></tr>
+      <tr><td><strong>信用力の高さ</strong></td><td>日本国債は格付AA（S&amp;P）。デフォルトリスクは極めて低い</td></tr>
+      <tr><td><strong>流動性の高さ</strong></td><td>日本国債市場は世界有数の規模。いつでも売買可能</td></tr>
+      <tr><td><strong>インフレ対応</strong></td><td>変動金利型（個人向け国債変動10年）ならインフレに追随</td></tr>
+      <tr><td><strong>少額投資可能</strong></td><td>個人向け国債は1万円から購入可能</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 6 -->
+<section class="section" id="sec6">
+  <h2>6. おすすめファンド・商品</h2>
+
+  <h3>6-1. 個人向け国債 — 2026年2月募集</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>商品名</th><th>利率（税引前）</th><th>税引後利率</th><th>金利タイプ</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td><strong>個人向け国債（変動10年）</strong></td><td><strong>1.48%</strong></td><td>約1.18%</td><td>変動（半年ごと見直し）</td><td>金利上昇メリットあり、1年経過後に中途換金可</td></tr>
+      <tr><td><strong>個人向け国債（固定5年）</strong></td><td><strong>1.66%</strong></td><td>約1.32%</td><td>固定（5年間）</td><td>5年間の利回りが確定、安定志向向け</td></tr>
+      <tr><td><strong>個人向け国債（固定3年）</strong></td><td><strong>1.39%</strong></td><td>約1.11%</td><td>固定（3年間）</td><td>最も短い期間、入門として最適</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:0.78rem; color:#718096; margin-top:4px;">出典: 財務省 個人向け国債 2026年2月5日〜27日募集分</p>
+  <div class="highlight-box"><p><strong>個人向け国債の最大の特徴</strong>: 元本保証（額面割れなし）、最低金利0.05%保証、1万円から購入可能。証券会社・銀行・郵便局で手軽に購入でき、「元本割れが怖い」という方に最適な商品です。2025年12月のBOJ追加利上げ（0.50%→0.75%）を受けて金利が底上げされ、<strong>固定5年は1.66%</strong>と銀行預金の数倍の水準。</p></div>
+
+  <h3>6-2. 国内債券インデックスファンド</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ファンド名</th><th>信託報酬</th><th>ベンチマーク</th><th>NISA</th></tr></thead>
+    <tbody>
+      <tr><td><strong>eMAXIS Slim 国内債券インデックス</strong></td><td><strong>年0.132%</strong></td><td>NOMURA-BPI総合</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>ニッセイ国内債券インデックスファンド</strong></td><td><strong>年0.132%</strong></td><td>NOMURA-BPI総合</td><td>つみたて+成長</td></tr>
+      <tr><td><strong>たわらノーロード 国内債券</strong></td><td>年0.154%</td><td>NOMURA-BPI総合</td><td>つみたて+成長</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-3. その他の選択肢</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>商品タイプ</th><th>利回り目安</th><th>特徴</th><th>注意点</th></tr></thead>
+    <tbody>
+      <tr><td><strong>個人向け社債</strong></td><td>1-3%</td><td>国債より高い利回り</td><td>信用リスクあり（企業の信用力次第）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>6-4. タイプ別おすすめ</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>タイプ</th><th>おすすめ</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td><strong>元本保証重視</strong></td><td>個人向け国債（変動10年）</td><td>元本保証＋金利上昇の恩恵</td></tr>
+      <tr><td><strong>利回り確定したい</strong></td><td>個人向け国債（固定5年）</td><td>5年間の利回りが確定で計画しやすい</td></tr>
+      <tr><td><strong>低コスト・分散</strong></td><td>eMAXIS Slim 国内債券インデックス</td><td>信託報酬0.132%、幅広い銘柄に分散</td></tr>
+      <tr><td><strong>NISAで積立</strong></td><td>eMAXIS Slim 国内債券インデックス</td><td>つみたて投資枠対応、利息も非課税</td></tr>
+      <tr><td><strong>高利回り追求</strong></td><td>個人向け社債（優良企業）</td><td>1-3%の利回り、銘柄選定が重要</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 7 -->
+<section class="section" id="sec7">
+  <h2>7. セールストーク集</h2>
+
+  <h3>7-1. キーメッセージ3つ</h3>
+
+  <h4>1. 「金利のある世界が本格的に復活」</h4>
+  <blockquote><p>「長らくゼロ金利が続いた日本で、ようやく"金利のある世界"が本格的に戻ってきました。10年国債の利回りは約2.1%、個人向け国債の固定5年は1.66%。銀行の普通預金（0.1-0.3%）の10倍以上です。お金をただ預けておくだけの時代は終わりました。PIMCOもBlackRockも『今は債券投資のゴールデンエイジ（黄金時代）』と評価しています。」</p></blockquote>
+
+  <h4>2. 「個人向け国債 = 預金より有利な"ほぼノーリスク"商品」</h4>
+  <blockquote><p>「個人向け国債は元本保証で、しかも預金より高い利回り。2026年2月募集では変動10年が1.48%、固定5年が1.66%。1万円から始められて、変動10年型なら金利が上がるほど利息も増えます。"預金の次の一歩"として、これ以上安全な選択肢はありません。」</p></blockquote>
+
+  <h4>3. 「ポートフォリオの安定装置 — GPIFも25%配分」</h4>
+  <blockquote><p>「世界最大級の年金基金GPIFは、資産の25%を国内債券に充てています。株式が暴落した時に衝撃を吸収してくれる"エアバッグ"のような存在です。長期投資で成功するためには、この安定装置が欠かせません。」</p></blockquote>
+
+  <h3>7-2. FAQ（よくある質問）</h3>
+
+  <div class="faq-q">Q1: 「債券は利回りが低くて意味がないのでは？」</div>
+  <blockquote><p>それは「ゼロ金利時代」のイメージです。今は25年ぶりの金利水準で、10年国債の利回りは約2.1%、30年国債は3.39%。銀行預金（0.1-0.3%）と比べると<strong>10倍以上の利回り</strong>です。しかも債券は株式のリスクを緩衝する役割も果たします。「利回りを得ながらポートフォリオを安定させる」一石二鳥の選択肢です。世界最大の債券運用会社PIMCOも「複利の好機」と評価しています。</p></blockquote>
+
+  <div class="faq-q">Q2: 「金利が上がると債券は損しませんか？」</div>
+  <blockquote><p>大事なポイントがあります。<strong>個人向け国債は元本保証</strong>なので、金利が上がっても元本割れしません。さらに変動10年型なら、金利が上がるほど受取利息が増えるメリットがあります。債券ファンドは一時的に価格が下がることもありますが、新しく組み入れる債券の利回りが上がるため、中長期では回復します。</p></blockquote>
+
+  <div class="faq-q">Q3: 「株式だけでいいのでは？」</div>
+  <blockquote><p>2022年を思い出してください。世界的な株安で日本株は約-15%下落しました。もし資産が全て株式だったら、その下落をまともに受けます。GPIFが25%を国内債券に配分しているのは、「暴落時の衝撃吸収材」としての役割があるからです。株式市場が暴落した時に、<strong>心理的に持ちこたえられるかどうか</strong>が長期投資の成否を分けます。</p></blockquote>
+
+  <div class="faq-q">Q4: 「インフレで実質マイナスでは？」</div>
+  <blockquote><p>確かにCPIが2.5-3%の現状では、名目利回りだけでは実質マイナスになる可能性があります。しかし<strong>変動金利型の個人向け国債</strong>なら金利上昇（インフレ）に追随して利息が増えます。また、全額を株式にするリスクと比較すれば、資産の一部を債券で守ることのリスク低減効果は非常に大きいです。</p></blockquote>
+
+  <div class="faq-q">Q5: 「NISAで債券ファンドを買う意味は？」</div>
+  <blockquote><p>NISAでは利息・分配金・売却益が<strong>全て非課税</strong>になります。通常なら約20%の税金がかかるところがゼロです。「債券は利回りが低いからNISAの恩恵が少ない」と思われがちですが、ポートフォリオ全体のリスク管理の観点から、NISAの枠内でも債券を組み入れる価値は十分あります。長期で安定したリターンを非課税で積み上げられます。</p></blockquote>
+
+  <h3>7-3. 反論への対応</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>反論</th><th>対応</th></tr></thead>
+    <tbody>
+      <tr><td>「利回りが低すぎる」</td><td>「25年ぶりの金利水準です。10年国債2.1%、個人向け国債でも1.48-1.66%で預金の10倍以上。しかも為替リスクゼロ、元本保証で得られる利回りとしては十分です」</td></tr>
+      <tr><td>「株の方が儲かる」</td><td>「2022年の株安では-15%。債券があれば損失を軽減できました。"儲ける"より"守る"が債券の役割です」</td></tr>
+      <tr><td>「金利上昇で損する」</td><td>「個人向け国債は元本保証。変動10年型なら金利上昇がむしろプラス。投信も中長期では利回り上昇で回復」</td></tr>
+      <tr><td>「インフレに負ける」</td><td>「変動金利型ならインフレに追随。全額株式のリスクと比較すれば、一部を債券にする方が合理的」</td></tr>
+      <tr><td>「預金で十分」</td><td>「預金金利0.1-0.3% vs 個人向け国債1.48-1.66%。同じ安全性で利回りは10倍。ヘッジ付き米国債よりもJGB長期ゾーンの方が有利な局面です」</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Section 8 -->
+<section class="section" id="sec8">
+  <h2>8. 具体的な提案</h2>
+
+  <h3>8-1. 投資家タイプ別ポートフォリオ例</h3>
+
+  <div class="pattern-title">パターンA: 安定重視 — 債券中心の堅実運用</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的な商品</th></tr></thead>
+    <tbody>
+      <tr><td><strong>個人向け国債（変動10年）</strong></td><td><strong>50%</strong></td><td>元本保証＋金利上昇メリット</td></tr>
+      <tr><td>eMAXIS Slim 国内債券インデックス</td><td>30%</td><td>幅広い債券に分散</td></tr>
+      <tr><td>eMAXIS Slim 国内株式（TOPIX）</td><td>20%</td><td>株式の成長も一部取り込み</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンB: バランス型 — 国内外に分散</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的な商品</th></tr></thead>
+    <tbody>
+      <tr><td><strong>日本債券</strong></td><td><strong>30%</strong></td><td>個人向け国債＋国内債券ファンド</td></tr>
+      <tr><td>日本株式</td><td>25%</td><td>eMAXIS Slim 国内株式（TOPIX）</td></tr>
+      <tr><td>米国株式</td><td>25%</td><td>eMAXIS Slim 米国株式（S&amp;P 500）</td></tr>
+      <tr><td>先進国債券</td><td>20%</td><td>eMAXIS Slim 先進国債券インデックス</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pattern-title">パターンC: インカム重視 — 利息・配当を最大化</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>資産</th><th>比率</th><th>具体的な商品</th></tr></thead>
+    <tbody>
+      <tr><td><strong>個人向け国債</strong></td><td><strong>20%</strong></td><td>変動10年型で金利上昇に対応</td></tr>
+      <tr><td><strong>国内債券ファンド</strong></td><td><strong>20%</strong></td><td>eMAXIS Slim 国内債券インデックス</td></tr>
+      <tr><td>高配当日本株式</td><td>30%</td><td>日経高配当50ETF等</td></tr>
+      <tr><td>先進国債券</td><td>30%</td><td>eMAXIS Slim 先進国債券インデックス</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8-2. 具体的な提案パターン</h3>
+
+  <h4>パターン1: 預金が多い顧客（1,000万円以上の預金）</h4>
+  <blockquote><p>「預金保険の上限は1,000万円です。超えた分は個人向け国債に振り替えませんか？ 国が元本を保証しており、預金より高い利回りが得られます。」</p></blockquote>
+
+  <h4>パターン2: 株式100%の投資家</h4>
+  <blockquote><p>「資産の20-30%を国内債券に振り分けるだけで、暴落時のダメージが大幅に軽減されます。GPIFと同じ考え方です。長期投資を途中で諦めないための保険として、債券は不可欠です。」</p></blockquote>
+
+  <h4>パターン3: リタイア世代・資産取り崩し期</h4>
+  <blockquote><p>「今後の生活資金を守ることが最優先です。個人向け国債と債券ファンドを中心に、安定的なインカムを確保しながら、資産の目減りを最小限に抑えましょう。」</p></blockquote>
+
+  <h3>8-3. 商談の進め方</h3>
+  <div class="step-card"><p class="step-label">Step 1 - 現状の確認</p><blockquote><p>「預金にいくら預けていますか？金利はどのくらいですか？」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 2 - 金利環境の変化を伝える</p><blockquote><p>「金利のある世界が戻ってきました。25年ぶりの水準です。10年国債は約2.1%、個人向け国債でも1.48-1.66%。預金の10倍以上の利回りです。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 3 - 安全性を強調</p><blockquote><p>「個人向け国債なら元本保証で、預金より有利です。固定5年は1.66%、変動10年は1.48%。しかも1万円から始められます。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 4 - 分散効果を説明</p><blockquote><p>「資産の一部を債券に振り分けるだけで、ポートフォリオが安定します。GPIFも25%を債券に配分しています。」</p></blockquote></div>
+  <div class="step-card"><p class="step-label">Step 5 - 行動を促す</p><blockquote><p>「まずは個人向け国債から始めてみませんか？変動10年型なら、金利が上がるほど利息も増えていきます。」</p></blockquote></div>
+</section>
+
+<!-- Disclaimer -->
+<footer class="disclaimer">
+  <h2>免責事項</h2>
+  <p>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的としたものではありません。記載されたデータは2026年2月26日時点の情報に基づいており、将来の運用成果を保証するものではありません。債券投資には金利変動リスク、信用リスク、インフレリスク等が伴います。個人向け国債は中途換金時に直前2回分の各利子（税引前）相当額が差し引かれます。投資判断はお客様ご自身の判断と責任でお願いいたします。投資信託は預金ではなく、預金保険の対象ではありません。</p>
+</footer>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var fontFamily = "'Noto Sans JP', sans-serif";
+  var gridColor = '#e2e8f0';
+
+  // chartYieldCurve - JGB イールドカーブ
+  new Chart(document.getElementById('chartYieldCurve'), {
+    type: 'line',
+    data: {
+      labels: ['2年', '5年', '10年', '20年', '30年', '40年'],
+      datasets: [{
+        label: '利回り (%)',
+        data: [0.65, 1.10, 2.10, 2.85, 3.39, 3.62],
+        borderColor: '#1a365d',
+        backgroundColor: 'rgba(26,54,93,0.12)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointBackgroundColor: '#1a365d'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartBojPath - BOJ 政策金利の推移と予測
+  new Chart(document.getElementById('chartBojPath'), {
+    type: 'line',
+    data: {
+      labels: ['2024年3月', '2024年7月', '2025年1月', '2025年12月', '2026年7月(予)', '2026年末(予)'],
+      datasets: [{
+        label: '政策金利 (%)',
+        data: [0, 0.25, 0.50, 0.75, 1.0, 1.25],
+        borderColor: '#1a365d',
+        backgroundColor: 'rgba(26,54,93,0.08)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointBackgroundColor: '#1a365d',
+        segment: {
+          borderDash: function(ctx) { return ctx.p0DataIndex >= 3 ? [6, 4] : []; }
+        }
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartCentralBanks - 主要中央銀行の政策金利比較
+  new Chart(document.getElementById('chartCentralBanks'), {
+    type: 'bar',
+    data: {
+      labels: ['FRB', 'ECB', 'BOJ', 'BOE', 'RBA'],
+      datasets: [{
+        label: '政策金利 (%)',
+        data: [3.625, 2.075, 0.75, 3.75, 3.85],
+        backgroundColor: ['#2c5282', '#d69e2e', '#e53e3e', '#48bb78', '#805ad5']
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } }
+      }
+    }
+  });
+
+  // chartDepositVsBond - 預金 vs 債券 利回り比較
+  new Chart(document.getElementById('chartDepositVsBond'), {
+    type: 'bar',
+    data: {
+      labels: ['普通預金', '定期預金', '国債(変動10年)', '国債(固定5年)'],
+      datasets: [{
+        label: '利回り (%)',
+        data: [0.15, 0.3, 1.48, 1.66],
+        backgroundColor: ['#718096', '#718096', '#2c5282', '#1a365d']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '%'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartGpifJb - GPIF 基本ポートフォリオ
+  new Chart(document.getElementById('chartGpifJb'), {
+    type: 'doughnut',
+    data: {
+      labels: ['国内債券 25%', '国内株式 25%', '外国債券 25%', '外国株式 25%'],
+      datasets: [{
+        data: [25, 25, 25, 25],
+        backgroundColor: ['#1a365d', '#48bb78', '#d69e2e', '#2c5282']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'bottom', labels: { font: { family: fontFamily }, padding: 16 } } }
+    }
+  });
+
+  // chartSimulation - 1,000万円 5年間運用シミュレーション
+  new Chart(document.getElementById('chartSimulation'), {
+    type: 'bar',
+    data: {
+      labels: ['普通預金', '定期預金', '国債(変動10年)', '国債(固定5年)'],
+      datasets: [
+        { label: '元本 (万円)', data: [1000, 1000, 1000, 1000], backgroundColor: '#2c5282' },
+        { label: '運用益 (万円)', data: [5, 15, 76, 86], backgroundColor: '#d69e2e' }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { stacked: true, ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { stacked: true, ticks: { font: { family: fontFamily }, callback: function(v){ return v + '万円'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+
+  // chartCorrelation - 株式・債券 相関係数の推移
+  new Chart(document.getElementById('chartCorrelation'), {
+    type: 'line',
+    data: {
+      labels: ['2024年7月', '2024年12月', '2025年9月', '2025年末〜2026年初'],
+      datasets: [{
+        label: '相関係数',
+        data: [0.80, 0.66, 0.48, 0.16],
+        borderColor: '#e53e3e',
+        backgroundColor: 'rgba(229,62,62,0.12)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointBackgroundColor: '#e53e3e'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { family: fontFamily } } } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor }, beginAtZero: true, max: 1.0 }
+      }
+    }
+  });
+
+  // chartQT - 日銀 月間国債買入れ額の推移
+  new Chart(document.getElementById('chartQT'), {
+    type: 'bar',
+    data: {
+      labels: ['2024年初', '2025年初', '2026年1-3月', '2026年4月〜(予)'],
+      datasets: [{
+        label: '月間買入れ額 (兆円)',
+        data: [6.0, 4.5, 3.0, 2.6],
+        backgroundColor: ['#1a365d', '#2c5282', '#d69e2e', '#48bb78']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: fontFamily } }, grid: { color: gridColor } },
+        y: { ticks: { font: { family: fontFamily }, callback: function(v){ return v + '兆円'; } }, grid: { color: gridColor }, beginAtZero: true }
+      }
+    }
+  });
+});
+</script>
+
+<button class="back-to-top" id="backToTop" aria-label="ページトップへ戻る">&#9650;</button>
+<script>
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

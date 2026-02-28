@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>新興国株式 注目銘柄ガイド — 成長ストーリーと投資機会</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; -webkit-text-size-adjust: 100%; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  .chart-container canvas { max-height: 500px !important; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print { body { background: #fff; } .section { box-shadow: none; border: 1px solid #ccc; } .back-to-top, nav { display: none !important; } }
+  @media (max-width: 640px) { .hero h1 { font-size: 1.5rem; } .section { padding: 24px 18px; } .toc { padding: 20px; margin: -24px 12px 24px; } table { font-size: 0.8rem; } thead th, tbody td { padding: 8px 10px; } }
+  @media (max-width: 480px) { .hero { padding: 36px 16px 28px; } .hero h1 { font-size: 1.2rem; } .section { padding: 18px 12px; margin-bottom: 16px; } .section h2 { font-size: 1.15rem; } .toc { padding: 16px; margin: -20px 8px 20px; } .company-profile { padding: 16px; } .company-stats { grid-template-columns: repeat(2, 1fr); } }
+  /* Company Profile Cards */
+  .company-profile { background: #fff; border-radius: 12px; padding: 28px; margin: 20px 0; border-left: 4px solid #d69e2e; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .company-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+  .company-header h4 { font-size: 1.15rem; color: #1a365d; margin: 0; }
+  .company-tag { background: #e2e8f0; color: #4a5568; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; white-space: nowrap; }
+  .company-catch { font-size: 0.95rem; color: #d69e2e; font-weight: 600; margin-bottom: 16px; padding: 8px 12px; background: rgba(214,158,46,0.08); border-radius: 6px; }
+  .company-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .stat-mini { text-align: center; padding: 10px 6px; background: #f7fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .stat-mini-value { display: block; font-size: 1.15rem; font-weight: 700; color: #2c5282; }
+  .stat-mini-label { display: block; font-size: 0.7rem; color: #718096; margin-top: 2px; }
+  .catalysts { padding-left: 1.2em; margin-top: 12px; }
+  .catalysts li { font-size: 0.9rem; margin-bottom: 4px; }
+  .gem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .gem-card { background: #f7fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+  .gem-card h4 { color: #1a365d; font-size: 1rem; margin-bottom: 4px; }
+  .gem-card .gem-sub { color: #d69e2e; font-size: 0.82rem; font-weight: 600; margin-bottom: 8px; }
+  .gem-card p { font-size: 0.88rem; margin-bottom: 8px; }
+  .gem-card .gem-metrics { font-size: 0.82rem; color: #4a5568; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .company-profile { background: #1e293b; border-left-color: #d69e2e; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .company-header h4 { color: #e2e8f0; }
+  .company-tag { background: #334155; color: #94a3b8; }
+  .company-catch { background: rgba(214,158,46,0.12); }
+  .stat-mini { background: #253449; border-color: #334155; }
+  .stat-mini-value { color: #63b3ed; }
+  .stat-mini-label { color: #94a3b8; }
+  .gem-card { background: #253449; border-color: #334155; }
+  .gem-card h4 { color: #e2e8f0; }
+  .gem-card p { color: #cbd5e0; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>新興国株式 注目銘柄ガイド</h1>
+  <p class="subtitle">Emerging Markets Stock Stories &mdash; Growth Narratives for Investors</p>
+  <div class="meta">
+    <span>作成日: 2026年2月28日</span>
+    <span>対象: リテール（個人投資家）向け</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<div class="container">
+  <div class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#s1">プロが選ぶ新興国株式トップ銘柄</a></li>
+      <li><a href="#s2">AI・半導体 &mdash; 世界のテクノロジーを支える企業群</a></li>
+      <li><a href="#s3">インターネット・EC &mdash; デジタル経済の覇者たち</a></li>
+      <li><a href="#s4">金融・フィンテック &mdash; 数十億人の金融を変える</a></li>
+      <li><a href="#s5">消費・エネルギー・資源 &mdash; 実体経済の成長を捉える</a></li>
+      <li><a href="#s6">プロが密かに注目する「隠れた名銘柄」</a></li>
+      <li><a href="#s7">バリュエーション一覧 &mdash; 米国株との圧倒的な差</a></li>
+    </ol>
+  </div>
+
+  <!-- Section 1 -->
+  <section class="section" id="s1">
+    <h2>1. プロが選ぶ新興国株式トップ銘柄</h2>
+
+    <p>世界のトップクラスの新興国ファンド（Dodge &amp; Cox、T. Rowe Price、Fidelity、GQG Partners、Capital Group、Harding Loevner）の保有銘柄を横断分析しました。<strong>プロの運用者たちが「最も確信度の高い投資先」として共通して選んでいる銘柄</strong>が浮かび上がります。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">プロのファンドマネージャーが共通して保有する銘柄（6ファンド中）</div>
+      <canvas id="chartCrossHoldings"></canvas>
+      <div class="chart-source">出典: 各ファンドの最新保有報告（2025年12月末時点）に基づく分析</div>
+    </div>
+
+    <div class="gold-box">
+      <strong>全6ファンドが保有する「満場一致」の2銘柄</strong>
+      <p><strong>TSMC</strong>（台湾セミコンダクター）と<strong>Tencent</strong>（テンセント）は、調査した全6ファンドが上位で保有する唯一の2銘柄です。TSMCは各ファンドで5.9〜16.6%という高いウェイトで保有されており、プロの間で「新興国投資=TSMC」という圧倒的なコンセンサスが形成されています。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>銘柄</th><th>国</th><th>保有ファンド数</th><th>テーマ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>TSMC</strong></td><td>台湾</td><td style="color:#48bb78"><strong>6/6（全員）</strong></td><td>AI半導体の独占的インフラ</td></tr>
+          <tr><td><strong>Tencent</strong></td><td>中国</td><td style="color:#48bb78"><strong>6/6（全員）</strong></td><td>13億人のスーパーアプリ</td></tr>
+          <tr><td><strong>Samsung Electronics</strong></td><td>韓国</td><td><strong>5/6</strong></td><td>AIメモリ半導体 + 総合電機</td></tr>
+          <tr><td><strong>HDFC Bank</strong></td><td>インド</td><td><strong>5/6</strong></td><td>14億人のインド最大民間銀行</td></tr>
+          <tr><td><strong>Alibaba</strong></td><td>中国</td><td><strong>5/6</strong></td><td>中国EC + AIクラウド</td></tr>
+          <tr><td><strong>SK Hynix</strong></td><td>韓国</td><td><strong>4/6</strong></td><td>AIメモリの絶対王者</td></tr>
+          <tr><td><strong>Bharti Airtel</strong></td><td>インド</td><td><strong>4/6</strong></td><td>インド通信デュオポリー</td></tr>
+          <tr><td><strong>ICICI Bank</strong></td><td>インド</td><td><strong>4/6</strong></td><td>インドのデジタルバンキング</td></tr>
+          <tr><td><strong>Itau Unibanco</strong></td><td>ブラジル</td><td><strong>4/6</strong></td><td>ブラジル最大の民間銀行</td></tr>
+          <tr><td><strong>Nu Holdings</strong></td><td>ブラジル</td><td><strong>3/6</strong></td><td>ラテンアメリカ最大のデジタル銀行</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 2: AI / Semiconductors -->
+  <section class="section" id="s2">
+    <h2>2. AI・半導体 &mdash; 世界のテクノロジーを支える企業群</h2>
+    <p>AI革命の恩恵を最も受けているのは、実は新興国（台湾・韓国）の半導体企業です。NVIDIAのチップを作っているのも、AIに不可欠なメモリを供給しているのも、新興国の企業です。</p>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>TSMC（台湾セミコンダクター）</h4>
+        <span class="company-tag">台湾 | 半導体製造</span>
+      </div>
+      <div class="company-catch">"NVIDIAもAppleもAmazonも、世界のAIチップは全てこの1社が製造している"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">34.4倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+97%</span><span class="stat-mini-label">1年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+32%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">247兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>TSMCは世界の先端半導体製造の約<strong>70%を独占</strong>する「AI革命のインフラ」企業です。NVIDIA、Apple、AMD、Amazonなど世界中のテック巨人が全てTSMCの工場で最先端チップを製造しています。身近な例で言えば、iPhoneのチップも、ChatGPTを動かしているサーバーのチップも、全てTSMCが作っています。</p>
+      <p>AIブームにより先端パッケージング技術「CoWoS」は<strong>2026年末まで完売状態</strong>。月間3.5万枚から13万枚へ4倍増産中ですが、それでも供給が追いつきません。CEOはAI関連売上の年平均成長率を45%から<strong>54〜56%に上方修正</strong>しました。</p>
+      <ul class="catalysts">
+        <li><strong>AI売上CAGR 54〜56%</strong>に上方修正（従来45%）</li>
+        <li>2026年設備投資額は<strong>$520〜560億</strong>（前年比+30%）</li>
+        <li>IntelのPER約60倍に対し、TSMCは34倍 &mdash; 圧倒的成長力に対して割安</li>
+      </ul>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Samsung Electronics（サムスン電子）</h4>
+        <span class="company-tag">韓国 | 半導体・電子機器</span>
+      </div>
+      <div class="company-catch">"HBM4でNVIDIA品質テスト最高評価を獲得。「大逆転」が始まる"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">14.1倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+33%</span><span class="stat-mini-label">営業利益成長</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">1.3%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">145兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Samsungは世界唯一の「メモリ半導体 + スマートフォン + 半導体製造（ファウンドリ）」の3事業を持つ総合半導体企業です。2025年はAI用高帯域メモリ（HBM）でSK Hynixに遅れをとりましたが、2026年に次世代<strong>HBM4でNVIDIAの品質テストを最高スコアで合格</strong>。「Great Recovery（大逆転）」と呼ばれる回復フェーズに入っています。</p>
+      <p>Morgan Stanleyは2026年のEPSを2025年比で<strong>+150%以上</strong>と予測。PER 14倍は先進国の半導体企業（NVIDIA 40倍超、Broadcom 100倍超）と比べて圧倒的に割安です。</p>
+      <ul class="catalysts">
+        <li>HBM4がNVIDIA品質テストを<strong>最高評価で通過</strong></li>
+        <li>2026年Q2からNVIDIA向け出荷開始見込み</li>
+        <li>GoogleのTPU向けHBM3Eでは<strong>60%以上のシェア</strong>を確保</li>
+      </ul>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>SK Hynix（SKハイニックス）</h4>
+        <span class="company-tag">韓国 | メモリ半導体</span>
+      </div>
+      <div class="company-catch">"NVIDIAのAIチップに不可欠なメモリを世界で最も多く供給。1年で株価5倍"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">22倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+448%</span><span class="stat-mini-label">1年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">49%</span><span class="stat-mini-label">営業利益率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">80兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>SK HynixはAI用高帯域メモリ（HBM）市場で<strong>シェア62%</strong>を握る絶対的王者です。NVIDIAのAIチップ「Blackwell」「Rubin」に搭載されるHBMを最も多く供給しています。2025年にはSamsungの年間利益を初めて上回り、「メモリの王座交代」を実現しました。</p>
+      <p>営業利益率<strong>49%</strong>は半導体業界でもトップクラス。HBM市場は2026年に<strong>$546億規模（前年比+58%）</strong>に成長する見込みで、その最大の受益者がSK Hynixです。</p>
+      <ul class="catalysts">
+        <li><strong>HBM4の世界初量産</strong>を開始、2026年Q4から出荷</li>
+        <li>NVIDIA次世代「Rubin」向けHBM4でシェア<strong>70%</strong>と予測（UBS）</li>
+        <li>BofAが2026年をメモリ「スーパーサイクル」と定義</li>
+      </ul>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>MediaTek（メディアテック）</h4>
+        <span class="company-tag">台湾 | 半導体設計</span>
+      </div>
+      <div class="company-catch">"世界のスマートフォンの約40%にこの会社のチップが搭載。配当利回り4.7%"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">17.3倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">4.7%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+12%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">14兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>MediaTekは世界のスマートフォンの約<strong>40%</strong>にチップを供給する、モバイル半導体のリーダーです。特に新興国でのスマホ普及拡大の恩恵を直接受けます。QualcommのPER 20倍超に対し、MediaTekは17.3倍と割安で、しかも配当利回り<strong>4.7%</strong>と高配当です。エッジAI（端末側AI処理）チップの需要拡大も追い風です。</p>
+    </div>
+  </section>
+
+  <!-- Section 3: Internet / E-commerce -->
+  <section class="section" id="s3">
+    <h2>3. インターネット・EC &mdash; デジタル経済の覇者たち</h2>
+    <p>新興国のインターネット企業は、数億人〜数十億人のユーザーを抱え、EC、決済、ゲーム、クラウドなど多角的に事業を展開しています。米国のGAFAに匹敵する規模でありながら、バリュエーションは大幅に割安です。</p>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Tencent（テンセント）</h4>
+        <span class="company-tag">中国 | インターネット・ゲーム</span>
+      </div>
+      <div class="company-catch">"中国のLINE + PayPay + 任天堂 + Metaを全部合わせた会社。月間ユーザー13億人"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">20.9倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+60%</span><span class="stat-mini-label">1年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">13億人</span><span class="stat-mini-label">WeChatユーザー</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">$800億</span><span class="stat-mini-label">自社株買い</span></div>
+      </div>
+      <p>WeChatは月間アクティブユーザー<strong>13億人超</strong>の世界最大のスーパーアプリ。メッセージ、SNS、決済、ミニプログラム、ゲーム、EC、行政サービスまで全てが1つのアプリに集約されています。ゲーム事業は世界最大で、「Honor of Kings」「PUBG Mobile」など世界的ヒット作を多数保有。海外ゲーム売上は前年比<strong>+43%</strong>で急成長中です。</p>
+      <p>DeepSeekのAIモデルをWeChatに統合し、AI検索が広告収入を<strong>20%</strong>押し上げています。AI投資は前年比<strong>91%増</strong>。MetaのPER 25倍に対し、Tencentは20.9倍と割安です。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Alibaba（アリババ）</h4>
+        <span class="company-tag">中国 | EC・クラウド</span>
+      </div>
+      <div class="company-catch">"一時は「終わった」と言われた中国テックの巨人が、AIで完全復活"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">20倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+66%</span><span class="stat-mini-label">1年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+34%</span><span class="stat-mini-label">クラウド成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">51兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Alibabaは中国最大のEC・クラウド企業。2022〜2024年は規制リスクで株価が大きく下落しましたが、2025年にAIブームで<strong>完全復活</strong>。クラウド事業「Alibaba Cloud」がAI需要で<strong>34%成長</strong>し、会社全体の成長エンジンに。自社開発のAIモデル「Qwen（通義千問）」は世界で最もダウンロードされたオープンソースAIモデルとなり、月間<strong>1億ユーザー超</strong>。</p>
+      <p>AI・クラウドインフラに3年間で<strong>$524億</strong>の大型投資を発表。AmazonのPER 60倍超に対し、AlibabaのPER 20倍は著しく割安です。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>MercadoLibre（メルカドリブレ）</h4>
+        <span class="company-tag">ラテンアメリカ | EC・フィンテック</span>
+      </div>
+      <div class="company-catch">"6億人が住むラテンアメリカで、Amazon + PayPal + 銀行を1社でやっている"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">44倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+39%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+1,500%</span><span class="stat-mini-label">10年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">15兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>MercadoLibreはラテンアメリカ18カ国で展開する最大のEC + フィンテック企業です。EC（Mercado Libre）、決済（Mercado Pago）、物流（Mercado Envios）、融資（Mercado Credito）を一体運営。フィンテック部門が爆発的に成長中で、月間アクティブユーザー<strong>7,220万人（+29%）</strong>、信用ポートフォリオ<strong>$125億（+90%）</strong>。</p>
+      <p>ラテンアメリカには約<strong>1億人の銀行口座を持たない人々</strong>がいて、巨大な未開拓市場です。10年で株価が<strong>16倍</strong>になったこの会社は、「ラテンアメリカのAmazon」として、まだ成長の初期段階にあります。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>JD.com（京東商城）</h4>
+        <span class="company-tag">中国 | EC・物流</span>
+      </div>
+      <div class="company-catch">"自社物流を持つ中国唯一のEC企業。PER 9倍・配当3.6%で超割安"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">9.2倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">3.6%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">7億人</span><span class="stat-mini-label">アクティブ顧客</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">19.3%</span><span class="stat-mini-label">粗利益率（過去最高）</span></div>
+      </div>
+      <p>JD.comは中国でAmazon型の自社物流ネットワークを持つ唯一のEC企業です。全国規模の倉庫・配送網で「翌日配達」「当日配達」を実現。7億人のアクティブ顧客を持ち、粗利益率は<strong>14四半期連続改善中</strong>。PER 9.2倍はAmazon（60倍超）に比べて極端に割安で、配当利回り3.6%も魅力的です。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Sea Limited（シー・リミテッド）</h4>
+        <span class="company-tag">東南アジア | EC・ゲーム・フィンテック</span>
+      </div>
+      <div class="company-catch">"東南アジア6億人のデジタル経済を制覇する三位一体企業。ECシェア52%"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">56倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+29%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">52%</span><span class="stat-mini-label">東南アジアECシェア</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">11兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Shopee（EC、東南アジアシェア52%）、Garena（ゲーム、Free Fire）、SeaMoney（デジタル金融）の3事業を一体運営。東南アジアのデジタル経済は2026年までにGMV $2,300億規模に<strong>3倍成長</strong>が見込まれ、Sea Limitedはその最大の受益者です。89.7%のアナリストが「買い」推奨。</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Finance / Fintech -->
+  <section class="section" id="s4">
+    <h2>4. 金融・フィンテック &mdash; 数十億人の金融を変える</h2>
+    <p>新興国では数十億人がまだ十分な銀行サービスを受けていません。デジタル技術の普及により、この巨大な未開拓市場が急速に開かれています。インドのUPI決済は月間<strong>216億件</strong>（世界最大）を処理し、ブラジルのNu Holdingsは<strong>1.31億人</strong>の顧客を獲得しています。</p>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>HDFC Bank</h4>
+        <span class="company-tag">インド | 銀行</span>
+      </div>
+      <div class="company-catch">"14億人のインドで最も信頼される民間銀行。Apple Payのインド上陸パートナー"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">20倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+19%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">8,300+</span><span class="stat-mini-label">支店数</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">25兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>HDFC Bankはインド最大の民間銀行です。インドでは銀行口座を持つ人が急増中で、UPIデジタル決済は月間<strong>216億件</strong>を処理する世界最大のデジタル決済システムに成長。UPIユーザーは<strong>5億人</strong>を突破しました。インドのGDPは2028年に日本を抜いて世界4位になる見通しで、銀行セクターの成長余地は巨大です。</p>
+      <p>Apple Payが2026年中旬にインドでローンチ予定で、HDFC Bankがその<strong>主要パートナー</strong>に選ばれています。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Nu Holdings（ヌーバンク）</h4>
+        <span class="company-tag">ブラジル | デジタル銀行</span>
+      </div>
+      <div class="company-catch">"世界最大のデジタル銀行。1.31億人の顧客、1人あたりの月間コストわずか$0.80"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">+45%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">33%</span><span class="stat-mini-label">ROE</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">1.31億人</span><span class="stat-mini-label">顧客数</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">$0.80</span><span class="stat-mini-label">月間コスト/顧客</span></div>
+      </div>
+      <p>Nu Holdingsは顧客数<strong>1億3,100万人</strong>を持つ世界最大のデジタル銀行です。ブラジル、メキシコ、コロンビアで事業展開。2025年の売上は$163億（+45%）、純利益は$29億。ROE <strong>33%</strong>という驚異的な収益性を実現しています。</p>
+      <p>顧客1人あたりの月間サービスコストはわずか<strong>$0.80</strong>と、従来の銀行の数十分の1。顧客の<strong>83%</strong>がアクティブに利用しており、解約率が極めて低い。ラテンアメリカの伝統的な銀行業界を根本から変革する存在です。T. Rowe Price、Fidelity、Capital Groupの3ファンドが保有。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Kaspi.kz（カスピ）</h4>
+        <span class="company-tag">カザフスタン | フィンテック・スーパーアプリ</span>
+      </div>
+      <div class="company-catch">"PER 6.8倍、ROE 60%。国民の70%が使うスーパーアプリの驚異的な割安さ"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">6.8倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">60%</span><span class="stat-mini-label">ROE</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+34%</span><span class="stat-mini-label">売上成長率</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">30%</span><span class="stat-mini-label">利益率</span></div>
+      </div>
+      <p>Kaspi.kzはカザフスタン（人口2,000万）の国民的スーパーアプリ。国民の約<strong>70%</strong>が利用し、国のキャッシュレス取引の<strong>85%超</strong>を処理。決済、EC、金融（預金・融資・保険）、行政サービスまで全てをアプリ1つで完結します。</p>
+      <p>ROE <strong>60%</strong>、利益率<strong>30%</strong>は世界のフィンテック企業でもトップクラス。それでいてPER <strong>6.8倍</strong>という驚異的な割安さです（PayPal 17倍、Visa 30倍超との比較）。Dodge &amp; Coxが保有する「プロが認めた隠れた宝石」です。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Bank Central Asia（BCA）</h4>
+        <span class="company-tag">インドネシア | 銀行</span>
+      </div>
+      <div class="company-catch">"人口2.78億人のインドネシア。その最も優良な銀行に投資するということ"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">17.5倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">21.5%</span><span class="stat-mini-label">ROE</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">3.8%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">8.6兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>BCAはASEAN最大の経済大国インドネシア（人口2.78億人）の最大民間銀行。ROE <strong>21.5%</strong>、ROA <strong>3.85%</strong>という極めて高い収益性を誇ります。インドネシアは若い人口構成（中央値30歳）で、銀行口座普及率がまだ約<strong>55%</strong>と低く、巨大な成長余地があります。T. Rowe PriceとFidelityが共に保有。</p>
+    </div>
+  </section>
+
+  <!-- Section 5: Consumer / Energy / Resources -->
+  <section class="section" id="s5">
+    <h2>5. 消費・エネルギー・資源 &mdash; 実体経済の成長を捉える</h2>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Reliance Industries（リライアンス）</h4>
+        <span class="company-tag">インド | コングロマリット</span>
+      </div>
+      <div class="company-catch">"インドの5億人がJioスマホでネットに繋がる。そのインフラを1社で提供"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">22倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">5億人</span><span class="stat-mini-label">Jio加入者</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">2.13億人</span><span class="stat-mini-label">5Gユーザー</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">31兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Relianceはインド最大のコングロマリット。子会社Jio Platformsはインド最大の通信会社で加入者<strong>5億人超</strong>。5G加入者<strong>2.13億人</strong>は中国以外で世界最大です。石油精製、小売（Reliance Retail）、デジタルサービス（Jio）の3本柱で、<strong>インド経済の成長そのものに投資する</strong>のと同義の企業です。JioのIPO（株式上場）の可能性も市場で注目されています。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Petrobras（ペトロブラス）</h4>
+        <span class="company-tag">ブラジル | 石油</span>
+      </div>
+      <div class="company-catch">"PER 4.6倍、配当利回り6〜14%。世界で最も株主に現金を返す石油会社"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">4.6倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">6.5〜14%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+11%</span><span class="stat-mini-label">生産量成長</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">12兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Petrobrasはブラジル国営石油最大手。深海「プレソルト」油田の技術で世界をリードしています。2025年に石油生産量が過去最高を記録（<strong>240万バレル/日、前年比+11%</strong>）。PER <strong>4.6倍</strong>という超割安バリュエーションに加え、配当利回りは<strong>6〜14%</strong>と、世界の石油メジャー（ExxonMobil 3%、Shell 4%）を大きく上回ります。</p>
+      <p>10年間の年平均リターンは<strong>+20.3%</strong>で、S&amp;P 500の+11.2%を大幅にアウトパフォームしています。GQG Partnersが5%超の大きなポジションで保有。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Vale（ヴァーレ）</h4>
+        <span class="company-tag">ブラジル | 鉱業</span>
+      </div>
+      <div class="company-catch">"世界最大の鉄鉱石メーカー。高配当5.2% + 銅事業でEV革命の恩恵も"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">10倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">5.2%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">+47%</span><span class="stat-mini-label">1年リターン</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">11兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Valeは世界最大の鉄鉱石・ペレットメーカー。世界のインフラ建設（中国、インド、東南アジア）に不可欠な存在です。さらに銅・ニッケル事業をEV（電気自動車）・再生可能エネルギー向けに拡大中。2025年は鉄鉱石・銅・ニッケル全てで<strong>生産目標の上限を達成</strong>。配当利回り<strong>5.2%</strong>と高い株主還元も魅力です。</p>
+    </div>
+
+    <div class="company-profile">
+      <div class="company-header">
+        <h4>Infosys（インフォシス）</h4>
+        <span class="company-tag">インド | ITサービス</span>
+      </div>
+      <div class="company-catch">"世界の大企業のAI導入を裏方で支える、インドの頭脳集団。配当3.5%"</div>
+      <div class="company-stats">
+        <div class="stat-mini"><span class="stat-mini-value">23.4倍</span><span class="stat-mini-label">PER</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">3.5%</span><span class="stat-mini-label">配当利回り</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">4,600+</span><span class="stat-mini-label">AIプロジェクト</span></div>
+        <div class="stat-mini"><span class="stat-mini-value">9.3兆円</span><span class="stat-mini-label">時価総額</span></div>
+      </div>
+      <p>Infosysは世界第2位のインドITサービス企業。Fortune 500企業のシステム開発・運用を請け負っています。トップ200顧客の<strong>90%</strong>がAIプロジェクトを進行中で、<strong>4,600以上</strong>のAIプロジェクトを手掛けています。AI firstサービス市場は2030年までに<strong>$3,000〜4,000億</strong>の機会。AccentureのPER 30倍超に対し、23.4倍は割安です。</p>
+    </div>
+  </section>
+
+  <!-- Section 6: Hidden Gems -->
+  <section class="section" id="s6">
+    <h2>6. プロが密かに注目する「隠れた名銘柄」</h2>
+    <p>一般の投資家にはあまり知られていないが、世界のトップファンドマネージャーが高い確信度で保有している銘柄を紹介します。これらは「プロだけが知っている宝石」です。</p>
+
+    <div class="gem-grid">
+      <div class="gem-card">
+        <h4>Sieyuan Electric（思源電気）</h4>
+        <div class="gem-sub">中国 | 電力設備 — Fidelityが3%の大型ポジション</div>
+        <p>中国最大級の電力設備メーカー。変圧器・スイッチギアなどを製造。2025年は売上<strong>+37%</strong>、純利益<strong>+54%</strong>の急成長。世界の電力網アップグレードと再エネ拡大の恩恵を直接受けます。</p>
+        <div class="gem-metrics">野村証券予測: 売上CAGR +24%、利益CAGR +30%（〜2027年）</div>
+      </div>
+      <div class="gem-card">
+        <h4>Delta Electronics（台達電子）</h4>
+        <div class="gem-sub">台湾 | 電源・冷却装置 — AIデータセンターの裏方ヒーロー</div>
+        <p>世界最大の電源装置メーカー。AIデータセンターの電源と冷却を供給。2025年売上<strong>+32%</strong>、利益<strong>+51%</strong>。2026年はサーバー電源+70%、液冷+140%の成長を見込みます。</p>
+        <div class="gem-metrics">T. Rowe Priceが1.29%保有。NVIDIAチップの電力供給に不可欠</div>
+      </div>
+      <div class="gem-card">
+        <h4>Coupang（クーパン）</h4>
+        <div class="gem-sub">韓国 | EC — 韓国のAmazon。ロケット配送で制覇</div>
+        <p>韓国最大のEC企業。「ロケット配送」（当日・翌日配達）で韓国EC市場を制覇。2025年売上$345億（+14%）、粗利益率29.4%に改善中。台湾にも展開開始。</p>
+        <div class="gem-metrics">Dodge &amp; Coxが1.67%保有。アナリスト目標株価は57%の上昇余地</div>
+      </div>
+      <div class="gem-card">
+        <h4>Embraer（エンブラエル）</h4>
+        <div class="gem-sub">ブラジル | 航空機 — Boeing/Airbusの供給問題で漁夫の利</div>
+        <p>世界第3位の航空機メーカー。受注残高<strong>$313億（+38%）</strong>で過去最高。Boeing/Airbusの生産問題により、リージョナルジェット市場で独壇場。防衛セグメントも成長中。</p>
+        <div class="gem-metrics">売上+22%成長、純負債を60%削減。「飛行機のテスラ」とも</div>
+      </div>
+      <div class="gem-card">
+        <h4>Grupo Financiero Banorte</h4>
+        <div class="gem-sub">メキシコ | 銀行 — 配当利回り10%、ROE 23.6%</div>
+        <p>メキシコ最大の国内資本銀行。「ニアショアリング」（中国からメキシコへの製造業移転）ブームの最大受益者。配当利回り<strong>10%</strong>、ROE <strong>23.6%</strong>は世界の銀行でもトップクラス。</p>
+        <div class="gem-metrics">Harding Loevnerが1.1%保有。メキシコの構造的成長に直接投資</div>
+      </div>
+      <div class="gem-card">
+        <h4>Credicorp（クレディコープ）</h4>
+        <div class="gem-sub">ペルー | 金融 — スーパーアプリ「Yape」が国民の半数を獲得</div>
+        <p>ペルー最大の金融コングロマリット。決済アプリ「Yape」は月間<strong>1,590万アクティブユーザー</strong>（ペルーの人口3,300万の約半分）。ROE 19%、PER 11.8倍。</p>
+        <div class="gem-metrics">Dodge &amp; Coxが2.14%の大型ポジション。2026年ROE目標19.5%</div>
+      </div>
+    </div>
+
+    <blockquote>
+      <p><strong>注目ポイント</strong>：これらの「隠れた名銘柄」に共通するのは、<strong>特定の市場で圧倒的なシェアを持ち、急成長しているにもかかわらず、バリュエーションが割安</strong>という点です。大手ファンドが保有していることは、企業の質と成長性がプロの基準をクリアしていることの証です。</p>
+    </blockquote>
+  </section>
+
+  <!-- Section 7: Valuation Comparison -->
+  <section class="section" id="s7">
+    <h2>7. バリュエーション一覧 &mdash; 米国株との圧倒的な差</h2>
+
+    <p>以下の表は、本ガイドで紹介した全銘柄のバリュエーションを一覧にしたものです。最右列の「米国同業PER」と比較すると、<strong>新興国企業がいかに割安か</strong>が一目瞭然です。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">PER比較 &mdash; 新興国の注目銘柄 vs 米国同業（倍）</div>
+      <canvas id="chartPERComparison"></canvas>
+      <div class="chart-source">出典: 各社IR資料、Yahoo Finance、Bloomberg（2026年2月時点）</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>企業名</th><th>国</th><th>PER</th><th>配当利回り</th><th>1年リターン</th><th>米国同業PER</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Petrobras</strong></td><td>ブラジル</td><td style="color:#48bb78"><strong>4.6倍</strong></td><td>6.5〜14%</td><td>横ばい</td><td>ExxonMobil 14倍</td></tr>
+          <tr><td><strong>Kaspi.kz</strong></td><td>カザフスタン</td><td style="color:#48bb78"><strong>6.8倍</strong></td><td>&mdash;</td><td>-31%</td><td>PayPal 17倍</td></tr>
+          <tr><td><strong>JD.com</strong></td><td>中国</td><td style="color:#48bb78"><strong>9.2倍</strong></td><td>3.6%</td><td>-29%</td><td>Amazon 60倍超</td></tr>
+          <tr><td><strong>PDD Holdings</strong></td><td>中国</td><td style="color:#48bb78"><strong>9〜10倍</strong></td><td>&mdash;</td><td>マイナス</td><td>Amazon 60倍超</td></tr>
+          <tr><td><strong>Vale</strong></td><td>ブラジル</td><td style="color:#48bb78"><strong>10倍</strong></td><td>5.2%</td><td>+47%</td><td>Freeport 28倍</td></tr>
+          <tr><td><strong>Samsung</strong></td><td>韓国</td><td style="color:#48bb78"><strong>14.1倍</strong></td><td>1.3%</td><td>回復中</td><td>NVIDIA 40倍超</td></tr>
+          <tr><td><strong>BCA</strong></td><td>インドネシア</td><td>17.5倍</td><td>3.8%</td><td>-18%</td><td>JPMorgan 14倍</td></tr>
+          <tr><td><strong>MediaTek</strong></td><td>台湾</td><td>17.3倍</td><td>4.7%</td><td>-4%</td><td>Qualcomm 20倍超</td></tr>
+          <tr><td><strong>ICICI Bank</strong></td><td>インド</td><td>18.2倍</td><td>0.8%</td><td>&mdash;</td><td>BofA 14倍</td></tr>
+          <tr><td><strong>HDFC Bank</strong></td><td>インド</td><td>20倍</td><td>&mdash;</td><td>+6%</td><td>BofA 14倍</td></tr>
+          <tr><td><strong>Alibaba</strong></td><td>中国</td><td>20倍</td><td>0.7〜1.2%</td><td>+66%</td><td>Amazon 60倍超</td></tr>
+          <tr><td><strong>Tencent</strong></td><td>中国</td><td>20.9倍</td><td>0.7%</td><td>+60%</td><td>Meta 25倍</td></tr>
+          <tr><td><strong>Reliance</strong></td><td>インド</td><td>22倍</td><td>0.4%</td><td>+11%</td><td>AT&amp;T 17倍</td></tr>
+          <tr><td><strong>SK Hynix</strong></td><td>韓国</td><td>22倍</td><td>0.2%</td><td><strong>+448%</strong></td><td>Micron 25倍</td></tr>
+          <tr><td><strong>Infosys</strong></td><td>インド</td><td>23.4倍</td><td>3.5%</td><td>-9%</td><td>Accenture 30倍超</td></tr>
+          <tr><td><strong>TSMC</strong></td><td>台湾</td><td>34.4倍</td><td>1.1%</td><td><strong>+97%</strong></td><td>Intel 60倍</td></tr>
+          <tr><td><strong>MercadoLibre</strong></td><td>ラテンアメリカ</td><td>44倍</td><td>&mdash;</td><td>-20%</td><td>Amazon 60倍超</td></tr>
+          <tr><td><strong>Sea Limited</strong></td><td>東南アジア</td><td>56倍</td><td>&mdash;</td><td>-11%</td><td>Amazon 60倍超</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gold-box">
+      <strong>新興国株の「割安さ」は圧倒的</strong>
+      <p>上記18銘柄の単純平均PERは<strong>約20倍</strong>。これに対し、米国の同業企業の平均PERは<strong>約35倍</strong>です。つまり、<strong>同じようなビジネスを約40%安く買える</strong>ということ。しかも新興国企業の方が成長率が高い場合が多く、「安くて成長力もある」という魅力的な投資機会です。</p>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <h2>重要事項・免責事項</h2>
+    <p>本資料は情報提供を目的としたものであり、特定の金融商品の勧誘を目的としたものではありません。投資に関する最終決定は、お客様ご自身の判断でなさるようお願いいたします。</p>
+    <p>本資料に記載されたデータは作成時点のものであり、将来の結果を保証するものではありません。過去の実績は将来のリターンを保証するものではなく、元本割れのリスクがあります。個別銘柄の言及は例示目的であり、買い推奨ではありません。</p>
+    <p>外国株式への投資には、為替変動リスク、カントリーリスク、流動性リスク等が伴います。</p>
+    <p><strong>主な情報源</strong>：各社IR資料、MSCI、iShares、Dimensional、Dodge &amp; Cox、T. Rowe Price、Fidelity、GQG Partners、Capital Group、Harding Loevner、Yahoo Finance、Bloomberg、Stock Analysis、Morningstar</p>
+    <p>作成日：2026年2月28日</p>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="ページ先頭に戻る">&#9650;</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){ btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
+  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+var navy='#1a365d', gold='#d69e2e', blue='#2c5282', lightBlue='#63b3ed', green='#48bb78', red='#e53e3e', orange='#ed8936', gray='#a0aec0';
+
+// Chart 1: Cross Holdings
+new Chart(document.getElementById('chartCrossHoldings'), {
+  type: 'bar',
+  data: {
+    labels: ['TSMC', 'Tencent', 'Samsung', 'HDFC Bank', 'Alibaba', 'SK Hynix', 'Bharti Airtel', 'ICICI Bank', 'Itau Unibanco', 'Nu Holdings'],
+    datasets: [{
+      label: '保有ファンド数（6ファンド中）',
+      data: [6, 6, 5, 5, 5, 4, 4, 4, 4, 3],
+      backgroundColor: function(ctx) {
+        var v = ctx.raw;
+        if(v >= 6) return gold;
+        if(v >= 5) return blue;
+        return gray;
+      },
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { beginAtZero: true, max: 6, title: { display: true, text: '保有ファンド数', font: { family: "'Noto Sans JP'" } }, ticks: { stepSize: 1 } },
+      y: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
+    }
+  }
+});
+
+// Chart 2: PER Comparison
+new Chart(document.getElementById('chartPERComparison'), {
+  type: 'bar',
+  data: {
+    labels: ['Petrobras', 'Kaspi.kz', 'JD.com', 'Vale', 'Samsung', 'BCA', 'MediaTek', 'HDFC Bank', 'Alibaba', 'Tencent', 'SK Hynix', 'TSMC', 'S&P 500\n平均'],
+    datasets: [
+      {
+        label: '新興国企業 PER',
+        data: [4.6, 6.8, 9.2, 10, 14.1, 17.5, 17.3, 20, 20, 20.9, 22, 34.4, null],
+        backgroundColor: gold,
+        borderRadius: 4
+      },
+      {
+        label: '米国同業/平均 PER',
+        data: [14, 17, 60, 28, 40, 14, 20, 14, 60, 25, 25, 60, 22.8],
+        backgroundColor: gray,
+        borderRadius: 4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + (ctx.raw !== null ? ctx.raw + '倍' : 'N/A'); } } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'PER（倍）', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 9 }, maxRotation: 45 } }
+    }
+  }
+});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

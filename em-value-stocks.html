@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>新興国バリュー株式 セールス提案資料</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; -webkit-text-size-adjust: 100%; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #1a365d 0%, #2c5282 60%, #2b6cb0 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #1a365d; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: #2c5282; text-decoration: none; font-weight: 500; }
+  .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #1a365d; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #2c5282; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  thead th { background: #1a365d; color: #fff; padding: 10px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; }
+  tbody tr:hover { background: #ebf4ff; }
+  blockquote { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+  blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #ebf8ff; border: 2px solid #2c5282; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .key-msg { margin: 16px 0; }
+  .msg-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #1a365d; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; margin-right: 10px; flex-shrink: 0; }
+  .msg-title { font-weight: 700; color: #1a365d; font-size: 1.05rem; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  .country-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .country-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .country-card h4 { margin-top: 0; color: #1a365d; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .country-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .faq-q { font-weight: 700; color: #2c5282; margin: 20px 0 4px; font-size: 1rem; }
+  .step-card { background: #f7fafc; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #e2e8f0; }
+  .step-label { font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+  .pattern-title { background: #2c5282; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
+  .back-to-top:hover { background: #d69e2e; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .back-to-top { display: none !important; }
+    nav { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .section { padding: 24px 18px; }
+    .toc { padding: 20px; margin: -24px 12px 24px; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 8px 10px; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 1.2rem; }
+    .hero .subtitle { font-size: 0.8rem; }
+    .hero .meta { font-size: 0.72rem; gap: 8px; }
+    .section { padding: 18px 12px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; }
+    .section h3 { font-size: 0.95rem; }
+    .toc { padding: 16px; margin: -20px 8px 20px; }
+    blockquote { padding: 10px 12px; font-size: 0.85rem; }
+    .gold-box, .highlight-box { padding: 12px; }
+    .disclaimer { padding: 16px 12px; }
+    .back-to-top { bottom: 16px; right: 12px; width: 38px; height: 38px; font-size: 0.95rem; }
+  }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #1a365d; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  .chart-container canvas { max-height: 400px !important; }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .toc h2 { color: #e2e8f0; border-bottom-color: #334155; }
+  .toc a { color: #63b3ed; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .section h2 { color: #e2e8f0; }
+  .section h3 { color: #63b3ed; }
+  .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; }
+  tbody tr:nth-child(even) { background: #253449; }
+  tbody tr:hover { background: #2d4a6f; }
+  blockquote { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #1a2d3d; color: #e2e8f0; }
+  .country-card { background: #253449; border-color: #334155; }
+  .country-card h4 { color: #e2e8f0; }
+  .step-card { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  .chart-container { background: #1e293b; border-color: #334155; }
+  .faq-q { color: #63b3ed; }
+  .pattern-title { background: #63b3ed; }
+  .msg-title { color: #e2e8f0; }
+  .source-tag { background: #334155; color: #94a3b8; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer { background: #fff; } }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0; }
+  .stat-card { background: linear-gradient(135deg, #1a365d, #2c5282); color: #fff; border-radius: 10px; padding: 20px; text-align: center; }
+  .stat-card .stat-value { font-size: 1.8rem; font-weight: 700; color: #d69e2e; }
+  .stat-card .stat-label { font-size: 0.82rem; opacity: 0.85; margin-top: 4px; }
+  .source-tag { display: inline-block; background: #e2e8f0; color: #4a5568; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; margin: 2px 4px 2px 0; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>新興国バリュー株式 セールス提案資料</h1>
+  <p class="subtitle">Emerging Markets Value Equity &mdash; Sales Proposal</p>
+  <div class="meta">
+    <span>作成日: 2026年2月27日</span>
+    <span>対象: リテール（一般個人投資家）向け</span>
+    <span>データ基準: 2026年2月下旬時点</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<div class="container">
+  <div class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#s1">エグゼクティブサマリー &mdash; なぜ今、新興国バリュー株なのか</a></li>
+      <li><a href="#s2">学術的エビデンス &mdash; バリュープレミアムの実証研究</a></li>
+      <li><a href="#s3">バリュエーション分析 &mdash; 歴史的な割安水準</a></li>
+      <li><a href="#s4">米国株・欧州株との徹底比較 &mdash; なぜ新興国バリュー株が最良の選択か</a></li>
+      <li><a href="#s5">パフォーマンス実績 &mdash; 10年間のトラックレコード</a></li>
+      <li><a href="#s6">インカムの優位性 &mdash; 高配当利回りの魅力</a></li>
+      <li><a href="#s7">国別バリュー投資機会 &mdash; 国ごとの割安度分析</a></li>
+      <li><a href="#s8">グローバル運用会社の見解</a></li>
+      <li><a href="#s9">推奨ファンド・ETF</a></li>
+      <li><a href="#s10">セールストーク &mdash; お客様への説明シナリオ</a></li>
+      <li><a href="#s11">具体的な提案パターン</a></li>
+    </ol>
+  </div>
+
+  <!-- Section 1: Executive Summary -->
+  <section class="section" id="s1">
+    <h2>1. エグゼクティブサマリー &mdash; なぜ今、新興国バリュー株なのか</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value">9.53倍</div>
+        <div class="stat-label">新興国バリュー株PER<br>（グロース株25.51倍の約1/3）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">+55.2%</div>
+        <div class="stat-label">2025年リターン<br>（MSCI EM Enhanced Value）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3.56%</div>
+        <div class="stat-label">配当利回り<br>（グロース株1.07%の3倍超）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">9.3%</div>
+        <div class="stat-label">期待実質リターン（年率）<br>（GMO社予測）</div>
+      </div>
+    </div>
+
+    <p>新興国バリュー株式は、2026年現在、世界の株式市場で最も魅力的な投資機会の一つです。その理由は3つあります。</p>
+
+    <div class="key-msg"><span class="msg-num">1</span><span class="msg-title">歴史的な割安水準</span></div>
+    <p>新興国バリュー株のPER（株価収益率）は9.53倍と、グロース株の25.51倍に対して<strong>63%のディスカウント</strong>。PBR（株価純資産倍率）は0.95倍と純資産価値を下回る水準です。米国株式のフォワードPER 21倍に対し、新興国バリュー株は7.7倍 &mdash; これは過去20年で最大級の格差であり、ITバブル崩壊以来の水準です。</p>
+
+    <div class="key-msg"><span class="msg-num">2</span><span class="msg-title">学術的に実証されたバリュープレミアム</span></div>
+    <p>Fama-Frenchの研究を含む多数の学術論文で、新興国市場においてバリュー株がグロース株を長期的に上回る「バリュープレミアム」が確認されています。1999年以降、新興国バリューポートフォリオは広義の新興国指数を年率約<strong>3.0%</strong>上回り、バリュープレミアムが正の年には平均<strong>7.0%</strong>のアウトパフォーマンスを記録しています。</p>
+
+    <div class="key-msg"><span class="msg-num">3</span><span class="msg-title">圧倒的なインカム（配当）の優位性</span></div>
+    <p>新興国バリュー株の配当利回りは3.56%（MSCI EM Enhanced Value）で、グロース株の1.07%の<strong>3倍以上</strong>。定期的な配当収入を得ながら値上がり益も狙える、「二重のメリット」があります。</p>
+  </section>
+
+  <!-- Section 2: Academic Evidence -->
+  <section class="section" id="s2">
+    <h2>2. 学術的エビデンス &mdash; バリュープレミアムの実証研究</h2>
+
+    <h3>Fama-Frenchモデルと新興国市場</h3>
+    <p>ノーベル経済学賞受賞者ユージン・ファーマ教授とケネス・フレンチ教授が提唱した「ファーマ-フレンチ3ファクターモデル」は、株式リターンを説明する最も影響力のある理論の一つです。このモデルでは、株式市場のリターンは以下の3つの要因で説明されます：</p>
+    <ul>
+      <li><strong>マーケットファクター</strong>：市場全体の動き</li>
+      <li><strong>サイズファクター</strong>：小型株が大型株を上回る傾向</li>
+      <li><strong>バリューファクター</strong>：割安株が割高株を上回る傾向</li>
+    </ul>
+    <p>新興国市場においても、このバリューファクター（HML：High Minus Low）が統計的に有意なリターンの説明力を持つことが、Tuck School of BusinessのFrench Data Libraryのデータ（1992年7月〜2021年7月、26カ国）で確認されています。</p>
+    <p class="source-tag">出典: Kenneth R. French Data Library, Fama/French 5 Factors (Emerging Markets)</p>
+
+    <h3>地域別の実証結果</h3>
+    <p>2020年のJournal of International Financial Markets, Institutions and Moneyに掲載された研究によれば：</p>
+    <ul>
+      <li><strong>ラテンアメリカ・東欧</strong>：5ファクターモデルが3ファクターモデルを一貫して上回る（バリューファクターが特に有効）</li>
+      <li><strong>アジア</strong>：収益性ファクターが最も有用であり、バリューファクターと組み合わせることで説明力が向上</li>
+      <li><strong>全体</strong>：新興国ではバリューファクターに加え、収益性ファクター（RMW）が特に重要</li>
+    </ul>
+    <p class="source-tag">出典: ScienceDirect "The Fama-French five-factor model and emerging market equity returns" (2020)</p>
+    <p class="source-tag">出典: Journal of Emerging Markets Finance "A comprehensive test of the Fama-French five-factor model in emerging markets" (2018)</p>
+
+    <blockquote>
+      <p><strong>重要な示唆</strong>：新興国市場では「割安で収益性の高い企業」に投資することが、学術的に最もリターンの高い戦略であることが実証されています。これはまさに「バリュー株投資」の本質です。</p>
+    </blockquote>
+
+    <h3>バリュープレミアムの長期実績</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指標</th><th>データ</th><th>期間</th><th>出典</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EM Value超過リターン（年率）</td><td><strong>+2.99%</strong></td><td>1999年1月〜</td><td>Lazard AM</td></tr>
+          <tr><td>プレミアム正の年の平均超過リターン</td><td><strong>+7.0%</strong></td><td>1999年以降</td><td>Lazard AM</td></tr>
+          <tr><td>EM Targeted Value超過リターン</td><td><strong>+2.4%</strong></td><td>2008年〜2023年7月</td><td>Dimensional (DFA)</td></tr>
+          <tr><td>Enhanced Value 3年年率リターン</td><td><strong>23.31%</strong></td><td>2023〜2025年</td><td>MSCI</td></tr>
+          <tr><td>Enhanced Value 10年年率リターン</td><td><strong>10.58%</strong></td><td>2016〜2025年</td><td>MSCI</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>なぜバリュープレミアムは存在するのか？</h3>
+    <p>バリュー株がグロース株を長期的に上回る理由について、学術的には主に2つの説明が提唱されています。</p>
+
+    <div class="country-grid">
+      <div class="country-card">
+        <h4>リスクベースの説明</h4>
+        <ul>
+          <li>バリュー株は財務的に脆弱な企業が多く、景気後退時のリスクが高い</li>
+          <li>そのリスクに対する「補償」として高いリターンが得られる</li>
+          <li>新興国では政治・制度リスクも加わり、ディスカウントが拡大しやすい</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>行動ファイナンスの説明</h4>
+        <ul>
+          <li>投資家は成長ストーリーに過度に楽観的になりがち（過剰反応）</li>
+          <li>不人気なバリュー株を避ける「群集心理」</li>
+          <li>新興国では情報の非対称性が大きく、ミスプライシングが起きやすい</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Valuation Analysis -->
+  <section class="section" id="s3">
+    <h2>3. バリュエーション分析 &mdash; 歴史的な割安水準</h2>
+
+    <h3>バリュー株 vs グロース株：バリュエーション比較</h3>
+    <div class="chart-container">
+      <div class="chart-title">新興国 バリュー vs グロース バリュエーション比較</div>
+      <canvas id="chartValuation"></canvas>
+      <div class="chart-source">出典: MSCI Index Factsheets（2026年1月末時点）</div>
+    </div>
+
+    <div class="gold-box">
+      <strong>注目ポイント：PBR 0.95倍の意味</strong>
+      <p>新興国バリュー株のPBR（株価純資産倍率）は0.95倍。これは企業の「解散価値」を下回る水準であり、帳簿上の純資産よりも安く株を買えることを意味します。グロース株のPBR 4.28倍と比較すると、バリュー株は<strong>78%もの割引</strong>で取引されています。</p>
+    </div>
+
+    <h3>新興国 vs 先進国：世界で最も割安な市場</h3>
+    <div class="chart-container">
+      <div class="chart-title">フォワードPER比較 &mdash; 新興国バリュー株の圧倒的割安さ</div>
+      <canvas id="chartForwardPE"></canvas>
+      <div class="chart-source">出典: MSCI, Siblis Research, PGIM（2025年12月末時点）</div>
+    </div>
+
+    <p>新興国全体のフォワードPER（予想PER）は13.44倍で、先進国の約21倍に対して<strong>36%のディスカウント</strong>。これは過去15年間で最大の格差です。さらに新興国バリュー株に絞ると7.70倍と、米国株の<strong>約3分の1</strong>の水準です。</p>
+
+    <blockquote>
+      <p>PGIM（プルデンシャル傘下の運用会社）は、「フォワードPEスプレッドは先進国比で1標準偏差以上のディスカウントであり、これはITバブル以来の水準」と指摘しています。</p>
+    </blockquote>
+
+    <h3>バリュー株ディスカウントの歴史的位置づけ</h3>
+    <p>GMO社（ジェレミー・グランサム率いる運用会社）の分析によれば：</p>
+    <ul>
+      <li>新興国のCAPE（景気循環調整済みPER）は<strong>14倍</strong>で、米国の<strong>25倍</strong>のほぼ半分</li>
+      <li>新興国バリュー株（最割安クインタイル）のディスカウントは<strong>2001年12月以来の最大</strong></li>
+      <li>過去にこの水準のディスカウントが発生した後は、バリュー株が大幅にアウトパフォームした実績がある</li>
+    </ul>
+  </section>
+
+  <!-- Section 4: US vs Europe vs EM Value Comparison -->
+  <section class="section" id="s4">
+    <h2>4. 米国株・欧州株との徹底比較 &mdash; なぜ新興国バリュー株が最良の選択か</h2>
+
+    <div class="gold-box">
+      <strong>結論：あらゆるデータが新興国バリュー株の優位性を示している</strong>
+      <p>世界の主要運用会社・投資銀行の予測、バリュエーション指標、過去のサイクル分析、マクロ経済データのすべてが、今後10年間で<strong>新興国バリュー株が米国株・欧州株を大幅にアウトパフォームする</strong>可能性を示しています。</p>
+    </div>
+
+    <h3>CAPE（景気循環調整済みPER）国際比較</h3>
+    <p>ノーベル経済学賞受賞者ロバート・シラー教授が提唱したCAPE（Cyclically Adjusted PE ratio）は、過去10年間の平均利益で株価を割ることで、一時的な利益変動を除いた「真の割安度」を測る指標です。CAPEが高いほど割高で、将来のリターンが低くなる傾向があります。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">CAPE比較 &mdash; 米国は歴史的高水準、新興国は割安（2025年12月末時点）</div>
+      <canvas id="chartCAPE"></canvas>
+      <div class="chart-source">出典: Siblis Research, Barclays Research（2025年12月31日時点）</div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>CAPEが示す衝撃的な事実</strong>
+      <p>米国のCAPEは<strong>34.73倍</strong>で、歴史的に見ても上位5%に入る割高水準。一方、中国は17.71倍、香港は10.74倍と、米国の半分以下です。</p>
+      <p><strong>ドイツ銀行の大規模研究</strong>によれば、<strong>CAPEが20倍を超える市場はその後10年で年率約4%のリターン</strong>にとどまる一方、<strong>CAPEが8倍以下の割安市場は年率約10%のリターン</strong>を記録 &mdash; <strong>年率6%もの差</strong>があります。現在の米国（CAPE 34.73倍）と新興国の割安市場に、このルールを当てはめると、新興国が圧倒的に有利です。</p>
+    </div>
+
+    <h3>主要運用会社・投資銀行の今後10年のリターン予測</h3>
+    <p>世界を代表する4つの運用会社・投資銀行が、今後の各資産クラスのリターンを予測しています。<strong>すべての予測が、米国株の低迷と新興国株の優位性</strong>を指し示しています。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">主要機関の今後7〜10年の予想リターン比較</div>
+      <canvas id="chartFirmForecasts"></canvas>
+      <div class="chart-source">出典: GMO, Goldman Sachs, Research Affiliates, Vanguard（2025〜2026年時点の各社予測）</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>予測機関</th><th>米国大型株</th><th>先進国株式</th><th>新興国株式</th><th>新興国バリュー</th><th>格差（EM - US）</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GMO</strong><br>（7年予測・実質）</td>
+            <td style="color:#e53e3e"><strong>-5.4%</strong></td>
+            <td>-2.0%</td>
+            <td style="color:#48bb78">+4.5%</td>
+            <td style="color:#48bb78"><strong>+9.3%</strong></td>
+            <td style="color:#48bb78"><strong>+14.7%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Goldman Sachs</strong><br>（10年予測・名目）</td>
+            <td style="color:#e53e3e"><strong>3.0%</strong></td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+            <td>1930年以来7パーセンタイル</td>
+          </tr>
+          <tr>
+            <td><strong>Research Affiliates</strong><br>（10年予測・名目）</td>
+            <td style="color:#e53e3e"><strong>3.1%</strong></td>
+            <td>7.7%</td>
+            <td style="color:#48bb78"><strong>7.5%</strong></td>
+            <td>&mdash;</td>
+            <td style="color:#48bb78"><strong>+4.4%</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Vanguard</strong><br>（10年予測・名目）</td>
+            <td style="color:#e53e3e"><strong>3.9〜5.9%</strong></td>
+            <td>7.3〜9.3%</td>
+            <td style="color:#48bb78"><strong>5.5〜7.5%</strong></td>
+            <td>&mdash;</td>
+            <td style="color:#48bb78"><strong>+1.6%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <p><strong>ゴールドマン・サックスの衝撃的予測</strong>：S&amp;P 500の今後10年間のリターンはわずか年率3%（名目）。これは1930年以来の歴史で<strong>下から7パーセンタイル</strong>という極めて低い水準です。さらに、<strong>72%の確率で株式が債券をアンダーパフォーム</strong>するとの見通しも発表。一方、GMOは新興国バリュー株に<strong>年率9.3%の実質リターン</strong>を予測しており、全資産クラス中トップです。</p>
+    </blockquote>
+
+    <h3>新興国 vs 米国 &mdash; パフォーマンスサイクルの歴史</h3>
+    <p>米国株と新興国株のパフォーマンスには、明確な「サイクル」があります。どちらが優位かは交互に入れ替わり、平均して約<strong>8〜9年のサイクル</strong>で推移してきました。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">米国株 vs 新興国株 &mdash; 優位性サイクルの変遷（年率リターン差）</div>
+      <canvas id="chartCycle"></canvas>
+      <div class="chart-source">出典: MSCI, Bloomberg, Eastspring Investments の分析に基づく</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>期間</th><th>優位な市場</th><th>年率リターン差</th><th>継続年数</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1989〜1994年</td><td style="color:#48bb78"><strong>新興国優位</strong></td><td>EM &gt; US 年率+8%以上</td><td>約6年</td></tr>
+          <tr><td>1995〜2001年</td><td style="color:#e53e3e"><strong>米国優位</strong></td><td>US &gt; EM 年率+15%以上</td><td>約7年</td></tr>
+          <tr><td>2002〜2010年</td><td style="color:#48bb78"><strong>新興国優位</strong></td><td>EM &gt; US 年率+10%以上</td><td>約9年</td></tr>
+          <tr><td>2011〜2024年</td><td style="color:#e53e3e"><strong>米国優位</strong></td><td>US &gt; EM 年率+8%以上</td><td><strong>約14年（異常に長い）</strong></td></tr>
+          <tr><td>2025年〜</td><td style="color:#48bb78"><strong>新興国優位へ転換？</strong></td><td>2025年 EM +34% vs S&amp;P +18%</td><td>転換の兆候</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gold-box">
+      <strong>平均回帰（ミーンリバージョン）の法則</strong>
+      <p>株式市場には「平均回帰」の力が強く働きます。米国の優位サイクルは平均8年ですが、今回は<strong>14年以上</strong>と異常に長期化しています。歴史的に、長い優位サイクルの後には<strong>より強い反転</strong>が起きる傾向があります。2025年に新興国が先進国を大幅にアウトパフォーム（MSCI EM +34% vs S&amp;P 500 +18%、<strong>17年ぶり最大の差</strong>）したのは、サイクル転換の始まりである可能性が高いと考えられます。</p>
+    </div>
+
+    <h3>ファンダメンタルズ総合比較：新興国 vs 米国 vs 欧州</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指標</th><th>新興国バリュー</th><th>新興国全体</th><th>米国（S&amp;P 500）</th><th>欧州（STOXX 600）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>フォワードPER</td><td style="color:#48bb78"><strong>7.7倍</strong></td><td>13.4倍</td><td style="color:#e53e3e">21.0倍</td><td>14.5倍</td></tr>
+          <tr><td>CAPE</td><td>&mdash;</td><td>約15倍</td><td style="color:#e53e3e"><strong>34.7倍</strong></td><td>約22倍</td></tr>
+          <tr><td>PBR</td><td style="color:#48bb78"><strong>0.95倍</strong></td><td>1.80倍</td><td style="color:#e53e3e">4.5倍</td><td>1.9倍</td></tr>
+          <tr><td>配当利回り</td><td style="color:#48bb78"><strong>4.84%</strong></td><td>2.2%</td><td style="color:#e53e3e">1.3%</td><td>3.2%</td></tr>
+          <tr><td>政府債務/GDP</td><td colspan="2">62%</td><td style="color:#e53e3e">123%</td><td>約90%</td></tr>
+          <tr><td>EPS成長率予測（2026年）</td><td colspan="2" style="color:#48bb78"><strong>21%</strong></td><td>15%</td><td>13%</td></tr>
+          <tr><td>GDP成長率（2025年 IMF）</td><td colspan="2" style="color:#48bb78"><strong>4.2%</strong></td><td>1.6%</td><td>1.3%</td></tr>
+          <tr><td>世界人口シェア</td><td colspan="2" style="color:#48bb78"><strong>84%</strong></td><td>4%</td><td>6%</td></tr>
+          <tr><td>世界GDPシェア</td><td colspan="2" style="color:#48bb78"><strong>61%</strong></td><td>26%</td><td>17%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <p><strong>Eastspring Investmentsの分析</strong>：新興国はフォワードPERで米国に対して<strong>40%割安</strong>、PBRでは<strong>61%割安</strong>。政府債務のGDP比は62%と、先進国の123%の半分。さらに世界人口の84%、世界GDPの61%を占めながら、機関投資家の新興国配分はベンチマーク比で<strong>600〜700bp（6〜7%ポイント）のアンダーウェイト</strong>。この構造的アンダーウェイトが解消に向かえば、大きな資金流入が期待されます。</p>
+    </blockquote>
+
+    <h3>米国株の3つのリスク要因</h3>
+    <div class="country-grid">
+      <div class="country-card">
+        <h4>1. バリュエーションリスク</h4>
+        <ul>
+          <li>CAPE 34.73倍は歴史的に上位5%の割高水準</li>
+          <li>S&amp;P 500の上位10銘柄が指数全体の約35%を占める集中リスク</li>
+          <li>Goldman Sachs「今後10年で年率3%」の衝撃的予測</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>2. 集中リスク</h4>
+        <ul>
+          <li>「マグニフィセント7」への過度な依存</li>
+          <li>オルカンの約65%が米国株 &mdash; 真の分散になっていない</li>
+          <li>AI関連銘柄のバリュエーションバブルの懸念</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>3. 構造的リスク</h4>
+        <ul>
+          <li>政府債務GDP比123%は新興国の2倍</li>
+          <li>財政赤字の拡大と債務上限問題</li>
+          <li>貿易摩擦・関税政策による企業収益圧迫リスク</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>欧州株との比較</h3>
+    <p>欧州株式（STOXX 600）は米国ほど割高ではなく、一定の投資妙味があります。しかし新興国バリュー株と比較すると、以下の点で劣後します。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>比較項目</th><th>新興国バリュー株</th><th>欧州株式</th><th>判定</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>フォワードPER</td><td style="color:#48bb78"><strong>7.7倍</strong></td><td>14.5倍</td><td style="color:#48bb78">EM Value有利（47%割安）</td></tr>
+          <tr><td>配当利回り</td><td style="color:#48bb78"><strong>4.84%</strong></td><td>3.2%</td><td style="color:#48bb78">EM Value有利（+1.6%）</td></tr>
+          <tr><td>GDP成長率</td><td style="color:#48bb78"><strong>4.2%</strong></td><td>1.3%</td><td style="color:#48bb78">EM Value有利（3倍以上）</td></tr>
+          <tr><td>人口動態</td><td style="color:#48bb78"><strong>若年層多い・中間層拡大</strong></td><td>高齢化進行</td><td style="color:#48bb78">EM Value有利</td></tr>
+          <tr><td>中間層の成長</td><td style="color:#48bb78"><strong>2034年までに倍増予測</strong></td><td>横ばい</td><td style="color:#48bb78">EM Value有利</td></tr>
+          <tr><td>政治リスク</td><td>やや高い</td><td style="color:#48bb78"><strong>比較的安定</strong></td><td style="color:#ed8936">欧州やや有利</td></tr>
+          <tr><td>通貨安定性</td><td>変動大きい</td><td style="color:#48bb78"><strong>ユーロは比較的安定</strong></td><td style="color:#ed8936">欧州やや有利</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>欧州株は安定性では優れていますが、成長力とバリュエーションの両面で新興国バリュー株には及びません。<strong>「安定性を求めるなら欧州、リターンを最大化するなら新興国バリュー」</strong>という位置づけです。</p>
+  </section>
+
+  <!-- Section 5: Performance Track Record -->
+  <section class="section" id="s5">
+    <h2>5. パフォーマンス実績 &mdash; 10年間のトラックレコード</h2>
+
+    <h3>MSCI EM Value vs Growth vs Broad：年間リターン比較</h3>
+    <div class="chart-container">
+      <div class="chart-title">MSCI EM Value vs Growth vs Broad 年間リターン（2015〜2025年、USD、グロス）</div>
+      <canvas id="chartAnnualReturns"></canvas>
+      <div class="chart-source">出典: MSCI Index Factsheets（グロスリターン、USD建て）</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>年</th><th>EM Value</th><th>EM Growth</th><th>EM Broad</th><th>Value優位</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2015</td><td>-18.16%</td><td>-11.12%</td><td>-14.92%</td><td style="color:#c53030">-7.04%</td></tr>
+          <tr><td>2016</td><td>15.48%</td><td>7.87%</td><td>11.19%</td><td style="color:#2f855a"><strong>+7.61%</strong></td></tr>
+          <tr><td>2017</td><td>28.67%</td><td>47.12%</td><td>37.28%</td><td style="color:#c53030">-18.45%</td></tr>
+          <tr><td>2018</td><td>-10.26%</td><td>-18.04%</td><td>-14.57%</td><td style="color:#2f855a"><strong>+7.78%</strong></td></tr>
+          <tr><td>2019</td><td>12.52%</td><td>25.44%</td><td>18.42%</td><td style="color:#c53030">-12.92%</td></tr>
+          <tr><td>2020</td><td>5.97%</td><td>31.58%</td><td>18.31%</td><td style="color:#c53030">-25.61%</td></tr>
+          <tr><td>2021</td><td>4.50%</td><td>-8.24%</td><td>-2.54%</td><td style="color:#2f855a"><strong>+12.74%</strong></td></tr>
+          <tr><td>2022</td><td>-15.31%</td><td>-23.74%</td><td>-20.09%</td><td style="color:#2f855a"><strong>+8.43%</strong></td></tr>
+          <tr><td>2023</td><td>14.87%</td><td>6.07%</td><td>9.83%</td><td style="color:#2f855a"><strong>+8.80%</strong></td></tr>
+          <tr><td>2024</td><td>5.37%</td><td>10.55%</td><td>7.50%</td><td style="color:#c53030">-5.18%</td></tr>
+          <tr><td>2025</td><td>33.89%</td><td>34.78%</td><td>33.57%</td><td style="color:#c53030">-0.89%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>累積リターンシミュレーション（10,000ドル投資）</h3>
+    <div class="chart-container">
+      <div class="chart-title">10,000ドルを2014年末に投資した場合の推移（2015〜2025年）</div>
+      <canvas id="chartCumulative"></canvas>
+      <div class="chart-source">出典: MSCI Index Factsheets より算出（グロスリターン、USD建て）</div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>直近のトレンド転換に注目</strong>
+      <p>2017〜2020年はグロース株優位の時代でしたが、<strong>2021年以降はバリュー株が明確に優位</strong>に転じています。特に2021〜2023年の3年間で、バリュー株はグロース株を累積で約<strong>30ポイント</strong>上回りました。MSCI EM Enhanced Value指数の直近3年間の年率リターンは<strong>23.31%</strong>で、広義のMSCI EMの16.40%を大幅に上回っています。</p>
+    </div>
+
+    <h3>DFA新興国バリューファンドの実績</h3>
+    <p>世界最大級のファクター投資運用会社であるDimensional Fund Advisors（DFA）の新興国バリューファンド（DFEVX）の実績：</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>期間</th><th>年率リターン</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1年</td><td><strong>38.16%</strong></td><td>2025年実績</td></tr>
+          <tr><td>3年（年率）</td><td><strong>17.29%</strong></td><td>2023〜2025年</td></tr>
+          <tr><td>5年（年率）</td><td><strong>11.69%</strong></td><td>2021〜2025年</td></tr>
+          <tr><td>10年（年率）</td><td><strong>11.28%</strong></td><td>2016〜2025年</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>信託報酬は年0.44%（カテゴリー平均比63%低い）。バリュー・収益性・小型株への体系的なティルトにより、長期にわたり安定した超過リターンを実現しています。</p>
+  </section>
+
+  <!-- Section 6: Income Advantage -->
+  <section class="section" id="s6">
+    <h2>6. インカムの優位性 &mdash; 高配当利回りの魅力</h2>
+
+    <h3>配当利回り比較</h3>
+    <div class="chart-container">
+      <div class="chart-title">主要資産クラス別 配当利回り比較</div>
+      <canvas id="chartDividend"></canvas>
+      <div class="chart-source">出典: MSCI, iShares, 各種Index Factsheet（2026年1月末時点）</div>
+    </div>
+
+    <p>新興国バリュー株は、他の主要資産クラスと比較して圧倒的に高い配当利回りを提供します。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>資産クラス</th><th>配当利回り</th><th>PER</th><th>特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>新興国バリュー株（EVLU）</strong></td><td><strong>4.84%</strong></td><td>12.69倍</td><td>高配当 + 割安</td></tr>
+          <tr><td>EM Enhanced Value指数</td><td>3.56%</td><td>9.53倍</td><td>最も割安な指数</td></tr>
+          <tr><td>新興国株式（MSCI EM）</td><td>約2.2%</td><td>16.98倍</td><td>広義の新興国</td></tr>
+          <tr><td>新興国グロース株</td><td>1.07%</td><td>25.51倍</td><td>低配当・高PER</td></tr>
+          <tr><td>米国株式（S&amp;P 500）</td><td>約1.3%</td><td>約23倍</td><td>成長重視</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <p><strong>配当の「品質シグナル」</strong>：新興国市場において配当を支払う企業は、配当を支払わない企業と比較して平均的にアウトパフォームし、かつリスクも低い傾向があります。配当は「企業の質」を示すシグナルとして機能し、バリュー投資とインカム投資の相乗効果が期待できます。</p>
+    </blockquote>
+
+    <h3>配当再投資の複利効果</h3>
+    <p>年4.84%の配当利回りを再投資した場合、配当だけで約<strong>15年で投資元本が倍</strong>になります（72の法則：72÷4.84≒14.9年）。これに値上がり益が加わることで、長期の資産形成に大きく貢献します。</p>
+  </section>
+
+  <!-- Section 7: Country Analysis -->
+  <section class="section" id="s7">
+    <h2>7. 国別バリュー投資機会 &mdash; 国ごとの割安度分析</h2>
+
+    <h3>新興国 国別PER比較</h3>
+    <div class="chart-container">
+      <div class="chart-title">新興国 国別 実績PER vs フォワードPER（2025年12月末時点）</div>
+      <canvas id="chartCountryPE"></canvas>
+      <div class="chart-source">出典: Siblis Research（MSCI Country Indexes、2025年12月31日時点）</div>
+    </div>
+
+    <h3>国別バリュー投資機会</h3>
+    <div class="country-grid">
+      <div class="country-card">
+        <h4>ブラジル（PER 11.45倍 / Fwd 9.25倍）</h4>
+        <ul>
+          <li>新興国で最も割安な主要市場</li>
+          <li>コモディティ価格の恩恵（鉄鉱石・大豆・原油）</li>
+          <li>高金利環境での金融セクターの収益力</li>
+          <li>フォワードPER 9.25倍は先進国の半分以下</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>韓国（PER 17.06倍 / Fwd 10.64倍）</h4>
+        <ul>
+          <li>「コリア・ディスカウント」解消期待</li>
+          <li>企業統治改革（バリューアッププログラム）の進展</li>
+          <li>フォワードPER 10.64倍は利益急拡大を示唆</li>
+          <li>半導体サイクルの恩恵</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>中国（PER 18.06倍 / Fwd 14.93倍）</h4>
+        <ul>
+          <li>香港市場のPER 17倍はリバウンド余地大</li>
+          <li>政策的な株式市場テコ入れ</li>
+          <li>テック企業の規制リスク後退</li>
+          <li>国有企業改革と株主還元強化</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>南アフリカ（PER 15.46倍 / Fwd 10.64倍）</h4>
+        <ul>
+          <li>フォワードPER 10.64倍は大幅な利益成長期待</li>
+          <li>金・プラチナなど貴金属価格上昇の恩恵</li>
+          <li>金融・通信セクターの高配当</li>
+          <li>アフリカ大陸の成長ゲートウェイ</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>セクター構成 &mdash; バリュー株の中身</h3>
+    <div class="chart-container">
+      <div class="chart-title">新興国バリュー株 セクター構成（iShares EVLU）</div>
+      <canvas id="chartSector"></canvas>
+      <div class="chart-source">出典: iShares MSCI Emerging Markets Value Factor ETF (EVLU)（2026年2月時点）</div>
+    </div>
+
+    <h3>国別構成</h3>
+    <div class="chart-container">
+      <div class="chart-title">新興国バリュー株 国別構成（iShares EVLU）</div>
+      <canvas id="chartCountry"></canvas>
+      <div class="chart-source">出典: iShares MSCI Emerging Markets Value Factor ETF (EVLU)（2026年2月時点）</div>
+    </div>
+  </section>
+
+  <!-- Section 8: Global Asset Manager Views -->
+  <section class="section" id="s8">
+    <h2>8. グローバル運用会社の見解</h2>
+
+    <p>世界の主要運用会社は、新興国バリュー株に対して強気な見通しを示しています。</p>
+
+    <div class="chart-container">
+      <div class="chart-title">主要運用会社の新興国株式 期待リターン予測（実質・年率）</div>
+      <canvas id="chartExpectedReturns"></canvas>
+      <div class="chart-source">出典: GMO, Research Affiliates, Goldman Sachs, Vanguard, Eastspring（2025〜2026年時点の各社予測）</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>運用会社</th><th>主な見解</th><th>注目ポイント</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GMO</strong><br>（ジェレミー・グランサム）</td>
+            <td>EM Value に年率9.3%の実質リターンを予測。「ディープバリューと小型株が低リターン世界をリードする」</td>
+            <td>7年予測でEM Valueが全資産クラス中トップ</td>
+          </tr>
+          <tr>
+            <td><strong>Research Affiliates</strong><br>（ロブ・アーノット）</td>
+            <td>新興国に年率6.8%の実質リターンを予測。ファンダメンタル・インデックス（バリュー寄り）を推奨</td>
+            <td>新興国は全5つのバリュエーション指標で「割安」</td>
+          </tr>
+          <tr>
+            <td><strong>Lazard AM</strong></td>
+            <td>「Why Emerging Markets Value」レポートで新興国バリューを強く推奨。バリュー株の超過リターンは1999年以降年率+2.99%</td>
+            <td>EMバリューのインカムプレミアムがMSCI Worldを上回る</td>
+          </tr>
+          <tr>
+            <td><strong>Dimensional (DFA)</strong></td>
+            <td>新興国バリューファンドで10年年率11.28%を実現。バリュー・収益性・小型株の3ファクターティルト戦略</td>
+            <td>費用控除後でもMSCI EM対比+2.4%の超過リターン</td>
+          </tr>
+          <tr>
+            <td><strong>PGIM</strong><br>（プルデンシャル）</td>
+            <td>EMの対先進国バリュエーションギャップはITバブル以来の水準。アクティブファクター戦略がEM市場でDMより高い累積リターンを生む</td>
+            <td>EPS成長率：EM 21% vs 米国15%（2026年予測）</td>
+          </tr>
+          <tr>
+            <td><strong>Goldman Sachs</strong></td>
+            <td>S&amp;P 500の今後10年間のリターンは年率3%（名目）と予測。1930年以来の歴史で下位7パーセンタイル。72%の確率で株式が債券をアンダーパフォーム</td>
+            <td>米国株の長期リターン予測が極端に低い &mdash; 新興国への分散が必須</td>
+          </tr>
+          <tr>
+            <td><strong>Vanguard</strong></td>
+            <td>米国大型株は今後10年で年率3.9〜5.9%（名目）。先進国株式は7.3〜9.3%、新興国は5.5〜7.5%と、非米国市場が優位</td>
+            <td>米国偏重からの分散を推奨</td>
+          </tr>
+          <tr>
+            <td><strong>Eastspring<br>Investments</strong></td>
+            <td>2025年にMSCI EMが+34%と S&amp;P 500の+18%を17年ぶりに大幅アウトパフォーム。EMはフォワードPEで40%、PBRで61%割安</td>
+            <td>機関投資家の新興国配分はベンチマーク比600〜700bpアンダーウェイト</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>マクロ経済の追い風</h3>
+    <ul>
+      <li><strong>GDP成長率格差</strong>：新興国 4.2% vs 先進国 1.6%（IMF 2025年予測）</li>
+      <li><strong>EPS成長率</strong>：新興国 21% vs 米国 15% vs 先進国 13%（2026年コンセンサス予測）</li>
+      <li><strong>ドル安傾向</strong>：FRBの連続利下げ（2025年後半に3回の25bp）によりドル安トレンドが新興国に有利</li>
+      <li><strong>新興国のアウトパフォームサイクル到来</strong>：2025年は2020年以来初めて新興国が先進国をアウトパフォーム。新興国の過去の劣後サイクルは平均9年だが、直近は約13年継続 &mdash; 長い劣後期間の後には力強い回復が見込まれます</li>
+    </ul>
+  </section>
+
+  <!-- Section 9: Recommended Funds -->
+  <section class="section" id="s9">
+    <h2>9. 推奨ファンド・ETF</h2>
+
+    <h3>海外ETF（SBI証券・楽天証券等で購入可能）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ETF名</th><th>ティッカー</th><th>信託報酬</th><th>1年リターン</th><th>配当利回り</th><th>特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>iShares MSCI EM Value Factor ETF</strong></td>
+            <td>EVLU</td>
+            <td>0.35%</td>
+            <td>38.75%</td>
+            <td>4.84%</td>
+            <td>MSCI EM Value Factor Selectに連動。287銘柄に分散</td>
+          </tr>
+          <tr>
+            <td><strong>DFA Emerging Markets Value ETF</strong></td>
+            <td>DFEV</td>
+            <td>0.44%</td>
+            <td>38.16%</td>
+            <td>約3.5%</td>
+            <td>DFAのファクター戦略。バリュー+収益性+小型株ティルト</td>
+          </tr>
+          <tr>
+            <td><strong>Schwab Fundamental EM Large Company Index ETF</strong></td>
+            <td>FNDE</td>
+            <td>0.39%</td>
+            <td>約30%</td>
+            <td>約3.2%</td>
+            <td>ファンダメンタル加重。自然なバリューティルト</td>
+          </tr>
+          <tr>
+            <td><strong>WisdomTree EM High Dividend Fund</strong></td>
+            <td>DEM</td>
+            <td>0.63%</td>
+            <td>約20%</td>
+            <td>約4.5%</td>
+            <td>高配当戦略。配当加重で自然にバリュー株偏重</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>国内投資信託（新興国インデックス + バリュー戦略の組み合わせ）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ファンド名</th><th>信託報酬</th><th>特徴</th><th>活用方法</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>eMAXIS Slim 新興国株式インデックス</strong></td>
+            <td>0.1518%</td>
+            <td>MSCI EMに連動。最低コスト</td>
+            <td>コア資産として保有</td>
+          </tr>
+          <tr>
+            <td><strong>SBI・V・新興国株式インデックス・ファンド</strong></td>
+            <td>0.1238%</td>
+            <td>バンガードETF経由。最低コスト水準</td>
+            <td>コア資産として保有</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gold-box">
+      <strong>推奨ポートフォリオ構成</strong>
+      <p>新興国株式への配分のうち、<strong>50〜70%を低コストインデックスファンド</strong>（eMAXIS Slim等）、<strong>30〜50%を海外ETFのEVLUまたはDFEV</strong>で構成することで、コア・サテライト戦略によるバリューティルトが実現できます。</p>
+    </div>
+  </section>
+
+  <!-- Section 10: Sales Talk -->
+  <section class="section" id="s10">
+    <h2>10. セールストーク &mdash; お客様への説明シナリオ</h2>
+
+    <h3>導入トーク</h3>
+    <div class="step-card">
+      <div class="step-label">お客様への切り出し方</div>
+      <p>「○○様、最近は米国株やオルカンが人気ですが、実は今、世界の大手運用会社が最も注目しているのが<strong>新興国の割安株（バリュー株）</strong>なんです。PERという企業の割安度を示す指標で見ると、新興国バリュー株は約10倍。一方、米国株は21倍です。つまり、<strong>同じ利益を生む企業を、米国の半分以下の値段で買える</strong>ということです。」</p>
+    </div>
+
+    <h3>想定される質問と回答</h3>
+    <div class="faq-q">Q: 新興国は怖い、リスクが高いのでは？</div>
+    <div class="step-card">
+      <p>「おっしゃる通り、新興国には為替や政治のリスクがあります。しかし、バリュー株のアプローチでは、<strong>すでにそのリスクが株価に織り込まれた"割安な"企業</strong>を選んでいます。しかも配当利回りは約4〜5%と高く、配当収入でリスクの一部を相殺できます。実際、新興国の配当を出す企業は、配当を出さない企業より<strong>リスクが低くリターンが高い</strong>という研究データもあります。」</p>
+    </div>
+
+    <div class="faq-q">Q: 新興国は長い間パフォーマンスが悪かったのでは？</div>
+    <div class="step-card">
+      <p>「確かに2013年頃から約10年間、新興国は米国に劣後してきました。しかし歴史的には、新興国の劣後サイクルは平均9年で終了します。今回は13年以上続いており、むしろ<strong>反転上昇の可能性が高まっている</strong>と見られています。実際に2025年は、新興国が先進国を2020年以来初めてアウトパフォームしました。特にバリュー株は+55%（Enhanced Value指数）と素晴らしいリターンでした。」</p>
+    </div>
+
+    <div class="faq-q">Q: 米国株やオルカンだけではダメですか？</div>
+    <div class="step-card">
+      <p>「オルカン（全世界株式）は優れた商品ですが、実は中身の<strong>約65%が米国株</strong>です。米国株のPERは21倍と割高で、ゴールドマン・サックスは今後10年のS&amp;P 500リターンを<strong>わずか年率3%</strong>と予測しています。これは1930年以来で下から7パーセンタイルという極めて低い水準です。新興国バリュー株を加えることで、<strong>ポートフォリオ全体のバリュエーションを下げ</strong>、リスク分散と配当収入の向上が期待できます。」</p>
+    </div>
+
+    <div class="faq-q">Q: なぜ今、米国株ではなく新興国株なのですか？</div>
+    <div class="step-card">
+      <p>「3つの理由があります。第一に、<strong>バリュエーション</strong>。米国のCAPE（景気循環調整済みPER）は34.7倍と歴史的にトップ5%の割高さです。一方、新興国バリュー株のPERは7.7倍。同じ利益の企業を3分の1の値段で買えます。第二に、<strong>大手運用会社の予測</strong>。GMOは新興国バリュー株に年率+9.3%を予測する一方、米国大型株には<strong>-5.4%</strong>。実に14.7ポイントの差です。第三に、<strong>歴史的サイクル</strong>。米国と新興国は約8年周期で優位性が入れ替わりますが、今回の米国優位は14年と異常に長い。2025年は新興国が17年ぶりに大幅にアウトパフォームしており、転換の兆しが見えています。」</p>
+    </div>
+
+    <div class="faq-q">Q: ヨーロッパの株式市場はどうですか？</div>
+    <div class="step-card">
+      <p>「欧州株式は米国ほど割高ではなく、配当利回りも3.2%と悪くありません。ただし新興国バリュー株と比較すると、PERは14.5倍 vs 7.7倍と<strong>新興国バリューが47%も割安</strong>で、配当利回りも4.84% vs 3.2%です。さらに欧州のGDP成長率は1.3%と低迷していますが、新興国は4.2%。新興国の中間層は2034年までに倍増すると予測されており、成長の伸びしろが全く違います。<strong>安定性を求めるなら欧州は選択肢ですが、リターンを最大化するなら新興国バリュー</strong>が有利です。」</p>
+    </div>
+
+    <div class="faq-q">Q: どんな企業に投資するんですか？</div>
+    <div class="step-card">
+      <p>「新興国バリュー株ファンドの中身を見ると、情報技術（約31%）と金融（約19%）が中心です。台湾や韓国の半導体関連企業、中国やブラジルの大手銀行、インドのIT企業など、<strong>実体のあるビジネスを持つ優良企業</strong>が含まれています。国別では中国26%、台湾18%、韓国18%、インド12%と、アジアの成長国に幅広く分散されています。」</p>
+    </div>
+
+    <div class="faq-q">Q: 具体的にどうやって投資すればいいですか？</div>
+    <div class="step-card">
+      <p>「SBI証券や楽天証券で購入できる海外ETFの<strong>EVLU</strong>（iShares MSCI EM Value Factor ETF）がおすすめです。信託報酬は年0.35%と低コストで、287銘柄に分散投資できます。まずは新興国株式への配分の30〜50%をバリュー戦略にすることから始めてみてはいかがでしょうか。」</p>
+    </div>
+  </section>
+
+  <!-- Section 11: Proposal Patterns -->
+  <section class="section" id="s11">
+    <h2>11. 具体的な提案パターン</h2>
+
+    <div class="pattern-title">パターンA：NISAつみたて投資枠 + 成長投資枠の組み合わせ</div>
+    <div class="step-card">
+      <div class="step-label">想定顧客：30〜40代、長期資産形成志向</div>
+      <ul>
+        <li><strong>つみたて投資枠（月3万円）</strong>：eMAXIS Slim 新興国株式インデックス</li>
+        <li><strong>成長投資枠（月2万円相当）</strong>：EVLU（iShares MSCI EM Value Factor ETF）を定期買付</li>
+        <li><strong>期待効果</strong>：インデックスの広い分散 + バリューファクターによる超過リターン</li>
+      </ul>
+    </div>
+
+    <div class="pattern-title">パターンB：高配当インカム重視型</div>
+    <div class="step-card">
+      <div class="step-label">想定顧客：50〜60代、配当収入も重視</div>
+      <ul>
+        <li><strong>成長投資枠</strong>：EVLU（配当利回り4.84%）を一括 + 定期買付</li>
+        <li><strong>補完</strong>：eMAXIS Slim 新興国株式インデックスをつみたて枠で少額積立</li>
+        <li><strong>期待効果</strong>：年間約4〜5%の配当収入 + 値上がり益。配当再投資で複利効果</li>
+      </ul>
+    </div>
+
+    <div class="pattern-title">パターンC：グローバル分散の一角として</div>
+    <div class="step-card">
+      <div class="step-label">想定顧客：既にオルカンやS&P 500を保有中</div>
+      <ul>
+        <li><strong>既存ポートフォリオ</strong>：オルカン or S&amp;P 500（70〜80%）</li>
+        <li><strong>追加配分（20〜30%）</strong>：EVLU or DFEVで新興国バリューに分散</li>
+        <li><strong>期待効果</strong>：米国偏重のリスクを軽減。GMO予測では米国大型株の実質リターン予測は年率<strong>-5.4%</strong>（マイナス）に対し、新興国バリューは年率<strong>+9.3%</strong>と14.7ポイント上回る</li>
+      </ul>
+    </div>
+
+    <h3>NISA枠での投資シミュレーション</h3>
+    <div class="chart-container">
+      <div class="chart-title">毎月3万円を20年間積立てた場合のシミュレーション</div>
+      <canvas id="chartNISA"></canvas>
+      <div class="chart-source">※ 過去実績に基づくシミュレーションであり、将来のリターンを保証するものではありません</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>シナリオ</th><th>想定年率リターン</th><th>元本（20年）</th><th>想定評価額</th><th>想定利益</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>新興国バリュー（保守的）</td><td>7.0%</td><td>720万円</td><td><strong>約1,567万円</strong></td><td>+847万円</td></tr>
+          <tr><td>新興国バリュー（中庸）</td><td>9.0%</td><td>720万円</td><td><strong>約2,006万円</strong></td><td>+1,286万円</td></tr>
+          <tr><td>新興国インデックス</td><td>5.5%</td><td>720万円</td><td><strong>約1,316万円</strong></td><td>+596万円</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <h2>重要事項・免責事項</h2>
+    <p>本資料は情報提供を目的としたものであり、特定の金融商品の勧誘を目的としたものではありません。投資に関する最終決定は、お客様ご自身の判断でなさるようお願いいたします。</p>
+    <p>本資料に記載されたデータ、見通し、予測等は作成時点のものであり、将来の結果を保証するものではありません。過去の実績は将来のリターンを保証するものではなく、元本割れのリスクがあります。</p>
+    <p>外国株式への投資には、為替変動リスク、カントリーリスク、流動性リスク等が伴います。新興国市場特有のリスクとして、政治的不安定性、規制変更、市場の流動性不足、情報の非対称性等があります。</p>
+    <p>海外ETFの売買には、外国株式の売買手数料および為替手数料がかかります。分配金には、国内税のほか、現地で源泉徴収税が課される場合があります。</p>
+    <p><strong>主な情報源</strong>：MSCI Index Factsheets, Kenneth R. French Data Library, Dimensional Fund Advisors, GMO LLC, Research Affiliates, Lazard Asset Management, PGIM, Goldman Sachs, Vanguard, Eastspring Investments, Deutsche Bank Research, Barclays Research, iShares/BlackRock, Siblis Research, IMF World Economic Outlook, ScienceDirect/Journal of International Financial Markets</p>
+    <p>作成日：2026年2月27日</p>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="ページ先頭に戻る">&#9650;</button>
+
+<script>
+// Back to Top button
+(function(){
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+// Chart color palette
+var navy = '#1a365d';
+var gold = '#d69e2e';
+var blue = '#2c5282';
+var lightBlue = '#63b3ed';
+var green = '#48bb78';
+var red = '#e53e3e';
+var orange = '#ed8936';
+var purple = '#805ad5';
+var pink = '#d53f8c';
+var teal = '#38b2ac';
+var gray = '#a0aec0';
+
+// Chart 1: Valuation Comparison
+new Chart(document.getElementById('chartValuation'), {
+  type: 'bar',
+  data: {
+    labels: ['PER（株価収益率）', 'フォワードPER', 'PBR（株価純資産倍率）'],
+    datasets: [
+      { label: 'EM Enhanced Value', data: [9.53, 7.70, 0.95], backgroundColor: gold, borderRadius: 4 },
+      { label: 'EM Broad (MSCI EM)', data: [16.98, 13.44, 1.80], backgroundColor: blue, borderRadius: 4 },
+      { label: 'EM Growth', data: [25.51, 16.67, 4.28], backgroundColor: gray, borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } } },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: '倍', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
+    }
+  }
+});
+
+// Chart 2: Forward PE Comparison
+new Chart(document.getElementById('chartForwardPE'), {
+  type: 'bar',
+  data: {
+    labels: ['EM Enhanced\nValue', 'ブラジル', '韓国', '南アフリカ', 'EM Broad', '中国', 'EM Growth', 'インド', '台湾', '米国\n(S&P 500)'],
+    datasets: [{
+      label: 'フォワードPER（倍）',
+      data: [7.70, 9.25, 10.64, 10.64, 13.44, 14.93, 16.67, 22.38, 18.32, 21.0],
+      backgroundColor: function(ctx) {
+        return ctx.dataIndex <= 3 ? gold : (ctx.dataIndex <= 6 ? blue : gray);
+      },
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { beginAtZero: true, title: { display: true, text: 'フォワードPER（倍）', font: { family: "'Noto Sans JP'" } } },
+      y: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
+    }
+  }
+});
+
+// Chart 3: Annual Returns Comparison
+new Chart(document.getElementById('chartAnnualReturns'), {
+  type: 'bar',
+  data: {
+    labels: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets: [
+      {
+        label: 'EM Value',
+        data: [-18.16, 15.48, 28.67, -10.26, 12.52, 5.97, 4.50, -15.31, 14.87, 5.37, 33.89],
+        backgroundColor: gold,
+        borderRadius: 3
+      },
+      {
+        label: 'EM Growth',
+        data: [-11.12, 7.87, 47.12, -18.04, 25.44, 31.58, -8.24, -23.74, 6.07, 10.55, 34.78],
+        backgroundColor: blue,
+        borderRadius: 3
+      },
+      {
+        label: 'EM Broad',
+        data: [-14.92, 11.19, 37.28, -14.57, 18.42, 18.31, -2.54, -20.09, 9.83, 7.50, 33.57],
+        backgroundColor: gray,
+        borderRadius: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.raw.toFixed(2) + '%'; } } }
+    },
+    scales: {
+      y: { title: { display: true, text: 'リターン（%）', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'" } } }
+    }
+  }
+});
+
+// Chart 4: Cumulative Growth
+(function(){
+  var valReturns = [-18.16, 15.48, 28.67, -10.26, 12.52, 5.97, 4.50, -15.31, 14.87, 5.37, 33.89];
+  var groReturns = [-11.12, 7.87, 47.12, -18.04, 25.44, 31.58, -8.24, -23.74, 6.07, 10.55, 34.78];
+  var broReturns = [-14.92, 11.19, 37.28, -14.57, 18.42, 18.31, -2.54, -20.09, 9.83, 7.50, 33.57];
+  var valCum = [10000], groCum = [10000], broCum = [10000];
+  for(var i=0; i<valReturns.length; i++){
+    valCum.push(valCum[i] * (1 + valReturns[i]/100));
+    groCum.push(groCum[i] * (1 + groReturns[i]/100));
+    broCum.push(broCum[i] * (1 + broReturns[i]/100));
+  }
+  new Chart(document.getElementById('chartCumulative'), {
+    type: 'line',
+    data: {
+      labels: ['2014末','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
+      datasets: [
+        { label: 'EM Value', data: valCum.map(function(v){return Math.round(v)}), borderColor: gold, backgroundColor: gold+'33', fill: false, tension: 0.3, pointRadius: 4, borderWidth: 2.5 },
+        { label: 'EM Growth', data: groCum.map(function(v){return Math.round(v)}), borderColor: blue, backgroundColor: blue+'33', fill: false, tension: 0.3, pointRadius: 4, borderWidth: 2.5 },
+        { label: 'EM Broad', data: broCum.map(function(v){return Math.round(v)}), borderColor: gray, backgroundColor: gray+'33', fill: false, tension: 0.3, pointRadius: 4, borderWidth: 2 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': $' + ctx.raw.toLocaleString(); } } }
+      },
+      scales: {
+        y: { title: { display: true, text: 'USD', font: { family: "'Noto Sans JP'" } }, ticks: { callback: function(v){ return '$'+v.toLocaleString(); } } },
+        x: { ticks: { font: { family: "'Noto Sans JP'" } } }
+      }
+    }
+  });
+})();
+
+// Chart 5: Dividend Yield
+new Chart(document.getElementById('chartDividend'), {
+  type: 'bar',
+  data: {
+    labels: ['EM Value\n(EVLU)', 'EM Enhanced\nValue', 'EM High Div\n(DEM)', 'EM Broad\n(MSCI EM)', 'S&P 500', 'EM Growth'],
+    datasets: [{
+      label: '配当利回り（%）',
+      data: [4.84, 3.56, 4.50, 2.20, 1.30, 1.07],
+      backgroundColor: [gold, gold+'cc', orange, blue, gray, lightBlue],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.raw.toFixed(2) + '%'; } } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: '配当利回り（%）', font: { family: "'Noto Sans JP'" } }, max: 6 },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
+    }
+  }
+});
+
+// Chart 6: Country PE
+new Chart(document.getElementById('chartCountryPE'), {
+  type: 'bar',
+  data: {
+    labels: ['ブラジル', '韓国', '南アフリカ', '中国', '香港', '台湾', 'インド'],
+    datasets: [
+      { label: '実績PER', data: [11.45, 17.06, 15.46, 18.06, 17.06, 23.02, 21.87], backgroundColor: blue, borderRadius: 3 },
+      { label: 'フォワードPER', data: [9.25, 10.64, 10.64, 14.93, 13.75, 18.32, 22.38], backgroundColor: gold, borderRadius: 3 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + ctx.raw.toFixed(2) + '倍'; } } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'PER（倍）', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'" } } }
+    }
+  }
+});
+
+// Chart 7: Sector Allocation
+new Chart(document.getElementById('chartSector'), {
+  type: 'doughnut',
+  data: {
+    labels: ['情報技術', '金融', '一般消費財', 'コミュニケーション', '素材', 'その他'],
+    datasets: [{
+      data: [31.06, 19.48, 12.92, 8.51, 7.99, 20.04],
+      backgroundColor: [navy, gold, blue, green, orange, gray]
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'", size: 11 } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.raw + '%'; } } }
+    }
+  }
+});
+
+// Chart 8: Country Allocation
+new Chart(document.getElementById('chartCountry'), {
+  type: 'doughnut',
+  data: {
+    labels: ['中国', '台湾', '韓国', 'インド', 'ブラジル', 'その他'],
+    datasets: [{
+      data: [26.49, 18.48, 18.36, 11.50, 5.30, 19.87],
+      backgroundColor: [red, blue, navy, green, gold, gray]
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'", size: 11 } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.label + ': ' + ctx.raw + '%'; } } }
+    }
+  }
+});
+
+// Chart 9: Expected Returns
+new Chart(document.getElementById('chartExpectedReturns'), {
+  type: 'bar',
+  data: {
+    labels: ['EM Value\n(GMO)', 'EM Broad\n(RA)', 'EM Broad\n(Vanguard)', 'EM Broad\n(GMO)', 'US Large\n(Vanguard)', 'US Large\n(RA)', 'US Large\n(GS)', 'US Large\n(GMO)'],
+    datasets: [{
+      label: '期待リターン（年率%）',
+      data: [9.3, 7.5, 6.5, 4.5, 4.9, 3.1, 3.0, -5.4],
+      backgroundColor: [gold, orange, orange, blue, gray, gray, gray, red],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return '年率 ' + ctx.raw + '%'; } } }
+    },
+    scales: {
+      y: { title: { display: true, text: '期待リターン（年率%）', font: { family: "'Noto Sans JP'" } }, min: -7, max: 11 },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
+    }
+  }
+});
+
+// Chart 10: NISA Simulation
+(function(){
+  var months = 240; // 20 years
+  var monthly = 30000;
+  var scenarios = [
+    { rate: 0.07/12, label: 'EM Value (年7%)' },
+    { rate: 0.09/12, label: 'EM Value (年9%)' },
+    { rate: 0.055/12, label: 'EM Index (年5.5%)' }
+  ];
+  var labels = [];
+  var datasets = [];
+  var colors = [gold, navy, gray];
+  for(var s=0; s<scenarios.length; s++){
+    var values = [];
+    var total = 0;
+    for(var m=0; m<=months; m++){
+      if(m > 0) total = (total + monthly) * (1 + scenarios[s].rate);
+      if(m % 12 === 0){
+        values.push(Math.round(total));
+        if(s===0) labels.push(m/12 + '年');
+      }
+    }
+    datasets.push({
+      label: scenarios[s].label,
+      data: values,
+      borderColor: colors[s],
+      backgroundColor: colors[s]+'22',
+      fill: s===0,
+      tension: 0.3,
+      pointRadius: 0,
+      borderWidth: 2.5
+    });
+  }
+  // Add principal line
+  var principal = [];
+  for(var y=0; y<=20; y++) principal.push(y * 12 * monthly);
+  datasets.push({
+    label: '元本',
+    data: principal,
+    borderColor: '#e2e8f0',
+    borderDash: [6,3],
+    fill: false,
+    pointRadius: 0,
+    borderWidth: 2
+  });
+
+  new Chart(document.getElementById('chartNISA'), {
+    type: 'line',
+    data: { labels: labels, datasets: datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.dataset.label + ': ' + (ctx.raw/10000).toFixed(0) + '万円';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: '万円', font: { family: "'Noto Sans JP'" } },
+          ticks: { callback: function(v){ return (v/10000).toFixed(0); } }
+        },
+        x: { ticks: { font: { family: "'Noto Sans JP'" } } }
+      }
+    }
+  });
+})();
+
+// Chart: CAPE International Comparison
+new Chart(document.getElementById('chartCAPE'), {
+  type: 'bar',
+  data: {
+    labels: ['米国', 'インド', '日本', 'カナダ', 'ドイツ', 'スペイン', '韓国', 'オーストラリア', 'イタリア', '英国', '中国', '香港'],
+    datasets: [{
+      label: 'CAPE（倍）',
+      data: [34.73, 34.36, 29.38, 26.20, 24.08, 23.69, 21.22, 21.02, 20.72, 20.19, 17.71, 10.74],
+      backgroundColor: ['#e53e3e','#e53e3e','#ed8936','#ed8936','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#48bb78','#48bb78'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return 'CAPE: ' + ctx.raw + '倍'; } } }
+    },
+    scales: {
+      x: { beginAtZero: true, title: { display: true, text: 'CAPE（倍）', font: { family: "'Noto Sans JP'" } } },
+      y: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
+    }
+  }
+});
+
+// Chart: Firm Forecasts Comparison
+new Chart(document.getElementById('chartFirmForecasts'), {
+  type: 'bar',
+  data: {
+    labels: ['GMO\n(実質・7年)', 'Research\nAffiliates\n(名目・10年)', 'Vanguard\n(名目・10年)'],
+    datasets: [
+      { label: '米国大型株', data: [-5.4, 3.1, 4.9], backgroundColor: '#e53e3e', borderRadius: 3 },
+      { label: '先進国株式', data: [-2.0, 7.7, 8.3], backgroundColor: '#a0aec0', borderRadius: 3 },
+      { label: '新興国株式', data: [4.5, 7.5, 6.5], backgroundColor: '#2c5282', borderRadius: 3 },
+      { label: '新興国バリュー', data: [9.3, null, null], backgroundColor: '#d69e2e', borderRadius: 3 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: "'Noto Sans JP'" } } },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + (ctx.raw !== null ? ctx.raw + '%' : 'N/A'); } } }
+    },
+    scales: {
+      y: { title: { display: true, text: '予想リターン（年率%）', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
+    }
+  }
+});
+
+// Chart: Performance Cycle (US vs EM)
+new Chart(document.getElementById('chartCycle'), {
+  type: 'bar',
+  data: {
+    labels: ['1989-1994\n新興国優位', '1995-2001\n米国優位', '2002-2010\n新興国優位', '2011-2024\n米国優位', '2025\n新興国優位？'],
+    datasets: [{
+      label: '年率リターン差（EM - US）',
+      data: [8, -15, 10, -8, 16],
+      backgroundColor: ['#48bb78', '#e53e3e', '#48bb78', '#e53e3e', '#48bb78'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return (ctx.raw > 0 ? 'EM優位 +' : 'US優位 ') + ctx.raw + '%'; } } }
+    },
+    scales: {
+      y: { title: { display: true, text: '年率リターン差（%）  正=新興国優位', font: { family: "'Noto Sans JP'" } } },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
+    }
+  }
+});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>

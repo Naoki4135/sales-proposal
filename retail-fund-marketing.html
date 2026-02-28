@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a365d">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>リテールファンド マーケティング研究</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #553c9a 0%, #6b46c1 60%, #805ad5 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #553c9a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; } .toc li { margin-bottom: 8px; }
+  .toc a { color: #553c9a; text-decoration: none; font-weight: 500; } .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #553c9a; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #6b46c1; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  thead th { background: #553c9a; color: #fff; padding: 10px 12px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; } tbody tr:hover { background: #faf5ff; }
+  blockquote { background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; } blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #faf5ff; border: 2px solid #6b46c1; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .insight-box { background: linear-gradient(135deg, #fefcbf 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; } li { margin-bottom: 6px; }
+  .fund-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .fund-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .fund-card h4 { margin-top: 0; color: #553c9a; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .fund-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .fund-card .fund-company { font-size: 0.78rem; color: #718096; margin-bottom: 8px; }
+  .tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; margin-right: 4px; margin-bottom: 4px; }
+  .tag-concept { background: #e9d8fd; color: #553c9a; } .tag-performance { background: #c6f6d5; color: #276749; }
+  .tag-brand { background: #bee3f8; color: #2a4365; } .tag-award { background: #fefcbf; color: #744210; }
+  .tag-story { background: #fed7d7; color: #822727; } .tag-community { background: #feebc8; color: #7b341e; }
+  .tag-em { background: #fed7e2; color: #702459; }
+  .pattern-title { background: #6b46c1; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .pattern-box { border: 2px solid #6b46c1; border-radius: 0 8px 8px 8px; padding: 20px; margin-bottom: 20px; }
+  .funnel-step { display: flex; align-items: flex-start; gap: 16px; margin: 12px 0; padding: 16px; background: #f7fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .funnel-num { background: #6b46c1; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+  .funnel-content { flex: 1; } .funnel-content strong { color: #553c9a; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .compare-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; } .compare-card h4 { margin-top: 0; }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #553c9a; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .stat-card { flex: 1; min-width: 130px; background: linear-gradient(135deg, #553c9a, #6b46c1); color: #fff; border-radius: 10px; padding: 16px; text-align: center; }
+  .stat-card .stat-num { font-size: 1.5rem; font-weight: 700; line-height: 1.2; } .stat-card .stat-label { font-size: 0.73rem; opacity: 0.85; margin-top: 4px; }
+  .check { color: #48bb78; font-weight: 700; } .nocheck { color: #718096; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #553c9a; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; } .back-to-top:hover { background: #d69e2e; }
+  @media print { body { background: #fff; font-size: 12px; } .hero { padding: 24px; } .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; } .back-to-top { display: none !important; } }
+  @media (max-width: 640px) { .hero h1 { font-size: 1.5rem; } .section { padding: 24px 18px; } .toc { padding: 20px; margin: -24px 12px 24px; } table { font-size: 0.78rem; } thead th, tbody td { padding: 8px 8px; } .compare-grid, .chart-grid { grid-template-columns: 1fr; } .fund-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .hero { padding: 36px 16px 28px; } .hero h1 { font-size: 1.2rem; } .section { padding: 18px 12px; margin-bottom: 16px; } .section h2 { font-size: 1.15rem; } .toc { padding: 16px; margin: -20px 8px 20px; } .stat-card { min-width: 100px; padding: 10px; } .stat-card .stat-num { font-size: 1.2rem; } }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); } .toc h2 { color: #d6bcfa; border-bottom-color: #334155; } .toc a { color: #d6bcfa; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); } .section h2 { color: #d6bcfa; } .section h3 { color: #b794f4; } .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; } tbody tr:nth-child(even) { background: #253449; } tbody tr:hover { background: #2d3a5f; }
+  blockquote { background: linear-gradient(135deg, #2d2340, #352845); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #2d2340; color: #e2e8f0; } .insight-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .fund-card { background: #253449; border-color: #334155; } .fund-card h4 { color: #d6bcfa; }
+  .compare-card { background: #253449; border-color: #334155; } .funnel-step { background: #253449; border-color: #334155; }
+  .pattern-box { border-color: #805ad5; } .chart-container { background: #1e293b; border-color: #334155; } .chart-title { color: #d6bcfa; }
+  .tag-concept { background: #44337a; color: #d6bcfa; } .tag-performance { background: #22543d; color: #c6f6d5; } .tag-brand { background: #2a4365; color: #bee3f8; }
+  .tag-award { background: #5f370e; color: #fefcbf; } .tag-story { background: #63171b; color: #fed7d7; } .tag-community { background: #652b19; color: #feebc8; } .tag-em { background: #521b41; color: #fed7e2; }
+  .disclaimer { background: #1e293b; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer, .chart-container { background: #fff; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#553c9a,#6b46c1);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>リテールファンド マーケティング研究</h1>
+  <p class="subtitle">Retail Fund Marketing Analysis &mdash; 37 Active Equity Funds in Japan (AUM &ge; 1,000億円)</p>
+  <div class="meta">
+    <span>作成日: 2026年2月28日</span>
+    <span>対象: 海外株式アクティブ（グローバル/米国/新興国）</span>
+    <span>基準: 純資産総額 1,000億円以上</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">調査概要・全ファンドデータ一覧</a></li>
+    <li><a href="#sec2">ファンド別マーケティング分析（先進国株式 21本）</a></li>
+    <li><a href="#sec3">新興国株式ファンドのマーケティング分析（8本）</a></li>
+    <li><a href="#sec4">横断分析：7つの共通マーケティングパターン</a></li>
+    <li><a href="#sec5">販売用資料の典型的な構成テンプレート</a></li>
+    <li><a href="#sec6">説得のファネル構造</a></li>
+    <li><a href="#sec7">運用会社タイプ別のマーケティングスタイル</a></li>
+    <li><a href="#sec8">テーマ型ファンドのナラティブ構築手法</a></li>
+    <li><a href="#sec9">パフォーマンス訴求のテクニック</a></li>
+    <li><a href="#sec10">販売会社の独自マーケティング</a></li>
+    <li><a href="#sec11">示唆と応用</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- ============================================================ -->
+<!-- Section 1 -->
+<!-- ============================================================ -->
+<section class="section" id="sec1">
+  <h2>1. 調査概要・全ファンドデータ一覧</h2>
+
+  <div class="highlight-box">
+    <h4>分析対象の条件</h4>
+    <ul>
+      <li><strong>海外株式（グローバル/米国/新興国）に投資するアクティブファンド</strong>（インデックス・ETF除外）</li>
+      <li><strong>純資産総額 1,000億円以上</strong>（代表コース単体、2026年2月時点の概算）</li>
+      <li>対象資料は「販売用資料」のみ（目論見書・運用報告書・月次レポート除外）</li>
+      <li><strong>野村証券・SMBC日興証券・大和証券</strong>で販売されるファンドを優先的に分析</li>
+    </ul>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-num">37本</div><div class="stat-label">分析対象ファンド</div></div>
+    <div class="stat-card"><div class="stat-num">19社</div><div class="stat-label">運用会社</div></div>
+    <div class="stat-card"><div class="stat-num">約24兆円</div><div class="stat-label">合計純資産総額</div></div>
+    <div class="stat-card"><div class="stat-num">27本</div><div class="stat-label">3大証券で販売</div></div>
+  </div>
+
+  <h3>先進国株式ファンド（グローバル・米国）- 29本</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>ファンド名（愛称）</th><th>運用会社</th><th>対象</th><th>純資産<br>(億円)</th><th>信託報酬</th><th>設定年</th><th>野村</th><th>日興</th><th>大和</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>インベスコ 世界厳選株式（世界のベスト）</td><td>インベスコ</td><td>グローバル</td><td>36,600</td><td>1.903%</td><td>1999</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr><td>2</td><td>AB米国成長株投信 Dコース</td><td>アライアンス・バーンスタイン</td><td>米国成長株</td><td>32,280</td><td>1.727%</td><td>2014</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr><td>3</td><td>AB米国成長株投信 Bコース</td><td>アライアンス・バーンスタイン</td><td>米国成長株</td><td>17,747</td><td>1.727%</td><td>2006</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr><td>4</td><td>netWIN GSテクノロジー株式 B</td><td>ゴールドマン・サックス</td><td>米国テクノロジー</td><td>13,800</td><td>2.09%</td><td>1999</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr><td>5</td><td>ピクテ・グローバル・インカム株式</td><td>ピクテ</td><td>グローバル公益</td><td>10,800</td><td>1.81%</td><td>2005</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>6</td><td>キャピタル世界株式ファンド</td><td>キャピタル・グループ</td><td>グローバル</td><td>10,500</td><td>1.701%</td><td>2007</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>7</td><td>テンバガー・ハンター B</td><td>フィデリティ</td><td>グローバル割安成長</td><td>9,900</td><td>1.65%</td><td>2020</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>8</td><td>未来の世界（ESG）</td><td>アセットマネジメントOne</td><td>グローバルESG</td><td>9,800</td><td>1.848%</td><td>2020</td><td class="nocheck">-</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr><td>9</td><td>フィデリティ・グロースオポチュニティ D</td><td>フィデリティ</td><td>グローバル成長株</td><td>8,500</td><td>1.645%</td><td>2023</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>10</td><td>未来の世界</td><td>アセットマネジメントOne</td><td>グローバル成長株</td><td>8,400</td><td>1.65%</td><td>2016</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr><td>11</td><td>野村世界半導体株投資</td><td>野村アセット</td><td>グローバル半導体</td><td>6,900</td><td>1.65%</td><td>2009</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>12</td><td>MSグローバル・プレミアム（グロプレ）</td><td>三菱UFJアセット</td><td>グローバル</td><td>5,800</td><td>1.98%</td><td>2001</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>13</td><td>グローバルAIファンド</td><td>三井住友DSアセット</td><td>グローバルAI</td><td>5,300</td><td>1.925%</td><td>2016</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr><td>14</td><td>T.ロウ・プライス 米国成長株（ロイヤルロード）</td><td>ティー・ロウ・プライス</td><td>米国成長株</td><td>5,000</td><td>1.463%</td><td>2019</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>15</td><td>セゾン資産形成の達人ファンド</td><td>セゾン投信</td><td>グローバル(FOF)</td><td>4,500</td><td>1.54%</td><td>2007</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>16</td><td>T.ロウ・プライス 世界厳選成長株 B</td><td>ティー・ロウ・プライス</td><td>グローバル成長株</td><td>3,400</td><td>1.683%</td><td>2019</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>17</td><td>サイバーセキュリティ株式オープン</td><td>三菱UFJアセット</td><td>グローバルIT</td><td>3,200</td><td>1.87%</td><td>2017</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>18</td><td>イノベーティブ・フューチャー</td><td>日興アセット</td><td>グローバル</td><td>3,200</td><td>1.658%</td><td>2019</td><td class="nocheck">-</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr><td>19</td><td>半導体革命</td><td>三井住友TAM</td><td>グローバル半導体</td><td>3,200</td><td>1.728%</td><td>2023</td><td class="nocheck">-</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr><td>20</td><td>フィデリティ・米国優良株</td><td>フィデリティ</td><td>米国優良株</td><td>2,200</td><td>1.639%</td><td>1998</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>21</td><td>おおぶね（長期厳選投資）</td><td>NVIC</td><td>グローバル</td><td>1,200</td><td>0.99%</td><td>2017</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>22</td><td>グローバル・ロボティクス株式ファンド</td><td>アモーヴァ(旧日興)</td><td>グローバル ロボ</td><td>6,600</td><td>1.936%</td><td>2015</td><td class="nocheck">-</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>23</td><td>次世代通信 世界株式（THE 5G）</td><td>三井住友TAM</td><td>グローバル 5G</td><td>5,900</td><td>1.848%</td><td>2018</td><td class="nocheck">-</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr style="background:#2d2a1a"><td>24</td><td>ゼロ・コンタクト（DX株式）</td><td>アモーヴァ(旧日興)</td><td>グローバル DX</td><td>2,800</td><td>1.799%</td><td>2020</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr style="background:#2d2a1a"><td>25</td><td>ヘルスケア＆バイオ（健次）</td><td>三菱UFJアセット</td><td>グローバル 医療</td><td>2,500</td><td>2.09%</td><td>2004</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="check">&#10004;</td></tr>
+        <tr style="background:#2d2a1a"><td>26</td><td>JPモルガン・アメリカ成長株（アメリカの星）</td><td>JPモルガン</td><td>米国成長株</td><td>1,737</td><td>1.65%</td><td>2021</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr style="background:#2d2a1a"><td>27</td><td>フィデリティ・米国株式ファンド B</td><td>フィデリティ</td><td>米国株式</td><td>1,705</td><td>1.65%</td><td>2018</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>28</td><td>GSビッグデータ投資戦略 B（AIブレイン）</td><td>ゴールドマン・サックス</td><td>グローバル AI</td><td>1,261</td><td>1.323%</td><td>2017</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>29</td><td>ベイリー・ギフォード（ロイヤル・マイル）</td><td>三菱UFJアセット</td><td>グローバル成長株</td><td>1,078</td><td>1.6445%</td><td>2019</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>新興国株式ファンド - 8本</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>ファンド名</th><th>運用会社</th><th>対象</th><th>純資産<br>(億円)</th><th>信託報酬</th><th>設定年</th><th>野村</th><th>日興</th><th>大和</th></tr></thead>
+      <tbody>
+        <tr><td>30</td><td>野村インド株投資</td><td>野村アセット</td><td>インド株</td><td>4,100</td><td>2.2%</td><td>2005</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>31</td><td>HSBCインド・インフラ株式</td><td>HSBCアセット</td><td>インド インフラ</td><td>2,900</td><td>2.09%</td><td>2009</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>32</td><td>イーストスプリング・インド株式</td><td>イーストスプリング</td><td>インド株</td><td>2,400</td><td>1.95%</td><td>2004</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>--</td><td>ダイワ・ダイナミック・インド株</td><td>大和アセット</td><td>インド株</td><td>2,300</td><td>1.848%</td><td>2007</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="check">&#10004;</td></tr>
+        <tr><td>--</td><td>iTrustインド株式</td><td>ピクテ</td><td>インド株</td><td>1,200</td><td>0.98%</td><td>2018</td><td class="nocheck">-</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr><td>33</td><td>HSBCインドオープン</td><td>HSBCアセット</td><td>インド株</td><td>1,200</td><td>2.2%</td><td>2004</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>34</td><td>高成長インド・中型株式ファンド</td><td>三井住友DS</td><td>インド中型株</td><td>4,108</td><td>1.9%</td><td>2011</td><td class="check">&#10004;</td><td class="check">&#10004;</td><td class="nocheck">-</td></tr>
+        <tr style="background:#2d2a1a"><td>35</td><td>ピクテ新興国インカム株式ファンド</td><td>ピクテ</td><td>新興国全般</td><td>1,044</td><td>2.015%</td><td>2008</td><td class="check">&#10004;</td><td class="nocheck">-</td><td class="nocheck">-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">純資産総額 上位20ファンド（億円）</div>
+    <canvas id="chartAUM" height="480"></canvas>
+    <div class="chart-source">出所：各運用会社ウェブサイト（2026年2月時点の概算値、代表コース単体）</div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-container">
+      <div class="chart-title">投資対象別の分布（37本）</div>
+      <canvas id="chartCategory" height="220"></canvas>
+    </div>
+    <div class="chart-container">
+      <div class="chart-title">3大証券の取扱い状況</div>
+      <canvas id="chartBroker" height="220"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">信託報酬（税込年率）の分布</div>
+    <canvas id="chartFee" height="260"></canvas>
+    <div class="chart-source">おおぶね(0.99%)、iTrust(0.98%)は独立系・直販系で突出して低い</div>
+  </div>
+
+  <div class="gold-box">
+    <h4>重要な発見：新興国 ≒ インドに集中</h4>
+    <p>純資産1,000億円以上の新興国株式アクティブファンド<strong>8本中7本がインド株式</strong>に投資するファンド。唯一の例外はピクテ新興国インカム株式（新興国全般・高配当型、約1,044億円）のみ。「新興国全般型」や「中国株式」「ブラジル」「ベトナム」「ASEAN」単独のアクティブファンドで1,000億円超は確認できず。日本の個人投資家の新興国投資は事実上<strong>「インド一極集中」</strong>の状態。</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 2: 先進国株式ファンド 個別分析 -->
+<!-- ============================================================ -->
+<section class="section" id="sec2">
+  <h2>2. ファンド別マーケティング分析（先進国株式 21本）</h2>
+  <p>特に特徴的なマーケティング手法を持つ21ファンドの販売用資料を分析する。前回の15本に加え、新たに6本を追加。</p>
+
+  <h3>2-1. インベスコ 世界厳選株式オープン（世界のベスト） - 3.7兆円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">インベスコ ｜ グローバル株式 ｜ 全3大証券で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-performance">スケール</span><span class="tag tag-award">受賞歴</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>掲載データ</th><th>具体的な数値</th><th>訴求の狙い</th></tr></thead><tbody>
+    <tr><td>純資産総額</td><td><strong>3兆6,645億円</strong>（6ファンド合計）</td><td>圧倒的スケール</td></tr>
+    <tr><td>連続資金流入</td><td><strong>109カ月連続</strong></td><td>人気の持続性</td></tr>
+    <tr><td>3つの収益源</td><td>成長 + 配当 + 割安</td><td>「株式投資の王道」</td></tr>
+    <tr><td>PER×リターン散布図</td><td>割安株の優位性をデータ証明</td><td>投資哲学のエビデンス</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>「世界のベスト」というネーミング力 + 3兆円超の社会的証明。広島銀行など地方銀行も独自の販売用資料PDFを作成して配布するほどの販売力。</div>
+
+  <h3>2-2. AB米国成長株投信 - 5兆円超（全コース合計）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">アライアンス・バーンスタイン ｜ 米国成長株 ｜ 全3大証券で販売</div><p><span class="tag tag-performance">数値比較</span><span class="tag tag-award">受賞歴</span><span class="tag tag-story">教育型</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>ステップ</th><th>掲載内容</th><th>データ</th></tr></thead><tbody>
+    <tr><td>1. 市場の魅力</td><td>米国 = 世界最大の経済大国</td><td>GDP世界比率<strong>26%</strong></td></tr>
+    <tr><td>2. ファンド優位性</td><td>インデックスより高いリターン</td><td>15年積立で<strong>S&P500比+181万円</strong></td></tr>
+    <tr><td>3. 社会的証明</td><td>みんなが選んでいる</td><td>米国株アクティブ<strong>純資産残高1位</strong></td></tr>
+    <tr><td>4. コース展開</td><td>5コースで全ニーズに対応</td><td>A(年2回H有)～E(隔月H無)</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>教育→納得→購入の段階的説得。Dコース（予想分配金提示型・毎月決算）単体で3.2兆円は、分配金重視の対面証券顧客層に刺さった結果。</div>
+
+  <h3>2-3. netWIN GSテクノロジー株式 - 1.4兆円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">ゴールドマン・サックス ｜ 米国テクノロジー ｜ 全3大証券で販売</div><p><span class="tag tag-concept">独自概念</span><span class="tag tag-story">ストーリー</span><span class="tag tag-performance">25年実績</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>順位</th><th>1999年（設定時）</th><th>2008年</th><th>2025年</th></tr></thead><tbody>
+    <tr><td>1</td><td>Cisco Systems</td><td>Google</td><td>Microsoft</td></tr>
+    <tr><td>2</td><td>Microsoft</td><td>Apple</td><td>Amazon</td></tr>
+    <tr><td>3</td><td>Intel</td><td>Oracle</td><td>NVIDIA</td></tr>
+    <tr><td>4</td><td>Texas Instruments</td><td>Qualcomm</td><td>Alphabet</td></tr>
+    <tr><td>5</td><td>Lucent Technologies</td><td>Microsoft</td><td>Meta Platforms</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>「テクノロジー・トールキーパー&reg;」+ 25年間の銘柄変遷ストーリー。テクノロジーリーダーの交代に柔軟に対応してきた「サバイバー」としてのポジショニング。</div>
+
+  <h3>2-4. テンバガー・ハンター（フィデリティ・世界割安成長株投信）- 9,900億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">フィデリティ ｜ グローバル割安成長株 ｜ 野村・大和で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-concept">10倍株</span><span class="tag tag-performance">急成長</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>掲載データ</th><th>具体的な数値</th><th>訴求の狙い</th></tr></thead><tbody>
+    <tr><td>愛称のインパクト</td><td><strong>「テンバガー・ハンター」</strong></td><td>10倍株を探す夢とワクワク感</td></tr>
+    <tr><td>銘柄選定手法</td><td>本源的価値 vs 市場価格の乖離</td><td>「割安成長」の論理的根拠</td></tr>
+    <tr><td>リサーチ体制</td><td>世界のフィデリティアナリスト</td><td>グローバルリサーチ力の訴求</td></tr>
+    <tr><td>純資産の急成長</td><td>設定4年で<strong>約1兆円</strong>に</td><td>「今売れている」社会的証明</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>「テンバガー」という言葉の破壊力。10倍株という投資家の夢を愛称に凝縮。設定からわずか4年で約1兆円に到達した、ネーミング戦略の成功事例。</div>
+
+  <h3>2-5. フィデリティ・グロースオポチュニティ - 8,500億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">フィデリティ ｜ グローバル成長株 ｜ 野村・大和で販売</div><p><span class="tag tag-performance">急成長</span><span class="tag tag-brand">フィデリティブランド</span></p></div>
+  <p>2023年3月設定からわずか<strong>3年で8,500億円</strong>に急成長。予想分配金提示型のDコースが最大。企業の成長性と株価の割安度に着目したボトムアップ運用をアピール。フィデリティのグローバルリサーチ体制（世界25拠点、180名超のアナリスト）を前面に押し出す。</p>
+  <div class="insight-box"><strong>特性：</strong>フィデリティから2本の大型ファンド（テンバガー + グロースオポチュニティ）が同時にランクイン。同一運用会社から異なるコンセプトで差別化し、大規模な資金を獲得している好例。</div>
+
+  <h3>2-6. 未来の世界（ESG） / 未来の世界 - 合計1.8兆円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">アセットマネジメントOne ｜ グローバル株式 ｜ 日興証券で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-story">ESG</span><span class="tag tag-performance">大型IPO</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>ファンド</th><th>設定時の初回募集額</th><th>現在の純資産</th><th>販売のポイント</th></tr></thead><tbody>
+    <tr><td>未来の世界（ESG）</td><td><strong>約3,830億円</strong>（2020年7月）</td><td>約9,800億円</td><td>ESG + 大型設定で話題性を創出</td></tr>
+    <tr><td>未来の世界</td><td>-</td><td>約8,400億円</td><td>ESG基準なしの姉妹ファンド</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>「未来の世界」という夢のある愛称 + ESGトレンド + 初回3,830億円という大型設定のニュース性。SMBC日興証券の販売力を最大活用した「大型IPO型マーケティング」の典型例。</div>
+
+  <h3>2-7. 野村世界半導体株投資 - 6,900億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">野村アセット ｜ グローバル半導体 ｜ 野村証券で販売</div><p><span class="tag tag-concept">テーマ特化</span><span class="tag tag-performance">高パフォーマンス</span></p></div>
+  <p>世界の半導体関連企業に特化したテーマ型。2009年設定で15年超の実績。半導体市場の成長データ（2018年約50兆円→2025年約82兆円予測）を販売用資料で活用。直近1年リターン<strong>+72.52%</strong>という圧倒的パフォーマンスが最大の訴求材料。野村証券の販売網を通じて6,900億円を獲得。</p>
+  <div class="insight-box"><strong>特性：</strong>「半導体」という明確なテーマ + 圧倒的パフォーマンス + 野村証券の販売力。大手金融グループ系のテーマ型ファンドの成功モデル。</div>
+
+  <h3>2-8. 半導体革命 - 3,200億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">三井住友TAM ｜ グローバル半導体 ｜ 日興・大和で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-performance">急成長</span></p></div>
+  <p>2023年7月設定からわずか<strong>2年半で3,200億円</strong>に到達。「半導体革命」という力強い愛称。AI需要による半導体市場の構造的成長をナラティブの核とする。日興・大和の2大証券での販売が成長の原動力。</p>
+
+  <h3>既存分析（前回から継続）</h3>
+  <p>以下のファンドは前回の分析内容を維持（詳細は省略）。</p>
+  <div class="table-wrap"><table><thead><tr><th>ファンド</th><th>純資産</th><th>マーケティング特性の要約</th></tr></thead><tbody>
+    <tr><td>キャピタル世界株式</td><td>1.05兆円</td><td>50年超の歴史 × マルチマネージャー制 × 「約46倍」の実績数値</td></tr>
+    <tr><td>ピクテ・グローバル・インカム</td><td>1.08兆円</td><td>公益株という理解しやすいテーマ + 毎月分配 + AI電力需要のトレンド接続</td></tr>
+    <tr><td>MSグローバル・プレミアム</td><td>5,800億円</td><td>「プレミアム企業」概念 + 「正しい株式を選んで長く持つ」+ 攻守両面訴求</td></tr>
+    <tr><td>グローバルAIファンド</td><td>5,300億円</td><td>「AI新時代」+ 5段階説得構成 + エヌビディア310倍の個別銘柄事例</td></tr>
+    <tr><td>T.ロウ・プライス ロイヤルロード</td><td>5,000億円</td><td>サブプライム危機の先見性エピソード + 「王道」愛称</td></tr>
+    <tr><td>セゾン資産形成の達人</td><td>4,500億円</td><td>「あえてアクティブ」逆張り + 12年連続受賞 + ライフステージターゲティング</td></tr>
+    <tr><td>おおぶね</td><td>1,200億円</td><td>「売らなくていい企業しか買わない」+ CIO顔出し + コミュニティ構築</td></tr>
+  </tbody></table></div>
+
+  <h3>2-9. グローバル・ロボティクス株式ファンド - 合計1.2兆円超 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">アモーヴァ（旧 日興アセット）｜ グローバル ロボティクス ｜ SMBC日興で販売</div><p><span class="tag tag-concept">テーマ特化</span><span class="tag tag-performance">スケール</span><span class="tag tag-brand">先駆者</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>掲載データ</th><th>具体的な数値</th><th>訴求の狙い</th></tr></thead><tbody>
+    <tr><td>純資産規模</td><td>年2回決算型<strong>6,600億円</strong> + 1年決算型<strong>5,926億円</strong></td><td>合計1.2兆円超の巨大テーマファンド</td></tr>
+    <tr><td>テーマ</td><td>ロボティクス・AI・自動化・センサー</td><td>2015年設定のテーマ型先駆者</td></tr>
+    <tr><td>運用体制</td><td>ラザード社（Lazard）が銘柄選定を担当</td><td>外部専門家の権威性</td></tr>
+    <tr><td>設定時期</td><td>2015年 — AIブーム前から投資</td><td>先見の明</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>2015年設定のロボティクス・AIテーマの先駆け。テーマ型ファンドとして初めて1兆円超に到達した成功事例。日興アセット（現アモーヴァ）のテーマ型戦略の中核。</div>
+
+  <h3>2-10. THE 5G（次世代通信関連 世界株式戦略ファンド）- 5,900億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">三井住友TAM ｜ グローバル 5G・通信 ｜ 日興・大和で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-concept">テーマ特化</span><span class="tag tag-performance">スケール</span></p></div>
+  <p>2018年設定。5G通信インフラの構築需要をテーマに、ニューバーガー・バーマンが実質運用。「THE 5G」という力強い英語愛称で通信革命のイメージを凝縮。設定から6年で約6,000億円に成長。予想分配金提示型もあり。</p>
+  <div class="insight-box"><strong>特性：</strong>「THE 5G」のブランド力 + 5G→6Gという明確なテーマ進化ストーリー。三井住友TAMのテーマ型戦略のフラッグシップ。半導体革命と同じ運用会社だが、通信インフラという別角度からテクノロジーを攻略。</div>
+
+  <h3>2-11. ゼロ・コンタクト（DX株式ファンド）- 2,800億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">アモーヴァ（旧 日興アセット）｜ グローバル DX ｜ 野村・日興・大和で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-story">ストーリー</span><span class="tag tag-concept">独自概念</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>時期</th><th>出来事</th><th>マーケティングの教訓</th></tr></thead><tbody>
+    <tr><td>2020年</td><td>コロナ禍で設定 → 「非接触ビジネス」が時代のキーワードに</td><td>タイミングとテーマの一致</td></tr>
+    <tr><td>2021年</td><td>純資産<strong>1兆円近く</strong>に到達</td><td>爆発的な資金流入</td></tr>
+    <tr><td>2022年以降</td><td>ハイグロース株下落で純資産大幅減少</td><td>テーマ型のリスク</td></tr>
+    <tr><td>2026年現在</td><td><strong>2,800億円</strong>で安定</td><td>コアファン層が残る</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>米国ARK Invest（キャシー・ウッド氏）が助言という「海外スター運用者」の訴求力。コロナ禍の時代のムードを捉えた完璧なタイミング。ピーク→大幅下落→安定化というテーマ型ファンドのライフサイクルの典型例。</div>
+
+  <h3>2-12. グローバル・ヘルスケア＆バイオ（健次）- 2,500億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">三菱UFJアセット ｜ グローバル ヘルスケア ｜ 全3大証券で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-performance">長期実績</span><span class="tag tag-concept">セクター特化</span></p></div>
+  <p>2004年設定の<strong>20年超の長寿ファンド</strong>。「健次」という親しみやすい和風愛称が特徴。世界のヘルスケア・バイオ関連企業（製薬、医療機器、バイオテクノロジー）にバリュー投資アプローチで投資。高齢化社会の進展と医療技術のイノベーションを長期テーマとして設定。</p>
+  <div class="insight-box"><strong>特性：</strong>「健次」という個性的な愛称 + ヘルスケアという理解しやすいディフェンシブ・テーマ + 20年超の実績。景気に左右されにくいセクター特化型として差別化。</div>
+
+  <h3>2-13. JPモルガン・アメリカ成長株ファンド（アメリカの星）- 1,737億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">JPモルガン ｜ 米国成長株 ｜ 大和証券で販売</div><p><span class="tag tag-brand">愛称力</span><span class="tag tag-performance">急成長</span></p></div>
+  <p>2021年設定で急成長中。「アメリカの星」という分かりやすく力強い愛称。JPモルガン独自のボトムアップリサーチで米国の成長企業に厳選投資。2024年1年間で<strong>+50.4%</strong>の高リターンが追い風。毎月決算型と合わせると全コース合計<strong>2,300億円超</strong>。</p>
+  <div class="insight-box"><strong>特性：</strong>JPモルガンのブランド力 + 「アメリカの星」の夢のある愛称 + 直近の圧倒的パフォーマンス。2021年設定で後発ながら急成長。AB米国成長株・T.ロウに次ぐ米国成長株ファンドの新勢力。</div>
+
+  <h3>2-14. GSグローバル・ビッグデータ投資戦略（AIブレイン）- 1,261億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">ゴールドマン・サックス ｜ グローバル AI運用 ｜ 野村証券で販売</div><p><span class="tag tag-concept">独自概念</span><span class="tag tag-story">AI運用</span></p></div>
+  <p>netWIN（テクノロジー株の伝統的運用）とは対照的な<strong>AIクオンツ運用</strong>アプローチ。GS独自開発のAI計量モデルでビッグデータから銘柄を選定する「AIが投資判断する」ファンド。Aコース（為替ヘッジあり）と合わせて約<strong>2,500億円</strong>規模。</p>
+  <div class="insight-box"><strong>特性：</strong>同じGSから「人間が選ぶファンド」(netWIN)と「AIが選ぶファンド」(AIブレイン)の2本を展開する差別化戦略。「AIブレイン」という愛称がAI時代のイメージを喚起。</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 3: 新興国株式ファンド -->
+<!-- ============================================================ -->
+<section class="section" id="sec3">
+  <h2>3. 新興国株式ファンドのマーケティング分析（8本）</h2>
+
+  <div class="gold-box">
+    <strong>注目すべき構造：</strong>1,000億円以上の新興国株式アクティブファンド8本のうち<strong>7本がインド株式ファンド</strong>。唯一の例外はピクテ新興国インカム株式ファンド（新興国全般、約1,044億円）のみ。「新興国投資 ≒ インド投資」という構図が日本の個人投資家市場で定着している。
+  </div>
+
+  <h3>3-1. 野村インド株投資 - 4,100億円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">野村アセット ｜ インド株 ｜ 野村証券で販売 ｜ 2005年設定</div><p><span class="tag tag-em">新興国</span><span class="tag tag-brand">大手ブランド</span><span class="tag tag-performance">長期実績</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>掲載データ</th><th>内容</th><th>訴求の狙い</th></tr></thead><tbody>
+    <tr><td>運用実績</td><td>2005年設定、<strong>20年超</strong>のトラックレコード</td><td>インド株の老舗としての信頼性</td></tr>
+    <tr><td>インド経済データ</td><td>GDP成長率、人口ボーナス、都市化率</td><td>インドの構造的成長ストーリー</td></tr>
+    <tr><td>純資産規模</td><td>インド株アクティブで<strong>国内最大級</strong></td><td>社会的証明</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>野村証券の販売力 + 20年超の実績 + インド経済のマクロデータ。大手金融グループ系×新興国株式の典型的パターン。</div>
+
+  <h3>3-2. HSBCインド・インフラ株式 - 2,900億円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">HSBCアセット ｜ インド インフラ ｜ 大和証券で販売</div><p><span class="tag tag-em">新興国</span><span class="tag tag-concept">テーマ特化</span></p></div>
+  <p>インドの<strong>インフラ整備</strong>に特化したテーマ型。道路・鉄道・空港・電力・通信などのインフラ投資テーマは、インド政府の大規模インフラ計画（国家インフラパイプライン）と直接リンクさせて訴求。「インド×インフラ」というダブルテーマ戦略。</p>
+
+  <h3>3-3. ダイワ・ダイナミック・インド株 - 2,300億円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">大和アセット ｜ インド株 ｜ 大和証券で販売</div><p><span class="tag tag-em">新興国</span><span class="tag tag-brand">大手ブランド</span></p></div>
+  <p>「ダイナミック」という愛称でインド経済の力強い成長イメージを喚起。大和アセットの自社マザーファンドを通じた運用体制をアピール。大和証券の対面チャネルを活用。</p>
+
+  <h3>3-4. iTrustインド株式 - 1,200億円</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">ピクテ ｜ インド株 ｜ ネット証券中心</div><p><span class="tag tag-em">新興国</span><span class="tag tag-performance">低コスト</span><span class="tag tag-award">NISA対応</span></p></div>
+  <p>信託報酬<strong>0.98%</strong>は新興国株式アクティブとして突出して低い（他は1.8～2.2%）。NISAつみたて投資枠の対象となっている<strong>唯一のインド株式アクティブ</strong>という希少性が最大の訴求ポイント。購入時・解約時手数料なし。</p>
+  <div class="insight-box"><strong>特性：</strong>「低コスト×NISA対応×唯一のインド株つみたて枠」というポジショニング。従来の高コスト新興国ファンドの常識を覆すディスラプター的存在。</div>
+
+  <h3>3-5. 高成長インド・中型株式ファンド - 合計4,108億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">三井住友DS ｜ インド中型株 ｜ 野村・日興で販売</div><p><span class="tag tag-em">新興国</span><span class="tag tag-concept">中型株特化</span><span class="tag tag-performance">売り切れ</span></p></div>
+  <div class="table-wrap"><table><thead><tr><th>掲載データ</th><th>内容</th><th>訴求の狙い</th></tr></thead><tbody>
+    <tr><td>差別化</td><td>インド<strong>中型株</strong>に特化した唯一の大型ファンド</td><td>大型株ファンドとの差別化</td></tr>
+    <tr><td>運用体制</td><td>コタック・マヒンドラ（インド有数の総合金融）が現地運用</td><td>現地パートナーの信頼性</td></tr>
+    <tr><td>人気の証拠</td><td>2023年9月～2025年5月 <strong>新規購入受付停止</strong></td><td>「売り切れ」のプレミアム感</td></tr>
+    <tr><td>NISA対応</td><td>年1回決算型は<strong>NISA成長投資枠対応</strong></td><td>制度メリットの訴求</td></tr>
+  </tbody></table></div>
+  <div class="insight-box"><strong>特性：</strong>「大型株ではなく、成長余地の大きい中型株こそインドの真の成長を取り込める」という独自のナラティブ。新規購入停止になるほどの人気が逆に希少性を生む「売り切れマーケティング」の好例。</div>
+
+  <h3>3-6. ピクテ新興国インカム株式ファンド - 1,044億円 <span class="tag tag-award">NEW</span></h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e"><div class="fund-company">ピクテ ｜ 新興国全般（高配当）｜ 野村証券で販売</div><p><span class="tag tag-em">新興国</span><span class="tag tag-concept">高配当</span><span class="tag tag-award">受賞歴</span></p></div>
+  <p>1,000億円以上の新興国株式アクティブで<strong>唯一の「新興国全般」型</strong>。中国、台湾、ブラジル、韓国、メキシコなど約23カ国に分散投資する高配当株戦略。2008年設定で16年超の実績。組入銘柄の平均配当利回り約<strong>5%</strong>。「ダイヤモンド・ザイ NISA投信グランプリ2024」新興国株部門で<strong>最優秀賞</strong>受賞。</p>
+  <div class="insight-box"><strong>特性：</strong>インド一極集中の新興国ファンド市場で唯一の「分散型」。「高配当 + 分散 + 毎月分配」の3点セットでシニア層に訴求。スイスのピクテ・グループ（200年超の歴史）の信頼感も強み。</div>
+
+  <h3>新興国ファンドのコスト比較</h3>
+  <div class="chart-container">
+    <div class="chart-title">インド株式アクティブファンドの信託報酬比較</div>
+    <canvas id="chartIndiaFee" height="220"></canvas>
+    <div class="chart-source">iTrustインド株式の低コストが際立つ</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 4: 横断分析 -->
+<!-- ============================================================ -->
+<section class="section" id="sec4">
+  <h2>4. 横断分析：7つの共通マーケティングパターン</h2>
+
+  <div class="chart-container">
+    <div class="chart-title">各パターンの使用頻度（37ファンド中）</div>
+    <canvas id="chartPatterns" height="280"></canvas>
+  </div>
+
+  <div class="pattern-title">A. 独自の投資概念・造語</div>
+  <div class="pattern-box">
+    <div class="table-wrap"><table><thead><tr><th>造語</th><th>ファンド</th><th>定義</th></tr></thead><tbody>
+      <tr><td>プレミアム企業</td><td>MSグローバル・プレミアム</td><td>競争優位の無形資産を持つ企業</td></tr>
+      <tr><td>構造的に強靭な企業&reg;</td><td>おおぶね</td><td>付加価値・優位性・長期潮流の3条件</td></tr>
+      <tr><td>テクノロジー・トールキーパー&reg;</td><td>netWIN</td><td>技術で「通行料」を徴収し続ける企業</td></tr>
+      <tr><td>テンバガー・ハンター</td><td>フィデリティ</td><td>10倍株候補を発掘する運用</td></tr>
+      <tr><td>フューチャー・クオリティ</td><td>日興アセット</td><td>将来の収益力向上が期待される企業</td></tr>
+      <tr><td>半導体革命</td><td>三井住友TAM</td><td>半導体セクターの構造的成長</td></tr>
+      <tr><td>THE 5G</td><td>三井住友TAM</td><td>次世代通信インフラの受益企業</td></tr>
+      <tr><td>ゼロ・コンタクト</td><td>アモーヴァ(旧日興)</td><td>非接触型ビジネス企業</td></tr>
+      <tr><td>AIブレイン</td><td>ゴールドマン・サックス</td><td>AIが銘柄を選ぶクオンツ運用</td></tr>
+      <tr><td>アメリカの星</td><td>JPモルガン</td><td>米国のスター成長企業に厳選投資</td></tr>
+      <tr><td>ロイヤル・マイル</td><td>三菱UFJアセット</td><td>超長期の成長投資哲学(ベイリー・ギフォード)</td></tr>
+      <tr><td>健次</td><td>三菱UFJアセット</td><td>世界のヘルスケア・バイオ企業</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <div class="pattern-title">B. 長期パフォーマンスの数値提示</div>
+  <div class="pattern-box">
+    <div class="chart-container">
+      <div class="chart-title">販売用資料で提示される設定来リターン</div>
+      <canvas id="chartReturns" height="280"></canvas>
+    </div>
+  </div>
+
+  <div class="pattern-title">C. 第三者評価・受賞歴</div>
+  <div class="pattern-box">
+    <div class="table-wrap"><table><thead><tr><th>受賞制度</th><th>受賞ファンド例</th><th>資料上の配置</th></tr></thead><tbody>
+      <tr><td>R&Iファンド大賞</td><td>AB米国成長株、世界のベスト、フランクリン</td><td>表紙・冒頭</td></tr>
+      <tr><td>LSEG Lipper Fund Awards</td><td>AB米国成長株</td><td>表紙</td></tr>
+      <tr><td>ウエルスアドバイザーアワード</td><td>AB米国成長株</td><td>特色セクション</td></tr>
+      <tr><td>Fund of the Year</td><td>おおぶね、セゾン達人</td><td>特色セクション</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <div class="pattern-title">D. 知名度の高い組入銘柄</div>
+  <div class="pattern-box">
+    <div class="table-wrap"><table><thead><tr><th>銘柄</th><th>掲載ファンド数</th><th>文脈</th></tr></thead><tbody>
+      <tr><td>Microsoft</td><td><strong>15/21</strong></td><td>組入上位、AI・クラウドの成長</td></tr>
+      <tr><td>NVIDIA</td><td><strong>13/21</strong></td><td>AI革命の象徴、「約310倍」の事例</td></tr>
+      <tr><td>Amazon</td><td><strong>12/21</strong></td><td>EC・AWSの成長ストーリー</td></tr>
+      <tr><td>Alphabet</td><td><strong>11/21</strong></td><td>デジタル広告・AI</td></tr>
+      <tr><td>Apple</td><td><strong>10/21</strong></td><td>ブランド・エコシステム</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <div class="pattern-title">E. インデックス超過リターン</div>
+  <div class="pattern-box"><p>S&P500やMSCI ACWIを上回る実績を「金額差」「倍率比較」「チャート重ね合わせ」で訴求。AB米国成長株の「15年積立で181万円の差」が最も効果的な手法。</p></div>
+
+  <div class="pattern-title">F. 積立投資シミュレーション</div>
+  <div class="pattern-box">
+    <div class="chart-container">
+      <div class="chart-title">積立シミュレーション例：毎月3万円×15年（概念図）</div>
+      <canvas id="chartTsumitate" height="240"></canvas>
+      <div class="chart-source">概念的な再現。実際の数値とは異なります</div>
+    </div>
+  </div>
+
+  <div class="pattern-title">G. メガトレンドへの接続</div>
+  <div class="pattern-box">
+    <div class="table-wrap"><table><thead><tr><th>トレンド</th><th>ファンド</th><th>データ例</th></tr></thead><tbody>
+      <tr><td>AI・半導体</td><td>netWIN、グローバルAI、半導体革命、野村半導体、AIブレイン</td><td>半導体市場規模予測、生成AI市場予測</td></tr>
+      <tr><td>ロボティクス・自動化</td><td>グローバル・ロボティクス</td><td>ロボット市場規模、産業自動化</td></tr>
+      <tr><td>5G・次世代通信</td><td>THE 5G</td><td>5G投資額、6G市場予測</td></tr>
+      <tr><td>DX・非接触ビジネス</td><td>ゼロ・コンタクト</td><td>デジタルトランスフォーメーション市場規模</td></tr>
+      <tr><td>インドの成長</td><td>野村インド、HSBC、ダイワ、iTrust、高成長インド中型</td><td>GDP成長率、人口ボーナス、インフラ投資計画、中型株の成長余地</td></tr>
+      <tr><td>ヘルスケア・高齢化</td><td>健次</td><td>高齢化率、医療費増加、バイオテクノロジー</td></tr>
+      <tr><td>ESG・サステナビリティ</td><td>未来の世界（ESG）</td><td>ESG投資残高の推移</td></tr>
+      <tr><td>電力需要・グリーンシフト</td><td>ピクテ・グローバル・インカム</td><td>AI電力消費、暖房電化データ</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 5: 構成テンプレート -->
+<!-- ============================================================ -->
+<section class="section" id="sec5">
+  <h2>5. 販売用資料の典型的な構成テンプレート</h2>
+
+  <div class="chart-container">
+    <div class="chart-title">販売用資料の典型的なページ配分（16ページ想定）</div>
+    <canvas id="chartPageAlloc" height="240"></canvas>
+  </div>
+
+  <h3>ビジュアル要素の出現頻度</h3>
+  <div class="table-wrap"><table><thead><tr><th>要素</th><th>出現率</th><th>使い方</th></tr></thead><tbody>
+    <tr><td>基準価額推移チャート</td><td><strong>37/37</strong> (100%)</td><td>設定来+ベンチマーク比較</td></tr>
+    <tr><td>セクター構成比（円グラフ）</td><td><strong>34/37</strong> (92%)</td><td>情報技術・金融・ヘルスケア等</td></tr>
+    <tr><td>組入上位10銘柄表</td><td><strong>33/37</strong> (89%)</td><td>銘柄名・比率・業種</td></tr>
+    <tr><td>積立シミュレーション</td><td><strong>24/37</strong> (65%)</td><td>毎月○万円×○年</td></tr>
+    <tr><td>受賞バッジ</td><td><strong>18/37</strong> (49%)</td><td>表紙または特色セクション</td></tr>
+    <tr><td>FM写真</td><td><strong>15/37</strong> (41%)</td><td>運用チーム紹介</td></tr>
+    <tr><td>市場規模予測グラフ</td><td><strong>15/37</strong> (41%)</td><td>テーマ型の市場環境説明</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 6: ファネル -->
+<!-- ============================================================ -->
+<section class="section" id="sec6">
+  <h2>6. 説得のファネル構造</h2>
+  <div class="funnel-step"><div class="funnel-num">1</div><div class="funnel-content"><strong>注目（Attention）</strong><br>愛称、受賞バッジ、テーマ性</div></div>
+  <div class="funnel-step"><div class="funnel-num">2</div><div class="funnel-content"><strong>市場の魅力（Interest）</strong><br>マクロデータ、成長トレンド</div></div>
+  <div class="funnel-step"><div class="funnel-num">3</div><div class="funnel-content"><strong>アクティブの意義（Desire-1）</strong><br>インデックスとの金額差、銘柄選定力</div></div>
+  <div class="funnel-step"><div class="funnel-num">4</div><div class="funnel-content"><strong>このファンドの差別化（Desire-2）</strong><br>独自概念、FM紹介、運用プロセス</div></div>
+  <div class="funnel-step"><div class="funnel-num">5</div><div class="funnel-content"><strong>実績証明（Trust）</strong><br>パフォーマンスグラフ、受賞歴、組入銘柄</div></div>
+  <div class="funnel-step"><div class="funnel-num">6</div><div class="funnel-content"><strong>リスク開示（Transparency）</strong><br>リスク・手数料記載</div></div>
+  <div class="funnel-step"><div class="funnel-num">7</div><div class="funnel-content"><strong>行動喚起（Action）</strong><br>NISA対応、積立シミュレーション、申込案内</div></div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 7: タイプ別 -->
+<!-- ============================================================ -->
+<section class="section" id="sec7">
+  <h2>7. 運用会社タイプ別のマーケティングスタイル</h2>
+  <div class="table-wrap"><table><thead><tr><th>指標</th><th>大手金融G系</th><th>独立系</th><th>外資系</th></tr></thead><tbody>
+    <tr><td>該当ファンド数</td><td><strong>11本</strong></td><td><strong>3本</strong></td><td><strong>23本</strong></td></tr>
+    <tr><td>平均信託報酬</td><td>1.78%</td><td><strong>1.17%</strong></td><td>1.80%</td></tr>
+    <tr><td>平均購入時手数料</td><td>3.30%</td><td><strong>0～1.1%</strong></td><td>3.30%</td></tr>
+    <tr><td>独自造語の使用</td><td>少ない</td><td>あり</td><td><strong>非常に多い</strong></td></tr>
+    <tr><td>SNS活用度</td><td>低い</td><td><strong>非常に高い</strong></td><td>中程度</td></tr>
+    <tr><td>FM顔出し</td><td>稀</td><td><strong>積極的</strong></td><td>一部あり</td></tr>
+    <tr><td>販売用資料ページ数</td><td>8-12p</td><td>4-8p</td><td><strong>12-28p</strong></td></tr>
+  </tbody></table></div>
+
+  <div class="chart-container">
+    <div class="chart-title">運用会社タイプ別：マーケティング特性</div>
+    <canvas id="chartRadar" height="300"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 8: テーマ型 -->
+<!-- ============================================================ -->
+<section class="section" id="sec8">
+  <h2>8. テーマ型ファンドのナラティブ構築手法</h2>
+  <div class="table-wrap"><table><thead><tr><th>型</th><th>名称</th><th>代表例</th><th>キャッチコピー / データ</th></tr></thead><tbody>
+    <tr><td>1</td><td><strong>社会トレンド型</strong></td><td>グローバルAI、半導体革命、野村半導体、THE 5G、ロボティクス、ゼロ・コンタクト</td><td>「AI市場は2032年に140兆円」「半導体市場82兆円」「5G通信革命」</td></tr>
+    <tr><td>2</td><td><strong>王道・哲学型</strong></td><td>世界のベスト、MSグロプレ、セゾン、ロイヤル・マイル</td><td>「株式投資の王道」「あえてアクティブ」「超長期成長投資」</td></tr>
+    <tr><td>3</td><td><strong>冒険・発見型</strong></td><td>テンバガー・ハンター、アメリカの星</td><td>「10倍株を探す」「米国のスターを発掘」という夢の提供</td></tr>
+    <tr><td>4</td><td><strong>新興国成長型</strong></td><td>野村インド、HSBC、ダイワ、iTrust、高成長インド中型</td><td>人口ボーナス、GDP成長率、インフラ計画、中型株の成長余地</td></tr>
+    <tr><td>5</td><td><strong>大型IPO型</strong></td><td>未来の世界（ESG）</td><td>初回3,830億円募集のニュース性</td></tr>
+    <tr><td>6</td><td><strong>セクター特化型</strong></td><td>健次（ヘルスケア）、ピクテ・グローバル・インカム（公益）</td><td>高齢化社会、医療技術、ディフェンシブ性</td></tr>
+    <tr><td>7</td><td><strong>AI・テクノロジー運用型</strong></td><td>AIブレイン</td><td>「AIが銘柄を選ぶ」という新しい運用手法の訴求</td></tr>
+  </tbody></table></div>
+
+  <div class="chart-container">
+    <div class="chart-title">ナラティブ型の使用頻度（37ファンド中、複数併用あり）</div>
+    <canvas id="chartNarrative" height="260"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 9: パフォーマンス -->
+<!-- ============================================================ -->
+<section class="section" id="sec9">
+  <h2>9. パフォーマンス訴求のテクニック</h2>
+  <div class="table-wrap"><table><thead><tr><th>手法</th><th>具体例</th><th>ファンド</th><th>効果</th></tr></thead><tbody>
+    <tr><td>倍率での表現</td><td>「約46倍」「約30倍」</td><td>キャピタル、グロプレ</td><td>ダイナミズム</td></tr>
+    <tr><td>金額差への換算</td><td>「S&P500比+181万円」</td><td>AB米国成長株</td><td>直感的理解</td></tr>
+    <tr><td>連続記録</td><td>「109カ月連続流入」</td><td>世界のベスト</td><td>持続的人気</td></tr>
+    <tr><td>急成長の勢い</td><td>「3年で8,500億円」</td><td>グロースオポチュニティ</td><td>今の勢い</td></tr>
+    <tr><td>個別銘柄の劇的成長</td><td>「エヌビディア約310倍」</td><td>グローバルAI</td><td>テーマの説得力</td></tr>
+    <tr><td>高リターン数値</td><td>「直近1年+72.52%」</td><td>野村世界半導体</td><td>パフォーマンスの圧倒感</td></tr>
+    <tr><td>大型初回募集</td><td>「設定時3,830億円」</td><td>未来の世界(ESG)</td><td>注目度・話題性</td></tr>
+    <tr><td>受賞の継続性</td><td>「12年連続受賞」</td><td>セゾン達人</td><td>一時的でない品質</td></tr>
+    <tr><td>唯一性</td><td>「唯一のインド株つみたてNISA対象」</td><td>iTrust</td><td>希少性・ポジショニング</td></tr>
+    <tr><td>購入停止の希少性</td><td>「新規購入受付停止→再開」</td><td>高成長インド中型</td><td>売り切れプレミアム</td></tr>
+    <tr><td>テーマの先駆者</td><td>「2015年からロボティクス投資」</td><td>ロボティクス</td><td>先見の明</td></tr>
+    <tr><td>海外スター運用者</td><td>「ARK Investのキャシー・ウッド氏」</td><td>ゼロ・コンタクト</td><td>著名人の権威性</td></tr>
+    <tr><td>AI活用の先進性</td><td>「AIが銘柄を選定」</td><td>AIブレイン</td><td>テクノロジーの新しさ</td></tr>
+  </tbody></table></div>
+
+  <div class="chart-container">
+    <div class="chart-title">同じリターンでも表現で印象が変わる（概念的なインパクト比較）</div>
+    <canvas id="chartExpression" height="200"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 10: 販売会社 -->
+<!-- ============================================================ -->
+<section class="section" id="sec10">
+  <h2>10. 販売会社の独自マーケティング</h2>
+  <h3>3大証券の取扱い状況</h3>
+  <div class="table-wrap"><table><thead><tr><th>証券会社</th><th>取扱い本数<br>(27本中)</th><th>取扱い合計AUM</th><th>販促の特徴</th></tr></thead><tbody>
+    <tr><td><strong>野村証券</strong></td><td><strong>21本</strong></td><td>約18.5兆円</td><td>自社系列（野村アセット）+ 外資系を幅広く販売。対面営業力</td></tr>
+    <tr><td><strong>SMBC日興証券</strong></td><td><strong>14本</strong></td><td>約11.8兆円</td><td>アモーヴァ(旧日興)系のテーマ型 + アセマネOne系を重点。ロボティクス1.2兆円</td></tr>
+    <tr><td><strong>大和証券</strong></td><td><strong>16本</strong></td><td>約15.2兆円</td><td>大和アセット系 + 外資系を幅広く販売。インド株・テーマ型に強み</td></tr>
+  </tbody></table></div>
+
+  <h3>販売会社独自の販促事例</h3>
+  <div class="table-wrap"><table><thead><tr><th>販売会社</th><th>ファンド</th><th>施策</th></tr></thead><tbody>
+    <tr><td>りそな銀行</td><td>AB米国成長株</td><td>「わかりやすく解説」特設ページ（教育型）</td></tr>
+    <tr><td>楽天証券</td><td>MSグロプレ</td><td>「グロプレの魅力」特集ページ</td></tr>
+    <tr><td>SBI証券</td><td>netWIN</td><td>専用ランディングページ</td></tr>
+    <tr><td>広島銀行</td><td>世界のベスト</td><td>銀行独自の販売用資料PDF作成</td></tr>
+    <tr><td>みずほ証券</td><td>ロイヤルロード</td><td>危機対応エピソードを強調した説明資料</td></tr>
+    <tr><td>野村証券</td><td>野村インド株/半導体</td><td>自社系列ファンドの優先的な棚割り</td></tr>
+  </tbody></table></div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>対面販売（銀行・総合証券）</h4>
+      <ul><li>販売員の説明力に依存</li><li>購入時手数料3.30%</li><li>毎月分配型・予想分配金提示型が人気</li><li>自社系列ファンドの優先販売</li></ul>
+    </div>
+    <div class="compare-card">
+      <h4>ネット証券</h4>
+      <ul><li>ノーロード（手数料無料）が主流</li><li>ランキング・スクリーニング重視</li><li>年1回決算・資産成長型が人気</li><li>低コストファンドの競争力が高い</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 11: 示唆 -->
+<!-- ============================================================ -->
+<section class="section" id="sec11">
+  <h2>11. 示唆と応用</h2>
+
+  <h3>5つの設計原則</h3>
+  <div class="gold-box"><h4>原則1：独自の投資概念を一言で定義する</h4><p>「プレミアム企業」「トールキーパー」「テンバガー・ハンター」「半導体革命」。この造語がファンドのアイデンティティとなり、差別化の核になる。</p></div>
+  <div class="gold-box"><h4>原則2：ファネル構造に沿った情報設計</h4><p>注目→市場→アクティブの意義→差別化→実績→リスク→行動喚起の順序を守る。</p></div>
+  <div class="gold-box"><h4>原則3：数値は「率」より「額」、「抽象」より「具体」</h4><p>「年率2%超過」より「15年で181万円の差」。「優れた実績」より「約46倍」。</p></div>
+  <div class="gold-box"><h4>原則4：販売チャネルに合わせた商品設計</h4><p>対面証券向け = 予想分配金提示型・毎月決算（AB Dコース、世界のベスト）。ネット証券向け = 低コスト・年1回決算（iTrust、おおぶね）。</p></div>
+  <div class="gold-box"><h4>原則5：社会的証明を多層的に活用する</h4><p>受賞歴 + 純資産残高 + 連続記録 + NISA対応。これらの「みんなが選んでいる」シグナルの組み合わせが説得力を生む。</p></div>
+
+  <h3>デジタルマーケティングの採用状況</h3>
+  <div class="chart-container">
+    <div class="chart-title">デジタルマーケティング施策の採用率（37ファンド中）</div>
+    <canvas id="chartDigital" height="220"></canvas>
+  </div>
+
+  <div class="highlight-box"><strong>今後の方向性：</strong>販売用資料は「PDF単体」から「PDF + 特設ページ + 動画 + SNS + コミュニティ」という多層的エコシステムへ進化中。特にフィデリティの2ファンド（テンバガー + グロースオポチュニティ）が計1.8兆円を3-4年で獲得した事例は、ネーミング力 + マルチチャネル展開の威力を示している。</div>
+
+  <h3>テーマ型ファンドの構造的発見</h3>
+  <div class="gold-box"><h4>発見1：テーマ型は「一社複数テーマ」戦略で規模を稼ぐ</h4><p>アモーヴァ（旧日興アセット）はロボティクス(1.2兆円)・ゼロコンタクト(2,800億)・フィンテックなど複数のテーマ型を展開。三井住友TAMもTHE 5G(5,900億)・半導体革命(3,200億)を同時展開。テーマごとにファンドを分けることで、顧客の興味関心に合わせた提案が可能に。</p></div>
+  <div class="gold-box"><h4>発見2：テーマ型のライフサイクルに注意</h4><p>ゼロ・コンタクトはピーク時1兆円近く→2,800億円に縮小。テーマの旬を過ぎると資金流出が加速する。一方、ロボティクスは2015年設定から10年で1.2兆円を維持しており、息の長いテーマ選定が鍵。</p></div>
+  <div class="gold-box"><h4>発見3：新興国の「売り切れマーケティング」</h4><p>高成長インド・中型株式ファンドは新規購入受付を一時停止するほどの人気で、「売り切れ」のプレミアム感が逆にさらなる需要を喚起。ファンドの純資産管理が結果的にマーケティング効果を生んでいる。</p></div>
+</section>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <h2>免責事項 / Disclaimer</h2>
+  <p>本資料は海外株式アクティブファンド37本の販売用資料を分析し、マーケティング手法を整理したものです。特定ファンドの購入・売却を推奨するものではありません。純資産総額・信託報酬等のデータは2026年2月時点の概算値です。投資信託は元本保証がありません。投資判断はご自身の責任で行ってください。</p>
+</div>
+</main>
+
+<footer style="text-align:center;padding:24px 16px;font-size:0.75rem;color:#64748b;border-top:1px solid #334155;margin-top:16px"><p>データ基準: 2026年2月 ｜ 対象: 純資産1,000億円以上の海外株式アクティブファンド（37本）</p></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">&#8593;</button>
+
+<script>
+const btn=document.querySelector('.back-to-top');
+window.addEventListener('scroll',()=>{btn.style.display=window.scrollY>600?'flex':'none'});
+
+// AUM Chart
+new Chart(document.getElementById('chartAUM'),{type:'bar',data:{
+  labels:['世界のベスト','AB米国成長(D)','AB米国成長(B)','netWIN','ピクテ・グロイン','キャピタル世界','テンバガーハンター','未来の世界(ESG)','FIDグロースOpp','未来の世界','ロボティクス','野村半導体','THE 5G','MSグロプレ','グローバルAI','T.ロウ ロイヤルRd','セゾン達人','高成長インド中型','ゼロコンタクト','健次'],
+  datasets:[{data:[36600,32280,17747,13800,10800,10500,9900,9800,8500,8400,6600,6900,5900,5800,5300,5000,4500,4108,2800,2500],
+    backgroundColor:v=>v.raw>=10000?'#d69e2e':'#805ad5',borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>(v/10000).toFixed(1)+'兆'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Category
+new Chart(document.getElementById('chartCategory'),{type:'doughnut',data:{
+  labels:['グローバル株式(13)','米国株式(7)','テーマ型(9)','インド株式(7)','新興国全般(1)'],
+  datasets:[{data:[13,7,9,7,1],backgroundColor:['#805ad5','#6b46c1','#d69e2e','#ed8936','#48bb78']}]
+},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+
+// Broker
+new Chart(document.getElementById('chartBroker'),{type:'bar',data:{
+  labels:['野村証券','大和証券','SMBC日興証券'],
+  datasets:[{label:'取扱いファンド数',data:[21,16,14],backgroundColor:['#805ad5','#6b46c1','#553c9a'],borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:25,grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Fee
+new Chart(document.getElementById('chartFee'),{type:'bar',data:{
+  labels:['iTrust(0.98)','おおぶね(0.99)','T.ロウ(1.46)','セゾン(1.54)','FID優良(1.64)','FIDグロース(1.64)','テンバガー(1.65)','未来(1.65)','キャピタル(1.70)','AB(1.73)','半導体革命(1.73)','ピクテ(1.81)','サイバー(1.87)','世界のベスト(1.90)','グロAI(1.93)','MSグロプレ(1.98)','netWIN(2.09)','野村インド(2.20)','HSBCインフラ(2.09)'],
+  datasets:[{data:[0.98,0.99,1.46,1.54,1.64,1.64,1.65,1.65,1.70,1.73,1.73,1.81,1.87,1.90,1.93,1.98,2.09,2.20,2.09],
+    backgroundColor:v=>v.raw<1.5?'#48bb78':v.raw<1.8?'#d69e2e':'#805ad5',borderRadius:3}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:2.5,ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{ticks:{maxRotation:90,font:{size:9}},grid:{display:false}}}}});
+
+// India Fee
+new Chart(document.getElementById('chartIndiaFee'),{type:'bar',data:{
+  labels:['iTrustインド','ダイワ・ダイナミック','高成長インド中型','イーストスプリング','ピクテ新興国','HSBCインフラ','野村インド','HSBCインド'],
+  datasets:[{data:[0.98,1.85,1.90,1.95,2.015,2.09,2.20,2.20],backgroundColor:v=>v.raw<1.5?'#48bb78':'#805ad5',borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:2.5,ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Patterns
+new Chart(document.getElementById('chartPatterns'),{type:'bar',data:{
+  labels:['A.独自造語','B.長期実績','C.受賞歴','D.知名度銘柄','E.Index超過','F.積立シミュレ','G.メガトレンド'],
+  datasets:[{data:[22,29,17,26,22,24,23],backgroundColor:['#805ad5','#6b46c1','#553c9a','#805ad5','#6b46c1','#553c9a','#d69e2e'],borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:37,grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Returns
+new Chart(document.getElementById('chartReturns'),{type:'bar',data:{
+  labels:['キャピタル(50年超)','MSグロプレ(25年超)','netWIN(設定来)','ピクテ(20年超)','ダイワα(設定来)','おおぶね(8年)'],
+  datasets:[{data:[4500,2900,2800,347,281,200],backgroundColor:'#d69e2e',borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>v>=1000?(v/100).toFixed(0)+'倍':'+'+v+'%'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Tsumitate
+(function(){const l=[],inv=[],idx=[],act=[];let iA=0,iI=0;
+for(let y=0;y<=15;y++){l.push(y+'年');inv.push(y*36);iI=iI*1.08+36;idx.push(Math.round(iI));iA=iA*1.11+36;act.push(Math.round(iA));}
+inv[0]=0;idx[0]=0;act[0]=0;
+new Chart(document.getElementById('chartTsumitate'),{type:'line',data:{labels:l,datasets:[
+  {label:'アクティブ(年率11%)',data:act,borderColor:'#d69e2e',backgroundColor:'rgba(214,158,46,0.1)',fill:true,tension:0.3},
+  {label:'インデックス(年率8%)',data:idx,borderColor:'#805ad5',backgroundColor:'rgba(128,90,213,0.1)',fill:true,tension:0.3},
+  {label:'積立元本',data:inv,borderColor:'#64748b',borderDash:[5,5],fill:false,tension:0}
+]},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>v+'万'},grid:{color:'#334155'}},x:{grid:{color:'#334155'}}}}});
+})();
+
+// Page Alloc
+new Chart(document.getElementById('chartPageAlloc'),{type:'bar',data:{
+  labels:['表紙','特色','市場環境','運用哲学','銘柄紹介','実績','リスク・手数料'],
+  datasets:[{data:[1,2.5,2.5,2.5,1.5,2.5,2.5],backgroundColor:['#553c9a','#6b46c1','#805ad5','#805ad5','#6b46c1','#d69e2e','#64748b'],borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'p'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Radar
+new Chart(document.getElementById('chartRadar'),{type:'radar',data:{
+  labels:['ブランド力','独自概念','データ充実','デジタルMK','コスト競争力','FM可視化'],
+  datasets:[
+    {label:'大手金融G系',data:[5,2,4,2,2,1],borderColor:'#3182ce',backgroundColor:'rgba(49,130,206,0.15)',pointRadius:4},
+    {label:'独立系',data:[3,4,3,5,5,5],borderColor:'#48bb78',backgroundColor:'rgba(72,187,120,0.15)',pointRadius:4},
+    {label:'外資系',data:[4,5,5,3,2,3],borderColor:'#805ad5',backgroundColor:'rgba(128,90,213,0.15)',pointRadius:4}
+  ]
+},options:{responsive:true,scales:{r:{min:0,max:5,ticks:{stepSize:1,display:false},grid:{color:'#334155'},angleLines:{color:'#334155'},pointLabels:{font:{size:11}}}},plugins:{legend:{position:'bottom'}}}});
+
+// Narrative
+new Chart(document.getElementById('chartNarrative'),{type:'bar',data:{
+  labels:['社会トレンド型','王道・哲学型','データ駆動型','新興国成長型','冒険・発見型','セクター特化型','AI運用型','大型IPO型'],
+  datasets:[{data:[16,10,13,8,5,4,2,3],backgroundColor:['#805ad5','#6b46c1','#d69e2e','#ed8936','#553c9a','#48bb78','#3182ce','#64748b'],borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:20,grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Expression
+new Chart(document.getElementById('chartExpression'),{type:'bar',data:{
+  labels:['年率2%超過','15年で+181万円','10年で約3倍','設定来+280%','10倍株を探す'],
+  datasets:[{data:[3,9,8,7,10],backgroundColor:['#64748b','#d69e2e','#805ad5','#6b46c1','#ed8936'],borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:10,ticks:{callback:v=>v+'/10'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Digital
+new Chart(document.getElementById('chartDigital'),{type:'bar',data:{
+  labels:['特設ウェブページ','動画コンテンツ','SNS運用','ウェビナー','ターゲティング広告','専用アプリ'],
+  datasets:[{data:[27,20,14,18,9,4],backgroundColor:['#805ad5','#6b46c1','#553c9a','#805ad5','#d69e2e','#64748b'],borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:37,grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>
