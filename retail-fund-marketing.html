@@ -117,7 +117,6 @@
     <li><a href="#sec9">パフォーマンス訴求のテクニック</a></li>
     <li><a href="#sec10">販売会社の独自マーケティング</a></li>
     <li><a href="#sec11">示唆と応用</a></li>
-    <li><a href="#sec12">銘柄厳選型ファンドのマーケティング手法（国内外比較）</a></li>
   </ol>
 </nav>
 
@@ -660,11 +659,8 @@
   <div class="gold-box"><h4>発見3：新興国の「売り切れマーケティング」</h4><p>高成長インド・中型株式ファンドは新規購入受付を一時停止するほどの人気で、「売り切れ」のプレミアム感が逆にさらなる需要を喚起。ファンドの純資産管理が結果的にマーケティング効果を生んでいる。</p></div>
 </section>
 
-<!-- ============================================================ -->
-<!-- Section 12: 銘柄厳選型ファンドのマーケティング手法 -->
-<!-- ============================================================ -->
-<section class="section" id="sec12">
-  <h2>12. 銘柄厳選型ファンドのマーケティング手法（国内外比較）</h2>
+<!-- Section 12 moved to concentrated-value-funds.html -->
+<div style="display:none">
   <p>ポートフォリオを20〜60銘柄に絞り込み、「1銘柄あたりのリサーチの深さ」を最大のセールスポイントとする銘柄厳選型（Concentrated / High-Conviction）ファンドの販売用資料を横断分析した。純資産総額500億円以上を中心に、国内6ファンド・海外8ファンドの計14ファンドを対象とする。</p>
 
   <div class="stat-row">
@@ -1083,14 +1079,12 @@
   </div>
   <div class="gold-box">
     <h4>示唆5：50銘柄前後の「ちょうどいい集中度」</h4>
-    <p>20銘柄（スパークス）は集中しすぎて短期の振れ幅が大きい。200銘柄（ひふみ）は実質的に分散型。50銘柄前後（Baillie Gifford Scottish Mortgage、結い2101）が「1銘柄ごとのリサーチの深さ」と「適度な分散」の両立を訴求しやすいスイートスポット。販売用資料では「全銘柄の投資仮説を語れる」ことが厳選型の信頼性の核となる。</p>
-  </div>
-</section>
+</div><!-- end display:none block for removed sec12 -->
 
 <!-- Disclaimer -->
 <div class="disclaimer">
   <h2>免責事項 / Disclaimer</h2>
-  <p>本資料は海外株式アクティブファンド37本および銘柄厳選型ファンド14本の販売用資料を分析し、マーケティング手法を整理したものです。特定ファンドの購入・売却を推奨するものではありません。純資産総額・信託報酬等のデータは2026年2〜3月時点の概算値です。投資信託は元本保証がありません。投資判断はご自身の責任で行ってください。</p>
+  <p>本資料は海外株式アクティブファンド37本の販売用資料を分析し、マーケティング手法を整理したものです。特定ファンドの購入・売却を推奨するものではありません。純資産総額・信託報酬等のデータは2026年2月時点の概算値です。投資信託は元本保証がありません。投資判断はご自身の責任で行ってください。</p>
 </div>
 </main>
 
@@ -1183,36 +1177,6 @@ new Chart(document.getElementById('chartExpression'),{type:'bar',data:{
   labels:['年率2%超過','15年で+181万円','10年で約3倍','設定来+280%','10倍株を探す'],
   datasets:[{data:[3,9,8,7,10],backgroundColor:['#64748b','#d69e2e','#805ad5','#6b46c1','#ed8936'],borderRadius:4}]
 },options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:10,ticks:{callback:v=>v+'/10'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
-
-// Concentrated Fund - Marketing Elements Adoption
-new Chart(document.getElementById('chartConcentrated'),{type:'bar',data:{
-  labels:['独自フレームワーク','設定来累積チャート','銘柄紹介(投資仮説)','財務指標比較表','ファネル図','成長チャート($10K)','マネージャー自己投資','回転率データ','アクティブシェア','レーダーチャート'],
-  datasets:[{data:[14,14,13,12,11,10,10,9,7,5],backgroundColor:v=>v.raw>=12?'#d69e2e':v.raw>=9?'#805ad5':'#553c9a',borderRadius:4}]
-},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:14,ticks:{callback:v=>v+'本'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
-
-// Concentrated Fund - Data Types in Sales Materials
-new Chart(document.getElementById('chartDataTypes'),{type:'bar',data:{
-  labels:['設定来パフォーマンス','組入上位銘柄紹介','業種別構成比','期間別騰落率','ファネル(絞り込み)図','財務指標比較表','成長シミュレーション','回転率/保有期間','アクティブシェア','レーダーチャート評価','月次リターングリッド','積立継続実績'],
-  datasets:[{label:'採用ファンド数',data:[14,13,13,13,11,12,10,9,7,5,4,3],backgroundColor:['#d69e2e','#d69e2e','#805ad5','#805ad5','#6b46c1','#d69e2e','#805ad5','#6b46c1','#553c9a','#553c9a','#553c9a','#553c9a'],borderRadius:4}]
-},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:14,ticks:{callback:v=>v+'/14'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
-
-// Page Allocation Comparison: Concentrated vs General Active
-new Chart(document.getElementById('chartPageCompare'),{type:'bar',data:{
-  labels:['表紙・コンセプト','銘柄選定プロセス','個別銘柄紹介','市場環境','パフォーマンス','FM紹介','リスク・手数料'],
-  datasets:[
-    {label:'銘柄厳選型',data:[15,25,20,5,15,10,10],backgroundColor:'#d69e2e',borderRadius:4},
-    {label:'一般的アクティブ',data:[8,10,5,25,25,2,25],backgroundColor:'#805ad5',borderRadius:4}
-  ]
-},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
-
-// Domestic vs Overseas Radar
-new Chart(document.getElementById('chartDomesticVsOverseas'),{type:'radar',data:{
-  labels:['定量データ活用','FM自己投資の開示','学術的根拠','コミュニティ形成','ESG/社会貢献','著書/メディア露出'],
-  datasets:[
-    {label:'海外ファンド(8本)',data:[5,5,4,2,2,3],borderColor:'#d69e2e',backgroundColor:'rgba(214,158,46,0.15)',pointRadius:4},
-    {label:'国内ファンド(6本)',data:[2,2,1,5,5,5],borderColor:'#805ad5',backgroundColor:'rgba(128,90,213,0.15)',pointRadius:4}
-  ]
-},options:{responsive:true,scales:{r:{min:0,max:5,ticks:{stepSize:1,display:false},grid:{color:'#334155'},angleLines:{color:'#334155'},pointLabels:{font:{size:11}}}},plugins:{legend:{position:'bottom'}}}});
 
 // Digital
 new Chart(document.getElementById('chartDigital'),{type:'bar',data:{

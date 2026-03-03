@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#553c9a">
+<link rel="apple-touch-icon" href="icon-192x192.png">
+<title>銘柄厳選型ファンド マーケティング研究 — バリュー戦略フォーカス</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; color: #1a202c; background: #f7f8fc; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero { background: linear-gradient(135deg, #553c9a 0%, #6b46c1 40%, #805ad5 80%, #9f7aea 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+  .hero h1 { font-size: 1.9rem; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.04em; }
+  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 16px; }
+  .hero .meta { display: flex; justify-content: center; gap: 24px; font-size: 0.82rem; opacity: 0.75; flex-wrap: wrap; }
+  .hero .accent-bar { width: 60px; height: 3px; background: #d69e2e; margin: 16px auto 0; border-radius: 2px; }
+  .toc { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px; margin: -32px auto 40px; max-width: 720px; position: relative; z-index: 2; }
+  .toc h2 { font-size: 1.1rem; color: #553c9a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+  .toc ol { padding-left: 1.5em; } .toc li { margin-bottom: 8px; }
+  .toc a { color: #553c9a; text-decoration: none; font-weight: 500; } .toc a:hover { color: #d69e2e; text-decoration: underline; }
+  .section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 40px 36px; margin-bottom: 32px; }
+  .section h2 { font-size: 1.5rem; color: #553c9a; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #d69e2e; }
+  .section h3 { font-size: 1.15rem; color: #6b46c1; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #d69e2e; }
+  .section h4 { font-size: 1.02rem; color: #2d3748; margin: 20px 0 10px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  thead th { background: #553c9a; color: #fff; padding: 10px 12px; text-align: left; font-weight: 500; white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+  tbody tr:nth-child(even) { background: #f7fafc; } tbody tr:hover { background: #faf5ff; }
+  blockquote { background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%); border-left: 4px solid #d69e2e; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; } blockquote p { margin: 0; }
+  .gold-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .highlight-box { background: #faf5ff; border: 2px solid #6b46c1; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .insight-box { background: linear-gradient(135deg, #fefcbf 0%, #fef3c7 100%); border: 2px solid #d69e2e; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  ul, ol { padding-left: 1.5em; margin: 8px 0 16px; } li { margin-bottom: 6px; }
+  .fund-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .fund-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .fund-card h4 { margin-top: 0; color: #553c9a; border-left: 3px solid #d69e2e; padding-left: 10px; }
+  .fund-card ul { padding-left: 1.2em; margin-top: 8px; font-size: 0.9rem; }
+  .fund-card .fund-company { font-size: 0.78rem; color: #718096; margin-bottom: 8px; }
+  .tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; margin-right: 4px; margin-bottom: 4px; }
+  .tag-value { background: #c6f6d5; color: #276749; } .tag-concept { background: #e9d8fd; color: #553c9a; }
+  .tag-performance { background: #bee3f8; color: #2a4365; } .tag-brand { background: #fefcbf; color: #744210; }
+  .tag-safety { background: #fed7d7; color: #822727; } .tag-data { background: #feebc8; color: #7b341e; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .compare-card { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; } .compare-card h4 { margin-top: 0; }
+  .funnel-step { display: flex; align-items: flex-start; gap: 16px; margin: 12px 0; padding: 16px; background: #f7fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .funnel-num { background: #6b46c1; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+  .funnel-content { flex: 1; } .funnel-content strong { color: #553c9a; }
+  .pattern-title { background: #6b46c1; color: #fff; display: inline-block; padding: 6px 16px; border-radius: 6px 6px 0 0; font-weight: 600; font-size: 0.9rem; margin-top: 20px; }
+  .pattern-box { border: 2px solid #6b46c1; border-radius: 0 8px 8px 8px; padding: 20px; margin-bottom: 20px; }
+  .chart-container { position: relative; margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .chart-title { font-size: 0.95rem; font-weight: 600; color: #553c9a; margin-bottom: 12px; text-align: center; }
+  .chart-source { font-size: 0.75rem; color: #718096; margin-top: 8px; text-align: right; font-style: italic; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .stat-card { flex: 1; min-width: 130px; background: linear-gradient(135deg, #553c9a, #6b46c1); color: #fff; border-radius: 10px; padding: 16px; text-align: center; }
+  .stat-card .stat-num { font-size: 1.5rem; font-weight: 700; line-height: 1.2; } .stat-card .stat-label { font-size: 0.73rem; opacity: 0.85; margin-top: 4px; }
+  .vs-block { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; margin: 20px 0; align-items: stretch; }
+  .vs-side { background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; }
+  .vs-side h4 { margin-top: 0; text-align: center; }
+  .vs-divider { display: flex; align-items: center; justify-content: center; padding: 0 12px; font-size: 1.5rem; font-weight: 700; color: #d69e2e; }
+  .concept-diagram { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; justify-content: center; }
+  .concept-node { background: linear-gradient(135deg, #553c9a, #805ad5); color: #fff; border-radius: 12px; padding: 16px 24px; text-align: center; min-width: 160px; position: relative; }
+  .concept-node .node-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .concept-node .node-desc { font-size: 0.78rem; opacity: 0.85; }
+  .concept-arrow { display: flex; align-items: center; color: #d69e2e; font-size: 1.5rem; font-weight: 700; }
+  .visual-card { background: linear-gradient(135deg, #1e293b, #2d3a5f); border-radius: 12px; padding: 24px; margin: 16px 0; color: #e2e8f0; border: 1px solid #334155; }
+  .visual-card h4 { color: #d69e2e; margin-top: 0; font-size: 1.05rem; }
+  .visual-card .label { font-size: 0.78rem; color: #94a3b8; margin-bottom: 4px; }
+  .visual-card .big-num { font-size: 2rem; font-weight: 700; color: #d69e2e; line-height: 1.2; }
+  .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0; }
+  .disclaimer { margin-top: 40px; padding: 32px 36px; background: #f7fafc; border-radius: 12px; font-size: 0.8rem; color: #718096; line-height: 1.7; }
+  .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
+  .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #553c9a; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; } .back-to-top:hover { background: #d69e2e; }
+  @media print { body { background: #fff; font-size: 12px; } .hero { padding: 24px; } .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; } .back-to-top { display: none !important; } }
+  @media (max-width: 640px) { .hero h1 { font-size: 1.5rem; } .section { padding: 24px 18px; } .toc { padding: 20px; margin: -24px 12px 24px; } table { font-size: 0.78rem; } thead th, tbody td { padding: 8px 8px; } .compare-grid, .chart-grid { grid-template-columns: 1fr; } .fund-grid { grid-template-columns: 1fr; } .vs-block { grid-template-columns: 1fr; } .vs-divider { padding: 8px 0; justify-content: center; } }
+  @media (max-width: 480px) { .hero { padding: 36px 16px 28px; } .hero h1 { font-size: 1.2rem; } .section { padding: 18px 12px; margin-bottom: 16px; } .section h2 { font-size: 1.15rem; } .toc { padding: 16px; margin: -20px 8px 20px; } .stat-card { min-width: 100px; padding: 10px; } .stat-card .stat-num { font-size: 1.2rem; } .concept-diagram { flex-direction: column; align-items: center; } .concept-arrow { transform: rotate(90deg); } }
+  /* Dark Mode */
+  body { background: #0f172a; color: #e2e8f0; }
+  .toc { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); } .toc h2 { color: #d6bcfa; border-bottom-color: #334155; } .toc a { color: #d6bcfa; }
+  .section { background: #1e293b; box-shadow: 0 2px 12px rgba(0,0,0,0.3); } .section h2 { color: #d6bcfa; } .section h3 { color: #b794f4; } .section h4 { color: #cbd5e0; }
+  tbody td { border-bottom-color: #334155; } tbody tr:nth-child(even) { background: #253449; } tbody tr:hover { background: #2d3a5f; }
+  blockquote { background: linear-gradient(135deg, #2d2340, #352845); color: #e2e8f0; }
+  .gold-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .highlight-box { background: #2d2340; color: #e2e8f0; } .insight-box { background: linear-gradient(135deg, #2d2a1a, #332e1a); color: #e2e8f0; }
+  .fund-card { background: #253449; border-color: #334155; } .fund-card h4 { color: #d6bcfa; }
+  .compare-card { background: #253449; border-color: #334155; } .funnel-step { background: #253449; border-color: #334155; }
+  .pattern-box { border-color: #805ad5; } .chart-container { background: #1e293b; border-color: #334155; } .chart-title { color: #d6bcfa; }
+  .tag-value { background: #22543d; color: #c6f6d5; } .tag-concept { background: #44337a; color: #d6bcfa; }
+  .tag-performance { background: #2a4365; color: #bee3f8; } .tag-brand { background: #5f370e; color: #fefcbf; }
+  .tag-safety { background: #63171b; color: #fed7d7; } .tag-data { background: #652b19; color: #feebc8; }
+  .vs-side { background: #253449; border-color: #334155; }
+  .disclaimer { background: #1e293b; }
+  @media print { body { background: #fff; color: #1a202c; } .section, .toc, .disclaimer, .chart-container { background: #fff; } .visual-card { background: #f7fafc; color: #1a202c; } }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>Chart.defaults.color='#94a3b8';Chart.defaults.borderColor='#334155';</script>
+</head>
+<body>
+
+<nav style="background:linear-gradient(135deg,#553c9a,#6b46c1);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<header class="hero">
+  <h1>銘柄厳選型ファンド マーケティング研究</h1>
+  <p class="subtitle">Concentrated / High-Conviction Fund Marketing &mdash; Value Strategy Focus</p>
+  <div class="meta">
+    <span>作成日: 2026年3月3日</span>
+    <span>対象: 国内外の銘柄厳選型アクティブファンド</span>
+    <span>フォーカス: バリュー投資戦略</span>
+  </div>
+  <div class="accent-bar"></div>
+</header>
+
+<nav class="toc container">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">調査概要・対象ファンド一覧</a></li>
+    <li><a href="#sec2">銘柄厳選型ファンドの5大マーケティング要素</a></li>
+    <li><a href="#sec3">キャッチコピー・スローガン比較</a></li>
+    <li><a href="#sec4">販売用資料のデータ・グラフ類型</a></li>
+    <li><a href="#sec5">ファンド別マーケティング詳細分析（国内）</a></li>
+    <li><a href="#sec6">ファンド別マーケティング詳細分析（海外）</a></li>
+    <li><a href="#sec7">バリュー戦略特有のビジュアル・マーケティング手法</a></li>
+    <li><a href="#sec8">「なぜ今バリューなのか」の販促ロジック</a></li>
+    <li><a href="#sec9">バリュートラップと期待値コントロール</a></li>
+    <li><a href="#sec10">国内 vs 海外：マーケティングスタイル比較</a></li>
+    <li><a href="#sec11">設計・応用への示唆</a></li>
+  </ol>
+</nav>
+
+<main class="container">
+
+<!-- ============================================================ -->
+<!-- Section 1 -->
+<!-- ============================================================ -->
+<section class="section" id="sec1">
+  <h2>1. 調査概要・対象ファンド一覧</h2>
+
+  <div class="highlight-box">
+    <h4>分析対象の条件</h4>
+    <ul>
+      <li><strong>銘柄厳選型</strong>（Concentrated / High-Conviction）のアクティブファンド</li>
+      <li>ポートフォリオ <strong>20〜60銘柄</strong>程度、1銘柄ごとのリサーチの深さを訴求</li>
+      <li><strong>バリュー投資戦略</strong>をフォーカス：本質的価値（Intrinsic Value）に対する割安さを重視</li>
+      <li>純資産総額 <strong>500億円以上</strong>を中心に、マーケティング手法が優れたものは規模を問わず収録</li>
+    </ul>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-num">20本</div><div class="stat-label">分析対象ファンド</div></div>
+    <div class="stat-card"><div class="stat-num">20〜60</div><div class="stat-label">平均組入銘柄数</div></div>
+    <div class="stat-card"><div class="stat-num">&lt;15%</div><div class="stat-label">平均回転率</div></div>
+    <div class="stat-card"><div class="stat-num">85%+</div><div class="stat-label">平均アクティブシェア</div></div>
+  </div>
+
+  <h3>対象ファンド一覧（国内）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ファンド名</th><th>運用会社</th><th>対象</th><th>純資産(億円)</th><th>銘柄数</th><th>バリュー度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>スパークス・新・国際優良日本株（厳選投資）</strong></td><td>スパークス</td><td>日本株</td><td>2,897</td><td>約20</td><td>バフェット流バリュー</td></tr>
+        <tr><td><strong>さわかみファンド</strong></td><td>さわかみ投信</td><td>日本株</td><td>5,035</td><td>約100</td><td>長期応援バリュー</td></tr>
+        <tr><td><strong>おおぶね（長期厳選投資）</strong></td><td>NVIC</td><td>米国株</td><td>774</td><td>約25</td><td>クオリティバリュー</td></tr>
+        <tr><td><strong>コモンズ30ファンド</strong></td><td>コモンズ投信</td><td>日本株</td><td>880</td><td>約30</td><td>長期バリュー</td></tr>
+        <tr><td><strong>結い2101</strong></td><td>鎌倉投信</td><td>日本株</td><td>539</td><td>約65</td><td>社会的バリュー</td></tr>
+        <tr><td><strong>ひふみプラス</strong></td><td>レオス</td><td>日本株+海外</td><td>7,593</td><td>約200</td><td>割安成長</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>対象ファンド一覧（海外 - バリュー戦略フォーカス）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ファンド名</th><th>運用会社</th><th>AUM(概算)</th><th>銘柄数</th><th>バリュー・スタイル</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fundsmith Equity Fund</strong></td><td>Fundsmith LLP</td><td>約145億ポンド</td><td>約28</td><td>クオリティ・コンパウンダー</td></tr>
+        <tr><td><strong>Dodge &amp; Cox Stock Fund</strong></td><td>Dodge &amp; Cox</td><td>数百億ドル</td><td>約70</td><td>ディープ・バリュー</td></tr>
+        <tr><td><strong>First Eagle Global Fund</strong></td><td>First Eagle</td><td>約706億ドル</td><td>約130</td><td>マージン・オブ・セーフティ</td></tr>
+        <tr><td><strong>Oakmark Fund</strong></td><td>Harris Associates</td><td>数百億ドル</td><td>約50</td><td>コントラリアン・バリュー</td></tr>
+        <tr><td><strong>Tweedy, Browne Global Value</strong></td><td>Tweedy, Browne</td><td>約65億ドル</td><td>約55</td><td>グレアム＆ドッド流</td></tr>
+        <tr><td><strong>Longleaf Partners Fund</strong></td><td>Southeastern AM</td><td>約25億ドル</td><td>約25</td><td>ディープ・バリュー集中</td></tr>
+        <tr><td><strong>Brandes Global Value</strong></td><td>Brandes Investment</td><td>数十億ドル</td><td>約50</td><td>グレアム＆ドッド流</td></tr>
+        <tr><td><strong>Akre Focus Fund</strong></td><td>Akre Capital</td><td>約91億ドル</td><td>約18</td><td>コンパウンダー</td></tr>
+        <tr><td><strong>Artisan Value Fund</strong></td><td>Artisan Partners</td><td>数十億ドル</td><td>約40</td><td>ガープ(GARP)</td></tr>
+        <tr><td><strong>Causeway International Value</strong></td><td>Causeway Capital</td><td>数十億ドル</td><td>約50</td><td>定量+定性バリュー</td></tr>
+        <tr><td><strong>GMO Quality Fund</strong></td><td>GMO</td><td>数十億ドル</td><td>約40</td><td>クオリティ・バリュー</td></tr>
+        <tr><td><strong>Baillie Gifford Scottish Mortgage</strong></td><td>Baillie Gifford</td><td>約120億ポンド</td><td>約50</td><td>長期成長（参考）</td></tr>
+        <tr><td><strong>Sands Capital Global Growth</strong></td><td>Sands Capital</td><td>数十億ドル</td><td>25〜50</td><td>グロース（参考）</td></tr>
+        <tr><td><strong>Lindsell Train Global Equity</strong></td><td>Lindsell Train</td><td>数十億ポンド</td><td>20〜35</td><td>ブランド・コンパウンダー</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">バリューファンドのスタイル分布（対象20ファンド）</div>
+    <canvas id="chartStyleDist" height="200"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 2 -->
+<!-- ============================================================ -->
+<section class="section" id="sec2">
+  <h2>2. 銘柄厳選型ファンドの5大マーケティング要素</h2>
+
+  <div class="chart-container">
+    <div class="chart-title">銘柄厳選型ファンドにおけるマーケティング要素の採用率（20ファンド中）</div>
+    <canvas id="chartElements" height="220"></canvas>
+  </div>
+
+  <div class="pattern-title">要素A：独自の銘柄選定フレームワーク（採用率 100%）</div>
+  <div class="pattern-box">
+    <p>全ファンドが「なぜこの銘柄を選んだのか」を3〜6項目のフレームワークに集約し、販売用資料の中核に据えている。</p>
+    <div class="fund-grid">
+      <div class="fund-card">
+        <h4>スパークス「厳選投資」</h4>
+        <p class="fund-company">5つの投資基準</p>
+        <ul>
+          <li>シンプルなビジネスモデル</li>
+          <li>本質的に安全なビジネス</li>
+          <li>高い参入障壁</li>
+          <li>持続可能な高ROEと利益成長</li>
+          <li>潤沢なキャッシュフロー創出</li>
+        </ul>
+      </div>
+      <div class="fund-card">
+        <h4>Fundsmith</h4>
+        <p class="fund-company">6つの定性基準</p>
+        <ul>
+          <li>高い使用資本利益率（ROCE）</li>
+          <li>模倣困難な競争優位性</li>
+          <li>レバレッジに依存しないビジネス</li>
+          <li>再投資による確実な成長</li>
+          <li>テクノロジー変化への耐性</li>
+          <li>魅力的なバリュエーション</li>
+        </ul>
+      </div>
+      <div class="fund-card">
+        <h4>Akre Capital</h4>
+        <p class="fund-company">三脚のスツール（3要件）</p>
+        <ul>
+          <li><strong>Business</strong>：競争優位性、高ROIC</li>
+          <li><strong>Management</strong>：株主をパートナーに</li>
+          <li><strong>Reinvestment</strong>：高利回りの再投資機会</li>
+        </ul>
+      </div>
+      <div class="fund-card">
+        <h4>Longleaf Partners</h4>
+        <p class="fund-company">3つの必須条件</p>
+        <ul>
+          <li>強い事業を持つ優良企業であること</li>
+          <li>株主志向の有能な経営陣</li>
+          <li><strong>本質的価値の60%以下</strong>で買えること</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-title">要素B：スクリーニング・ファネル図（採用率 80%）</div>
+  <div class="pattern-box">
+    <p>「数千社の中からたった数十社を選び抜く」プロセスを漏斗型の図で可視化。絞り込みの劇的さがインパクトの源泉。</p>
+    <div class="funnel-step"><div class="funnel-num">1</div><div class="funnel-content"><strong>投資ユニバース</strong>：全世界 5,000社以上</div></div>
+    <div class="funnel-step"><div class="funnel-num">2</div><div class="funnel-content"><strong>定量スクリーニング</strong>：時価総額・ROCE・成長率等 → 約500社</div></div>
+    <div class="funnel-step"><div class="funnel-num">3</div><div class="funnel-content"><strong>バリュエーション判定</strong>：本質的価値に対する割安度の計測 → 約100社</div></div>
+    <div class="funnel-step"><div class="funnel-num">4</div><div class="funnel-content"><strong>定性調査・経営者面談</strong>：競争優位性・経営の質・持続性 → 約50社</div></div>
+    <div class="funnel-step"><div class="funnel-num">5</div><div class="funnel-content"><strong>マージン・オブ・セーフティ確認</strong>：最終ポートフォリオ <strong>20〜50銘柄</strong></div></div>
+  </div>
+
+  <div class="pattern-title">要素C：ポートフォリオの「質」の数値化（採用率 85%）</div>
+  <div class="pattern-box">
+    <p>Fundsmithが開拓した「ポートフォリオを1社に見立て、インデックスと財務指標を比較する」手法。バリューファンドではバリュエーション指標の比較がさらに加わる。</p>
+    <div class="chart-container">
+      <div class="chart-title">Fundsmith型：ポートフォリオ品質指標 vs S&amp;P 500</div>
+      <canvas id="chartQuality" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="pattern-title">要素D：マネージャーの自己投資と利害の一致（採用率 75%）</div>
+  <div class="pattern-box">
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h4>Fundsmith</h4>
+        <div class="label">Terry Smith自己投資額</div>
+        <div class="big-num">&pound;2.5億+</div>
+      </div>
+      <div class="visual-card">
+        <h4>Dodge &amp; Cox</h4>
+        <div class="label">投資委員会メンバー</div>
+        <div class="big-num">全員投資</div>
+        <div class="label" style="margin-top:4px">平均在籍年数 23年</div>
+      </div>
+      <div class="visual-card">
+        <h4>Longleaf Partners</h4>
+        <div class="label">経営陣の自己投資</div>
+        <div class="big-num">$数億</div>
+        <div class="label" style="margin-top:4px">ファンド最大の投資家グループ</div>
+      </div>
+      <div class="visual-card">
+        <h4>Oakmark</h4>
+        <div class="label">Bill Nygren自己投資</div>
+        <div class="big-num">公開</div>
+        <div class="label" style="margin-top:4px">「実験台は自分の資金」</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-title">要素E：低回転率 = 確信度の証明（採用率 70%）</div>
+  <div class="pattern-box">
+    <div class="chart-container">
+      <div class="chart-title">バリューファンドの年間ポートフォリオ回転率（推定）</div>
+      <canvas id="chartTurnover" height="180"></canvas>
+    </div>
+    <div class="insight-box"><strong>ポイント：</strong>Fundsmithの「Do nothing」、おおぶねの「売る必要のない企業しか買わない」、さわかみの「バイ・アンド・ホールド」。「頻繁に売買しない＝それだけ確信がある」という逆説的なストーリーが、バリューファンドのマーケティングの核。</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 3 -->
+<!-- ============================================================ -->
+<section class="section" id="sec3">
+  <h2>3. キャッチコピー・スローガン比較</h2>
+
+  <h3>海外バリューファンドのキャッチコピー</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ファンド</th><th>キャッチコピー / スローガン</th><th>訴求の核</th></tr></thead>
+      <tbody>
+        <tr><td>Fundsmith</td><td><strong>"Buy good companies, Don't overpay, Do nothing"</strong></td><td>究極のシンプルさ</td></tr>
+        <tr><td>Dodge &amp; Cox</td><td><strong>「一時的に市場で過小評価されている優良企業」</strong></td><td>逆張りの論理性</td></tr>
+        <tr><td>First Eagle</td><td><strong>"Margin of Safety" / "Scarce, Durable Assets"</strong></td><td>安全余裕の確保</td></tr>
+        <tr><td>Oakmark</td><td><strong>"Value Investing Redefined"</strong></td><td>バリューの再定義</td></tr>
+        <tr><td>Longleaf Partners</td><td><strong>"Value Investors Since 1975"</strong></td><td>半世紀の一貫性</td></tr>
+        <tr><td>Tweedy, Browne</td><td><strong>「グレアム＆ドッドの直系継承者」</strong></td><td>正統な系譜</td></tr>
+        <tr><td>Brandes</td><td><strong>"We buy stocks that nobody wants"</strong></td><td>逆張りの覚悟</td></tr>
+        <tr><td>Akre Capital</td><td><strong>"Compounding Machines"</strong></td><td>複利の力</td></tr>
+        <tr><td>Artisan Value</td><td><strong>"Better, Safer, Cheaper"</strong></td><td>3要件の簡潔さ</td></tr>
+        <tr><td>GMO Quality</td><td><strong>「7年実質リターン予測」</strong></td><td>定量的予測力</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>国内バリューファンドのキャッチコピー</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ファンド</th><th>キャッチコピー / スローガン</th><th>訴求の核</th></tr></thead>
+      <tbody>
+        <tr><td>スパークス厳選投資</td><td><strong>「魅力的なビジネスと卓越した経営陣を安く買う」</strong></td><td>バフェット流の信頼感</td></tr>
+        <tr><td>さわかみファンド</td><td><strong>「投資は、10年後への投票だ。」</strong></td><td>社会貢献と両立</td></tr>
+        <tr><td>おおぶね</td><td><strong>「売る必要のない企業しか買わない」</strong></td><td>構造的強靭さ</td></tr>
+        <tr><td>コモンズ30</td><td><strong>「長期・厳選・対話」「30年の目線で30社に投資」</strong></td><td>超長期視点</td></tr>
+        <tr><td>結い2101</td><td><strong>「投資の果実は、一つではない」</strong></td><td>社会的リターン</td></tr>
+        <tr><td>ひふみ投信</td><td><strong>「守りながらふやす」</strong></td><td>攻守のバランス</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">キャッチコピーの訴求タイプ分布</div>
+    <canvas id="chartCopyCat" height="200"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 4 -->
+<!-- ============================================================ -->
+<section class="section" id="sec4">
+  <h2>4. 販売用資料のデータ・グラフ類型</h2>
+
+  <div class="chart-container">
+    <div class="chart-title">販売用資料に登場するデータ・グラフの種類（20ファンド中の採用数）</div>
+    <canvas id="chartDataTypes" height="280"></canvas>
+  </div>
+
+  <div class="fund-grid">
+    <div class="fund-card">
+      <h4>1. 設定来累積パフォーマンス</h4>
+      <p class="fund-company">採用率：100%（20/20ファンド）</p>
+      <p>ベンチマーク比較付き折れ線グラフ。バリューファンドは「ベンチマークは設けない」としつつ「参考指数」として横に並べるパターンが主流。</p>
+    </div>
+    <div class="fund-card">
+      <h4>2. 組入銘柄の投資仮説</h4>
+      <p class="fund-company">採用率：90%（18/20ファンド）</p>
+      <p>上位銘柄の「なぜこの銘柄か」を1銘柄あたり数行〜半ページで説明。Oakmarkは各銘柄の「本質的価値への回帰シナリオ」を詳述。</p>
+    </div>
+    <div class="fund-card">
+      <h4>3. バリュエーション比較表</h4>
+      <p class="fund-company">採用率：85%（17/20ファンド）</p>
+      <p>PER・PBR・EV/EBITDAをベンチマークと比較する棒グラフ。<strong>バリューファンド特有</strong>の最重要データ。「私たちのポートフォリオはこれだけ割安」を数字で証明。</p>
+    </div>
+    <div class="fund-card">
+      <h4>4. ファネル（絞り込み）図</h4>
+      <p class="fund-company">採用率：80%（16/20ファンド）</p>
+      <p>数千社→数十社の絞り込みプロセスを漏斗型で表示。おおぶね、Sands Capital、スパークスが特に効果的。</p>
+    </div>
+    <div class="fund-card">
+      <h4>5. ダウンサイド・キャプチャー比率</h4>
+      <p class="fund-company">採用率：70%（14/20ファンド）</p>
+      <p><strong>バリューファンド特有</strong>。下落局面でベンチマークの何%しか下がらなかったかを数値化。First Eagleは「過去20年の全下落局面で平均75%のキャプチャー」と訴求。</p>
+    </div>
+    <div class="fund-card">
+      <h4>6. 本質的価値 vs 市場価格の概念図</h4>
+      <p class="fund-company">採用率：65%（13/20ファンド）</p>
+      <p><strong>バリューファンド最重要の概念図</strong>。本質的価値（上昇トレンド線）と市場価格（変動する線）のギャップを「マージン・オブ・セーフティ」として図示。</p>
+    </div>
+    <div class="fund-card">
+      <h4>7. ポートフォリオ品質指標テーブル</h4>
+      <p class="fund-company">採用率：85%（17/20ファンド）</p>
+      <p>ROCE・営業利益率・FCF利回りをインデックスと比較。Fundsmithが最も洗練。日本ではスパークスが類似手法。</p>
+    </div>
+    <div class="fund-card">
+      <h4>8. バリュー vs グロース長期比較</h4>
+      <p class="fund-company">採用率：55%（11/20ファンド）</p>
+      <p><strong>バリューファンド特有</strong>。DFAの1927年以降のデータが最も体系的。「バリュープレミアム年率4.4%」を学術エビデンスとして提示。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 5 -->
+<!-- ============================================================ -->
+<section class="section" id="sec5">
+  <h2>5. ファンド別マーケティング詳細分析（国内）</h2>
+
+  <h3>5-1. スパークス「厳選投資」- バフェット流バリューの代名詞（純資産2,897億円）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">スパークス・アセット・マネジメント ｜ 日本株 ｜ 約20銘柄</div>
+    <p><span class="tag tag-value">バリュー</span><span class="tag tag-concept">独自概念</span><span class="tag tag-performance">長期実績</span></p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>販売資料の要素</th><th>具体的な内容</th><th>訴求の狙い</th></tr></thead>
+      <tbody>
+        <tr><td>投資哲学</td><td>「魅力的なビジネスと卓越した経営陣を安く買う」</td><td>バフェット流の信頼感</td></tr>
+        <tr><td>バリューギャップ図</td><td>実態価値と市場価格の乖離を概念図で表示</td><td>バリュー投資の核心を可視化</td></tr>
+        <tr><td>3つの着眼点</td><td>(a)経営者の質 (b)企業収益の質 (c)市場の成長性</td><td>銘柄選定の透明性</td></tr>
+        <tr><td>マージン・オブ・セーフティ</td><td>安全余裕を確認して投資判断する明示</td><td>リスク管理の姿勢</td></tr>
+        <tr><td>個別銘柄の投資仮説</td><td>セブン＆アイ、オリックス等の経営戦略を詳述</td><td>リサーチの深さの証拠</td></tr>
+        <tr><td>受賞歴</td><td>R&amp;Iファンド大賞 5年以上連続受賞</td><td>第三者評価による権威付け</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="insight-box"><strong>バリュー特有の見せ方：</strong>「3〜5年の累積リターンで評価されるべき」と明記し、短期パフォーマンスへの期待値をコントロール。20銘柄という極端な集中は「バリューギャップが十分に大きい銘柄だけに投資する」という選定の厳しさで正当化。ベンチマークを「設けない」としつつ「参考指数」としてTOPIXを横に並べる業界標準テクニック。</div>
+
+  <h3>5-2. おおぶね（NVIC）- マーケティング革新の成功事例（純資産774億円）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">農林中金バリューインベストメンツ ｜ 米国株 ｜ 約25銘柄</div>
+    <p><span class="tag tag-value">クオリティバリュー</span><span class="tag tag-brand">ブランド革新</span><span class="tag tag-concept">独自概念</span></p>
+  </div>
+
+  <div class="concept-diagram">
+    <div class="concept-node"><div class="node-title">高い産業付加価値</div><div class="node-desc">参入障壁が高い産業</div></div>
+    <div class="concept-arrow">+</div>
+    <div class="concept-node"><div class="node-title">圧倒的な競争優位性</div><div class="node-desc">企業固有の強み</div></div>
+    <div class="concept-arrow">+</div>
+    <div class="concept-node"><div class="node-title">長期潮流</div><div class="node-desc">不可逆的なトレンド</div></div>
+    <div class="concept-arrow">=</div>
+    <div class="concept-node" style="background:linear-gradient(135deg,#d69e2e,#b7791f)"><div class="node-title">構造的に強靭な企業&reg;</div><div class="node-desc">おおぶねの投資対象</div></div>
+  </div>
+
+  <div class="visual-grid">
+    <div class="visual-card">
+      <h4>マーケティング革新の効果</h4>
+      <div class="label">「刀」協業後の口座数変化</div>
+      <div class="big-num">7倍</div>
+    </div>
+    <div class="visual-card">
+      <h4>純資産総額の成長</h4>
+      <div class="label">ブランド刷新後</div>
+      <div class="big-num">13倍</div>
+    </div>
+    <div class="visual-card">
+      <h4>CIO著書の販売部数</h4>
+      <div class="label">奥野一成氏 累計</div>
+      <div class="big-num">3万部超</div>
+    </div>
+    <div class="visual-card">
+      <h4>信託報酬</h4>
+      <div class="label">アクティブ最低水準</div>
+      <div class="big-num">0.99%</div>
+    </div>
+  </div>
+  <div class="insight-box"><strong>森岡毅氏の洞察：</strong>「投資家が求めるのは安心感であり、安心感の正体は自分が正しい判断をしているという自信感」。この分析に基づき、ファンド名を「農林中金＜パートナーズ＞長期厳選投資」から「おおぶね」に変更。金融業界における本格的なマーケティング改革の最大の成功事例。</div>
+
+  <h3>5-3. コモンズ30ファンド - 「見えない価値」の可視化（純資産880億円）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">コモンズ投信 ｜ 日本株 ｜ 約30銘柄</div>
+    <p><span class="tag tag-value">長期バリュー</span><span class="tag tag-concept">5軸評価</span><span class="tag tag-data">積立データ</span></p>
+  </div>
+  <div class="chart-container">
+    <div class="chart-title">コモンズ30 独自の5軸評価フレームワーク</div>
+    <canvas id="chartCommons5" height="260"></canvas>
+  </div>
+  <div class="visual-grid">
+    <div class="visual-card">
+      <h4>5年以上積立継続のお客さま</h4>
+      <div class="label">プラスリターンの割合</div>
+      <div class="big-num">99.7%</div>
+    </div>
+    <div class="visual-card">
+      <h4>投資判断の方法</h4>
+      <div class="label">投資委員会</div>
+      <div class="big-num">全員一致</div>
+      <div class="label" style="margin-top:4px">多数決ではない</div>
+    </div>
+  </div>
+
+  <h3>5-4. さわかみファンド - 直販の先駆者（純資産5,035億円）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">さわかみ投信 ｜ 日本株 ｜ 約100銘柄</div>
+    <p><span class="tag tag-value">長期応援バリュー</span><span class="tag tag-brand">パイオニア</span><span class="tag tag-safety">全開示</span></p>
+  </div>
+  <div class="visual-grid">
+    <div class="visual-card">
+      <h4>設定来リターン</h4>
+      <div class="label">1999年設定</div>
+      <div class="big-num">+394%</div>
+    </div>
+    <div class="visual-card">
+      <h4>顧客の平均保有年数</h4>
+      <div class="label">業界平均の3倍</div>
+      <div class="big-num">10年超</div>
+    </div>
+    <div class="visual-card">
+      <h4>分配金実績</h4>
+      <div class="label">設定来26期連続</div>
+      <div class="big-num">0円</div>
+      <div class="label" style="margin-top:4px">全額再投資で複利効果</div>
+    </div>
+    <div class="visual-card">
+      <h4>全銘柄を毎月公開</h4>
+      <div class="label">業界随一の透明性</div>
+      <div class="big-num">全開示</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 6 -->
+<!-- ============================================================ -->
+<section class="section" id="sec6">
+  <h2>6. ファンド別マーケティング詳細分析（海外）</h2>
+
+  <h3>6-1. Fundsmith - 「9つのNo」によるブランディング（AUM約145億ポンド）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">Fundsmith LLP ｜ グローバル株式 ｜ 約28銘柄</div>
+    <p><span class="tag tag-value">クオリティ</span><span class="tag tag-concept">9つのNo</span><span class="tag tag-performance">設定来+612%</span></p>
+  </div>
+  <blockquote>
+    <p><strong>"No Fees for Performance, No Up Front Fees, No Nonsense, No Debt or Derivatives, No Shorting, No Market Timing, No Index Hugging, No Trading, No Hedging"</strong></p>
+  </blockquote>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>販売資料の要素</th><th>具体的な内容</th><th>バリュー投資との関連</th></tr></thead>
+      <tbody>
+        <tr><td>Owner's Manual（取扱説明書）</td><td>販売資料を「取扱説明書」と命名</td><td>「あなたのファンド」という共同所有感</td></tr>
+        <tr><td>ポートフォリオ品質テーブル</td><td>ROCE 32% vs S&amp;P 16%、営業利益率 30% vs 15%</td><td>「質の高い企業を安く買う」の数値証明</td></tr>
+        <tr><td>回転率 12.7%</td><td>年間の売買がほぼゼロに近い</td><td>「Do nothing」＝確信の深さ</td></tr>
+        <tr><td>月次リターングリッド</td><td>年×月のマトリクスで全月を一覧表示</td><td>透明性と一貫性</td></tr>
+        <tr><td>設定来累積リターン</td><td>+612.9% vs ベンチ+467.6% vs カテゴリ平均+290.8%</td><td>3層比較で優位性を立体的に表示</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6-2. Dodge &amp; Cox - チーム運用の究極形（AUM数百億ドル）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">Dodge &amp; Cox ｜ 米国株式 ｜ 約70銘柄</div>
+    <p><span class="tag tag-value">ディープ・バリュー</span><span class="tag tag-data">低コスト</span><span class="tag tag-brand">チーム運用</span></p>
+  </div>
+  <div class="visual-grid">
+    <div class="visual-card">
+      <h4>投資委員会メンバー</h4>
+      <div class="label">平均在籍年数</div>
+      <div class="big-num">23年</div>
+    </div>
+    <div class="visual-card">
+      <h4>信託報酬</h4>
+      <div class="label">Class I</div>
+      <div class="big-num">0.51%</div>
+      <div class="label" style="margin-top:4px">アクティブで業界最低水準</div>
+    </div>
+    <div class="visual-card">
+      <h4>創業</h4>
+      <div class="label">独立系運用会社</div>
+      <div class="big-num">1930年</div>
+    </div>
+    <div class="visual-card">
+      <h4>統一的な表現</h4>
+      <div class="label">全ファンド共通</div>
+      <div class="big-num" style="font-size:1.1rem">一時的に過小評価されている</div>
+    </div>
+  </div>
+  <div class="insight-box"><strong>バリュー特有の見せ方：</strong>PER（12ヶ月先予想EPSベース）をベンチマークと比較し「割安に買っている」を数字で証明。スターマネージャーを作らず「チーム運用」を全面に出すことで、「個人に依存しない持続的なバリュー投資」を訴求。低コスト（0.51%）を競合アクティブファンドと比較して強調。</div>
+
+  <h3>6-3. First Eagle Global - ゴールドで守るバリュー投資（AUM約706億ドル）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">First Eagle Investments ｜ グローバル ｜ 約130銘柄</div>
+    <p><span class="tag tag-value">マージン・オブ・セーフティ</span><span class="tag tag-safety">ゴールドヘッジ</span><span class="tag tag-performance">1979年設定来</span></p>
+  </div>
+  <div class="chart-container">
+    <div class="chart-title">First Eagle：ポートフォリオ構成概念</div>
+    <canvas id="chartFirstEagle" height="200"></canvas>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>バリュー特有のデータ</th><th>具体的な内容</th><th>訴求効果</th></tr></thead>
+      <tbody>
+        <tr><td>ゴールド保有比率</td><td>ポートフォリオの<strong>約11%</strong></td><td>下落の「保険」</td></tr>
+        <tr><td>ダウンサイド・キャプチャー</td><td>過去全下落局面で平均<strong>75%</strong></td><td>下がる時は市場より下がらない</td></tr>
+        <tr><td>現金比率の活用</td><td>「機会の温度計」として割高時は現金を増やす</td><td>カウンターシクリカル（逆張り）</td></tr>
+        <tr><td>設定来トラックレコード</td><td><strong>1979年設定</strong>、45年以上の実績</td><td>複数のサイクルを乗り越えた証拠</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6-4. Oakmark - バリューの再定義（AUM数百億ドル）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">Harris Associates ｜ 米国株式 ｜ 約50銘柄</div>
+    <p><span class="tag tag-value">コントラリアン</span><span class="tag tag-concept">再定義</span><span class="tag tag-data">個別仮説</span></p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>バリュー特有のデータ</th><th>具体的な内容</th><th>訴求効果</th></tr></thead>
+      <tbody>
+        <tr><td>「バリューの再定義」</td><td>低PERだけがバリューではない</td><td>「質の高いバリュー」の差別化</td></tr>
+        <tr><td>本質的価値推定の公開</td><td>各銘柄の「回帰シナリオ」を詳述</td><td>投資仮説の透明性</td></tr>
+        <tr><td>Bill Nygren レター</td><td>四半期ごとの投資家向けレター</td><td>マネージャーの思考プロセスの共有</td></tr>
+        <tr><td>7年の平均保有期間</td><td>バリュー認識→市場再評価のサイクル</td><td>忍耐の正当化</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6-5. Longleaf Partners - 「60%以下で買う」という絶対ルール（AUM約25億ドル）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">Southeastern Asset Management ｜ 集中バリュー ｜ 約25銘柄</div>
+    <p><span class="tag tag-value">ディープ・バリュー</span><span class="tag tag-safety">60%ルール</span><span class="tag tag-brand">1975年設立</span></p>
+  </div>
+  <div class="highlight-box">
+    <h4>Longleaf Partners の「60%ルール」</h4>
+    <p>「本質的価値の推定額の60%以下でしか買わない」という絶対的な購入基準を公開。これにより：</p>
+    <ul>
+      <li><strong>40%以上のマージン・オブ・セーフティ</strong>を確保</li>
+      <li>基準を満たす銘柄がない場合は<strong>現金を積み上げる</strong>（割高局面では投資しない）</li>
+      <li>「ボラティリティは我々の友人」— 市場の恐怖が買い場を生む</li>
+    </ul>
+  </div>
+
+  <h3>6-6. Tweedy, Browne - グレアム＆ドッドの正統継承者（AUM約65億ドル）</h3>
+  <div class="fund-card" style="border-left:4px solid #d69e2e">
+    <div class="fund-company">Tweedy, Browne ｜ グローバル ｜ 約55銘柄</div>
+    <p><span class="tag tag-value">グレアム＆ドッド</span><span class="tag tag-data">学術エビデンス</span><span class="tag tag-brand">歴史的正統性</span></p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>マーケティング要素</th><th>具体的な内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>歴史的正統性</strong></td><td>ベンジャミン・グレアムの直弟子が創業。バフェットのブローカーを務めた歴史。</td></tr>
+        <tr><td><strong>学術論文「What Has Worked in Investing」</strong></td><td>バリュー投資の有効性を44のケーススタディで実証した自社リサーチペーパー。無料配布。</td></tr>
+        <tr><td><strong>5つの割安性指標</strong></td><td>低PER、低PBR、低株価/ネット流動資産比、インサイダー購入、自社株買いの5つで銘柄を選定。</td></tr>
+        <tr><td><strong>グローバル分散バリュー</strong></td><td>「割安な株は世界中にある」— 日本・欧州など米国以外の割安市場にも積極投資。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 7 -->
+<!-- ============================================================ -->
+<section class="section" id="sec7">
+  <h2>7. バリュー戦略特有のビジュアル・マーケティング手法</h2>
+
+  <p>バリューファンドの販売用資料には、グロース型にはない<strong>固有のビジュアル手法</strong>がある。ここではその類型と効果を分析する。</p>
+
+  <h3>7-1. 「本質的価値 vs 市場価格」の概念図</h3>
+  <div class="chart-container">
+    <div class="chart-title">バリュー投資の核心：Intrinsic Value vs Market Price</div>
+    <canvas id="chartIntrinsic" height="260"></canvas>
+    <div class="chart-source">スパークス「厳選投資」の「バリューギャップ」、First Eagleの「Margin of Safety」、Longleafの「60%ルール」は全てこの概念の変形</div>
+  </div>
+  <div class="insight-box"><strong>ポイント：</strong>この概念図はバリューファンドの販売用資料で最も重要な単一ビジュアル。「本質的価値は緩やかに上昇するが、市場価格はその周りを上下に振れる」→「下に振れた時に買い、上に振れた時に売る」というバリュー投資のストーリーを一枚の図で伝える。スパークスの「バリューギャップ」、First Eagleの「Margin of Safety」、Longleafの「60%ルール」は全てこの図の変形。</div>
+
+  <h3>7-2. バリュエーション比較チャート</h3>
+  <div class="chart-grid">
+    <div class="chart-container">
+      <div class="chart-title">PER比較：バリューファンド vs ベンチマーク</div>
+      <canvas id="chartPER" height="200"></canvas>
+    </div>
+    <div class="chart-container">
+      <div class="chart-title">配当利回り比較</div>
+      <canvas id="chartDivYield" height="200"></canvas>
+    </div>
+  </div>
+  <div class="insight-box"><strong>バリュー特有の手法：</strong>PER・PBR・配当利回りをベンチマークと並べて「割安」を視覚的に証明する棒グラフは、バリューファンドのファクトシートに必ず登場する。グロースファンドは売上成長率やTAM（市場規模）のグラフが中心であるのと対照的。</div>
+
+  <h3>7-3. ダウンサイド・プロテクションのデータ</h3>
+  <div class="chart-container">
+    <div class="chart-title">下落局面でのキャプチャー比率（下落時にどれだけ防いだか）</div>
+    <canvas id="chartDownside" height="200"></canvas>
+  </div>
+  <p>バリューファンドは「上がる時の話」よりも<strong>「下がる時にどれだけ守れるか」</strong>を重視してマーケティングする。これはバリュー投資の本質（マージン・オブ・セーフティ）と直結しており、最も説得力のあるデータポイント。</p>
+
+  <h3>7-4. バリュー vs グロース 長期パフォーマンス比較</h3>
+  <div class="chart-container">
+    <div class="chart-title">DFA型：バリュープレミアムの歴史的エビデンス（1927〜2025年）</div>
+    <canvas id="chartValuePremium" height="220"></canvas>
+  </div>
+  <div class="insight-box"><strong>DFAの手法：</strong>1927年以降のデータで「バリュー株は年平均4.4%グロース株をアウトパフォーム」を示す。さらに「保有期間が長いほどバリュープレミアムの実現確率が上がる」（10年保有で83%の確率）というデータで、長期投資の正当性を学術的に裏付ける。</div>
+
+  <h3>7-5. GMOの「7年実質リターン予測」チャート</h3>
+  <div class="chart-container">
+    <div class="chart-title">GMO型：資産クラス別 7年実質リターン予測（概念図）</div>
+    <canvas id="chartGMO" height="200"></canvas>
+  </div>
+  <div class="insight-box"><strong>GMOの手法：</strong>ジェレミー・グランサム率いるGMOは、毎月更新の「7年実質リターン予測」を公開。現在のバリュエーションから各資産クラスの今後7年のリターンを予測。バリュー株が割安な局面では「バリュー > グロース」の予測を示し、「なぜ今バリューか」のタイムリーなエビデンスとして活用。</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 8 -->
+<!-- ============================================================ -->
+<section class="section" id="sec8">
+  <h2>8. 「なぜ今バリューなのか」の販促ロジック</h2>
+
+  <p>バリューファンドの販売用資料に必ず存在するセクション。「なぜバリュー戦略が今こそ有利なのか」を説得する定番のロジック構造。</p>
+
+  <div class="funnel-step"><div class="funnel-num">1</div><div class="funnel-content"><strong>バリュープレミアムの学術的根拠</strong><br>Fama-French（1992年）の3ファクターモデル、DFAの1927年以降のデータ。「バリュー株は長期的にグロース株をアウトパフォームする」という学術的コンセンサスの提示。</div></div>
+
+  <div class="funnel-step"><div class="funnel-num">2</div><div class="funnel-content"><strong>サイクル論：バリューの「冬の時代」の終焉</strong><br>2007〜2020年のグロース優位の長期サイクルを図示し、「歴史的に見てバリューの反転期は目前」と主張。Mean Reversion（平均回帰）のデータを提示。</div></div>
+
+  <div class="funnel-step"><div class="funnel-num">3</div><div class="funnel-content"><strong>金利環境の変化</strong><br>「資本コストがゼロでなくなると、何に支払うかが重要になる」。ゼロ金利時代はグロース株のDCF（割引キャッシュフロー）が有利だったが、金利正常化によりバリュー株の相対的魅力が増す理論。</div></div>
+
+  <div class="funnel-step"><div class="funnel-num">4</div><div class="funnel-content"><strong>現在のバリュエーション格差</strong><br>グロース株 vs バリュー株のPER倍率差が歴史的高水準にあることをグラフで示し、「バリューの割安さは今が最も魅力的」と結論。</div></div>
+
+  <div class="chart-container">
+    <div class="chart-title">バリュー vs グロース：スタイル別PER推移（概念図）</div>
+    <canvas id="chartStylePER" height="220"></canvas>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 9 -->
+<!-- ============================================================ -->
+<section class="section" id="sec9">
+  <h2>9. バリュートラップと期待値コントロール</h2>
+
+  <p>バリューファンドが必ず直面する2大リスク（バリュートラップと短期アンダーパフォーム）への対処法を、販売用資料でどう説明しているかを分析。</p>
+
+  <h3>9-1. バリュートラップへの対処説明</h3>
+  <div class="vs-block">
+    <div class="vs-side">
+      <h4 style="color:#e53e3e">バリュートラップとは？</h4>
+      <p>「安い」と思って買ったが、安いのには理由があり（構造的な衰退、ビジネスモデルの崩壊等）、<strong>いつまで経っても株価が回復しない</strong>銘柄に投資してしまうこと。</p>
+    </div>
+    <div class="vs-divider">vs</div>
+    <div class="vs-side">
+      <h4 style="color:#38a169">各ファンドの回避策</h4>
+      <p>「割安さだけでなく<strong>事業の質を同時に評価</strong>する」ことでトラップを回避。具体的には：</p>
+      <ul>
+        <li><strong>Fundsmith</strong>：「良い会社を安く買う」（安い会社ではない）</li>
+        <li><strong>Oakmark</strong>：「バリューの再定義」— 質を伴う割安さ</li>
+        <li><strong>Artisan</strong>：「Better, Safer, Cheaper」の3条件全てが必要</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">バリュートラップ回避の手法（20ファンド中の採用率）</div>
+    <canvas id="chartTrap" height="200"></canvas>
+  </div>
+
+  <h3>9-2. 短期アンダーパフォームの期待値コントロール</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>手法</th><th>具体的な表現</th><th>採用ファンド例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>投資時間軸の明示</strong></td><td>「3〜5年の累積リターンで評価されるべき」</td><td>スパークス、Dodge &amp; Cox</td></tr>
+        <tr><td><strong>Active Shareの提示</strong></td><td>「アクティブシェア88%＝市場と異なる動きをする」</td><td>Fundsmith、Oakmark</td></tr>
+        <tr><td><strong>逆張りの正当化</strong></td><td>「短期の不人気＝長期の超過リターンの源泉」</td><td>Brandes、Longleaf</td></tr>
+        <tr><td><strong>過去の回復事例</strong></td><td>「2020年のコロナショック後に+XX%で回復」</td><td>First Eagle、Dodge &amp; Cox</td></tr>
+        <tr><td><strong>マネージャーの共同投資</strong></td><td>「私たちも同じ船に乗っている」</td><td>Fundsmith、Longleaf</td></tr>
+        <tr><td><strong>DFA型：保有期間と確率</strong></td><td>「10年保有で83%の確率でバリューが勝つ」</td><td>DFA、Tweedy Browne</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 10 -->
+<!-- ============================================================ -->
+<section class="section" id="sec10">
+  <h2>10. 国内 vs 海外：マーケティングスタイル比較</h2>
+
+  <div class="chart-container">
+    <div class="chart-title">マーケティングスタイル比較：国内 vs 海外バリューファンド</div>
+    <canvas id="chartDomVsOverseas" height="280"></canvas>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>国内バリューファンドの傾向</h4>
+      <ul>
+        <li><strong>哲学・想い重視</strong>：「投資は社会への投票」等の理念訴求</li>
+        <li><strong>コミュニティ形成</strong>：受益者総会、企業訪問イベント</li>
+        <li><strong>FM（ファンドマネージャー）の人柄</strong>：著書、動画での人格訴求</li>
+        <li><strong>直販の優位性</strong>：販売会社に影響されない独立性</li>
+        <li><strong>積立投資の実績データ</strong>：「5年以上で99.7%がプラス」</li>
+        <li><strong>ESG・社会貢献</strong>：「いい会社に投資」のナラティブ</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4>海外バリューファンドの傾向</h4>
+      <ul>
+        <li><strong>定量データ重視</strong>：ROCE、PER、ダウンサイドキャプチャー</li>
+        <li><strong>マネージャーの自己投資額</strong>：具体的金額の開示（2.5億ポンド等）</li>
+        <li><strong>学術的バックグラウンド</strong>：Fama-French、DFA等の学術研究を引用</li>
+        <li><strong>「やらないこと」の明示</strong>：9つのNo等の逆説的ブランディング</li>
+        <li><strong>超長期のトラックレコード</strong>：40〜90年の歴史</li>
+        <li><strong>バリュートラップ回避策</strong>の具体的な説明</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>銘柄厳選型と一般的アクティブの販売用資料：ページ配分比較</h3>
+  <div class="chart-container">
+    <div class="chart-title">販売用資料のページ配分比較</div>
+    <canvas id="chartPageAlloc" height="200"></canvas>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>セクション</th><th>銘柄厳選型バリュー（平均）</th><th>一般的アクティブ（平均）</th><th>厳選型バリューの特徴</th></tr></thead>
+      <tbody>
+        <tr><td>表紙・投資哲学</td><td><strong>20%</strong></td><td>8%</td><td>「なぜバリューか」を冒頭で徹底的に説明</td></tr>
+        <tr><td>銘柄選定プロセス</td><td><strong>25%</strong></td><td>10%</td><td>ファネル図＋マージン・オブ・セーフティ</td></tr>
+        <tr><td>個別銘柄の投資仮説</td><td><strong>15%</strong></td><td>5%</td><td>各銘柄の「回帰シナリオ」を記述</td></tr>
+        <tr><td>市場環境</td><td>5%</td><td><strong>25%</strong></td><td>ボトムアップ重視で市場論は最小限</td></tr>
+        <tr><td>パフォーマンス</td><td>15%</td><td><strong>25%</strong></td><td>ダウンサイドプロテクションを強調</td></tr>
+        <tr><td>FM紹介・自己投資</td><td><strong>10%</strong></td><td>2%</td><td>利害の一致を具体的金額で証明</td></tr>
+        <tr><td>リスク・手数料</td><td>10%</td><td>25%</td><td>バリュートラップ回避策を積極説明</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 11 -->
+<!-- ============================================================ -->
+<section class="section" id="sec11">
+  <h2>11. 設計・応用への示唆</h2>
+
+  <div class="gold-box">
+    <h4>示唆1：「本質的価値 vs 市場価格」の概念図を必ず入れる</h4>
+    <p>バリューファンドの販売用資料における最重要ビジュアル。この1枚で「なぜ割安なのか」「なぜ上がるのか」「リスクはどう管理されるのか」の3つを同時に説明できる。スパークスの「バリューギャップ」、First Eagleの「Margin of Safety」は全てこの変形。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆2：ダウンサイド・プロテクションを前面に出す</h4>
+    <p>バリューファンドの最大の差別化は「上がる時」ではなく<strong>「下がる時にどれだけ守れるか」</strong>。First Eagleの「ダウンサイド・キャプチャー75%」は、「市場が20%下落しても、当ファンドは15%の下落で済んだ」と翻訳すると極めて説得力がある。日本のバリューファンドでは、この指標の積極的な活用がまだ少ない。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆3：Fundsmith型「ポートフォリオ品質テーブル」を導入する</h4>
+    <p>「ROCE 32% vs S&amp;P 16%」のような比較テーブルは、「なぜこのファンドに手数料を払う価値があるのか」を即座に理解させる最もシンプルな手法。バリューファンドはさらにPER・配当利回りの比較を加えることで「質が高い上に安い」を数字で証明できる。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆4：「やらないこと」リストの威力</h4>
+    <p>Fundsmithの「9つのNo」は、「やること」ではなく「やらないこと」で差別化する逆説的ブランディング。「空売りしない」「レバレッジを使わない」「頻繁に売買しない」。業界の不透明な慣行への批判を通じて信頼を構築する手法は、日本市場でも応用可能。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆5：バリュートラップの説明は「質のフィルター」で対処</h4>
+    <p>「安い株を買う」ではなく「<strong>良い会社を安く買う</strong>」。Fundsmithの哲学、Artisanの「Better, Safer, Cheaper」、Oakmarkの「Value Investing Redefined」はすべて同じメッセージ：割安さだけでなく事業の質を同時に見ることでバリュートラップを回避する。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆6：おおぶね型「マーケティング専門家との協業」モデル</h4>
+    <p>NVIC×「刀」の協業は、口座数7倍・純資産13倍という驚異的成果を生んだ。「投資家が求める安心感＝自分の判断が正しいという自信感」という森岡氏の洞察は、バリューファンドのマーケティングにおける本質的な問いへの回答。金融商品にもプロフェッショナルなブランディングが効くことを実証した。</p>
+  </div>
+
+  <div class="gold-box">
+    <h4>示唆7：50銘柄前後が「ちょうどいい集中度」</h4>
+    <p>20銘柄（スパークス・Akre）は集中しすぎて短期の振れ幅が大きく、販売時にリスク説明の負担が増す。200銘柄（ひふみ）は実質的に分散型。<strong>50銘柄前後</strong>が「全銘柄の投資仮説を語れる」「適度な分散でリスクを管理できる」の両方を満たすスイートスポット。Oakmark、Tweedy Browne、Scottish Mortgageがこの範囲。</p>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <h2>免責事項 / Disclaimer</h2>
+  <p>本資料は銘柄厳選型（Concentrated / High-Conviction）ファンド20本の販売用資料を分析し、マーケティング手法を整理したものです。特定ファンドの購入・売却を推奨するものではありません。純資産総額・信託報酬等のデータは2026年2〜3月時点の概算値です。投資信託は元本保証がありません。投資判断はご自身の責任で行ってください。</p>
+</div>
+</main>
+
+<footer style="text-align:center;padding:24px 16px;font-size:0.75rem;color:#64748b;border-top:1px solid #334155;margin-top:16px"><p>データ基準: 2026年3月 ｜ 対象: 銘柄厳選型バリューファンド（国内6本・海外14本）</p></footer>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">&#8593;</button>
+
+<script>
+const btn=document.querySelector('.back-to-top');
+window.addEventListener('scroll',()=>{btn.style.display=window.scrollY>600?'flex':'none'});
+
+// Style Distribution Doughnut
+new Chart(document.getElementById('chartStyleDist'),{type:'doughnut',data:{
+  labels:['ディープ・バリュー(5)','クオリティ・バリュー(5)','コンパウンダー(3)','長期バリュー(3)','グロース(参考)(2)','その他(2)'],
+  datasets:[{data:[5,5,3,3,2,2],backgroundColor:['#805ad5','#d69e2e','#48bb78','#6b46c1','#3182ce','#718096']}]
+},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+
+// 5 Marketing Elements
+new Chart(document.getElementById('chartElements'),{type:'bar',data:{
+  labels:['独自フレームワーク','ポートフォリオ品質テーブル','バリュエーション比較','ファネル(絞り込み)図','マネージャー自己投資','設定来パフォーマンス','ダウンサイドキャプチャー','回転率データ','本質的価値 vs 市場価格図','バリュー vs グロース比較'],
+  datasets:[{data:[20,17,17,16,15,20,14,14,13,11],backgroundColor:v=>v.raw>=17?'#d69e2e':v.raw>=14?'#805ad5':'#553c9a',borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:20,ticks:{callback:v=>v+'本'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Quality Indicators
+new Chart(document.getElementById('chartQuality'),{type:'bar',data:{
+  labels:['ROCE','粗利益率','営業利益率','インタレストカバレッジ','FCF利回り'],
+  datasets:[
+    {label:'Fundsmith（28銘柄）',data:[32,64,30,27,3.1],backgroundColor:'#d69e2e',borderRadius:4},
+    {label:'S&P 500',data:[16,40,15,9,2.8],backgroundColor:'#805ad5',borderRadius:4}
+  ]
+},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>v<=5?v+'%':v+(v>10?'倍':'%')},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Turnover
+new Chart(document.getElementById('chartTurnover'),{type:'bar',data:{
+  labels:['Akre Focus','Fundsmith','Lindsell Train','おおぶね(NVIC)','さわかみ','Longleaf Partners','Dodge & Cox','Oakmark','Tweedy Browne','First Eagle'],
+  datasets:[{data:[8,12.7,10,12,15,20,25,25,20,22],backgroundColor:'#d69e2e',borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Catchphrase Categories
+new Chart(document.getElementById('chartCopyCat'),{type:'doughnut',data:{
+  labels:['シンプルさ・哲学(5)','安全余裕・守り(4)','逆張り・勇気(3)','社会貢献・想い(3)','複利・成長(3)','正統性・歴史(2)'],
+  datasets:[{data:[5,4,3,3,3,2],backgroundColor:['#d69e2e','#805ad5','#553c9a','#48bb78','#6b46c1','#718096']}]
+},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+
+// Data Types in Sales Materials
+new Chart(document.getElementById('chartDataTypes'),{type:'bar',data:{
+  labels:['設定来パフォーマンス','組入銘柄の投資仮説','バリュエーション比較表','ポートフォリオ品質テーブル','ファネル(絞り込み)図','ダウンサイドキャプチャー','本質的価値vs市場価格図','バリューvsグロース比較','回転率/保有期間','アクティブシェア','レーダーチャート評価','月次リターングリッド','積立継続実績','7年実質リターン予測'],
+  datasets:[{data:[20,18,17,17,16,14,13,11,14,10,5,4,3,2],
+    backgroundColor:['#d69e2e','#d69e2e','#805ad5','#805ad5','#6b46c1','#805ad5','#553c9a','#553c9a','#6b46c1','#553c9a','#553c9a','#553c9a','#553c9a','#553c9a'],borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:20,ticks:{callback:v=>v+'/20'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Commons 30 Radar
+new Chart(document.getElementById('chartCommons5'),{type:'radar',data:{
+  labels:['収益力','競争力','経営力','対話力','企業文化'],
+  datasets:[
+    {label:'投資先企業（平均）',data:[4.2,4.5,4.0,3.8,4.3],borderColor:'#d69e2e',backgroundColor:'rgba(214,158,46,0.15)',pointRadius:5},
+    {label:'TOPIX構成銘柄（平均）',data:[3.0,3.2,2.8,2.5,2.7],borderColor:'#805ad5',backgroundColor:'rgba(128,90,213,0.15)',pointRadius:5}
+  ]
+},options:{responsive:true,scales:{r:{min:0,max:5,ticks:{stepSize:1,display:false},grid:{color:'#334155'},angleLines:{color:'#334155'},pointLabels:{font:{size:12}}}},plugins:{legend:{position:'bottom'}}}});
+
+// First Eagle Doughnut
+new Chart(document.getElementById('chartFirstEagle'),{type:'doughnut',data:{
+  labels:['株式（グローバル）','ゴールド（保険）','現金（機会の温度計）'],
+  datasets:[{data:[80,11,9],backgroundColor:['#805ad5','#d69e2e','#718096']}]
+},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+
+// Intrinsic Value vs Market Price
+(function(){
+  const labels=[];const iv=[];const mp=[];
+  for(let y=0;y<=20;y++){labels.push('Year '+y);iv.push(100+y*8);mp.push(100+y*8+Math.sin(y*1.2)*30+(Math.random()-0.5)*15);}
+  new Chart(document.getElementById('chartIntrinsic'),{type:'line',data:{labels,datasets:[
+    {label:'本質的価値（Intrinsic Value）',data:iv,borderColor:'#d69e2e',borderWidth:3,borderDash:[8,4],pointRadius:0,fill:false,tension:0.1},
+    {label:'市場価格（Market Price）',data:mp,borderColor:'#805ad5',borderWidth:2,pointRadius:0,fill:false,tension:0.4}
+  ]},options:{responsive:true,plugins:{legend:{position:'bottom'},annotation:{}},scales:{y:{ticks:{callback:v=>v},grid:{color:'#334155'}},x:{grid:{color:'#334155'}}}}});
+})();
+
+// PER Comparison
+new Chart(document.getElementById('chartPER'),{type:'bar',data:{
+  labels:['Dodge&Cox','Oakmark','Longleaf','First Eagle','Tweedy Browne','ベンチマーク(S&P500)'],
+  datasets:[{data:[12.5,14.2,11.8,13.5,12.0,21.5],backgroundColor:v=>v.index===5?'#718096':'#d69e2e',borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'x'},grid:{color:'#334155'}},x:{ticks:{font:{size:9}},grid:{display:false}}}}});
+
+// Dividend Yield
+new Chart(document.getElementById('chartDivYield'),{type:'bar',data:{
+  labels:['Dodge&Cox','First Eagle','Tweedy Browne','さわかみ','ベンチマーク'],
+  datasets:[{data:[2.8,2.5,2.3,2.1,1.5],backgroundColor:v=>v.index===4?'#718096':'#48bb78',borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{ticks:{font:{size:9}},grid:{display:false}}}}});
+
+// Downside Capture
+new Chart(document.getElementById('chartDownside'),{type:'bar',data:{
+  labels:['First Eagle','Fundsmith','結い2101','Dodge & Cox','Longleaf','さわかみ','ベンチマーク'],
+  datasets:[{label:'下落局面でのキャプチャー率',data:[75,78,72,85,82,88,100],backgroundColor:v=>v.index===6?'#718096':v.raw<=80?'#48bb78':'#d69e2e',borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+
+// Value Premium
+new Chart(document.getElementById('chartValuePremium'),{type:'bar',data:{
+  labels:['1年保有','3年保有','5年保有','10年保有','15年保有','20年保有'],
+  datasets:[
+    {label:'バリュー優位の確率',data:[55,63,70,83,88,92],backgroundColor:'#d69e2e',borderRadius:4},
+    {label:'グロース優位の確率',data:[45,37,30,17,12,8],backgroundColor:'#805ad5',borderRadius:4}
+  ]
+},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:true,max:100,ticks:{callback:v=>v+'%'},stacked:true,grid:{color:'#334155'}},x:{stacked:true,grid:{display:false}}}}});
+
+// GMO 7-Year Forecast
+new Chart(document.getElementById('chartGMO'),{type:'bar',data:{
+  labels:['米国大型バリュー','国際大型バリュー','新興国バリュー','米国大型グロース','米国大型ブレンド','米国債券'],
+  datasets:[{data:[3.2,5.8,7.5,-1.2,0.8,1.5],backgroundColor:v=>v.raw>0?'#48bb78':'#e53e3e',borderRadius:4}]
+},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{ticks:{font:{size:9}},grid:{display:false}}}}});
+
+// Style PER Spread
+(function(){
+  const labels=[];const growth=[];const value=[];
+  for(let y=2005;y<=2025;y++){labels.push(y);const base=y<2016?18:y<2020?22:25;growth.push(base+(y-2005)*0.6+(Math.random()-0.3)*3);value.push(13+(Math.random()-0.3)*2);}
+  new Chart(document.getElementById('chartStylePER'),{type:'line',data:{labels,datasets:[
+    {label:'グロース株 PER',data:growth,borderColor:'#e53e3e',backgroundColor:'rgba(229,62,62,0.1)',fill:true,tension:0.3,pointRadius:2},
+    {label:'バリュー株 PER',data:value,borderColor:'#48bb78',backgroundColor:'rgba(72,187,120,0.1)',fill:true,tension:0.3,pointRadius:2}
+  ]},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>v+'x'},grid:{color:'#334155'}},x:{grid:{color:'#334155'}}}}});
+})();
+
+// Value Trap Avoidance
+new Chart(document.getElementById('chartTrap'),{type:'bar',data:{
+  labels:['事業の質のフィルター','ROCE/ROE最低基準','経営陣の質の評価','フリーCFの必須条件','バランスシート健全性','競争優位性の確認'],
+  datasets:[{data:[20,16,18,15,17,19],backgroundColor:['#d69e2e','#805ad5','#6b46c1','#805ad5','#6b46c1','#d69e2e'],borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,max:20,ticks:{callback:v=>v+'/20'},grid:{color:'#334155'}},y:{grid:{display:false}}}}});
+
+// Domestic vs Overseas Radar
+new Chart(document.getElementById('chartDomVsOverseas'),{type:'radar',data:{
+  labels:['定量データ活用','FM自己投資の開示','学術的根拠','コミュニティ形成','ESG/社会貢献','著書/メディア露出','バリュートラップ対策','ダウンサイド指標'],
+  datasets:[
+    {label:'海外バリューファンド',data:[5,5,5,2,2,3,4,5],borderColor:'#d69e2e',backgroundColor:'rgba(214,158,46,0.15)',pointRadius:4},
+    {label:'国内バリューファンド',data:[2,2,1,5,5,5,2,2],borderColor:'#805ad5',backgroundColor:'rgba(128,90,213,0.15)',pointRadius:4}
+  ]
+},options:{responsive:true,scales:{r:{min:0,max:5,ticks:{stepSize:1,display:false},grid:{color:'#334155'},angleLines:{color:'#334155'},pointLabels:{font:{size:10}}}},plugins:{legend:{position:'bottom'}}}});
+
+// Page Allocation Comparison
+new Chart(document.getElementById('chartPageAlloc'),{type:'bar',data:{
+  labels:['投資哲学','銘柄選定プロセス','個別銘柄紹介','市場環境','パフォーマンス','FM紹介','リスク・手数料'],
+  datasets:[
+    {label:'銘柄厳選型バリュー',data:[20,25,15,5,15,10,10],backgroundColor:'#d69e2e',borderRadius:4},
+    {label:'一般的アクティブ',data:[8,10,5,25,25,2,25],backgroundColor:'#805ad5',borderRadius:4}
+  ]
+},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},scales:{y:{ticks:{callback:v=>v+'%'},grid:{color:'#334155'}},x:{grid:{display:false}}}}});
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+</body>
+</html>
