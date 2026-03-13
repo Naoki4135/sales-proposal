@@ -57,6 +57,25 @@
   .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
   .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
   .back-to-top:hover { background: #d69e2e; }
+  /* Section Nav */
+  .section-nav { position: sticky; top: 40px; z-index: 998; background: #0f172a; border-bottom: 1px solid #334155; padding: 0; overflow: hidden; transition: box-shadow 0.2s; }
+  .section-nav.shadow { box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+  .section-nav-inner { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 0; padding: 0 12px; max-width: 960px; margin: 0 auto; }
+  .section-nav-inner::-webkit-scrollbar { display: none; }
+  .section-nav a { display: flex; align-items: center; gap: 5px; white-space: nowrap; padding: 10px 14px; font-size: 0.75rem; font-weight: 500; color: #94a3b8; text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.15s; flex-shrink: 0; font-family: inherit; }
+  .section-nav a:hover { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+  .section-nav a.active { color: #d69e2e; border-bottom-color: #d69e2e; }
+  .section-nav .nav-num { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #334155; color: #94a3b8; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
+  .section-nav a.active .nav-num { background: #d69e2e; color: #1a365d; }
+  @media (max-width: 640px) {
+    .section-nav { top: 38px; }
+    .section-nav a { padding: 8px 10px; font-size: 0.7rem; }
+    .section-nav .nav-num { width: 16px; height: 16px; font-size: 0.6rem; }
+  }
+  @media (max-width: 480px) {
+    .section-nav a { padding: 7px 8px; font-size: 0.65rem; }
+  }
+  @media print { .section-nav { display: none !important; } }
   @media print {
     body { background: #fff; font-size: 12px; }
     .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -127,13 +146,30 @@
 
 <nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
 
+<div class="section-nav" id="sectionNav">
+  <div class="section-nav-inner" id="sectionNavInner">
+    <a href="#s1"><span class="nav-num">1</span>サマリー</a>
+    <a href="#s2"><span class="nav-num">2</span>学術エビデンス</a>
+    <a href="#s3"><span class="nav-num">3</span>バリュエーション</a>
+    <a href="#s4"><span class="nav-num">4</span>米国・欧州比較</a>
+    <a href="#s5"><span class="nav-num">5</span>2026年動向</a>
+    <a href="#s6"><span class="nav-num">6</span>パフォーマンス</a>
+    <a href="#s7"><span class="nav-num">7</span>配当・インカム</a>
+    <a href="#s8"><span class="nav-num">8</span>国別分析</a>
+    <a href="#s9"><span class="nav-num">9</span>運用会社見解</a>
+    <a href="#s10"><span class="nav-num">10</span>推奨ファンド</a>
+    <a href="#s11"><span class="nav-num">11</span>セールストーク</a>
+    <a href="#s12"><span class="nav-num">12</span>提案パターン</a>
+  </div>
+</div>
+
 <header class="hero">
   <h1>新興国バリュー株式 セールス提案資料</h1>
   <p class="subtitle">Emerging Markets Value Equity &mdash; Sales Proposal</p>
   <div class="meta">
-    <span>作成日: 2026年2月27日</span>
+    <span>作成日: 2026年3月12日</span>
     <span>対象: リテール（一般個人投資家）向け</span>
-    <span>データ基準: 2026年2月下旬時点</span>
+    <span>データ基準: 2026年3月上旬時点</span>
   </div>
   <div class="accent-bar"></div>
 </header>
@@ -146,13 +182,14 @@
       <li><a href="#s2">学術的エビデンス &mdash; バリュープレミアムの実証研究</a></li>
       <li><a href="#s3">バリュエーション分析 &mdash; 歴史的な割安水準</a></li>
       <li><a href="#s4">米国株・欧州株との徹底比較 &mdash; なぜ新興国バリュー株が最良の選択か</a></li>
-      <li><a href="#s5">パフォーマンス実績 &mdash; 10年間のトラックレコード</a></li>
-      <li><a href="#s6">インカムの優位性 &mdash; 高配当利回りの魅力</a></li>
-      <li><a href="#s7">国別バリュー投資機会 &mdash; 国ごとの割安度分析</a></li>
-      <li><a href="#s8">グローバル運用会社の見解</a></li>
-      <li><a href="#s9">推奨ファンド・ETF</a></li>
-      <li><a href="#s10">セールストーク &mdash; お客様への説明シナリオ</a></li>
-      <li><a href="#s11">具体的な提案パターン</a></li>
+      <li><a href="#s5">2026年の最新動向 &mdash; 2年連続のアウトパフォームへ</a></li>
+      <li><a href="#s6">パフォーマンス実績 &mdash; 10年間のトラックレコード</a></li>
+      <li><a href="#s7">インカムの優位性 &mdash; 高配当利回りの魅力</a></li>
+      <li><a href="#s8">国別バリュー投資機会 &mdash; 国ごとの割安度分析</a></li>
+      <li><a href="#s9">グローバル運用会社の見解</a></li>
+      <li><a href="#s10">推奨ファンド・ETF</a></li>
+      <li><a href="#s11">セールストーク &mdash; お客様への説明シナリオ</a></li>
+      <li><a href="#s12">具体的な提案パターン</a></li>
     </ol>
   </div>
 
@@ -170,16 +207,21 @@
         <div class="stat-label">2025年リターン<br>（MSCI EM Enhanced Value）</div>
       </div>
       <div class="stat-card">
+        <div class="stat-value">2026年YTD +7%</div>
+        <div class="stat-label">MSCI EM 年初来リターン<br>（S&amp;P 500はほぼ横ばい）</div>
+      </div>
+      <div class="stat-card">
         <div class="stat-value">3.56%</div>
         <div class="stat-label">配当利回り<br>（グロース株1.07%の3倍超）</div>
       </div>
       <div class="stat-card">
-        <div class="stat-value">9.3%</div>
-        <div class="stat-label">期待実質リターン（年率）<br>（GMO社予測）</div>
+        <div class="stat-value">3.8%</div>
+        <div class="stat-label">期待実質リターン（年率）<br>（GMO 2026年1月更新予測）</div>
       </div>
     </div>
 
-    <p>新興国バリュー株式は、2026年現在、世界の株式市場で最も魅力的な投資機会の一つです。その理由は3つあります。</p>
+    <p>新興国バリュー株式は、2026年現在、世界の株式市場で最も魅力的な投資機会の一つです。GMOの2026年1月更新予測では、新興国バリュー株の7年実質リターンは+3.8%と改定されましたが、これは依然として<strong>全株式資産クラス中で最高のリターン予測</strong>です（米国大型株は-6%）。2025年にMSCI EMが+33.6%と先進国を大幅にアウトパフォームしたのに続き、2026年も年初来約+7%と好調な滑り出しを見せています。DFA新興国バリューファンド（DFEVX）は2026年2月20日時点でYTD+14.0%、1年リターン42.3%と力強い実績を示しています。</p>
+    <p>さらに注目すべきは、<strong>ゴールドマン・サックスのトップストラテジスト（ピーター・オッペンハイマー）が2026年3月、米国株式に2008年金融危機前と同様の警告サインが出ている</strong>と警鐘を鳴らしたことです。J.P.モルガンは「新興国は2年連続のアウトパフォームに向かっている」と評しており、その理由は3つあります。</p>
 
     <div class="key-msg"><span class="msg-num">1</span><span class="msg-title">歴史的な割安水準</span></div>
     <p>新興国バリュー株のPER（株価収益率）は9.53倍と、グロース株の25.51倍に対して<strong>63%のディスカウント</strong>。PBR（株価純資産倍率）は0.95倍と純資産価値を下回る水準です。米国株式のフォワードPER 21倍に対し、新興国バリュー株は7.7倍 &mdash; これは過去20年で最大級の格差であり、ITバブル崩壊以来の水準です。</p>
@@ -210,7 +252,7 @@
     <ul>
       <li><strong>ラテンアメリカ・東欧</strong>：5ファクターモデルが3ファクターモデルを一貫して上回る（バリューファクターが特に有効）</li>
       <li><strong>アジア</strong>：収益性ファクターが最も有用であり、バリューファクターと組み合わせることで説明力が向上</li>
-      <li><strong>全体</strong>：新興国ではバリューファクターに加え、収益性ファクター（RMW）が特に重要</li>
+      <li><strong>全体</strong>：新興国ではバリューファクターに加え、収益性ファクター（RMW）が特に重要。最新の学術研究では、純粋なバリューファクターよりも<strong>収益性ファクター（RMW）がEM市場でさらに重要</strong>である可能性が示されており、「クオリティ・バリュー」アプローチ（割安かつ高収益性の企業に投資）の優位性を裏付けています</li>
     </ul>
     <p class="source-tag">出典: ScienceDirect "The Fama-French five-factor model and emerging market equity returns" (2020)</p>
     <p class="source-tag">出典: Journal of Emerging Markets Finance "A comprehensive test of the Fama-French five-factor model in emerging markets" (2018)</p>
@@ -231,6 +273,11 @@
           <tr><td>EM Targeted Value超過リターン</td><td><strong>+2.4%</strong></td><td>2008年〜2023年7月</td><td>Dimensional (DFA)</td></tr>
           <tr><td>Enhanced Value 3年年率リターン</td><td><strong>23.31%</strong></td><td>2023〜2025年</td><td>MSCI</td></tr>
           <tr><td>Enhanced Value 10年年率リターン</td><td><strong>10.58%</strong></td><td>2016〜2025年</td><td>MSCI</td></tr>
+          <tr><td>DFA DFEVX 1年リターン</td><td><strong>42.3%</strong></td><td>2026年2月20日時点</td><td>Dimensional (DFA)</td></tr>
+          <tr><td>DFA DFEVX 3年年率リターン</td><td><strong>21.3%</strong></td><td>2026年2月20日時点</td><td>Dimensional (DFA)</td></tr>
+          <tr><td>DFA DFEVX 5年年率リターン</td><td><strong>14.7%</strong></td><td>2026年2月20日時点</td><td>Dimensional (DFA)</td></tr>
+          <tr><td>DFA DFEVX 10年年率リターン</td><td><strong>11.28%</strong></td><td>2026年2月20日時点</td><td>Dimensional (DFA)</td></tr>
+          <tr><td>EM コンセンサスEPS成長率（2026年）</td><td><strong>17%</strong></td><td>2025年の12-14%から改善</td><td>Lazard AM</td></tr>
         </tbody>
       </table>
     </div>
@@ -290,7 +337,7 @@
     <h3>バリュー株ディスカウントの歴史的位置づけ</h3>
     <p>GMO社（ジェレミー・グランサム率いる運用会社）の分析によれば：</p>
     <ul>
-      <li>新興国のCAPE（景気循環調整済みPER）は<strong>14倍</strong>で、米国の<strong>25倍</strong>のほぼ半分</li>
+      <li>新興国のCAPE（景気循環調整済みPER）は<strong>14倍</strong>で、米国の<strong>38.4倍</strong>の3分の1以下</li>
       <li>新興国バリュー株（最割安クインタイル）のディスカウントは<strong>2001年12月以来の最大</strong></li>
       <li>過去にこの水準のディスカウントが発生した後は、バリュー株が大幅にアウトパフォームした実績がある</li>
     </ul>
@@ -302,22 +349,22 @@
 
     <div class="gold-box">
       <strong>結論：あらゆるデータが新興国バリュー株の優位性を示している</strong>
-      <p>世界の主要運用会社・投資銀行の予測、バリュエーション指標、過去のサイクル分析、マクロ経済データのすべてが、今後10年間で<strong>新興国バリュー株が米国株・欧州株を大幅にアウトパフォームする</strong>可能性を示しています。</p>
+      <p>世界の主要運用会社・投資銀行の予測、バリュエーション指標、過去のサイクル分析、マクロ経済データのすべてが、今後10年間で<strong>新興国バリュー株が米国株・欧州株を大幅にアウトパフォームする</strong>可能性を示しています。ゴールドマン・サックスのCEOデイビッド・ソロモンは<strong>10〜20%の調整</strong>を予測し、トップストラテジスト ピーター・オッペンハイマーは「現在のバリュエーションでは調整リスクが極めて高い」と述べ、<strong>地理的分散</strong>を推奨しています。</p>
     </div>
 
     <h3>CAPE（景気循環調整済みPER）国際比較</h3>
     <p>ノーベル経済学賞受賞者ロバート・シラー教授が提唱したCAPE（Cyclically Adjusted PE ratio）は、過去10年間の平均利益で株価を割ることで、一時的な利益変動を除いた「真の割安度」を測る指標です。CAPEが高いほど割高で、将来のリターンが低くなる傾向があります。</p>
 
     <div class="chart-container">
-      <div class="chart-title">CAPE比較 &mdash; 米国は歴史的高水準、新興国は割安（2025年12月末時点）</div>
+      <div class="chart-title">CAPE比較 &mdash; 米国は歴史的高水準、新興国は割安（2026年3月1日時点）</div>
       <canvas id="chartCAPE"></canvas>
-      <div class="chart-source">出典: Siblis Research, Barclays Research（2025年12月31日時点）</div>
+      <div class="chart-source">出典: <a href="https://siblisresearch.com/data/cape-ratios-by-country/" style="color:#63b3ed">Siblis Research</a>, <a href="https://www.gurufocus.com/economic_indicators/56/sp-500-shiller-cape-ratio" style="color:#63b3ed">GuruFocus</a>（2026年3月1日時点）</div>
     </div>
 
     <div class="highlight-box">
       <strong>CAPEが示す衝撃的な事実</strong>
-      <p>米国のCAPEは<strong>34.73倍</strong>で、歴史的に見ても上位5%に入る割高水準。一方、中国は17.71倍、香港は10.74倍と、米国の半分以下です。</p>
-      <p><strong>ドイツ銀行の大規模研究</strong>によれば、<strong>CAPEが20倍を超える市場はその後10年で年率約4%のリターン</strong>にとどまる一方、<strong>CAPEが8倍以下の割安市場は年率約10%のリターン</strong>を記録 &mdash; <strong>年率6%もの差</strong>があります。現在の米国（CAPE 34.73倍）と新興国の割安市場に、このルールを当てはめると、新興国が圧倒的に有利です。</p>
+      <p>米国のCAPEは<strong>38.4倍</strong>（2026年3月1日時点）にまで上昇し、歴史的に見ても上位5%に入る割高水準です。S&amp;P 500のCAPEは2026年1月初旬に<strong>40.58倍</strong>を記録し、ドットコムバブル以来<strong>史上2度目</strong>の40倍超えとなりました。GuruFocusのデータによれば、現在のCAPE水準が示唆する<strong>将来の年間リターンはわずか2.2%</strong>です。一方、中国は17.71倍、香港は10.74倍と、米国の半分以下です。注目すべきは<strong>インドのCAPEが34.36倍</strong>と米国並みに高い点で、新興国の中でも国ごとの選別が重要です。</p>
+      <p><strong>ドイツ銀行の大規模研究</strong>によれば、<strong>CAPEが20倍を超える市場はその後10年で年率約4%のリターン</strong>にとどまる一方、<strong>CAPEが8倍以下の割安市場は年率約10%のリターン</strong>を記録 &mdash; <strong>年率6%もの差</strong>があります。現在の米国（CAPE 38.4倍）と新興国の割安市場に、このルールを当てはめると、新興国が圧倒的に有利です。</p>
     </div>
 
     <h3>主要運用会社・投資銀行の今後10年のリターン予測</h3>
@@ -336,20 +383,20 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>GMO</strong><br>（7年予測・実質）</td>
-            <td style="color:#e53e3e"><strong>-5.4%</strong></td>
+            <td><strong>GMO</strong><br>（7年予測・実質・2026年1月更新）</td>
+            <td style="color:#e53e3e"><strong>-6.0%</strong></td>
             <td>-2.0%</td>
             <td style="color:#48bb78">+4.5%</td>
-            <td style="color:#48bb78"><strong>+9.3%</strong></td>
-            <td style="color:#48bb78"><strong>+14.7%</strong></td>
+            <td style="color:#48bb78"><strong>+3.8%</strong></td>
+            <td style="color:#48bb78"><strong>+9.8%</strong></td>
           </tr>
           <tr>
-            <td><strong>Goldman Sachs</strong><br>（10年予測・名目）</td>
-            <td style="color:#e53e3e"><strong>3.0%</strong></td>
+            <td><strong>Goldman Sachs</strong><br>（10年予測・名目・2025年11月更新）</td>
+            <td style="color:#e53e3e"><strong>6.5%</strong></td>
             <td>&mdash;</td>
             <td>&mdash;</td>
             <td>&mdash;</td>
-            <td>1930年以来7パーセンタイル</td>
+            <td>歴史的平均~10%を大幅に下回る</td>
           </tr>
           <tr>
             <td><strong>Research Affiliates</strong><br>（10年予測・名目）</td>
@@ -372,7 +419,7 @@
     </div>
 
     <blockquote>
-      <p><strong>ゴールドマン・サックスの衝撃的予測</strong>：S&amp;P 500の今後10年間のリターンはわずか年率3%（名目）。これは1930年以来の歴史で<strong>下から7パーセンタイル</strong>という極めて低い水準です。さらに、<strong>72%の確率で株式が債券をアンダーパフォーム</strong>するとの見通しも発表。一方、GMOは新興国バリュー株に<strong>年率9.3%の実質リターン</strong>を予測しており、全資産クラス中トップです。</p>
+      <p><strong>ゴールドマン・サックスの予測と警告</strong>：2025年11月に更新されたS&amp;P 500の今後10年間のリターン予測は年率<strong>6.5%</strong>（名目）。以前の3%予測からは上方修正されたものの、歴史的平均の~10%を<strong>大幅に下回る水準</strong>です。さらに2026年3月にはトップストラテジスト ピーター・オッペンハイマーが<strong>「株式市場は2008年金融危機前と同じ警告サインを示している」</strong>と警鐘を鳴らし、CEOデイビッド・ソロモンは10〜20%の調整を予測。株式10%下落でGDP成長率を<strong>0.5ポイント押し下げる</strong>可能性を指摘しています。一方、GMOは2026年1月更新で新興国バリュー株に<strong>年率+3.8%の実質リターン</strong>を予測しており、依然として全株式資産クラス中トップです。</p>
     </blockquote>
 
     <h3>新興国 vs 米国 &mdash; パフォーマンスサイクルの歴史</h3>
@@ -412,11 +459,11 @@
         </thead>
         <tbody>
           <tr><td>フォワードPER</td><td style="color:#48bb78"><strong>7.7倍</strong></td><td>13.4倍</td><td style="color:#e53e3e">21.0倍</td><td>14.5倍</td></tr>
-          <tr><td>CAPE</td><td>&mdash;</td><td>約15倍</td><td style="color:#e53e3e"><strong>34.7倍</strong></td><td>約22倍</td></tr>
+          <tr><td>CAPE</td><td>&mdash;</td><td>約15倍</td><td style="color:#e53e3e"><strong>38.4倍</strong></td><td>約22倍</td></tr>
           <tr><td>PBR</td><td style="color:#48bb78"><strong>0.95倍</strong></td><td>1.80倍</td><td style="color:#e53e3e">4.5倍</td><td>1.9倍</td></tr>
           <tr><td>配当利回り</td><td style="color:#48bb78"><strong>4.84%</strong></td><td>2.2%</td><td style="color:#e53e3e">1.3%</td><td>3.2%</td></tr>
           <tr><td>政府債務/GDP</td><td colspan="2">62%</td><td style="color:#e53e3e">123%</td><td>約90%</td></tr>
-          <tr><td>EPS成長率予測（2026年）</td><td colspan="2" style="color:#48bb78"><strong>21%</strong></td><td>15%</td><td>13%</td></tr>
+          <tr><td>EPS成長率予測（2026年）</td><td colspan="2" style="color:#48bb78"><strong>16.9〜21%</strong></td><td>14.2〜15%</td><td>13%</td></tr>
           <tr><td>GDP成長率（2025年 IMF）</td><td colspan="2" style="color:#48bb78"><strong>4.2%</strong></td><td>1.6%</td><td>1.3%</td></tr>
           <tr><td>世界人口シェア</td><td colspan="2" style="color:#48bb78"><strong>84%</strong></td><td>4%</td><td>6%</td></tr>
           <tr><td>世界GDPシェア</td><td colspan="2" style="color:#48bb78"><strong>61%</strong></td><td>26%</td><td>17%</td></tr>
@@ -433,9 +480,10 @@
       <div class="country-card">
         <h4>1. バリュエーションリスク</h4>
         <ul>
-          <li>CAPE 34.73倍は歴史的に上位5%の割高水準</li>
+          <li>CAPE 38.4倍は歴史的に上位5%の割高水準（2026年1月に史上2度目の40倍超え：40.58倍を記録）</li>
           <li>S&amp;P 500の上位10銘柄が指数全体の約35%を占める集中リスク</li>
-          <li>Goldman Sachs「今後10年で年率3%」の衝撃的予測</li>
+          <li>Goldman Sachs 2026年3月：トップストラテジストが2008年危機前と同様の警告サインを指摘</li>
+          <li>Goldman Sachs 10年予測：年率6.5%（歴史的平均~10%を大幅に下回る）</li>
         </ul>
       </div>
       <div class="country-card">
@@ -475,11 +523,168 @@
       </table>
     </div>
     <p>欧州株は安定性では優れていますが、成長力とバリュエーションの両面で新興国バリュー株には及びません。<strong>「安定性を求めるなら欧州、リターンを最大化するなら新興国バリュー」</strong>という位置づけです。</p>
+
+    <h3>構造的改善 &mdash; EMの逆風が追い風に変わる</h3>
+    <div class="highlight-box">
+      <strong>J.P.モルガンの分析：パフォーマンストレンドの反転</strong>
+      <p>J.P.モルガンAMによれば、2010年Q3から2024年9月までの約14年間で先進国（DM）は新興国（EM）を<strong>累積約240%（年率約8%）</strong>アウトパフォームしました。しかし、このトレンドは2025年に明確に反転しました。</p>
+      <p>さらに重要な構造的改善として、EMの<strong>純希薄化ドラッグ（新株発行による既存株主の持分低下）</strong>が年率400bpsから<strong>約150bps</strong>まで縮小しています。企業統治改革と自社株買いの増加が背景にあり、今後のEM株式のリターン向上に大きく寄与すると期待されます。</p>
+      <p>また、米ドルは<strong>公正価値に対してなお約10%割高</strong>（J.P.モルガンAM推計）であり、さらなるドル安はEM資産の追い風となります。</p>
+    </div>
+
+    <h3>2026年 国別EPS成長率予測（Capital Group、2026年2月）</h3>
+    <div class="chart-container">
+      <div class="chart-title">2026年 EPS成長率予測 &mdash; 国・地域別比較</div>
+      <canvas id="chartEPSGrowth2026"></canvas>
+      <div class="chart-source">出典: <a href="https://www.capitalgroup.com/institutional/insights/articles/emerging-markets-2026-can-rally-keep-rolling.html" style="color:#63b3ed">Capital Group（2026年2月）</a></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>市場</th><th>2026年EPS成長率予測</th><th>注目ポイント</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MSCI 韓国</strong></td><td style="color:#48bb78"><strong>42.4%</strong></td><td>半導体サイクルの恩恵、バリューアップ改革</td></tr>
+          <tr><td><strong>MSCI 台湾</strong></td><td style="color:#48bb78"><strong>18.9%</strong></td><td>AI半導体需要の継続</td></tr>
+          <tr><td><strong>MSCI EM全体</strong></td><td style="color:#48bb78"><strong>16.9%</strong></td><td>先進国を上回る利益成長</td></tr>
+          <tr><td><strong>MSCI インド</strong></td><td style="color:#48bb78"><strong>16.0%</strong></td><td>内需主導の安定成長</td></tr>
+          <tr><td><strong>S&amp;P 500（米国）</strong></td><td><strong>14.2%</strong></td><td>新興国に劣後する見通し</td></tr>
+          <tr><td><strong>MSCI 中国</strong></td><td><strong>11.0%</strong></td><td>政策支援の効果に期待</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <strong>資金フローの変化 &mdash; 機関投資家の回帰</strong>
+      <p>State Streetの2026年Q1レポートによれば、2025年の新興国株式ファンドへの資金流入は約<strong>300億ドル</strong>、新興国ETFへの流入は約<strong>880億ドル</strong>に達しました。長年にわたるアンダーウェイトの解消が始まっており、この流れは2026年も継続する見通しです。</p>
+      <p class="source-tag">出典: <a href="https://www.ssga.com/us/en/individual/insights/emerging-market-equities-outlook-q1-2026" style="color:#63b3ed">State Street Q1 2026</a></p>
+    </div>
   </section>
 
-  <!-- Section 5: Performance Track Record -->
+  <!-- Section 5: 2026 Latest Developments -->
   <section class="section" id="s5">
-    <h2>5. パフォーマンス実績 &mdash; 10年間のトラックレコード</h2>
+    <h2>5. 2026年の最新動向 &mdash; 2年連続のアウトパフォームへ</h2>
+
+    <div class="gold-box">
+      <strong>J.P.モルガン・アセット・マネジメント（2026年2月）</strong>
+      <p>「新興国株式は2年連続で先進国をアウトパフォームする方向に向かっている。2010年Q3から2024年9月までの約14年間で先進国が新興国を累積約240%（年率約8%）上回ったが、このトレンドは2025年に明確に反転した。」</p>
+      <p class="source-tag">出典: <a href="https://am.jpmorgan.com/hu/en/asset-management/institutional/insights/portfolio-insights/strategy-report/why-emerging-markets-have-more-room-to-run/" style="color:#63b3ed">J.P. Morgan AM</a></p>
+    </div>
+
+    <h3>2025年パフォーマンス総括 &mdash; 17年ぶりの大幅アウトパフォーム</h3>
+    <div class="chart-container">
+      <div class="chart-title">2025年 年間リターン比較（USD建て）</div>
+      <canvas id="chart2025Perf"></canvas>
+      <div class="chart-source">出典: State Street Q1 2026, MSCI</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指数</th><th>2025年リターン</th><th>対S&amp;P 500差</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MSCI EM（新興国）</strong></td><td style="color:#48bb78"><strong>+33.6%</strong></td><td style="color:#48bb78"><strong>+16.6pp</strong></td></tr>
+          <tr><td>MSCI World（先進国）</td><td>+21.0%</td><td>+4.0pp</td></tr>
+          <tr><td>S&amp;P 500（米国）</td><td>+17.0%</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>MSCI EMは2025年に+33.6%のリターンを記録し、S&amp;P 500を<strong>13ポイント以上</strong>アウトパフォーム。これは2017年以来の最大の対先進国アウトパフォーマンスであり、新興国サイクル転換の明確なシグナルです。</p>
+
+    <h3>2026年の年初来パフォーマンス</h3>
+    <p>2026年も新興国の好調は続いています。3月上旬時点で：</p>
+    <ul>
+      <li><strong>MSCI EM</strong>：年初来<strong>約+7%</strong>の上昇</li>
+      <li><strong>S&amp;P 500</strong>：年初来<strong>ほぼ横ばい</strong></li>
+      <li><strong>韓国・台湾</strong>：半導体・IT関連の好調により大幅上昇</li>
+      <li><strong>ブラジル</strong>：エネルギーセクター主導で上昇</li>
+      <li><strong>インド</strong>：関税引き下げの恩恵で小幅上昇</li>
+      <li><strong>中国</strong>：インターネット企業の増税懸念から下落</li>
+    </ul>
+    <p class="source-tag">出典: <a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/Region/emerging_countries/GMW-GEM-20260304.html" style="color:#63b3ed">Pictet 2026年3月マンスリー</a></p>
+
+    <h3>最高裁関税判決の影響 &mdash; EM市場の追い風</h3>
+    <div class="highlight-box">
+      <strong>2026年2月：米最高裁がIEEPA関税を違憲判決（6-3）</strong>
+      <p>トランプ大統領のIEEPA（国際緊急経済権限法）に基づく関税措置を米最高裁が6対3で違憲と判断。判決当日、MSCI EMベンチマークは<strong>+3.2%</strong>上昇しました。</p>
+      <p>注目すべきは、新興国市場が関税ショックを想定以上にうまく吸収していた点です：</p>
+      <ul>
+        <li><strong>中国</strong>：輸出先を多様化し、グリーン投資を通じて成長を維持</li>
+        <li><strong>多くの新興国中央銀行</strong>：ドル安により利下げ余地が拡大、金融緩和を実施</li>
+        <li><strong>新興国全体</strong>：関税環境下でもサプライチェーン再編の恩恵を受けた国が多い</li>
+      </ul>
+      <p class="source-tag">出典: <a href="https://www.morningstar.com/markets/supreme-court-strikes-down-trump-tariffswhat-it-means-markets" style="color:#63b3ed">Morningstar</a></p>
+    </div>
+
+    <h3>ドル安トレンド &mdash; 新興国に構造的な追い風</h3>
+    <p>米ドルは2025年に貿易加重ベースで<strong>7%下落</strong>しました。J.P.モルガンの分析によれば、現在もなおドルは公正価値に対して<strong>約10%割高</strong>であり、さらなるドル安余地が残っています。</p>
+    <p>ドル安は新興国にとって以下のメリットがあります：</p>
+    <ul>
+      <li>ドル建て債務の実質負担軽減</li>
+      <li>新興国通貨高による資本流入促進</li>
+      <li>中央銀行の利下げ余地拡大（現在のEM債務スプレッド：約270bps）</li>
+      <li>コモディティ価格の押し上げ効果</li>
+    </ul>
+    <p class="source-tag">出典: <a href="https://www.ml.com/articles/emerging-markets-outlook-2026.html" style="color:#63b3ed">Merrill Lynch 2026 EM Outlook</a>、<a href="https://am.jpmorgan.com/hu/en/asset-management/institutional/insights/portfolio-insights/strategy-report/why-emerging-markets-have-more-room-to-run/" style="color:#63b3ed">J.P. Morgan AM</a></p>
+
+    <h3>資金フロー &mdash; 機関投資家の新興国回帰</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指標</th><th>2025年実績</th><th>含意</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>新興国株式ファンド流入額</td><td style="color:#48bb78"><strong>約300億ドル</strong></td><td>長年の資金流出からの転換</td></tr>
+          <tr><td>新興国ETF流入額</td><td style="color:#48bb78"><strong>約880億ドル</strong></td><td>パッシブ投資家の新興国回帰</td></tr>
+          <tr><td>MSCI EM指数の中国ウェイト</td><td><strong>27%</strong></td><td>中国の影響力は依然として大きい</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-tag">出典: <a href="https://www.ssga.com/us/en/individual/insights/emerging-market-equities-outlook-q1-2026" style="color:#63b3ed">State Street Q1 2026</a>、<a href="https://www.ml.com/articles/emerging-markets-outlook-2026.html" style="color:#63b3ed">Merrill Lynch 2026</a></p>
+
+    <h3>PGIM：ITバブル以来のバリュエーションギャップ</h3>
+    <blockquote>
+      <p>「フォワードPEスプレッドは、新興国が先進国に対して1標準偏差以上のディスカウントで取引されていることを示している &mdash; これはドットコムバブル以来見られなかったバリュエーションギャップだ。約13年にわたるアンダーパフォーマンス（過去の平均サイクル9年を大幅に超過）の後、新興国は歴史的に極端な割安水準にある。」</p>
+      <p class="source-tag">出典: <a href="https://www.pgim.com/us/en/intermediary/insights/annual-best-ideas/2026/emerging-markets-pillars-opportunity-potential" style="color:#63b3ed">PGIM 2026 Best Ideas</a></p>
+    </blockquote>
+
+    <h3>Pictet：新興国中間層の爆発的成長</h3>
+    <div class="country-grid">
+      <div class="country-card">
+        <h4>構造的成長ドライバー</h4>
+        <ul>
+          <li>新興国の中間層世帯：2024年の<strong>3億5,400万</strong>から2034年に<strong>6億8,700万</strong>へ（約2倍）</li>
+          <li>世界の未銀行口座人口：<strong>14億人</strong>（金融包摂の巨大な機会）</li>
+          <li>新興国全体のフォワードPE：約<strong>13倍</strong>（先進国対比34%ディスカウント）</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>Pictetの投資アプローチ</h4>
+        <ul>
+          <li>バリュー重視：配当利回り + ポジティブチェンジ</li>
+          <li>「割安で、かつ改善が始まっている企業」にフォーカス</li>
+          <li>中間層の拡大は消費・金融・テクノロジーの全セクターに波及</li>
+        </ul>
+      </div>
+    </div>
+    <p class="source-tag">出典: <a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/Region/emerging_countries/GMW-20260206.html" style="color:#63b3ed">Pictet 2026年2月</a></p>
+
+    <h3>J.P.モルガン：希薄化ドラッグの改善</h3>
+    <p>J.P.モルガンAMの分析によれば、新興国株式の過去のアンダーパフォーマンスの一因は、株式の希薄化（新株発行による既存株主の持分低下）にありました。</p>
+    <ul>
+      <li>過去の純希薄化ドラッグ：新興国全体で年率<strong>400bps</strong>、中国は<strong>820bps</strong></li>
+      <li>今後の見通し：年率<strong>約150bps</strong>まで縮小の見込み</li>
+      <li>企業統治改革と自社株買いの増加が背景</li>
+    </ul>
+    <p>この構造的な改善は、今後のEM株式のリターン向上に大きく寄与すると期待されています。</p>
+  </section>
+
+  <!-- Section 6: Performance Track Record -->
+  <section class="section" id="s6">
+    <h2>6. パフォーマンス実績 &mdash; 10年間のトラックレコード</h2>
 
     <h3>MSCI EM Value vs Growth vs Broad：年間リターン比較</h3>
     <div class="chart-container">
@@ -521,7 +726,7 @@
       <p>2017〜2020年はグロース株優位の時代でしたが、<strong>2021年以降はバリュー株が明確に優位</strong>に転じています。特に2021〜2023年の3年間で、バリュー株はグロース株を累積で約<strong>30ポイント</strong>上回りました。MSCI EM Enhanced Value指数の直近3年間の年率リターンは<strong>23.31%</strong>で、広義のMSCI EMの16.40%を大幅に上回っています。</p>
     </div>
 
-    <h3>DFA新興国バリューファンドの実績</h3>
+    <h3>DFA新興国バリューファンドの実績（2026年2月20日時点）</h3>
     <p>世界最大級のファクター投資運用会社であるDimensional Fund Advisors（DFA）の新興国バリューファンド（DFEVX）の実績：</p>
     <div class="table-wrap">
       <table>
@@ -529,19 +734,40 @@
           <tr><th>期間</th><th>年率リターン</th><th>備考</th></tr>
         </thead>
         <tbody>
-          <tr><td>1年</td><td><strong>38.16%</strong></td><td>2025年実績</td></tr>
-          <tr><td>3年（年率）</td><td><strong>17.29%</strong></td><td>2023〜2025年</td></tr>
-          <tr><td>5年（年率）</td><td><strong>11.69%</strong></td><td>2021〜2025年</td></tr>
-          <tr><td>10年（年率）</td><td><strong>11.28%</strong></td><td>2016〜2025年</td></tr>
+          <tr><td>YTD（年初来）</td><td><strong>14.0%</strong></td><td>2026年2月20日時点</td></tr>
+          <tr><td>1年</td><td><strong>42.3%</strong></td><td>2026年2月20日時点</td></tr>
+          <tr><td>3年（年率）</td><td><strong>21.3%</strong></td><td>2026年2月20日時点</td></tr>
+          <tr><td>5年（年率）</td><td><strong>14.7%</strong></td><td>2026年2月20日時点</td></tr>
+          <tr><td>10年（年率）</td><td><strong>11.28%</strong></td><td>2026年2月20日時点</td></tr>
         </tbody>
       </table>
     </div>
     <p>信託報酬は年0.44%（カテゴリー平均比63%低い）。バリュー・収益性・小型株への体系的なティルトにより、長期にわたり安定した超過リターンを実現しています。</p>
+
+    <h3>EVLU ETFの最新実績（2026年2月13日時点）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>指標</th><th>数値</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>YTD（年初来）</td><td><strong>11.91%</strong></td><td>2026年2月13日時点</td></tr>
+          <tr><td>1年トータルリターン</td><td><strong>43.11%</strong></td><td>配当込み</td></tr>
+          <tr><td>NAV（基準価額）</td><td><strong>$35.49</strong></td><td>&mdash;</td></tr>
+          <tr><td>保有銘柄数</td><td><strong>293</strong></td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <strong>2026年1月の短期パフォーマンス注意点</strong>
+      <p>2026年1月単月では、EMバリューは+7.5%と、EMカテゴリー平均の+8.7%をやや下回りました。しかしこれは<strong>サイクル初期に典型的な動き</strong>であり、サイクルが進むにつれてバリューファクターの優位性が拡大する傾向があります。</p>
+    </div>
   </section>
 
-  <!-- Section 6: Income Advantage -->
-  <section class="section" id="s6">
-    <h2>6. インカムの優位性 &mdash; 高配当利回りの魅力</h2>
+  <!-- Section 7: Income Advantage -->
+  <section class="section" id="s7">
+    <h2>7. インカムの優位性 &mdash; 高配当利回りの魅力</h2>
 
     <h3>配当利回り比較</h3>
     <div class="chart-container">
@@ -568,16 +794,30 @@
     </div>
 
     <blockquote>
-      <p><strong>配当の「品質シグナル」</strong>：新興国市場において配当を支払う企業は、配当を支払わない企業と比較して平均的にアウトパフォームし、かつリスクも低い傾向があります。配当は「企業の質」を示すシグナルとして機能し、バリュー投資とインカム投資の相乗効果が期待できます。</p>
+      <p><strong>配当の「品質シグナル」</strong>：新興国市場において配当を支払う企業は、配当を支払わない企業と比較して平均的にアウトパフォームし、かつリスクも低い傾向があります。配当は「企業の質」を示すシグナルとして機能し、バリュー投資とインカム投資の相乗効果が期待できます。Pictetのバリューアプローチでも、<strong>配当利回り + ポジティブチェンジ</strong>を重視し、配当を「バリュートラップ」回避のクオリティシグナルとして活用しています。</p>
     </blockquote>
+
+    <h3>主要EM高配当ファンドの利回り比較（2026年2月時点）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ファンド</th><th>配当利回り</th><th>カテゴリー平均との比較</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DVYE（iShares EM Dividend ETF）</strong></td><td style="color:#48bb78"><strong>9.17%</strong></td><td>カテゴリー平均の5倍以上</td></tr>
+          <tr><td><strong>EVLU（iShares EM Value Factor ETF）</strong></td><td style="color:#48bb78"><strong>4.84%</strong></td><td>カテゴリー平均の2.7倍</td></tr>
+          <tr><td><strong>DFA DFEVX</strong></td><td style="color:#48bb78"><strong>3.54%</strong></td><td>カテゴリー平均1.79%の約2倍</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>配当再投資の複利効果</h3>
     <p>年4.84%の配当利回りを再投資した場合、配当だけで約<strong>15年で投資元本が倍</strong>になります（72の法則：72÷4.84≒14.9年）。これに値上がり益が加わることで、長期の資産形成に大きく貢献します。</p>
   </section>
 
-  <!-- Section 7: Country Analysis -->
-  <section class="section" id="s7">
-    <h2>7. 国別バリュー投資機会 &mdash; 国ごとの割安度分析</h2>
+  <!-- Section 8: Country Analysis -->
+  <section class="section" id="s8">
+    <h2>8. 国別バリュー投資機会 &mdash; 国ごとの割安度分析</h2>
 
     <h3>新興国 国別PER比較</h3>
     <div class="chart-container">
@@ -589,30 +829,52 @@
     <h3>国別バリュー投資機会</h3>
     <div class="country-grid">
       <div class="country-card">
-        <h4>ブラジル（PER 11.45倍 / Fwd 9.25倍）</h4>
+        <h4>韓国（CAPE 21.22倍 / Fwd 10.64倍）</h4>
         <ul>
-          <li>新興国で最も割安な主要市場</li>
+          <li><strong>サムスン電子・SKが2026年3月10日に141億ドル（約2.1兆円）の自己株消却を発表</strong> &mdash; 韓国史上最大規模の株主還元策</li>
+          <li>国会が配当課税引き下げを承認（最高45%→14〜30%）</li>
+          <li>CAPEが12.60倍から<strong>21.22倍</strong>へ急上昇 &mdash; バリューアッププログラム改革の成果</li>
+          <li>MSCI韓国EPS成長率予測：<strong>42.4%</strong>（2026年、Capital Group）</li>
+          <li>半導体サイクルの恩恵 + 企業統治改革の本格化</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>中国（PER 18.06倍 / Fwd 14.93倍 / MSCI EM比率27%）</h4>
+        <ul>
+          <li>MSCI China指数は過去12ヶ月で<strong>+34%</strong>のリターン</li>
+          <li><strong>DeepSeek AIブレイクスルー</strong>が市場センチメントを押し上げ</li>
+          <li>ゴールドマン・サックス：中国株に<strong>2,000億ドルの資金流入</strong>、今後12ヶ月で<strong>19%上昇</strong>を予測</li>
+          <li>JD.comは時価総額の<strong>77%を現金</strong>で保有 &mdash; バリュー株の典型例</li>
+          <li>注意：株価上昇はセンチメント主導でファンダメンタルズに先行 &mdash; 慎重な姿勢も必要</li>
+        </ul>
+      </div>
+      <div class="country-card">
+        <h4>ブラジル（MSCI Brazil Fwd PE 9.3倍）</h4>
+        <ul>
+          <li>フォワードPER <strong>9.3倍</strong>は新興国で最も割安な主要市場</li>
+          <li>インフレ率：2025年の5.6%から2026年は<strong>4.4%</strong>に低下見通し</li>
+          <li>2026年大統領選挙がカタリスト（きっかけ）になる可能性</li>
+          <li>J.P.モルガンはブラジルに強気の見通し</li>
           <li>コモディティ価格の恩恵（鉄鉱石・大豆・原油）</li>
-          <li>高金利環境での金融セクターの収益力</li>
-          <li>フォワードPER 9.25倍は先進国の半分以下</li>
         </ul>
       </div>
       <div class="country-card">
-        <h4>韓国（PER 17.06倍 / Fwd 10.64倍）</h4>
+        <h4>インド（Fwd PE 22.38倍 / CAPE 34.36倍）</h4>
         <ul>
-          <li>「コリア・ディスカウント」解消期待</li>
-          <li>企業統治改革（バリューアッププログラム）の進展</li>
-          <li>フォワードPER 10.64倍は利益急拡大を示唆</li>
-          <li>半導体サイクルの恩恵</li>
+          <li>Nifty 50が25倍から<strong>約20倍</strong>のフォワードPEに調整 &mdash; エントリーポイント改善</li>
+          <li>State Streetはインドを<strong>アンダーウェイト</strong>（構造的魅力はあるが短期的には条件が揃わず）</li>
+          <li>Capital Group EPS成長率予測：<strong>16.0%</strong>（2026年）</li>
+          <li>フォワードPE 22.38倍は<strong>新興国中最も割高</strong> &mdash; バリュー投資家にとっては選好度低い</li>
         </ul>
       </div>
       <div class="country-card">
-        <h4>中国（PER 18.06倍 / Fwd 14.93倍）</h4>
+        <h4>台湾（Fwd PE 18.32倍）&mdash; AI半導体の中核</h4>
         <ul>
-          <li>香港市場のPER 17倍はリバウンド余地大</li>
-          <li>政策的な株式市場テコ入れ</li>
-          <li>テック企業の規制リスク後退</li>
-          <li>国有企業改革と株主還元強化</li>
+          <li>TSMC：2026年の売上高<strong>約30%増</strong>の見通し</li>
+          <li>3nm/2nmファウンドリ市場の<strong>90%</strong>のシェアを独占</li>
+          <li>設備投資計画：<strong>480億ドル</strong></li>
+          <li>Capital Group EPS成長率予測：<strong>18.9%</strong></li>
+          <li>AIインフラの<strong>最重要プレイヤー</strong>として台頭</li>
         </ul>
       </div>
       <div class="country-card">
@@ -641,9 +903,9 @@
     </div>
   </section>
 
-  <!-- Section 8: Global Asset Manager Views -->
-  <section class="section" id="s8">
-    <h2>8. グローバル運用会社の見解</h2>
+  <!-- Section 9: Global Asset Manager Views -->
+  <section class="section" id="s9">
+    <h2>9. グローバル運用会社の見解</h2>
 
     <p>世界の主要運用会社は、新興国バリュー株に対して強気な見通しを示しています。</p>
 
@@ -660,19 +922,19 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>GMO</strong><br>（ジェレミー・グランサム）</td>
-            <td>EM Value に年率9.3%の実質リターンを予測。「ディープバリューと小型株が低リターン世界をリードする」</td>
-            <td>7年予測でEM Valueが全資産クラス中トップ</td>
+            <td><strong>GMO</strong><br>（ジェレミー・グランサム）<br>2026年1月更新</td>
+            <td>EM Value に年率<strong>+3.8%の実質リターン</strong>を予測（以前の9.3%から改定）。米国大型株は<strong>-6%</strong>。依然として「EM Valueが全株式資産クラス中で最良」との見解</td>
+            <td>7年予測でEM Valueが全資産クラス中トップの位置を維持</td>
           </tr>
           <tr>
             <td><strong>Research Affiliates</strong><br>（ロブ・アーノット）</td>
-            <td>新興国に年率6.8%の実質リターンを予測。ファンダメンタル・インデックス（バリュー寄り）を推奨</td>
-            <td>新興国は全5つのバリュエーション指標で「割安」</td>
+            <td>FTSE RAFI EM IndexのシラーPEは<strong>9.9倍</strong>（ボトムアップ7.4倍）。10年実質リターン予測：<strong>年率7.5%</strong>。ファンダメンタル・インデックス（バリュー寄り）を推奨</td>
+            <td>新興国は全5つのバリュエーション指標で「割安」。<a href="https://www.researchaffiliates.com/publications/articles/586-the-emerging-markets-hat-trick-time-to-throw-your-hat-in" style="color:#63b3ed">EM Hat Trick論文</a>発表</td>
           </tr>
           <tr>
-            <td><strong>Lazard AM</strong></td>
-            <td>「Why Emerging Markets Value」レポートで新興国バリューを強く推奨。バリュー株の超過リターンは1999年以降年率+2.99%</td>
-            <td>EMバリューのインカムプレミアムがMSCI Worldを上回る</td>
+            <td><strong>Lazard AM</strong><br>2026年見通し</td>
+            <td>2026年のEMコンセンサスEPS成長率は<strong>17%</strong>と予測（2025年の12-14%から改善）。クオリティ・バリューアプローチを推奨。バリュー株の超過リターンは1999年以降年率+2.99%</td>
+            <td>Fidelityの2026年ファンドピックとして<strong>Lazard Emerging Markets Fund</strong>が選出</td>
           </tr>
           <tr>
             <td><strong>Dimensional (DFA)</strong></td>
@@ -685,9 +947,9 @@
             <td>EPS成長率：EM 21% vs 米国15%（2026年予測）</td>
           </tr>
           <tr>
-            <td><strong>Goldman Sachs</strong></td>
-            <td>S&amp;P 500の今後10年間のリターンは年率3%（名目）と予測。1930年以来の歴史で下位7パーセンタイル。72%の確率で株式が債券をアンダーパフォーム</td>
-            <td>米国株の長期リターン予測が極端に低い &mdash; 新興国への分散が必須</td>
+            <td><strong>Goldman Sachs</strong><br>2025年11月 + 2026年3月</td>
+            <td>2025年11月更新：S&amp;P 500の今後10年間のリターン予測を年率<strong>6.5%</strong>に上方修正（以前は3%）。ただし歴史的平均~10%を大幅に下回る。<br>2026年3月：トップストラテジスト ピーター・オッペンハイマーが<strong>「株式は2008年金融危機前と同じ警告サインを示している」</strong>と警鐘。CEO デイビッド・ソロモンは10-20%の調整を予測。「現在のバリュエーションでは調整リスクが極めて高い」</td>
+            <td>地理的分散を強く推奨。株式10%下落でGDP成長率0.5pp押し下げリスク。中国株には<strong>2,000億ドルの資金流入と19%上昇</strong>を予測</td>
           </tr>
           <tr>
             <td><strong>Vanguard</strong></td>
@@ -699,22 +961,44 @@
             <td>2025年にMSCI EMが+34%と S&amp;P 500の+18%を17年ぶりに大幅アウトパフォーム。EMはフォワードPEで40%、PBRで61%割安</td>
             <td>機関投資家の新興国配分はベンチマーク比600〜700bpアンダーウェイト</td>
           </tr>
+          <tr>
+            <td><strong>J.P. Morgan AM</strong><br>（2026年2月）</td>
+            <td>「新興国は2年連続のアウトパフォームに向かっている」。2010〜2024年に累積240%（年率8%）の対DM劣後が反転。希薄化ドラッグも年400bps→150bpsに改善見通し</td>
+            <td>USDは公正価値比10%割高でさらなるドル安余地。EM債務スプレッド270bps</td>
+          </tr>
+          <tr>
+            <td><strong>State Street</strong><br>（Q1 2026）</td>
+            <td>2025年EMリターン+33.6%（S&amp;P +17%、MSCI World +21%を大幅に上回る）。2026年EM EPS成長率21%（米国15%）と予測</td>
+            <td>2025年にEM株式ファンドに300億ドル、EM ETFに880億ドルの資金流入</td>
+          </tr>
+          <tr>
+            <td><strong>Capital Group</strong><br>（2026年2月）</td>
+            <td>MSCI EM全体で16.9%のEPS成長を予測。韓国42.4%、台湾18.9%が牽引。新興国ラリーの継続に自信</td>
+            <td>S&amp;P 500の14.2%を上回る利益成長が新興国アウトパフォームの原動力</td>
+          </tr>
+          <tr>
+            <td><strong>Pictet</strong><br>（2026年2月）</td>
+            <td>EM指数のフォワードPEは約13倍で先進国対比34%ディスカウント。中間層世帯は2034年までに3.5億→6.9億へ倍増。バリュー+ポジティブチェンジ戦略を推奨</td>
+            <td>世界の未銀行口座人口14億人 &mdash; 金融包摂が巨大な成長機会</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <h3>マクロ経済の追い風</h3>
     <ul>
-      <li><strong>GDP成長率格差</strong>：新興国 4.2% vs 先進国 1.6%（IMF 2025年予測）</li>
-      <li><strong>EPS成長率</strong>：新興国 21% vs 米国 15% vs 先進国 13%（2026年コンセンサス予測）</li>
-      <li><strong>ドル安傾向</strong>：FRBの連続利下げ（2025年後半に3回の25bp）によりドル安トレンドが新興国に有利</li>
-      <li><strong>新興国のアウトパフォームサイクル到来</strong>：2025年は2020年以来初めて新興国が先進国をアウトパフォーム。新興国の過去の劣後サイクルは平均9年だが、直近は約13年継続 &mdash; 長い劣後期間の後には力強い回復が見込まれます</li>
+      <li><strong>GDP成長率格差</strong>：グローバル成長率3.4%（IMF WEO 2026年1月）、新興国 4.2% vs 先進国 1.6%</li>
+      <li><strong>EPS成長率</strong>：新興国 16.9〜21% vs 米国 14.2〜15%（2026年、Capital Group / State Street予測）</li>
+      <li><strong>ドル安トレンドの加速</strong>：2025年にドルは貿易加重ベースで7%下落。なお公正価値対比10%割高であり、さらなる下落余地。ドル安は新興国中央銀行の利下げ余地を拡大</li>
+      <li><strong>関税リスクの後退</strong>：2026年2月の米最高裁判決でIEEPA関税が違憲に。新興国市場は+3.2%で反応。中国は輸出先多様化とグリーン投資で関税ショックを吸収</li>
+      <li><strong>2年連続のアウトパフォーム</strong>：2025年に新興国が+33.6%と17年ぶりの大幅アウトパフォーム。2026年もYTD+7%と好調継続。J.P.モルガンは「2年目のアウトパフォーム」を予測</li>
+      <li><strong>資金フローの転換</strong>：2025年にEM株式ファンドに300億ドル、EM ETFに880億ドルの資金流入。機関投資家の構造的アンダーウェイト解消が進行中</li>
     </ul>
   </section>
 
-  <!-- Section 9: Recommended Funds -->
-  <section class="section" id="s9">
-    <h2>9. 推奨ファンド・ETF</h2>
+  <!-- Section 10: Recommended Funds -->
+  <section class="section" id="s10">
+    <h2>10. 推奨ファンド・ETF</h2>
 
     <h3>海外ETF（SBI証券・楽天証券等で購入可能）</h3>
     <div class="table-wrap">
@@ -727,17 +1011,17 @@
             <td><strong>iShares MSCI EM Value Factor ETF</strong></td>
             <td>EVLU</td>
             <td>0.35%</td>
-            <td>38.75%</td>
+            <td>43.11%（1年トータル）<br>YTD 11.91%</td>
             <td>4.84%</td>
-            <td>MSCI EM Value Factor Selectに連動。287銘柄に分散</td>
+            <td>MSCI EM Value Factor Selectに連動。<strong>293銘柄</strong>に分散。NAV $35.49。AUM $12.41M。上位保有：Samsung Electronics 5.42%、Hon Hai 4.06%、MediaTek 2.85%。セクター：Tech 31.08%、Financial 20.32%、Consumer Cyclical 12.76%</td>
           </tr>
           <tr>
             <td><strong>DFA Emerging Markets Value ETF</strong></td>
-            <td>DFEV</td>
+            <td>DFEV/DFEVX</td>
             <td>0.44%</td>
-            <td>38.16%</td>
-            <td>約3.5%</td>
-            <td>DFAのファクター戦略。バリュー+収益性+小型株ティルト</td>
+            <td>42.3%（1年）<br>YTD 14.0%</td>
+            <td>3.54%</td>
+            <td>DFAのファクター戦略。バリュー+収益性+小型株ティルト。AUM $13.6B。3年21.3%、5年14.7%（2026年2月20日時点）</td>
           </tr>
           <tr>
             <td><strong>Schwab Fundamental EM Large Company Index ETF</strong></td>
@@ -788,9 +1072,9 @@
     </div>
   </section>
 
-  <!-- Section 10: Sales Talk -->
-  <section class="section" id="s10">
-    <h2>10. セールストーク &mdash; お客様への説明シナリオ</h2>
+  <!-- Section 11: Sales Talk -->
+  <section class="section" id="s11">
+    <h2>11. セールストーク &mdash; お客様への説明シナリオ</h2>
 
     <h3>導入トーク</h3>
     <div class="step-card">
@@ -801,22 +1085,22 @@
     <h3>想定される質問と回答</h3>
     <div class="faq-q">Q: 新興国は怖い、リスクが高いのでは？</div>
     <div class="step-card">
-      <p>「おっしゃる通り、新興国には為替や政治のリスクがあります。しかし、バリュー株のアプローチでは、<strong>すでにそのリスクが株価に織り込まれた"割安な"企業</strong>を選んでいます。しかも配当利回りは約4〜5%と高く、配当収入でリスクの一部を相殺できます。実際、新興国の配当を出す企業は、配当を出さない企業より<strong>リスクが低くリターンが高い</strong>という研究データもあります。」</p>
+      <p>「おっしゃる通り、新興国には為替や政治のリスクがあります。しかし、バリュー株のアプローチでは、<strong>すでにそのリスクが株価に織り込まれた"割安な"企業</strong>を選んでいます。しかも配当利回りは約4〜5%と高く、配当収入でリスクの一部を相殺できます。実際、新興国の配当を出す企業は、配当を出さない企業より<strong>リスクが低くリターンが高い</strong>という研究データもあります。さらに、企業統治も急速に改善しています。2026年3月には<strong>サムスン電子とSKグループが141億ドル（約2.1兆円）の自己株消却</strong>を発表しました。韓国史上最大規模の株主還元策であり、新興国企業の統治水準は先進国に近づいています。」</p>
     </div>
 
     <div class="faq-q">Q: 新興国は長い間パフォーマンスが悪かったのでは？</div>
     <div class="step-card">
-      <p>「確かに2013年頃から約10年間、新興国は米国に劣後してきました。しかし歴史的には、新興国の劣後サイクルは平均9年で終了します。今回は13年以上続いており、むしろ<strong>反転上昇の可能性が高まっている</strong>と見られています。実際に2025年は、新興国が先進国を2020年以来初めてアウトパフォームしました。特にバリュー株は+55%（Enhanced Value指数）と素晴らしいリターンでした。」</p>
+      <p>「確かに2013年頃から約10年間、新興国は米国に劣後してきました。しかし歴史的には、新興国の劣後サイクルは平均9年で終了します。今回は13年以上続いており、むしろ<strong>反転上昇の可能性が高まっている</strong>と見られています。そして実際に反転が始まりました。<strong>2025年はMSCI EMが+33.6%と、S&amp;P 500の+17%を大幅にアウトパフォーム</strong>。特にバリュー株は+55%（Enhanced Value指数）と素晴らしいリターンでした。<strong>2026年もYTDでMSCI EMは約+7%と好調な一方、S&amp;P 500はほぼ横ばい</strong>です。J.P.モルガンは「2年連続のアウトパフォーム」を予測しています。」</p>
     </div>
 
     <div class="faq-q">Q: 米国株やオルカンだけではダメですか？</div>
     <div class="step-card">
-      <p>「オルカン（全世界株式）は優れた商品ですが、実は中身の<strong>約65%が米国株</strong>です。米国株のPERは21倍と割高で、ゴールドマン・サックスは今後10年のS&amp;P 500リターンを<strong>わずか年率3%</strong>と予測しています。これは1930年以来で下から7パーセンタイルという極めて低い水準です。新興国バリュー株を加えることで、<strong>ポートフォリオ全体のバリュエーションを下げ</strong>、リスク分散と配当収入の向上が期待できます。」</p>
+      <p>「オルカン（全世界株式）は優れた商品ですが、実は中身の<strong>約65%が米国株</strong>です。米国株のCAPEは38.4倍と歴史的高水準で、ゴールドマン・サックスは今後10年のS&amp;P 500リターンを<strong>年率6.5%</strong>と予測（歴史的平均~10%を大幅に下回る）。さらに2026年3月にはゴールドマンのトップストラテジストが<strong>2008年金融危機前と同じ警告サイン</strong>を指摘しています。新興国バリュー株を加えることで、<strong>ポートフォリオ全体のバリュエーションを下げ</strong>、リスク分散と配当収入の向上が期待できます。」</p>
     </div>
 
     <div class="faq-q">Q: なぜ今、米国株ではなく新興国株なのですか？</div>
     <div class="step-card">
-      <p>「3つの理由があります。第一に、<strong>バリュエーション</strong>。米国のCAPE（景気循環調整済みPER）は34.7倍と歴史的にトップ5%の割高さです。一方、新興国バリュー株のPERは7.7倍。同じ利益の企業を3分の1の値段で買えます。第二に、<strong>大手運用会社の予測</strong>。GMOは新興国バリュー株に年率+9.3%を予測する一方、米国大型株には<strong>-5.4%</strong>。実に14.7ポイントの差です。第三に、<strong>歴史的サイクル</strong>。米国と新興国は約8年周期で優位性が入れ替わりますが、今回の米国優位は14年と異常に長い。2025年は新興国が17年ぶりに大幅にアウトパフォームしており、転換の兆しが見えています。」</p>
+      <p>「3つの理由があります。第一に、<strong>バリュエーション</strong>。米国のCAPE（景気循環調整済みPER）は38.4倍と歴史的にトップ5%の割高さで、2026年1月には史上2度目の40倍超えを記録しました。一方、新興国バリュー株のPERは7.7倍。同じ利益の企業を3分の1の値段で買えます。第二に、<strong>大手運用会社の予測</strong>。GMOの2026年1月更新予測では新興国バリュー株に年率<strong>+3.8%の実質リターン</strong>を予測する一方、米国大型株には<strong>-6%</strong>。実に9.8ポイントの差があり、依然として全株式資産クラス中で最高です。第三に、<strong>歴史的サイクル</strong>。米国と新興国は約8年周期で優位性が入れ替わりますが、今回の米国優位は14年と異常に長い。2025年は新興国が+33.6%とS&amp;P 500の+17%を大幅にアウトパフォーム。2026年もYTDでMSCI EM +7% vs S&amp;P 500横ばいと好調が継続しています。J.P.モルガンは「2年連続のアウトパフォーム」を予測し、2026年2月の最高裁関税違憲判決もEM市場の追い風です。」</p>
     </div>
 
     <div class="faq-q">Q: ヨーロッパの株式市場はどうですか？</div>
@@ -831,13 +1115,13 @@
 
     <div class="faq-q">Q: 具体的にどうやって投資すればいいですか？</div>
     <div class="step-card">
-      <p>「SBI証券や楽天証券で購入できる海外ETFの<strong>EVLU</strong>（iShares MSCI EM Value Factor ETF）がおすすめです。信託報酬は年0.35%と低コストで、287銘柄に分散投資できます。まずは新興国株式への配分の30〜50%をバリュー戦略にすることから始めてみてはいかがでしょうか。」</p>
+      <p>「SBI証券や楽天証券で購入できる海外ETFの<strong>EVLU</strong>（iShares MSCI EM Value Factor ETF）がおすすめです。信託報酬は年0.35%と低コストで、293銘柄に分散投資できます。まずは新興国株式への配分の30〜50%をバリュー戦略にすることから始めてみてはいかがでしょうか。」</p>
     </div>
   </section>
 
-  <!-- Section 11: Proposal Patterns -->
-  <section class="section" id="s11">
-    <h2>11. 具体的な提案パターン</h2>
+  <!-- Section 12: Proposal Patterns -->
+  <section class="section" id="s12">
+    <h2>12. 具体的な提案パターン</h2>
 
     <div class="pattern-title">パターンA：NISAつみたて投資枠 + 成長投資枠の組み合わせ</div>
     <div class="step-card">
@@ -865,7 +1149,7 @@
       <ul>
         <li><strong>既存ポートフォリオ</strong>：オルカン or S&amp;P 500（70〜80%）</li>
         <li><strong>追加配分（20〜30%）</strong>：EVLU or DFEVで新興国バリューに分散</li>
-        <li><strong>期待効果</strong>：米国偏重のリスクを軽減。GMO予測では米国大型株の実質リターン予測は年率<strong>-5.4%</strong>（マイナス）に対し、新興国バリューは年率<strong>+9.3%</strong>と14.7ポイント上回る</li>
+        <li><strong>期待効果</strong>：米国偏重のリスクを軽減。GMO 2026年1月更新予測では米国大型株の実質リターン予測は年率<strong>-6%</strong>（マイナス）に対し、新興国バリューは年率<strong>+3.8%</strong>と9.8ポイント上回る（依然として全株式資産クラス中トップ）</li>
       </ul>
     </div>
 
@@ -896,8 +1180,26 @@
     <p>本資料に記載されたデータ、見通し、予測等は作成時点のものであり、将来の結果を保証するものではありません。過去の実績は将来のリターンを保証するものではなく、元本割れのリスクがあります。</p>
     <p>外国株式への投資には、為替変動リスク、カントリーリスク、流動性リスク等が伴います。新興国市場特有のリスクとして、政治的不安定性、規制変更、市場の流動性不足、情報の非対称性等があります。</p>
     <p>海外ETFの売買には、外国株式の売買手数料および為替手数料がかかります。分配金には、国内税のほか、現地で源泉徴収税が課される場合があります。</p>
-    <p><strong>主な情報源</strong>：MSCI Index Factsheets, Kenneth R. French Data Library, Dimensional Fund Advisors, GMO LLC, Research Affiliates, Lazard Asset Management, PGIM, Goldman Sachs, Vanguard, Eastspring Investments, Deutsche Bank Research, Barclays Research, iShares/BlackRock, Siblis Research, IMF World Economic Outlook, ScienceDirect/Journal of International Financial Markets</p>
-    <p>作成日：2026年2月27日</p>
+    <p><strong>主な情報源</strong>：MSCI Index Factsheets, Kenneth R. French Data Library, Dimensional Fund Advisors, GMO LLC, Research Affiliates, Lazard Asset Management, PGIM, Goldman Sachs, Vanguard, Eastspring Investments, Deutsche Bank Research, Barclays Research, iShares/BlackRock, Siblis Research, IMF World Economic Outlook, ScienceDirect/Journal of International Financial Markets, J.P. Morgan Asset Management, State Street Global Advisors, Capital Group, Pictet Asset Management, Merrill Lynch, Morningstar</p>
+    <p><strong>追加情報源URL</strong>：<br>
+    <a href="https://www.pgim.com/us/en/intermediary/insights/annual-best-ideas/2026/emerging-markets-pillars-opportunity-potential" style="color:#63b3ed">PGIM 2026 Best Ideas</a> |
+    <a href="https://www.capitalgroup.com/institutional/insights/articles/emerging-markets-2026-can-rally-keep-rolling.html" style="color:#63b3ed">Capital Group EM 2026</a> |
+    <a href="https://www.ssga.com/us/en/individual/insights/emerging-market-equities-outlook-q1-2026" style="color:#63b3ed">State Street Q1 2026</a> |
+    <a href="https://am.jpmorgan.com/hu/en/asset-management/institutional/insights/portfolio-insights/strategy-report/why-emerging-markets-have-more-room-to-run/" style="color:#63b3ed">J.P. Morgan AM</a> |
+    <a href="https://www.ml.com/articles/emerging-markets-outlook-2026.html" style="color:#63b3ed">Merrill Lynch 2026</a> |
+    <a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/Region/emerging_countries/GMW-20260206.html" style="color:#63b3ed">Pictet 2月</a> |
+    <a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/Region/emerging_countries/GMW-GEM-20260304.html" style="color:#63b3ed">Pictet 3月</a> |
+    <a href="https://www.morningstar.com/markets/supreme-court-strikes-down-trump-tariffswhat-it-means-markets" style="color:#63b3ed">Morningstar（関税判決）</a> |
+    <a href="https://siblisresearch.com/data/emerging-markets-valuations/" style="color:#63b3ed">Siblis Research</a> |
+    <a href="https://fortune.com/2026/03/04/goldman-top-strategist-warns-stocks-acting-like-great-financial-crisis-correction-risk-high/" style="color:#63b3ed">Goldman Sachs 調整リスク警告</a> |
+    <a href="https://www.bloomberg.com/news/articles/2026-03-10/samsung-sk-to-cancel-14-billion-treasury-shares-in-reform-push" style="color:#63b3ed">Samsung/SK 自己株消却</a> |
+    <a href="https://siblisresearch.com/data/cape-ratios-by-country/" style="color:#63b3ed">Siblis Research CAPE</a> |
+    <a href="https://www.gurufocus.com/economic_indicators/56/sp-500-shiller-cape-ratio" style="color:#63b3ed">GuruFocus Shiller PE</a> |
+    <a href="https://www.nasdaq.com/articles/taiwan-semiconductors-2026-outlook-clear-sign-buy-stock-now" style="color:#63b3ed">TSMC 2026 Outlook</a> |
+    <a href="https://www.lazardassetmanagement.com/li/en_gb/research-insights/investment-insights/investment-research/emerging-markets-outlook-2026" style="color:#63b3ed">Lazard AM 2026 EM Outlook</a> |
+    <a href="https://www.researchaffiliates.com/publications/articles/586-the-emerging-markets-hat-trick-time-to-throw-your-hat-in" style="color:#63b3ed">Research Affiliates EM Hat Trick</a>
+    </p>
+    <p>作成日：2026年3月12日（初版：2026年2月27日）</p>
   </div>
 </div>
 
@@ -911,6 +1213,66 @@
     btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
   });
   btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+// Section Nav: active state tracking + smooth scroll
+(function(){
+  var nav = document.getElementById('sectionNav');
+  var navInner = document.getElementById('sectionNavInner');
+  var links = navInner.querySelectorAll('a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').substring(1);
+    var el = document.getElementById(id);
+    if(el) sections.push({id:id, el:el, link:a});
+  });
+
+  // Shadow on scroll
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('shadow', window.scrollY > 200);
+  });
+
+  // Highlight current section on scroll
+  var ticking = false;
+  function updateActive(){
+    var scrollY = window.scrollY;
+    var navH = nav.offsetHeight + 60;
+    var current = null;
+    for(var i = sections.length - 1; i >= 0; i--){
+      if(sections[i].el.offsetTop - navH <= scrollY){
+        current = sections[i]; break;
+      }
+    }
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current){
+      current.link.classList.add('active');
+      // Scroll active link into view in nav
+      var linkRect = current.link.getBoundingClientRect();
+      var navRect = navInner.getBoundingClientRect();
+      if(linkRect.left < navRect.left || linkRect.right > navRect.right){
+        current.link.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      }
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(updateActive); ticking = true; }
+  });
+  updateActive();
+
+  // Smooth scroll with offset for sticky nav
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = this.getAttribute('href').substring(1);
+      var target = document.getElementById(id);
+      if(target){
+        var navH = nav.offsetHeight + 12;
+        var y = target.offsetTop - navH;
+        window.scrollTo({top: y, behavior:'smooth'});
+      }
+    });
+  });
 })();
 
 // Chart color palette
@@ -1106,7 +1468,7 @@ new Chart(document.getElementById('chartSector'), {
   data: {
     labels: ['情報技術', '金融', '一般消費財', 'コミュニケーション', '素材', 'その他'],
     datasets: [{
-      data: [31.06, 19.48, 12.92, 8.51, 7.99, 20.04],
+      data: [31.08, 20.32, 12.76, 8.51, 7.99, 19.34],
       backgroundColor: [navy, gold, blue, green, orange, gray]
     }]
   },
@@ -1144,11 +1506,11 @@ new Chart(document.getElementById('chartCountry'), {
 new Chart(document.getElementById('chartExpectedReturns'), {
   type: 'bar',
   data: {
-    labels: ['EM Value\n(GMO)', 'EM Broad\n(RA)', 'EM Broad\n(Vanguard)', 'EM Broad\n(GMO)', 'US Large\n(Vanguard)', 'US Large\n(RA)', 'US Large\n(GS)', 'US Large\n(GMO)'],
+    labels: ['EM Broad\n(RA)', 'EM Broad\n(Vanguard)', 'EM Broad\n(GMO)', 'EM Value\n(GMO)', 'US Large\n(Vanguard)', 'US Large\n(RA)', 'US Large\n(GS)', 'US Large\n(GMO)'],
     datasets: [{
       label: '期待リターン（年率%）',
-      data: [9.3, 7.5, 6.5, 4.5, 4.9, 3.1, 3.0, -5.4],
-      backgroundColor: [gold, orange, orange, blue, gray, gray, gray, red],
+      data: [7.5, 6.5, 4.5, 3.8, 4.9, 3.1, 6.5, -6.0],
+      backgroundColor: [orange, orange, blue, gold, gray, gray, gray, red],
       borderRadius: 6
     }]
   },
@@ -1160,7 +1522,7 @@ new Chart(document.getElementById('chartExpectedReturns'), {
       tooltip: { callbacks: { label: function(ctx) { return '年率 ' + ctx.raw + '%'; } } }
     },
     scales: {
-      y: { title: { display: true, text: '期待リターン（年率%）', font: { family: "'Noto Sans JP'" } }, min: -7, max: 11 },
+      y: { title: { display: true, text: '期待リターン（年率%）', font: { family: "'Noto Sans JP'" } }, min: -7, max: 9 },
       x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
     }
   }
@@ -1247,7 +1609,7 @@ new Chart(document.getElementById('chartCAPE'), {
     labels: ['米国', 'インド', '日本', 'カナダ', 'ドイツ', 'スペイン', '韓国', 'オーストラリア', 'イタリア', '英国', '中国', '香港'],
     datasets: [{
       label: 'CAPE（倍）',
-      data: [34.73, 34.36, 29.38, 26.20, 24.08, 23.69, 21.22, 21.02, 20.72, 20.19, 17.71, 10.74],
+      data: [38.40, 34.36, 29.38, 26.20, 24.08, 23.69, 21.22, 21.02, 20.72, 20.19, 17.71, 10.74],
       backgroundColor: ['#e53e3e','#e53e3e','#ed8936','#ed8936','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#d69e2e','#48bb78','#48bb78'],
       borderRadius: 4
     }]
@@ -1273,10 +1635,10 @@ new Chart(document.getElementById('chartFirmForecasts'), {
   data: {
     labels: ['GMO\n(実質・7年)', 'Research\nAffiliates\n(名目・10年)', 'Vanguard\n(名目・10年)'],
     datasets: [
-      { label: '米国大型株', data: [-5.4, 3.1, 4.9], backgroundColor: '#e53e3e', borderRadius: 3 },
+      { label: '米国大型株', data: [-6.0, 3.1, 4.9], backgroundColor: '#e53e3e', borderRadius: 3 },
       { label: '先進国株式', data: [-2.0, 7.7, 8.3], backgroundColor: '#a0aec0', borderRadius: 3 },
       { label: '新興国株式', data: [4.5, 7.5, 6.5], backgroundColor: '#2c5282', borderRadius: 3 },
-      { label: '新興国バリュー', data: [9.3, null, null], backgroundColor: '#d69e2e', borderRadius: 3 }
+      { label: '新興国バリュー', data: [3.8, null, null], backgroundColor: '#d69e2e', borderRadius: 3 }
     ]
   },
   options: {
@@ -1289,6 +1651,61 @@ new Chart(document.getElementById('chartFirmForecasts'), {
     scales: {
       y: { title: { display: true, text: '予想リターン（年率%）', font: { family: "'Noto Sans JP'" } } },
       x: { ticks: { font: { family: "'Noto Sans JP'", size: 10 } } }
+    }
+  }
+});
+
+// Chart: 2025 Performance Comparison
+new Chart(document.getElementById('chart2025Perf'), {
+  type: 'bar',
+  data: {
+    labels: ['MSCI EM\n（新興国）', 'MSCI World\n（先進国）', 'S&P 500\n（米国）'],
+    datasets: [{
+      label: '2025年リターン（%）',
+      data: [33.6, 21.0, 17.0],
+      backgroundColor: [gold, blue, gray],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return '+' + ctx.raw + '%'; } } }
+    },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'リターン（%）', font: { family: "'Noto Sans JP'" } }, max: 40 },
+      x: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
+    }
+  }
+});
+
+// Chart: 2026 EPS Growth Forecasts by Country
+new Chart(document.getElementById('chartEPSGrowth2026'), {
+  type: 'bar',
+  data: {
+    labels: ['韓国', '台湾', 'MSCI EM\n全体', 'インド', 'S&P 500\n（米国）', '中国'],
+    datasets: [{
+      label: '2026年EPS成長率予測（%）',
+      data: [42.4, 18.9, 16.9, 16.0, 14.2, 11.0],
+      backgroundColor: function(ctx) {
+        return ctx.dataIndex === 4 ? gray : (ctx.raw > 16 ? gold : blue);
+      },
+      borderRadius: 6
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: function(ctx) { return ctx.raw + '%'; } } }
+    },
+    scales: {
+      x: { beginAtZero: true, title: { display: true, text: 'EPS成長率予測（%）', font: { family: "'Noto Sans JP'" } }, max: 50 },
+      y: { ticks: { font: { family: "'Noto Sans JP'", size: 11 } } }
     }
   }
 });

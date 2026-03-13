@@ -54,6 +54,20 @@
   .disclaimer h2 { font-size: 0.9rem; color: #a0aec0; margin-bottom: 12px; border: none; padding: 0; }
   .back-to-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: #1a365d; color: #fff; border: none; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; transition: background 0.2s; }
   .back-to-top:hover { background: #d69e2e; }
+  /* Section Nav */
+  .section-nav { position: sticky; top: 40px; z-index: 998; background: #0f172a; border-bottom: 1px solid #334155; padding: 0; overflow: hidden; transition: box-shadow 0.2s; }
+  .section-nav.shadow { box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+  .section-nav-inner { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 0; padding: 0 12px; max-width: 960px; margin: 0 auto; }
+  .section-nav-inner::-webkit-scrollbar { display: none; }
+  .section-nav a { display: flex; align-items: center; gap: 5px; white-space: nowrap; padding: 10px 14px; font-size: 0.75rem; font-weight: 500; color: #94a3b8; text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.15s; flex-shrink: 0; font-family: inherit; }
+  .section-nav a:hover { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+  .section-nav a.active { color: #d69e2e; border-bottom-color: #d69e2e; }
+  .section-nav .nav-num { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #334155; color: #94a3b8; font-size: 0.65rem; font-weight: 700; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
+  .section-nav a.active .nav-num { background: #d69e2e; color: #1a365d; }
+  @media (max-width: 640px) { .section-nav { top: 38px; } .section-nav a { padding: 8px 10px; font-size: 0.7rem; } .section-nav .nav-num { width: 16px; height: 16px; font-size: 0.6rem; } }
+  @media (max-width: 480px) { .section-nav a { padding: 7px 8px; font-size: 0.65rem; } }
+  @media print { .section-nav { display: none !important; } }
+
   @media print {
     body { background: #fff; font-size: 12px; }
     .hero { padding: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -115,6 +129,19 @@
 <body>
 
 <nav style="background:linear-gradient(135deg,#1a365d,#2c5282);padding:10px 20px;position:sticky;top:0;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><a href="index.html" style="color:#fff;text-decoration:none;font-size:0.85rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px"><span style="font-size:1.1em">&#8592;</span> アセットクラス一覧</a></nav>
+
+<div class="section-nav" id="sectionNav">
+  <div class="section-nav-inner" id="sectionNavInner">
+    <a href="#sec1"><span class="nav-num">1</span>エグゼクティブサマリー</a>
+    <a href="#sec2"><span class="nav-num">2</span>マクロ経済環境</a>
+    <a href="#sec3"><span class="nav-num">3</span>市場の現状と見通し</a>
+    <a href="#sec4"><span class="nav-num">4</span>長期投資で資産を増やす</a>
+    <a href="#sec5"><span class="nav-num">5</span>分散投資の効果</a>
+    <a href="#sec6"><span class="nav-num">6</span>おすすめファンド</a>
+    <a href="#sec7"><span class="nav-num">7</span>セールストーク集</a>
+    <a href="#sec8"><span class="nav-num">8</span>具体的な提案</a>
+  </div>
+</div>
 
 <header class="hero">
   <h1>日本株式 セールス提案資料</h1>
@@ -1076,6 +1103,59 @@ document.addEventListener('DOMContentLoaded', function() {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
 }
+</script>
+<script>
+// Section Nav: active state tracking + smooth scroll
+(function(){
+  var nav = document.getElementById('sectionNav');
+  var navInner = document.getElementById('sectionNavInner');
+  if(!nav || !navInner) return;
+  var links = navInner.querySelectorAll('a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').substring(1);
+    var el = document.getElementById(id);
+    if(el) sections.push({id:id, el:el, link:a});
+  });
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('shadow', window.scrollY > 200);
+  });
+  var ticking = false;
+  function updateActive(){
+    var scrollY = window.scrollY;
+    var navH = nav.offsetHeight + 60;
+    var current = null;
+    for(var i = sections.length - 1; i >= 0; i--){
+      if(sections[i].el.offsetTop - navH <= scrollY){ current = sections[i]; break; }
+    }
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current){
+      current.link.classList.add('active');
+      var linkRect = current.link.getBoundingClientRect();
+      var navRect = navInner.getBoundingClientRect();
+      if(linkRect.left < navRect.left || linkRect.right > navRect.right){
+        current.link.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      }
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(updateActive); ticking = true; }
+  });
+  updateActive();
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = this.getAttribute('href').substring(1);
+      var target = document.getElementById(id);
+      if(target){
+        var navH = nav.offsetHeight + 12;
+        var y = target.offsetTop - navH;
+        window.scrollTo({top: y, behavior:'smooth'});
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
